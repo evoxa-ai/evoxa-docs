@@ -1,0 +1,31 @@
+document:
+  id: BP-0001
+
+title: EVOXA Blueprint
+
+volume: 1
+
+subtitle: Vision
+
+version: 1.0.0
+
+status: Release
+
+language: en
+
+owner: EVOXA Architecture Office
+
+category: Blueprint
+
+created: 2026-08-01
+
+review_cycle: Quarterly
+
+license: Proprietary
+
+tags:
+  - blueprint
+  - architecture
+  - vision
+  - ai
+  - evoxa
