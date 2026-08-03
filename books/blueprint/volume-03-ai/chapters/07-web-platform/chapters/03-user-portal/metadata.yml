@@ -1,0 +1,38 @@
+portal:
+  id: PRT-0002
+  name: User Portal
+  version: 1.0.0
+  status: Draft
+
+owner:
+  Product Architecture Board
+
+estimated_scale:
+
+  screens: 120
+
+  components: 220
+
+  widgets: 140
+
+  apis: 250
+
+  events: 300
+
+  workflows: 160
+
+artifacts:
+
+  dashboard: true
+
+  nutrition: true
+
+  training: true
+
+  recovery: true
+
+  ai: true
+
+  analytics: true
+
+  permissions: true
