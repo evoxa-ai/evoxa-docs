@@ -1,0 +1,181 @@
+# ============================================================================
+# EVOXA Documentation Metadata
+# ============================================================================
+# Document: BP-0002
+# Volume II — Reference Architecture
+# Version: 1.0.0
+# ============================================================================
+
+document:
+  id: BP-0002
+  type: blueprint
+  category: architecture
+  title: Reference Architecture
+  subtitle: EVOXA Platform Reference Architecture
+  volume: 2
+  edition: First Edition
+  version: 1.0.0
+  status: in-progress
+
+publication:
+  language: en
+  classification: internal
+  copyright: "© 2026 EVOXA"
+  license: Proprietary
+  owner: EVOXA Architecture Office
+  publisher: EVOXA
+  publication_date: TBD
+  last_updated: 2026-08-02
+
+repository:
+  organization: evoxa
+  repository: evoxa-docs
+  branch: main
+  root: books/blueprint/volume-02-reference-architecture
+
+authors:
+  - name: EVOXA Architecture Office
+    role: Architecture
+  - name: EVOXA Editorial Office
+    role: Editorial
+
+reviewers:
+  architecture:
+    status: pending
+  engineering:
+    status: pending
+  editorial:
+    status: pending
+  ai:
+    status: pending
+
+book:
+  chapters: 30
+  appendices: 8
+  diagrams: planned
+  figures: planned
+  glossary: true
+  bibliography: planned
+  architecture_map: true
+
+parts:
+
+  - id: part-1
+    title: Architecture Foundations
+    chapters: [1,2,3,4,5]
+
+  - id: part-2
+    title: Platform Architecture
+    chapters: [6,7,8,9,10]
+
+  - id: part-3
+    title: Core Domains
+    chapters: [11,12,13,14,15,16,17,18,19]
+
+  - id: part-4
+    title: Technical Architecture
+    chapters: [20,21,22,23,24,25,26]
+
+  - id: part-5
+    title: Evolution
+    chapters: [27,28,29,30]
+
+quality_attributes:
+  - maintainability
+  - scalability
+  - reliability
+  - availability
+  - security
+  - observability
+  - performance
+  - interoperability
+  - portability
+  - evolvability
+  - testability
+
+architectural_principles:
+  - Human First
+  - Domain-Driven Design
+  - Modular Platform
+  - API First
+  - Event Driven
+  - Explainability
+  - Security by Design
+  - Privacy by Design
+  - Continuous Evolution
+
+related_documents:
+
+  blueprint:
+    - BP-0001
+
+  engineering:
+    - EES-0001
+    - EES-0008
+
+  specifications:
+    - ESP-0001
+
+  implementation:
+    - IS-0001
+
+future_documents:
+  - BP-0003
+  - AI Governance
+  - Architecture Decision Records
+
+publishing:
+
+  markdown: true
+  pdf: true
+  docx: true
+  html: true
+  epub: true
+  portal: true
+  ai_pack: true
+
+automation:
+
+  dte: true
+  eaps: true
+  ai_indexing: true
+  quality_validation: true
+  cross_reference_validation: true
+  link_validation: true
+  glossary_generation: planned
+
+traceability:
+
+  adr: true
+  ees: true
+  esp: true
+  implementation_stories: true
+  source_code: true
+
+paths:
+
+  chapters: chapters/
+  assets: assets/
+  diagrams: assets/diagrams/
+  figures: assets/figures/
+  images: assets/images/
+  exports: exports/
+
+standards:
+
+  documentation: EAPS
+  templates: DTE
+  engineering: EES
+  ai: EES-008
+
+release:
+
+  maturity: foundation
+  release_ready: false
+  approved: false
+
+history:
+
+  created: 2026-08-02
+  updated: 2026-08-02
+  changelog: CHANGELOG.md
