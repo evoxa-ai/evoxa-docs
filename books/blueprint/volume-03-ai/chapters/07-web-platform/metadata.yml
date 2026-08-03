@@ -1,0 +1,39 @@
+product:
+  id: PRT-0001
+  name: EVOXA Web Platform
+  version: 1.0.0
+  status: Draft
+  language: en
+
+ownership:
+  owner: Product Architecture Board
+
+repository:
+  path: books/blueprint/volume-03-platform-design/chapters/07-web-platform/
+
+artifacts:
+  screens: true
+  components: true
+  widgets: true
+  workflows: true
+  navigation: true
+  analytics: true
+  permissions: true
+  ai: true
+
+portals:
+  - Public
+  - User
+  - Coach
+  - Enterprise
+  - Scientific
+  - Administration
+  - Developer
+  - AI Workspace
+
+dependencies:
+  - BP-0001
+  - BP-0002
+  - BP-0003
+  - DSB-0001
+  - PDT-0001
