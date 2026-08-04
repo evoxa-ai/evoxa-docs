@@ -1,0 +1,42 @@
+document:
+  id: BP-0003-V3-C07-04
+  title: Coach Portal
+  chapter: "7.4"
+  module: Coach Portal
+  volume: Volume 03 - AI
+  blueprint: EVOXA Architecture Blueprint
+
+version:
+  major: 1
+  minor: 0
+  patch: 0
+
+status: Draft
+
+owner: EVOXA Architecture Board
+
+classification: Internal
+
+feature_pack_prefix: FP-COACH
+
+primary_feature_pack: FP-COACH-0001
+
+repository:
+  module: 04-coach-portal
+
+authors:
+  - EVOXA Architecture Team
+
+created: 2026-08-04
+updated: 2026-08-04
+
+tags:
+  - coach
+  - portal
+  - dashboard
+  - ai
+  - health
+  - fitness
+  - nutrition
+  - analytics
+  - blueprint
