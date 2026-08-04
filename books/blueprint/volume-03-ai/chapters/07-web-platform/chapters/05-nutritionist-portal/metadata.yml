@@ -1,0 +1,58 @@
+# metadata.yml
+
+id: PORTAL-NUTRITION-001
+
+name: Nutritionist Portal
+
+version: 1.0.0
+
+status: Draft
+
+classification: Internal
+
+owner: EVOXA Architecture Board
+
+product: EVOXA Platform
+
+domain: Nutrition
+
+type: Professional Portal
+
+blueprint:
+  volume: Volume 03 - AI
+  chapter: Chapter 07 - Web Platform
+
+users:
+  - Nutritionist
+  - Dietitian
+  - Clinical Nutritionist
+  - Sports Nutritionist
+
+capabilities:
+  - Client Management
+  - Nutrition Assessment
+  - Meal Planning
+  - Recipe Management
+  - Food Database
+  - Supplement Planning
+  - Shopping Lists
+  - Nutrition Analytics
+  - AI Nutrition Assistant
+  - Human Digital Twin
+
+dependencies:
+  - Identity Platform
+  - AI Platform
+  - Event Platform
+  - Data Platform
+  - Analytics Platform
+  - Notification Platform
+
+documentation:
+  chapters: 30
+
+repository: books/blueprint/volume-03-ai/chapters/07-web-platform/chapters/05-nutritionist-portal/
+
+created: 2026-08-04
+
+updated: 2026-08-04
