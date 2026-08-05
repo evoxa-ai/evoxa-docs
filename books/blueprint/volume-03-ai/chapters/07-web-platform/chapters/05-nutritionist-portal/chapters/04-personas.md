@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-04
-chapter_id: CH-04-COACH-04
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-04
+chapter_id: CH-05-NUTRITION-04
+feature_pack: FP-NUTRITION-0000
 title: Personas
 version: 1.0.0
 status: Draft
@@ -14,313 +14,391 @@ last_updated: 2026-08-04
 
 # Chapter 04 — Personas
 
-> *The Personas chapter defines the professional users of the Coach Portal, describing their goals, responsibilities, workflows, permissions and interactions with the EVOXA Platform.*
+> *The Personas chapter defines the primary and secondary user profiles of the Nutritionist Portal, including their goals, responsibilities, workflows, motivations and interaction patterns within the EVOXA ecosystem.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal is designed for professionals responsible for delivering health, fitness and wellness services.
+The Nutritionist Portal supports a diverse ecosystem of nutrition professionals working across clinical, sports, preventive and corporate environments.
 
-Unlike the User Portal, which serves individual members, the Coach Portal supports multiple professional roles with different responsibilities, permissions and operational objectives.
+Each persona has unique objectives, responsibilities and decision-making processes.
 
-Each persona represents a primary user profile that guides product design, workflows, AI capabilities and security policies.
+Understanding these personas ensures that workflows, interfaces and AI capabilities remain aligned with real professional needs.
+
+---
+
+# Objectives
+
+The Personas chapter shall:
+
+- Define primary users.
+- Identify secondary stakeholders.
+- Describe professional goals.
+- Understand workflow differences.
+- Support UX decisions.
+- Guide AI personalization.
+- Improve product adoption.
 
 ---
 
 # Persona Philosophy
 
-Personas represent real professional workflows rather than job titles.
+Personas represent real professional behaviors rather than demographic profiles.
 
-Every feature within the Coach Portal shall identify:
+Each persona is described by:
 
-- Primary Persona
-- Secondary Persona
-- Required Permissions
-- Business Goals
-- AI Interaction
-
----
-
-# Persona Catalog
-
-| Persona | Primary Role |
-|----------|--------------|
-| Personal Trainer | Physical training |
-| Nutritionist | Nutrition planning |
-| Physiotherapist | Recovery management |
-| Medical Specialist | Clinical supervision |
-| Wellness Coach | Lifestyle improvement |
-| Enterprise Coach | Corporate wellness |
-| Team Manager | Team supervision |
-| Platform Administrator | System administration |
+- Responsibilities
+- Goals
+- Workflows
+- Pain points
+- Digital maturity
+- AI expectations
+- Collaboration patterns
 
 ---
 
-# Persona 01 — Personal Trainer
+# Persona Classification
 
-## Overview
+The Nutritionist Portal supports:
 
-The Personal Trainer manages the physical conditioning and long-term progress of individual clients.
+- Primary Personas
+- Secondary Personas
+- Administrative Personas
+- AI Personas
 
 ---
+
+# Primary Persona 01
+
+## Clinical Nutritionist
+
+### Description
+
+Provides nutritional care in hospitals, clinics and medical centers.
 
 ### Responsibilities
 
-- Create workout plans.
-- Monitor adherence.
-- Review assessments.
-- Track goals.
-- Communicate with clients.
-- Adjust training plans.
+- Nutritional diagnosis
+- Clinical assessments
+- Therapeutic nutrition
+- Medical collaboration
+- Follow-up consultations
+
+### Goals
+
+- Improve patient outcomes
+- Reduce treatment time
+- Personalize interventions
+- Increase adherence
+
+### Pain Points
+
+- Manual documentation
+- Fragmented information
+- Time-consuming meal planning
+- Limited patient follow-up
+
+### AI Support
+
+- Clinical recommendations
+- Nutrient deficiency alerts
+- Meal optimization
+- Risk detection
 
 ---
 
-### Primary Objectives
+# Primary Persona 02
 
-- Improve client performance.
-- Increase adherence.
-- Prevent injuries.
-- Deliver measurable results.
+## Sports Nutritionist
 
----
+### Description
 
-### KPIs
-
-- Workout completion rate.
-- Goal achievement.
-- Client retention.
-- Client satisfaction.
-- Active programs.
-
----
-
-### AI Assistance
-
-EVO helps by:
-
-- Generating workouts.
-- Suggesting progressions.
-- Detecting plateaus.
-- Predicting adherence.
-- Producing summaries.
-
----
-
-### Required Permissions
-
-- Manage Clients
-- Create Workouts
-- View Analytics
-- Messaging
-- Calendar
-- Reports
-
----
-
-# Persona 02 — Nutritionist
-
-## Overview
-
-Responsible for personalized nutrition programs.
-
----
+Works with athletes and active individuals.
 
 ### Responsibilities
 
-- Nutrition assessments.
-- Meal planning.
-- Supplement recommendations.
-- Dietary follow-up.
-- Progress reviews.
+- Performance nutrition
+- Competition planning
+- Recovery nutrition
+- Supplement guidance
+
+### Goals
+
+- Improve performance
+- Optimize recovery
+- Support body composition goals
+- Maintain athlete compliance
+
+### Pain Points
+
+- Constant schedule changes
+- High personalization requirements
+- Training integration
+- Competition preparation
+
+### AI Support
+
+- Performance meal planning
+- Recovery optimization
+- Energy expenditure prediction
+- Supplement suggestions
 
 ---
 
-### KPIs
+# Primary Persona 03
 
-- Nutrition adherence.
-- Weight evolution.
-- Body composition changes.
-- Goal completion.
+## Wellness Nutritionist
 
----
+### Description
 
-### AI Assistance
-
-- Meal suggestions.
-- Nutrition optimization.
-- Risk detection.
-- Diet analysis.
-- Automatic reports.
-
----
-
-# Persona 03 — Physiotherapist
-
-## Overview
-
-Manages rehabilitation and recovery programs.
-
----
+Focuses on healthy lifestyle, prevention and weight management.
 
 ### Responsibilities
 
-- Functional assessments.
-- Recovery planning.
-- Mobility programs.
-- Injury monitoring.
-- Progress evaluation.
+- Lifestyle coaching
+- Weight management
+- Habit formation
+- Preventive nutrition
+
+### Goals
+
+- Long-term adherence
+- Sustainable habits
+- Client engagement
+- Behavioral improvement
+
+### Pain Points
+
+- Client motivation
+- Habit tracking
+- Appointment follow-up
+- Personalized education
+
+### AI Support
+
+- Habit coaching
+- Behavioral analysis
+- Personalized reminders
+- Nutrition insights
 
 ---
 
-### AI Assistance
+# Primary Persona 04
 
-- Recovery recommendations.
-- Mobility analysis.
-- Risk alerts.
-- Recovery monitoring.
+## Pediatric Nutritionist
 
----
+### Description
 
-# Persona 04 — Medical Specialist
-
-## Overview
-
-Provides clinical oversight for users with medical conditions or specialized care requirements.
-
----
+Provides nutritional care for infants, children and adolescents.
 
 ### Responsibilities
 
-- Review health indicators.
-- Validate care plans.
-- Monitor medical risks.
-- Coordinate multidisciplinary care.
+- Growth monitoring
+- Nutritional education
+- Family guidance
+- Feeding behavior assessment
+
+### Goals
+
+- Healthy growth
+- Family engagement
+- Nutritional prevention
+- Long-term development
+
+### AI Support
+
+- Growth monitoring
+- Dietary recommendations
+- Nutrient analysis
+- Parent education
 
 ---
 
-### AI Assistance
+# Primary Persona 05
 
-- Trend summaries.
-- Clinical alerts.
-- Longitudinal analytics.
+## Corporate Nutritionist
 
-AI supports decision-making and never replaces clinical judgment.
+### Description
 
----
-
-# Persona 05 — Wellness Coach
-
-## Overview
-
-Focuses on behavior change, habits and long-term lifestyle improvement.
-
----
+Supports employee wellness programs.
 
 ### Responsibilities
 
-- Habit coaching.
-- Goal tracking.
-- Motivation.
-- Client engagement.
+- Population nutrition
+- Wellness campaigns
+- Group education
+- Preventive health initiatives
+
+### Goals
+
+- Improve workforce health
+- Increase participation
+- Reduce health risks
+- Measure program impact
+
+### AI Support
+
+- Population analytics
+- Wellness recommendations
+- Engagement prediction
+- Risk identification
 
 ---
 
-### AI Assistance
+# Secondary Personas
 
-- Habit analysis.
-- Motivation recommendations.
-- Behavioral insights.
-- Progress summaries.
+## Coach
 
----
+Collaborates on:
 
-# Persona 06 — Enterprise Coach
-
-## Overview
-
-Supports wellness initiatives for organizations.
+- Training load
+- Body composition
+- Goal alignment
+- Recovery planning
 
 ---
 
-### Responsibilities
+## Physician
 
-- Manage employee groups.
-- Review organizational KPIs.
-- Coordinate campaigns.
-- Produce executive reports.
+Collaborates on:
 
----
-
-### KPIs
-
-- Participation rate.
-- Engagement.
-- Program completion.
-- Organizational health indicators.
+- Clinical conditions
+- Laboratory results
+- Treatment plans
+- Medical restrictions
 
 ---
 
-# Persona 07 — Team Manager
+## Physiotherapist
 
-## Overview
+Collaborates on:
 
-Leads teams of coaches and supervises service quality.
-
----
-
-### Responsibilities
-
-- Assign clients.
-- Review workload.
-- Monitor quality.
-- Approve programs.
-- Review KPIs.
+- Rehabilitation
+- Recovery nutrition
+- Injury management
 
 ---
 
-### AI Assistance
+## Organization Administrator
 
-- Capacity planning.
-- Resource recommendations.
-- Team analytics.
+Responsible for:
 
----
-
-# Persona 08 — Platform Administrator
-
-## Overview
-
-Responsible for operational configuration of the Coach Portal.
+- User management
+- Organization settings
+- Reporting
+- Compliance
 
 ---
 
-### Responsibilities
+# AI Persona
 
-- User management.
-- Permissions.
-- Integrations.
-- Configuration.
-- Auditing.
+## EVO
+
+Acts as an intelligent assistant.
+
+Responsibilities:
+
+- Nutritional analysis
+- Meal recommendations
+- Progress summaries
+- Risk alerts
+- Predictive insights
+- Professional assistance
+
+EVO never replaces professional judgment.
 
 ---
 
-### AI Assistance
+# Shared Goals
 
-- Operational insights.
-- Usage analytics.
-- Security alerts.
+All personas aim to:
+
+- Improve nutritional outcomes.
+- Increase client adherence.
+- Reduce administrative effort.
+- Deliver personalized care.
+- Collaborate effectively.
+- Leverage AI responsibly.
 
 ---
 
-# Persona Relationships
+# Collaboration Matrix
+
+| Persona | Coach | Physician | AI | Client |
+|----------|--------|-----------|----|--------|
+| Clinical Nutritionist | High | High | High | High |
+| Sports Nutritionist | High | Medium | High | High |
+| Wellness Nutritionist | Medium | Low | High | High |
+| Pediatric Nutritionist | Medium | High | High | High |
+| Corporate Nutritionist | Medium | Low | High | Medium |
+
+---
+
+# Permissions Overview
+
+Examples:
+
+| Persona | Clients | Meal Plans | Reports | AI |
+|----------|---------|-----------|----------|----|
+| Clinical Nutritionist | Full | Full | Full | Full |
+| Sports Nutritionist | Full | Full | Full | Full |
+| Wellness Nutritionist | Full | Full | Standard | Full |
+| Pediatric Nutritionist | Full | Full | Full | Full |
+| Corporate Nutritionist | Assigned Groups | Group Plans | Organization | Full |
+
+Detailed permissions are defined in Chapter 23.
+
+---
+
+# User Characteristics
+
+Professionals typically require:
+
+- Fast workflows
+- Evidence-based guidance
+- Mobile accessibility
+- AI transparency
+- Secure collaboration
+- Reliable analytics
+
+---
+
+# UX Implications
+
+The portal should provide:
+
+- Role-specific dashboards
+- Personalized navigation
+- Context-aware recommendations
+- Minimal cognitive load
+- Efficient documentation
+- Intelligent automation
+
+---
+
+# Standard Visual Artifacts
+
+## Persona Map
 
 ```text
-Administrator
+Clinical
 
-↓
+Sports
 
-Team Manager
+Wellness
+
+Pediatric
+
+Corporate
+```
+
+---
+
+## Collaboration Network
+
+```text
+Nutritionist
 
 ↓
 
@@ -328,33 +406,23 @@ Coach
 
 ↓
 
+Physician
+
+↓
+
+AI
+
+↓
+
 Client
-
-↓
-
-Human Digital Twin
-
-↓
-
-AI (EVO)
 ```
 
 ---
 
-# AI Interaction Model
-
-Every professional collaborates with EVO.
+## AI Interaction Model
 
 ```text
-Professional
-
-↓
-
-Context
-
-↓
-
-Human Digital Twin
+Nutritionist
 
 ↓
 
@@ -366,57 +434,32 @@ Recommendation
 
 ↓
 
-Professional Decision
+Decision
 ```
 
-AI provides recommendations.
-
-The professional always approves final actions.
-
 ---
 
-# Permission Matrix
+# Visual Source Files
 
-| Persona | Clients | Programs | Analytics | Billing | AI |
-|-----------|---------|----------|-----------|----------|-----|
-| Personal Trainer | ✓ | ✓ | ✓ | — | ✓ |
-| Nutritionist | ✓ | ✓ | ✓ | — | ✓ |
-| Physiotherapist | ✓ | ✓ | ✓ | — | ✓ |
-| Medical Specialist | ✓ | View | ✓ | — | ✓ |
-| Wellness Coach | ✓ | ✓ | ✓ | — | ✓ |
-| Enterprise Coach | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Team Manager | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Administrator | ✓ | ✓ | ✓ | ✓ | ✓ |
-
----
-
-# UX Considerations
-
-The interface shall adapt according to:
-
-- Professional role.
-- Permissions.
-- Organization.
-- Subscription.
-- Active clients.
-- Preferred workflows.
-
-Personalization improves efficiency while preserving consistency.
-
----
-
-# Future Personas
-
-The architecture supports future roles such as:
-
-- Sports Scientist.
-- Psychologist.
-- Occupational Therapist.
-- Corporate Health Manager.
-- Insurance Advisor.
-- Research Coordinator.
-
-New personas integrate through the platform's RBAC model.
+```text
+artifacts/
+└── personas/
+    ├── persona-map.drawio
+    ├── collaboration-network.drawio
+    ├── ai-interaction.drawio
+    ├── permissions.drawio
+    ├── workflows.drawio
+    ├── mermaid/
+    │   ├── personas.mmd
+    │   ├── collaboration.mmd
+    │   ├── ai.mmd
+    │   ├── permissions.mmd
+    │   └── workflow.mmd
+    └── exports/
+        ├── personas.svg
+        ├── personas.png
+        └── personas.pdf
+```
 
 ---
 
@@ -424,9 +467,11 @@ New personas integrate through the platform's RBAC model.
 
 | Artifact | Reference |
 |----------|-----------|
+| Overview | Chapter 01 |
 | Business Overview | Chapter 02 |
 | Product Scope | Chapter 03 |
 | User Journeys | Chapter 05 |
+| UX Goals | Chapter 07 |
 | Workflow Architecture | Chapter 16 |
 | Security & Permissions | Chapter 23 |
 
@@ -436,23 +481,24 @@ New personas integrate through the platform's RBAC model.
 
 This chapter is complete when:
 
-- Primary personas are defined.
-- Responsibilities are documented.
-- KPIs are identified.
-- AI interactions are specified.
-- Permission requirements are established.
-- Persona relationships are documented.
+- Primary personas are documented.
+- Secondary personas are identified.
+- Responsibilities and goals are defined.
+- Pain points are analyzed.
+- AI interaction is documented.
+- Collaboration model is specified.
 - UX implications are identified.
+- Visual artifacts are available.
 - Traceability is complete.
 
 ---
 
 # Key Takeaways
 
-- The Coach Portal supports multiple professional personas with distinct goals, responsibilities and permissions.
-- EVO acts as an AI copilot, augmenting professional expertise while preserving human oversight.
-- Role-based experiences ensure that each persona accesses only the capabilities required for their responsibilities.
-- The persona model provides the foundation for UX design, workflows, security policies and AI interactions throughout the EVOXA platform.
+- The Nutritionist Portal serves multiple professional profiles across clinical, sports, wellness, pediatric and corporate nutrition, each with distinct workflows and objectives.
+- AI capabilities provided by EVO are tailored to each persona, delivering contextual recommendations while preserving professional authority.
+- Strong collaboration between nutritionists, coaches, physicians and other healthcare professionals is a core characteristic of the platform.
+- Persona-driven design ensures that interfaces, workflows and intelligent services remain aligned with the real needs of nutrition professionals throughout the EVOXA ecosystem.
 
 ---
 
@@ -460,4 +506,4 @@ This chapter is complete when:
 
 **Chapter 05 — User Journeys**
 
-This chapter defines the end-to-end journeys of each professional persona, including onboarding, client management, program delivery, AI-assisted decision-making, communication and long-term follow-up.
+This chapter defines the end-to-end workflows of the Nutritionist Portal, including client onboarding, nutritional assessment, meal planning, AI-assisted decision making, progress monitoring and multidisciplinary collaboration.
