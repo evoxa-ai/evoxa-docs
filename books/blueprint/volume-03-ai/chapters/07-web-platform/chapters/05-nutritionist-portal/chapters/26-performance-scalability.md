@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-26
-chapter_id: CH-04-COACH-26
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-26
+chapter_id: CH-05-NUTRITION-26
+feature_pack: FP-NUTRITION-0000
 title: Performance & Scalability
 version: 1.0.0
 status: Draft
@@ -14,17 +14,17 @@ last_updated: 2026-08-04
 
 # Chapter 26 — Performance & Scalability
 
-> *The Performance & Scalability chapter defines how the Coach Portal delivers responsive user experiences, efficient resource utilization and elastic growth across users, organizations, AI workloads and distributed services.*
+> *The Performance & Scalability chapter defines the architecture, optimization strategies, capacity planning and resilience mechanisms that ensure the Nutritionist Portal delivers a fast, reliable and scalable experience across the EVOXA ecosystem.*
 
 ---
 
 # Executive Summary
 
-Performance and scalability are architectural qualities built into the EVOXA platform from its foundation.
+The Nutritionist Portal is designed to support continuous growth in users, organizations, data volume and AI workloads.
 
-The Coach Portal is designed to support increasing workloads while maintaining predictable response times, high availability and operational efficiency.
+Performance is addressed across every architectural layer, from frontend rendering and APIs to workflow orchestration, event processing, data storage and AI inference.
 
-The architecture emphasizes horizontal scalability, asynchronous processing, intelligent caching and continuous performance monitoring.
+The platform follows cloud-native engineering principles, enabling horizontal scalability, elastic resource allocation and resilient operations.
 
 ---
 
@@ -32,29 +32,28 @@ The architecture emphasizes horizontal scalability, asynchronous processing, int
 
 The platform shall:
 
-- Deliver low-latency experiences.
+- Deliver low-latency interactions.
 - Scale horizontally.
-- Optimize infrastructure utilization.
-- Support AI-intensive workloads.
+- Support large organizations.
+- Optimize AI workloads.
 - Maintain high availability.
-- Minimize operational bottlenecks.
-- Enable sustainable growth.
+- Minimize operational costs.
+- Enable continuous growth.
 
 ---
 
 # Performance Philosophy
 
-Performance is measured from the user's perspective.
+Performance is considered a product feature.
 
-Every interaction should be:
+Every component shall be:
 
-- Fast.
-- Predictable.
-- Reliable.
+- Efficient.
 - Observable.
-- Scalable.
-
-Optimization begins during architecture and design.
+- Cache-aware.
+- Asynchronous where appropriate.
+- Horizontally scalable.
+- Resilient.
 
 ---
 
@@ -62,17 +61,16 @@ Optimization begins during architecture and design.
 
 The platform follows:
 
-- Stateless services.
-- Horizontal scaling.
-- Elastic infrastructure.
-- Event-driven processing.
-- Polyglot persistence.
-- Distributed caching.
-- Independent domain scaling.
+- Horizontal Scaling
+- Stateless Services
+- Event-Driven Processing
+- Cloud-Native Deployment
+- Elastic Resource Allocation
+- Infrastructure as Code
 
 ---
 
-# Performance Architecture
+# Performance Layers
 
 ```text
 Client
@@ -91,6 +89,10 @@ Application Services
 
 ↓
 
+Workflow Engine
+
+↓
+
 Event Platform
 
 ↓
@@ -102,58 +104,49 @@ Data Platform
 AI Platform
 ```
 
----
-
-# Scalability Layers
-
-```text
-Presentation
-
-↓
-
-Application
-
-↓
-
-Domain
-
-↓
-
-Data
-
-↓
-
-Infrastructure
-```
-
-Each layer scales independently whenever possible.
+Each layer is independently scalable.
 
 ---
 
-# Horizontal Scaling
+# Frontend Performance
 
-Supported components:
+Optimization strategies include:
 
-- API services.
-- AI services.
-- Background workers.
-- Event consumers.
-- Notification services.
-- Analytics services.
-
-Scaling policies are workload-aware.
+- Code Splitting
+- Lazy Loading
+- Tree Shaking
+- Route Preloading
+- Asset Compression
+- HTTP/2 and HTTP/3
+- Browser Caching
 
 ---
 
-# Vertical Scaling
+# API Performance
 
-Vertical scaling is supported for:
+Strategies:
 
-- Databases.
-- AI inference nodes.
-- Analytics engines.
+- Pagination
+- Filtering
+- Compression
+- Connection Pooling
+- Response Caching
+- Asynchronous Processing
+- Request Batching
 
-Horizontal scaling remains the preferred strategy.
+---
+
+# Database Performance
+
+Optimizations include:
+
+- Indexing strategy
+- Query optimization
+- Read replicas
+- Partitioning
+- Connection pooling
+- Materialized views
+- Optimistic locking
 
 ---
 
@@ -161,139 +154,110 @@ Horizontal scaling remains the preferred strategy.
 
 Caching layers include:
 
-- Browser cache.
-- CDN cache.
-- API cache.
-- Distributed cache.
-- Query cache.
-- AI response cache.
+- Browser Cache
+- CDN Cache
+- API Cache
+- Distributed Cache
+- AI Context Cache
+- Metadata Cache
 
-Frequently accessed data should avoid unnecessary database access.
+Recommended technologies:
 
----
-
-# Content Delivery
-
-Static assets are delivered through a Content Delivery Network (CDN).
-
-Examples:
-
-- Images.
-- JavaScript.
-- CSS.
-- Fonts.
-- Documents.
+- Redis
+- Memcached
 
 ---
 
-# Database Performance
-
-Performance techniques include:
-
-- Index optimization.
-- Query optimization.
-- Read replicas.
-- Connection pooling.
-- Partitioning.
-- Materialized views.
-
-Database performance is continuously monitored.
-
----
-
-# Asynchronous Processing
-
-Long-running operations execute asynchronously.
-
-Examples:
-
-- AI analysis.
-- Report generation.
-- Notifications.
-- File processing.
-- Data imports.
-- Model evaluation.
-
----
-
-# Event-Driven Scalability
+# Event Processing Performance
 
 The Event Platform supports:
 
-- Parallel consumers.
-- Independent scaling.
-- Retry mechanisms.
-- Dead Letter Queues.
-- Replay.
+- Parallel consumers
+- Topic partitioning
+- Batch processing
+- Retry queues
+- Dead Letter Queues
 
-Event throughput is monitored continuously.
+Processing is asynchronous whenever possible.
 
 ---
 
 # AI Performance
 
-AI optimization includes:
+Optimization techniques include:
 
-- Model selection.
-- Prompt optimization.
-- Response caching.
-- Token budgeting.
-- Batch processing.
-- Context compression.
+- Prompt caching
+- Context compression
+- Vector cache
+- Model routing
+- Response streaming
+- Parallel agent execution
 
-Latency-sensitive workloads receive priority.
-
----
-
-# Human Digital Twin Optimization
-
-Digital Twin services use:
-
-- Incremental updates.
-- Event-driven synchronization.
-- Lazy computation.
-- Predictive pre-calculation.
-
-Heavy computations are executed asynchronously.
+AI latency targets are continuously monitored.
 
 ---
 
-# Frontend Performance
+# Human Digital Twin Performance
 
-The Coach Portal implements:
+The Digital Twin platform supports:
 
-- Code splitting.
-- Lazy loading.
-- Route prefetching.
-- Virtual scrolling.
-- Image optimization.
-- Deferred rendering.
-
-Only required resources are loaded.
+- Incremental updates
+- Event-driven synchronization
+- Cached projections
+- Efficient historical queries
 
 ---
 
-# Mobile Optimization
+# Scalability Model
 
-Mobile clients support:
+```text
+Users
 
-- Adaptive images.
-- Offline cache.
-- Incremental synchronization.
-- Reduced payloads.
-- Optimized network usage.
+↓
+
+Load Balancer
+
+↓
+
+Service Instances
+
+↓
+
+Event Platform
+
+↓
+
+Data Platform
+```
+
+All application services remain stateless.
 
 ---
 
-# Resource Management
+# Horizontal Scaling
 
-Infrastructure automatically manages:
+The following services scale independently:
 
-- CPU allocation.
-- Memory utilization.
-- Container scaling.
-- Queue processing.
-- AI resource allocation.
+- API Gateway
+- Authentication
+- Client Service
+- Assessment Service
+- Meal Planning Service
+- AI Gateway
+- Workflow Engine
+- Notification Service
+
+---
+
+# High Availability
+
+The platform targets:
+
+- Multi-zone deployment
+- Automatic failover
+- Health checks
+- Self-healing workloads
+- Rolling updates
 
 ---
 
@@ -301,76 +265,62 @@ Infrastructure automatically manages:
 
 Capacity planning considers:
 
-- Active organizations.
-- Active professionals.
-- Concurrent sessions.
-- AI requests.
-- Storage growth.
-- Event throughput.
-
-Forecasts are reviewed periodically.
+- Organizations
+- Active users
+- Concurrent sessions
+- AI requests
+- Event throughput
+- Data growth
 
 ---
 
-# Performance Metrics
+# Load Balancing
 
-Core metrics include:
+Traffic distribution supports:
 
-| Metric | Target |
-|----------|---------|
-| API Response (P95) | <300 ms |
-| Dashboard Load | <2 s |
-| AI Recommendation | <2 s |
-| Search Results | <500 ms |
-| Authentication | <500 ms |
-| Event Processing | <1 s |
+- Layer 7 balancing
+- Session affinity where required
+- Health-aware routing
+- Geographic routing (future)
 
 ---
 
-# Scalability Metrics
+# Resource Optimization
 
-Measured indicators:
+Compute resources are optimized through:
 
-- Requests per second.
-- Concurrent users.
-- Queue depth.
-- Event throughput.
-- AI requests per minute.
-- Database connections.
-- Cache hit ratio.
+- Auto-scaling
+- Resource limits
+- Resource requests
+- Workload isolation
+
+---
+
+# Storage Strategy
+
+The platform separates:
+
+- Operational Database
+- Object Storage
+- Data Lake
+- Data Warehouse
+- Vector Database
+- Time-Series Database
+
+Each storage technology serves a specific purpose.
 
 ---
 
 # Resilience
 
-The platform supports:
+Failure handling includes:
 
-- Automatic retries.
-- Circuit breakers.
-- Bulkheads.
-- Graceful degradation.
-- Failover.
-- Health checks.
-
-Failures are isolated whenever possible.
-
----
-
-# High Availability
-
-Target availability:
-
-```text
-99.9%
-```
-
-Enterprise deployments may target:
-
-```text
-99.95%
-
-99.99%
-```
+- Circuit Breakers
+- Retries
+- Timeouts
+- Bulkheads
+- Graceful Degradation
+- Fallback Responses
 
 ---
 
@@ -378,68 +328,78 @@ Enterprise deployments may target:
 
 Recovery objectives:
 
-| Objective | Target |
-|------------|---------|
-| RTO | <1 hour |
-| RPO | <15 minutes |
+| Metric | Target |
+|----------|---------|
+| RTO | <30 min |
+| RPO | <5 min |
 
-Backup and recovery procedures are regularly validated.
-
----
-
-# Load Testing
-
-Testing includes:
-
-- Load testing.
-- Stress testing.
-- Spike testing.
-- Endurance testing.
-- Capacity testing.
-- Chaos testing.
-
-Results guide capacity planning.
+Backups and recovery procedures are automated and tested periodically.
 
 ---
 
-# Performance Governance
+# Performance Targets
 
-Every service defines:
-
-- Performance budget.
-- SLOs.
-- Capacity targets.
-- Scaling strategy.
-- Monitoring dashboards.
-- Optimization backlog.
+| Indicator | Target |
+|-----------|---------|
+| Dashboard Load | <2 s |
+| API Response (P95) | <300 ms |
+| AI Response | <2 s |
+| Search Results | <1 s |
+| Report Generation | <10 s |
+| Workflow Completion | >99% |
 
 ---
 
-# Performance Lifecycle
+# Scalability Targets
 
-```text
-Design
+| Metric | Target |
+|----------|---------|
+| Concurrent Users | 100,000+ |
+| Organizations | 10,000+ |
+| API Requests/sec | 20,000+ |
+| Events/sec | 100,000+ |
+| AI Requests/hour | 1,000,000+ |
 
-↓
+---
 
-Measure
+# Capacity Metrics
 
-↓
+Monitored indicators include:
 
-Analyze
+- CPU utilization
+- Memory utilization
+- Disk I/O
+- Network throughput
+- Queue depth
+- Cache hit ratio
+- Database connections
+- AI inference latency
 
-↓
+---
 
-Optimize
+# Cost Optimization
 
-↓
+Cost strategies include:
 
-Validate
+- Auto-scaling.
+- Spot instances where appropriate.
+- Storage tiering.
+- AI model selection based on workload.
+- Cache-first architecture.
 
-↓
+---
 
-Monitor
-```
+# Governance
+
+Performance reviews are required for:
+
+- New APIs.
+- New workflows.
+- AI services.
+- Database changes.
+- Infrastructure updates.
+
+Performance regressions block production releases.
 
 ---
 
@@ -447,15 +407,17 @@ Monitor
 
 ```text
 performance/
-├── architecture/
+├── frontend/
+├── backend/
+├── api/
+├── database/
 ├── caching/
-├── scaling/
-├── load-testing/
+├── ai/
+├── workflows/
+├── infrastructure/
 ├── capacity/
 ├── resilience/
-├── ai/
-├── dashboards/
-├── budgets/
+├── governance/
 └── metadata.yml
 ```
 
@@ -463,10 +425,10 @@ performance/
 
 # Standard Visual Artifacts
 
-## Scalability Architecture
+## Scalability Layers
 
 ```text
-Users
+Client
 
 ↓
 
@@ -478,43 +440,39 @@ Services
 
 ↓
 
-Data Platform
+Events
+
+↓
+
+Data
 ```
 
 ---
 
-## Performance Flow
+## Horizontal Scaling
+
+```text
+Load Balancer
+
+↓
+
+Service Pool
+
+↓
+
+Database Cluster
+```
+
+---
+
+## AI Performance
 
 ```text
 Request
 
 ↓
 
-Cache
-
-↓
-
-API
-
-↓
-
-Database
-
-↓
-
-Response
-```
-
----
-
-## AI Optimization
-
-```text
-Prompt
-
-↓
-
-Optimization
+Model Router
 
 ↓
 
@@ -522,23 +480,27 @@ Inference
 
 ↓
 
-Caching
+Streaming Response
 ```
 
 ---
 
-## Scaling Strategy
+## Resilience
 
 ```text
-Demand
+Failure
 
 ↓
 
-Auto Scaling
+Retry
 
 ↓
 
-Healthy Platform
+Fallback
+
+↓
+
+Recovery
 ```
 
 ---
@@ -548,22 +510,22 @@ Healthy Platform
 ```text
 artifacts/
 └── performance-scalability/
-    ├── scalability-architecture.drawio
-    ├── caching-strategy.drawio
-    ├── performance-flow.drawio
-    ├── auto-scaling.drawio
+    ├── scalability.drawio
+    ├── load-balancing.drawio
+    ├── caching.drawio
     ├── ai-performance.drawio
     ├── resilience.drawio
+    ├── capacity.drawio
     ├── mermaid/
-    │   ├── scaling.mmd
+    │   ├── scalability.mmd
+    │   ├── performance.mmd
     │   ├── caching.mmd
     │   ├── resilience.mmd
-    │   ├── ai.mmd
-    │   └── performance.mmd
+    │   └── ai.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
+        ├── performance-scalability.svg
+        ├── performance-scalability.png
+        └── performance-scalability.pdf
 ```
 
 ---
@@ -572,13 +534,13 @@ artifacts/
 
 | Artifact | Reference |
 |----------|-----------|
+| API Contracts | Chapter 19 |
 | Event Architecture | Chapter 20 |
 | AI Services | Chapter 21 |
 | Data Model | Chapter 22 |
-| Security & Permissions | Chapter 23 |
 | Observability & Analytics | Chapter 24 |
+| Testing & Quality Assurance | Chapter 27 |
 | Release & Deployment | Chapter 28 |
-| Operational Excellence | Chapter 29 |
 
 ---
 
@@ -586,24 +548,23 @@ artifacts/
 
 This chapter is complete when:
 
-- Performance architecture is documented.
-- Scalability principles are defined.
-- Caching strategy is specified.
-- AI optimization guidelines are documented.
-- Capacity planning model is established.
-- Resilience mechanisms are defined.
-- Performance metrics and SLOs are documented.
-- Visual artifacts are available.
-- Traceability is complete.
+- Performance principles are documented.
+- Scalability architecture is defined.
+- Frontend, backend and database optimization strategies are specified.
+- AI and Human Digital Twin performance requirements are documented.
+- High availability, resilience and disaster recovery strategies are defined.
+- Capacity planning and cost optimization guidelines are established.
+- Performance targets and scalability metrics are measurable.
+- Visual artifacts and traceability are complete.
 
 ---
 
 # Key Takeaways
 
-- The Coach Portal is designed for horizontal scalability, low latency and predictable performance across business, AI and infrastructure workloads.
-- Performance optimization spans every architectural layer, including frontend, APIs, data platforms, event processing and AI services.
-- Resilience patterns, automated scaling and continuous capacity planning ensure sustainable growth without compromising user experience.
-- Governance, performance budgets and measurable SLOs provide a structured framework for maintaining operational excellence as the EVOXA ecosystem evolves.
+- The Nutritionist Portal is engineered for cloud-native scalability, enabling independent growth of frontend, backend, AI and data services.
+- Performance optimization is applied across every architectural layer, from user interfaces and APIs to event processing, storage and AI inference.
+- Horizontal scaling, resilience patterns and automated recovery mechanisms ensure reliable operation under increasing workloads.
+- Capacity planning, observability and continuous performance governance provide a sustainable foundation for long-term growth across the EVOXA ecosystem.
 
 ---
 
@@ -611,4 +572,4 @@ This chapter is complete when:
 
 **Chapter 27 — Testing & Quality Assurance**
 
-This chapter defines the quality strategy of the Coach Portal, including testing architecture, automated validation, AI evaluation, performance testing, security testing, release quality gates and continuous verification.
+This chapter defines the quality strategy for the Nutritionist Portal, including testing methodologies, automated validation, AI evaluation, performance testing, security testing and continuous quality governance.
