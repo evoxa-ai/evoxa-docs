@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-09
-chapter_id: CH-04-COACH-09
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-09
+chapter_id: CH-05-NUTRITION-09
+feature_pack: FP-NUTRITION-0000
 title: Layout Architecture
 version: 1.0.0
 status: Draft
@@ -14,15 +14,17 @@ last_updated: 2026-08-04
 
 # Chapter 09 — Layout Architecture
 
-> *The Layout Architecture defines the structural organization of every workspace within the Coach Portal, ensuring a consistent, responsive and productivity-oriented interface for professional users.*
+> *The Layout Architecture chapter defines the structural organization of the Nutritionist Portal, including page templates, workspace layouts, responsive behavior and reusable interface regions that support efficient nutritional workflows.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal is designed as a Professional Operating System where layout consistency, contextual awareness and information density are optimized for long-duration professional use.
+The Nutritionist Portal adopts a modular layout architecture designed for professional productivity.
 
-Rather than relying on isolated page designs, the platform provides a reusable layout architecture that supports every workspace while adapting to user roles, workflows and AI-driven recommendations.
+Every screen follows standardized layout templates that provide consistency, responsiveness and scalability while adapting to different workflows and devices.
+
+The architecture separates navigation, workspace and contextual information, allowing nutrition professionals to remain focused on client care.
 
 ---
 
@@ -30,22 +32,37 @@ Rather than relying on isolated page designs, the platform provides a reusable l
 
 The Layout Architecture shall:
 
-- Standardize every workspace.
-- Improve productivity.
-- Reduce navigation effort.
-- Support adaptive layouts.
-- Enable contextual AI panels.
-- Maintain responsive behavior.
-- Scale across future modules.
+- Standardize page layouts.
+- Reduce UI complexity.
+- Improve workflow efficiency.
+- Support responsive behavior.
+- Enable reusable templates.
+- Integrate AI naturally.
+- Maintain consistency across EVOXA.
 
 ---
 
 # Layout Philosophy
 
-Every screen follows a common structural model.
+The layout follows four principles:
+
+- Consistency
+- Simplicity
+- Context
+- Flexibility
+
+Every screen should expose only the information required for the current task.
+
+---
+
+# Layout Hierarchy
 
 ```text
-Global Shell
+Portal
+
+↓
+
+Page
 
 ↓
 
@@ -53,229 +70,228 @@ Workspace
 
 ↓
 
-Panels
+Section
 
 ↓
 
-Components
-
-↓
-
-Widgets
+Component
 ```
 
-The layout separates navigation, content and contextual intelligence into independent regions.
+Each level has clearly defined responsibilities.
 
 ---
 
-# Layout Principles
-
-The Coach Portal follows these principles.
-
-- Workspace First
-- Productivity First
-- Context Awareness
-- Consistent Navigation
-- Responsive Design
-- Progressive Disclosure
-- AI-Native Interface
-
----
-
-# Global Layout
+# Global Layout Structure
 
 ```text
-┌────────────────────────────────────────────────────────────┐
-│ Global Header                                              │
-├──────────────┬───────────────────────────────┬─────────────┤
-│              │                               │             │
-│ Navigation   │      Main Workspace           │ AI Panel    │
-│ Sidebar      │                               │             │
-│              │                               │             │
-├──────────────┴───────────────────────────────┴─────────────┤
-│ Status Bar / Notifications                                │
-└────────────────────────────────────────────────────────────┘
++-------------------------------------------------------------+
+| Header                                                      |
++-----------+--------------------------------------+----------+
+| Sidebar   | Main Workspace                       | Context  |
+| Navigation|                                      | Panel    |
+|           |                                      | (AI)     |
++-----------+--------------------------------------+----------+
+| Footer                                                      |
++-------------------------------------------------------------+
 ```
 
 ---
 
 # Layout Regions
 
-## Global Header
+Every screen is composed of:
 
-Provides:
+- Header
+- Navigation Sidebar
+- Main Workspace
+- Context Panel
+- Footer
 
-- Organization selector.
-- Global search.
-- Notifications.
-- User profile.
-- Quick actions.
-- Workspace switcher.
-
----
-
-## Navigation Sidebar
-
-Contains:
-
-- Dashboard.
-- Clients.
-- Assessments.
-- Training.
-- Nutrition.
-- Calendar.
-- Messaging.
-- Analytics.
-- Billing.
-- Marketplace.
-- Administration.
-
-The sidebar supports collapse and pin modes.
+Each region can be enabled or hidden depending on the workflow.
 
 ---
 
-## Main Workspace
+# Header
 
-Displays:
+The Header contains:
 
-- Active workflow.
-- Business content.
-- Forms.
-- Dashboards.
-- Reports.
-- Client information.
+- Organization selector
+- Global search
+- Notifications
+- Calendar shortcuts
+- User profile
+- Quick actions
 
-Only one primary task is emphasized at a time.
-
----
-
-## Context Panel
-
-The right-side panel provides:
-
-- EVO recommendations.
-- Human Digital Twin insights.
-- Recent activity.
-- Related tasks.
-- Alerts.
-- Quick actions.
-
-The panel adapts dynamically to the active context.
+The header remains persistent.
 
 ---
 
-## Footer / Status Bar
+# Sidebar
 
-Displays:
+The Sidebar provides access to:
 
-- Synchronization status.
-- Background jobs.
-- AI processing indicators.
-- Notifications.
-- Connectivity.
-- Version information.
+- Dashboard
+- Clients
+- Assessments
+- Meal Plans
+- Recipes
+- Food Database
+- Supplements
+- Shopping Lists
+- Reports
+- Calendar
+- Messages
+- AI Workspace
+- Settings
+
+The sidebar supports collapse and expansion.
+
+---
+
+# Main Workspace
+
+The workspace is the primary interaction area.
+
+Typical content includes:
+
+- Forms
+- Tables
+- Charts
+- Timelines
+- Editors
+- Dashboards
+
+Every workspace is task-oriented.
+
+---
+
+# Context Panel
+
+The Context Panel displays:
+
+- AI recommendations
+- Nutritional insights
+- Human Digital Twin summary
+- Recent activity
+- Related tasks
+- Contextual help
+
+The panel adapts dynamically to the current screen.
+
+---
+
+# Footer
+
+The Footer contains:
+
+- Version
+- Support links
+- Environment indicator
+- Legal information
+- System status
 
 ---
 
 # Workspace Templates
 
-## Dashboard Layout
+The portal defines reusable templates.
 
-```text
-Header
+## Dashboard Template
 
-↓
+Displays:
 
-KPIs
-
-↓
-
-Today's Agenda
-
-↓
-
-AI Priorities
-
-↓
-
-Tasks
-
-↓
-
-Recent Activity
-```
+- KPI cards
+- Activity feed
+- Calendar
+- Alerts
+- AI recommendations
 
 ---
 
 ## Client Workspace
 
-```text
-Client Summary
+Contains:
 
-↓
+- Client summary
+- Tabs
+- Timeline
+- Assessment history
+- Meal plans
+- Progress charts
 
-Digital Twin
+---
 
-↓
+## Assessment Workspace
 
-Tabs
+Optimized for data entry.
 
-↓
+Includes:
 
-Content
+- Multi-step forms
+- Validation
+- Measurements
+- Clinical indicators
+- AI assistance
 
-↓
+---
 
-AI Insights
-```
+## Meal Planning Workspace
+
+Supports:
+
+- Drag-and-drop meals
+- Recipe selector
+- Nutritional analysis
+- Macro visualization
+- AI suggestions
 
 ---
 
 ## Analytics Workspace
 
-```text
-Filters
+Displays:
 
-↓
-
-Charts
-
-↓
-
-KPIs
-
-↓
-
-Tables
-
-↓
-
-Reports
-```
+- Interactive charts
+- Filters
+- Reports
+- Comparisons
+- Export actions
 
 ---
 
-## Program Builder
+## AI Workspace
+
+Includes:
+
+- Conversational interface
+- Suggested prompts
+- Evidence panel
+- Confidence indicators
+- Action buttons
+
+---
+
+# Layout Grid
+
+The design system uses a 12-column responsive grid.
 
 ```text
-Client
-
-↓
-
-Objectives
-
-↓
-
-Program Builder
-
-↓
-
-Preview
-
-↓
-
-Assignment
+|1|2|3|4|5|6|7|8|9|10|11|12|
 ```
+
+Layouts adapt proportionally across screen sizes.
+
+---
+
+# Responsive Breakpoints
+
+| Device | Width |
+|----------|-------|
+| Mobile | <768 px |
+| Tablet | 768–1023 px |
+| Laptop | 1024–1439 px |
+| Desktop | 1440–1919 px |
+| Large Desktop | ≥1920 px |
 
 ---
 
@@ -283,144 +299,140 @@ Assignment
 
 The layout adapts according to:
 
-- Professional role.
-- Selected client.
-- Screen size.
-- Current workflow.
-- Active AI suggestions.
-- Organization settings.
+- User role
+- Screen size
+- Workflow
+- Organization preferences
+- Accessibility settings
+
+Example:
+
+Clinical nutritionists may prioritize clinical indicators, while sports nutritionists may prioritize body composition and performance metrics.
 
 ---
 
-# Multi-Panel Strategy
+# Navigation Behavior
 
-The Coach Portal supports three simultaneous panels.
+Navigation supports:
 
-```text
-Navigation
-
-↓
-
-Workspace
-
-↓
-
-AI Context
-```
-
-Panels may be resized or collapsed depending on user preference.
+- Persistent sidebar
+- Breadcrumbs
+- Context switching
+- Back navigation
+- Deep links
 
 ---
 
-# Context Preservation
+# Content Organization
 
-When switching between screens:
+Priority order:
 
-- Selected client is preserved.
-- Active filters remain.
-- Open tabs remain.
-- Unsaved drafts are retained.
-- AI context is maintained.
-
----
-
-# Layout Personalization
-
-Professionals may configure:
-
-- Sidebar behavior.
-- Widget positions.
-- Dashboard layouts.
-- Workspace density.
-- Panel sizes.
-- Favorite shortcuts.
-
-Preferences are synchronized across devices.
+1. Critical alerts
+2. Client context
+3. Current task
+4. AI recommendations
+5. Historical information
+6. Secondary actions
 
 ---
 
-# Responsive Architecture
+# AI Integration
 
-## Desktop
+AI components appear as contextual assistants.
 
-Three-column layout.
+Examples:
 
----
+- Assessment recommendations
+- Meal optimization
+- Recipe alternatives
+- Nutrient analysis
+- Behavioral insights
 
-## Tablet
-
-Two-column layout.
-
----
-
-## Mobile
-
-Single-column adaptive layout with contextual bottom navigation.
+The AI panel never obstructs the primary workflow.
 
 ---
 
-# Information Density
+# Human Digital Twin Panel
 
-The interface supports:
+The Human Digital Twin summary provides:
 
-- Compact mode.
-- Standard mode.
-- Comfortable mode.
+- Current nutritional status
+- Body composition trends
+- Behavioral indicators
+- Recovery metrics
+- AI predictions
 
-Density settings affect tables, cards and lists while preserving accessibility.
-
----
-
-# Layout States
-
-Every workspace supports:
-
-- Loading.
-- Empty.
-- Populated.
-- Error.
-- Offline.
-- Read-only.
-
-Each state has a consistent visual treatment.
+Available from all client-related workspaces.
 
 ---
 
-# Navigation Flow
+# Accessibility
 
-```text
-Dashboard
+Layouts support:
 
-↓
+- Keyboard navigation
+- Screen readers
+- Zoom up to 200%
+- High contrast mode
+- Reduced motion
+- Logical focus order
 
-Workspace
+---
 
-↓
+# Performance
 
-Client
+Layouts are optimized through:
 
-↓
+- Lazy loading
+- Virtual scrolling
+- Deferred rendering
+- Component reuse
+- Progressive loading
 
-Task
+---
 
-↓
+# Layout Metrics
 
-Result
-```
+Measured indicators include:
+
+| Metric | Target |
+|----------|---------|
+| Dashboard Load | <2 s |
+| Layout Shift (CLS) | <0.1 |
+| Navigation Response | <100 ms |
+| Workspace Rendering | <500 ms |
+| Screen Transition | <300 ms |
 
 ---
 
 # Layout Governance
 
-Every new screen shall:
+Every layout shall:
 
-- Use a standard template.
-- Respect spacing tokens.
-- Follow responsive rules.
-- Support accessibility.
-- Include AI context areas where applicable.
+- Use approved templates.
+- Follow the Design System.
+- Support responsive behavior.
+- Respect accessibility standards.
+- Integrate AI consistently.
+- Maintain visual hierarchy.
 
-Custom layouts require Architecture Board approval.
+---
+
+# Repository Structure
+
+```text
+layout/
+├── templates/
+├── workspaces/
+├── grids/
+├── responsive/
+├── navigation/
+├── ai-panels/
+├── digital-twin/
+├── accessibility/
+├── governance/
+└── metadata.yml
+```
 
 ---
 
@@ -433,7 +445,7 @@ Header
 
 ↓
 
-Navigation
+Sidebar
 
 ↓
 
@@ -441,52 +453,40 @@ Workspace
 
 ↓
 
-AI Panel
+Context Panel
+
+↓
+
+Footer
 ```
 
 ---
 
-## Workspace Template
+## Client Workspace
 
 ```text
-Summary
+Client
 
 ↓
 
-Tabs
+Assessment
 
 ↓
 
-Content
+Meal Plan
 
 ↓
 
-Insights
+Progress
+
+↓
+
+Reports
 ```
 
 ---
 
-## Adaptive Layout
-
-```text
-Role
-
-↓
-
-Context
-
-↓
-
-Layout
-
-↓
-
-Interaction
-```
-
----
-
-## Responsive Grid
+## Responsive Layout
 
 ```text
 Desktop
@@ -502,43 +502,43 @@ Mobile
 
 ---
 
+## AI Context Panel
+
+```text
+Workspace
+
+↓
+
+AI Assistant
+
+↓
+
+Recommendations
+```
+
+---
+
 # Visual Source Files
 
 ```text
 artifacts/
 └── layout-architecture/
     ├── global-layout.drawio
-    ├── workspace-template.drawio
-    ├── adaptive-layout.drawio
+    ├── workspace-layouts.drawio
     ├── responsive-grid.drawio
-    ├── context-panel.drawio
-    ├── dashboard-layout.drawio
+    ├── ai-context-panel.drawio
+    ├── client-workspace.drawio
+    ├── navigation-layout.drawio
     ├── mermaid/
     │   ├── layout.mmd
     │   ├── workspace.mmd
-    │   ├── adaptive.mmd
     │   ├── responsive.mmd
+    │   ├── ai-panel.mmd
     │   └── navigation.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
-```
-
----
-
-# Repository Structure
-
-```text
-layout/
-├── templates/
-├── workspaces/
-├── panels/
-├── responsive/
-├── personalization/
-├── ai-context/
-├── grids/
-└── metadata.yml
+        ├── layout-architecture.svg
+        ├── layout-architecture.png
+        └── layout-architecture.pdf
 ```
 
 ---
@@ -553,7 +553,7 @@ layout/
 | Navigation Architecture | Chapter 10 |
 | Design Principles | Chapter 11 |
 | Responsive Design | Chapter 15 |
-| AI Services | Chapter 21 |
+| Accessibility & Internationalization | Chapter 25 |
 
 ---
 
@@ -561,12 +561,13 @@ layout/
 
 This chapter is complete when:
 
-- Global layout is defined.
-- Workspace templates are documented.
-- Adaptive layout behavior is specified.
-- Responsive rules are established.
-- Context preservation is documented.
-- Layout personalization is supported.
+- Global layout structure is defined.
+- Reusable workspace templates are documented.
+- Responsive behavior is specified.
+- AI and Human Digital Twin panels are integrated into the layout.
+- Navigation regions are standardized.
+- Accessibility requirements are incorporated.
+- Performance targets are defined.
 - Visual artifacts are available.
 - Traceability is complete.
 
@@ -574,10 +575,10 @@ This chapter is complete when:
 
 # Key Takeaways
 
-- The Coach Portal adopts a workspace-based layout architecture optimized for professionals who spend extended periods using the platform.
-- A consistent global shell, contextual AI panel and adaptive workspace templates improve productivity while reducing cognitive load.
-- Layout personalization, responsive behavior and context preservation enable efficient task execution across devices and professional roles.
-- Standardized layout governance ensures visual consistency and supports future platform evolution.
+- The Nutritionist Portal uses a modular layout architecture that separates navigation, workspaces and contextual information to maximize professional productivity.
+- Reusable templates provide consistency across all screens while adapting to different nutritional workflows and user roles.
+- Integrated AI panels and Human Digital Twin summaries deliver contextual intelligence without interrupting primary tasks.
+- Responsive layouts, accessibility compliance and shared design patterns ensure a scalable and consistent user experience across the EVOXA ecosystem.
 
 ---
 
@@ -585,4 +586,4 @@ This chapter is complete when:
 
 **Chapter 10 — Navigation Architecture**
 
-This chapter defines the navigation model of the Coach Portal, including global navigation, contextual navigation, deep linking, search-driven navigation, breadcrumbs, keyboard shortcuts and adaptive navigation patterns.
+This chapter defines the navigation model of the Nutritionist Portal, including global navigation, contextual navigation, workflow transitions, deep linking, breadcrumbs and cross-portal navigation strategies.
