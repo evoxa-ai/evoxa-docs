@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-06
-chapter_id: CH-04-COACH-06
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-06
+chapter_id: CH-05-NUTRITION-06
+feature_pack: FP-NUTRITION-0000
 title: Information Architecture
 version: 1.0.0
 status: Draft
@@ -14,17 +14,17 @@ last_updated: 2026-08-04
 
 # Chapter 06 — Information Architecture
 
-> *The Information Architecture defines how information is organized, structured and presented throughout the Coach Portal, enabling professionals to efficiently navigate, manage clients and access contextual information.*
+> *The Information Architecture chapter defines how information is organized, classified, connected and presented throughout the Nutritionist Portal, enabling intuitive navigation, efficient workflows and AI-assisted decision making.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal manages large volumes of operational, clinical and business information.
+The Nutritionist Portal organizes information according to professional nutritional workflows rather than technical system modules.
 
-Its Information Architecture is designed around professional workflows rather than application modules, ensuring that users can quickly locate information, complete tasks and collaborate with EVO.
+Information is grouped into business domains, allowing nutrition professionals to navigate naturally between clients, assessments, meal plans, progress and collaboration.
 
-The architecture is modular, scalable and role-aware.
+The architecture supports scalability, discoverability and contextual AI assistance.
 
 ---
 
@@ -32,127 +32,396 @@ The architecture is modular, scalable and role-aware.
 
 The Information Architecture shall:
 
-- Organize information around business domains.
-- Reduce cognitive load.
-- Improve discoverability.
-- Support role-based navigation.
-- Enable contextual AI assistance.
-- Scale with future capabilities.
-- Maintain consistency across modules.
+- Organize information logically.
+- Reduce navigation effort.
+- Improve information discoverability.
+- Support multidisciplinary workflows.
+- Enable AI contextualization.
+- Scale with future modules.
+- Maintain consistency across EVOXA.
 
 ---
 
-# Information Architecture Principles
+# Information Philosophy
 
-The Coach Portal follows these principles:
+Information is organized around the client lifecycle.
 
-- Task-Oriented Navigation.
-- Client-Centered Information.
-- Progressive Disclosure.
-- Context Awareness.
-- Consistency.
-- Predictability.
-- Scalability.
+Every piece of information belongs to a business domain.
+
+Every domain has:
+
+- Ownership
+- Navigation
+- Permissions
+- Metadata
+- Relationships
+- Searchability
 
 ---
 
-# Information Hierarchy
+# Information Domains
+
+The Nutritionist Portal is composed of the following domains:
+
+- Dashboard
+- Clients
+- Assessments
+- Meal Plans
+- Recipes
+- Food Database
+- Supplements
+- Shopping Lists
+- Progress
+- Reports
+- Calendar
+- Messaging
+- Notifications
+- AI Workspace
+- Administration
+
+---
+
+# Domain Hierarchy
 
 ```text
-Platform
+Nutritionist Portal
 
-↓
-
-Portal
-
-↓
-
-Capability Domain
-
-↓
-
-Module
-
-↓
-
-Feature
-
-↓
-
-Screen
-
-↓
-
-Component
-```
-
----
-
-# Capability Domains
-
-The Coach Portal is organized into strategic capability domains.
-
-| Domain | Purpose |
-|---------|----------|
-| Dashboard | Operational overview |
-| Client Care | Client lifecycle management |
-| Programs | Training and nutrition |
-| Communication | Messaging and video sessions |
-| Scheduling | Calendar and appointments |
-| AI Copilot | EVO recommendations |
-| Analytics | Performance and KPIs |
-| Business Operations | Billing and reports |
-| Administration | Settings and configuration |
-
----
-
-# Navigation Model
-
-```text
-Dashboard
-
+├── Dashboard
 ├── Clients
 │   ├── Profile
-│   ├── Human Digital Twin
-│   ├── Assessments
+│   ├── Medical History
 │   ├── Goals
-│   ├── Programs
-│   ├── Nutrition
+│   ├── Assessments
+│   ├── Meal Plans
 │   ├── Progress
-│   ├── Files
-│   └── Timeline
-│
+│   ├── Messages
+│   └── Human Digital Twin
+├── Recipes
+├── Food Database
+├── Supplements
+├── Reports
 ├── Calendar
-│
-├── Messaging
-│
-├── AI Assistant
-│
-├── Analytics
-│
-├── Billing
-│
-├── Marketplace
-│
+├── AI Workspace
 └── Settings
 ```
 
 ---
 
-# Client-Centered Architecture
+# Navigation Model
 
-Every client acts as a central information hub.
+The portal follows a hybrid navigation model:
+
+- Global Navigation
+- Context Navigation
+- Client Navigation
+- Workflow Navigation
+- Search Navigation
+
+Navigation adapts according to user context.
+
+---
+
+# Dashboard
+
+Provides a consolidated overview including:
+
+- Daily appointments
+- Pending assessments
+- Client alerts
+- AI recommendations
+- Recent activity
+- Nutritional statistics
+
+---
+
+# Client Workspace
+
+Each client acts as an information hub.
+
+Client workspace includes:
+
+- Personal profile
+- Nutritional history
+- Body composition
+- Assessments
+- Meal plans
+- Supplements
+- Reports
+- Communication
+- Digital Twin
+- Timeline
+
+---
+
+# Assessment Domain
+
+Contains:
+
+- Anthropometric data
+- Clinical indicators
+- Dietary history
+- Laboratory values
+- Lifestyle information
+- Nutritional diagnosis
+
+Historical assessments remain immutable after approval.
+
+---
+
+# Meal Planning Domain
+
+Stores:
+
+- Meal plans
+- Daily menus
+- Weekly schedules
+- Macronutrient targets
+- Micronutrient analysis
+- Alternatives
+
+Plans maintain complete version history.
+
+---
+
+# Recipe Domain
+
+Organizes recipes by:
+
+- Meal type
+- Dietary pattern
+- Calories
+- Macronutrients
+- Allergens
+- Cuisine
+- Preparation time
+
+Recipes are reusable across meal plans.
+
+---
+
+# Food Database
+
+Contains:
+
+- Foods
+- Nutritional values
+- Serving sizes
+- Food groups
+- Micronutrients
+- Glycemic index
+- Dietary tags
+
+---
+
+# Progress Domain
+
+Tracks:
+
+- Weight history
+- Body composition
+- Measurements
+- Goal achievement
+- Adherence
+- Behavioral trends
+- AI predictions
+
+---
+
+# AI Workspace
+
+Provides:
+
+- AI chat
+- Meal recommendations
+- Recipe generation
+- Nutritional analysis
+- Deficiency detection
+- Report summaries
+- Decision support
+
+---
+
+# Search Architecture
+
+Global search indexes:
+
+- Clients
+- Meal plans
+- Assessments
+- Recipes
+- Foods
+- Reports
+- Messages
+
+Supports:
+
+- Full-text search
+- Semantic search
+- AI search
+- Filters
+- Saved searches
+
+---
+
+# Metadata Model
+
+Every object includes:
+
+- Identifier
+- Owner
+- Creation date
+- Last update
+- Version
+- Tags
+- Status
+- Permissions
+
+---
+
+# Taxonomy
+
+Primary taxonomy includes:
+
+- Nutrition
+- Assessment
+- Meals
+- Foods
+- Supplements
+- Progress
+- Communication
+- AI
+
+Secondary classifications:
+
+- Clinical
+- Sports
+- Wellness
+- Pediatric
+- Corporate
+
+---
+
+# Human Digital Twin Information Model
+
+```text
+Identity
+
+↓
+
+Nutrition
+
+↓
+
+Body Composition
+
+↓
+
+Behavior
+
+↓
+
+Recovery
+
+↓
+
+Predictions
+```
+
+The Digital Twin aggregates information from every domain.
+
+---
+
+# Relationships
 
 ```text
 Client
 
 ↓
 
-Profile
+Assessment
 
 ↓
 
-Digital Twin
+Meal Plan
+
+↓
+
+Progress
+
+↓
+
+Reports
+
+↓
+
+AI
+```
+
+Every relationship is bidirectional where appropriate.
+
+---
+
+# Cross-Portal Information
+
+Information shared with:
+
+- User Portal
+- Coach Portal
+- Enterprise Portal
+- AI Platform
+- Analytics Platform
+
+Data sharing follows permission and consent policies.
+
+---
+
+# Information Lifecycle
+
+```text
+Create
+
+↓
+
+Review
+
+↓
+
+Approve
+
+↓
+
+Publish
+
+↓
+
+Monitor
+
+↓
+
+Archive
+```
+
+---
+
+# Scalability
+
+The architecture supports future domains including:
+
+- Wearables
+- Genomics
+- Continuous glucose monitoring
+- Population health
+- Marketplace
+- Clinical protocols
+
+---
+
+# Standard Visual Artifacts
+
+## Domain Map
+
+```text
+Clients
 
 ↓
 
@@ -160,253 +429,23 @@ Assessments
 
 ↓
 
-Programs
+Meal Plans
 
 ↓
 
-Goals
-
-↓
-
-Messages
+Progress
 
 ↓
 
 Reports
 ```
 
-The client becomes the primary navigation context for professionals.
-
 ---
-
-# Information Ownership
-
-| Information | Owner |
-|-------------|-------|
-| Client Profile | Client Domain |
-| Human Digital Twin | Platform Core |
-| Training Plans | Training Domain |
-| Nutrition Plans | Nutrition Domain |
-| Appointments | Calendar Domain |
-| Messages | Communication Domain |
-| Analytics | Analytics Platform |
-| Billing | Billing Platform |
-
-Ownership is explicit and aligned with Domain-Driven Design.
-
----
-
-# Navigation Levels
-
-## Level 1
-
-Global Navigation
-
-Examples:
-
-- Dashboard
-- Clients
-- Calendar
-- Analytics
-
----
-
-## Level 2
-
-Module Navigation
-
-Examples:
-
-- Assessments
-- Training
-- Nutrition
-- Goals
-
----
-
-## Level 3
-
-Context Navigation
-
-Examples:
-
-- Selected Client
-- Selected Program
-- Selected Appointment
-
----
-
-# Search Architecture
-
-Global search supports:
-
-- Clients.
-- Programs.
-- Exercises.
-- Nutrition plans.
-- Assessments.
-- Reports.
-- Messages.
-
-Search results respect role-based permissions.
-
----
-
-# Contextual Navigation
-
-Navigation adapts according to:
-
-- Active client.
-- Current workflow.
-- Professional role.
-- Organization.
-- Permissions.
-- AI recommendations.
-
----
-
-# AI Information Layer
-
-EVO enriches information with:
-
-- Context summaries.
-- Recommendations.
-- Risk indicators.
-- Suggested actions.
-- Related insights.
-
-AI augments existing information rather than replacing it.
-
----
-
-# Content Taxonomy
-
-| Category | Examples |
-|-----------|----------|
-| Client Data | Profile, goals |
-| Assessments | Measurements, evaluations |
-| Programs | Workouts, nutrition |
-| Communication | Messages, calls |
-| Analytics | KPIs, reports |
-| Administration | Settings, permissions |
-
----
-
-# Metadata Strategy
-
-Every entity includes:
-
-- Identifier.
-- Owner.
-- Status.
-- Version.
-- Tags.
-- Created Date.
-- Updated Date.
-- Visibility.
-- Classification.
-
----
-
-# Information Relationships
-
-```text
-Coach
-
-↓
-
-Clients
-
-↓
-
-Programs
-
-↓
-
-Sessions
-
-↓
-
-Results
-
-↓
-
-Analytics
-```
-
----
-
-# Information Lifecycle
-
-```text
-Created
-
-↓
-
-Validated
-
-↓
-
-Active
-
-↓
-
-Archived
-
-↓
-
-Deleted
-```
-
----
-
-# Discoverability
-
-Information shall be accessible through:
-
-- Navigation.
-- Search.
-- AI Assistant.
-- Shortcuts.
-- Dashboard widgets.
-- Notifications.
-
----
-
-# Personalization
-
-The architecture adapts to:
-
-- Professional role.
-- Favorite modules.
-- Recent activity.
-- Active clients.
-- AI recommendations.
-
----
-
-# Scalability
-
-Future modules integrate through the same information hierarchy.
-
-Examples:
-
-- Telemedicine.
-- Laboratory Results.
-- Wearable Devices.
-- Research Studies.
-- Insurance Integration.
-
-No navigation redesign is required.
-
----
-
-# Standard Visual Artifacts
 
 ## Information Hierarchy
 
 ```text
-Platform
+Portal
 
 ↓
 
@@ -418,47 +457,31 @@ Module
 
 ↓
 
-Screen
+Entity
 ```
 
 ---
 
-## Navigation Map
-
-```text
-Dashboard
-
-↓
-
-Clients
-
-↓
-
-Programs
-
-↓
-
-Analytics
-```
-
----
-
-## Client Information Tree
+## Client Information Hub
 
 ```text
 Client
 
 ↓
 
+History
+
+↓
+
+Plans
+
+↓
+
+Progress
+
+↓
+
 Digital Twin
-
-↓
-
-Programs
-
-↓
-
-Results
 ```
 
 ---
@@ -478,7 +501,7 @@ Results
 
 ↓
 
-Actions
+AI Ranking
 ```
 
 ---
@@ -488,38 +511,22 @@ Actions
 ```text
 artifacts/
 └── information-architecture/
-    ├── navigation-map.drawio
-    ├── client-information-tree.drawio
-    ├── capability-domains.drawio
-    ├── information-flow.drawio
-    ├── search-architecture.drawio
-    ├── metadata-model.drawio
+    ├── domain-map.drawio
+    ├── hierarchy.drawio
+    ├── client-workspace.drawio
+    ├── search.drawio
+    ├── taxonomy.drawio
+    ├── relationships.drawio
     ├── mermaid/
     │   ├── hierarchy.mmd
-    │   ├── navigation.mmd
-    │   ├── taxonomy.mmd
+    │   ├── domains.mmd
+    │   ├── relationships.mmd
     │   ├── search.mmd
-    │   └── ownership.mmd
+    │   └── digital-twin.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
-```
-
----
-
-# Repository Structure
-
-```text
-catalog/
-├── capability-domains/
-├── navigation/
-├── taxonomy/
-├── search/
-├── metadata/
-├── ownership/
-├── relationships/
-└── diagrams/
+        ├── information-architecture.svg
+        ├── information-architecture.png
+        └── information-architecture.pdf
 ```
 
 ---
@@ -528,10 +535,10 @@ catalog/
 
 | Artifact | Reference |
 |----------|-----------|
+| Personas | Chapter 04 |
 | User Journeys | Chapter 05 |
 | UX Goals | Chapter 07 |
 | Screen Catalog | Chapter 08 |
-| Layout Architecture | Chapter 09 |
 | Navigation Architecture | Chapter 10 |
 | Workflow Architecture | Chapter 16 |
 | Data Model | Chapter 22 |
@@ -542,13 +549,13 @@ catalog/
 
 This chapter is complete when:
 
-- Information hierarchy is defined.
-- Capability domains are documented.
-- Navigation levels are established.
-- Search strategy is specified.
-- Content taxonomy is documented.
-- Metadata strategy is defined.
-- Information ownership is assigned.
+- Information domains are defined.
+- Navigation hierarchy is documented.
+- Client workspace organization is specified.
+- Metadata and taxonomy models are established.
+- Search architecture is documented.
+- Human Digital Twin information model is defined.
+- Cross-portal information relationships are specified.
 - Visual artifacts are available.
 - Traceability is complete.
 
@@ -556,10 +563,10 @@ This chapter is complete when:
 
 # Key Takeaways
 
-- The Information Architecture organizes the Coach Portal around professional workflows and client-centric contexts rather than isolated application modules.
-- Capability domains, contextual navigation and metadata provide a scalable foundation for current and future platform features.
-- AI enriches information with contextual insights while preserving a predictable and intuitive navigation experience.
-- The architecture supports rapid information discovery, efficient task completion and long-term platform evolution.
+- The Nutritionist Portal organizes information around professional nutritional workflows rather than technical modules, enabling faster and more intuitive navigation.
+- A domain-driven information architecture, combined with standardized metadata and taxonomy, improves discoverability, consistency and long-term scalability.
+- The Client Workspace acts as the central information hub, integrating assessments, meal plans, progress, communication and the Human Digital Twin into a unified professional view.
+- Shared information models and AI-aware search capabilities ensure seamless collaboration across the EVOXA ecosystem while preserving governance, permissions and data integrity.
 
 ---
 
@@ -567,4 +574,4 @@ This chapter is complete when:
 
 **Chapter 07 — UX Goals**
 
-This chapter defines the user experience objectives of the Coach Portal, including usability principles, interaction goals, productivity metrics, AI-assisted experiences and design success criteria.
+This chapter defines the user experience objectives of the Nutritionist Portal, including usability principles, interaction goals, cognitive load reduction, AI-assisted experiences and measurable UX success criteria.
