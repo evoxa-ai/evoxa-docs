@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-05
-chapter_id: CH-04-COACH-05
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-05
+chapter_id: CH-05-NUTRITION-05
+feature_pack: FP-NUTRITION-0000
 title: User Journeys
 version: 1.0.0
 status: Draft
@@ -14,43 +14,43 @@ last_updated: 2026-08-04
 
 # Chapter 05 — User Journeys
 
-> *The User Journeys chapter defines the end-to-end workflows performed by professional users within the Coach Portal, ensuring a consistent, AI-assisted and user-centered experience across all operational scenarios.*
+> *The User Journeys chapter defines the end-to-end professional workflows performed within the Nutritionist Portal, covering nutritional care, AI-assisted planning, monitoring, collaboration and continuous client engagement.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal supports professionals throughout the complete coaching lifecycle.
+The Nutritionist Portal supports the complete nutritional care lifecycle.
 
-Each journey represents a business process rather than a sequence of screens.
+Every journey has been designed to minimize administrative work while maximizing clinical effectiveness, personalization and collaboration.
 
-Journeys integrate Human Digital Twins, Artificial Intelligence, business rules, analytics and collaboration to improve operational efficiency and client outcomes.
+Artificial Intelligence assists professionals throughout each workflow without replacing professional judgment.
+
+---
+
+# Objectives
+
+The User Journeys shall:
+
+- Standardize nutritional workflows.
+- Improve professional productivity.
+- Reduce repetitive work.
+- Increase client adherence.
+- Enable multidisciplinary collaboration.
+- Integrate AI naturally.
+- Continuously update the Human Digital Twin.
 
 ---
 
 # Journey Philosophy
 
-A journey represents a complete professional objective.
+Every journey follows:
 
-Each journey defines:
+Assessment
 
-- Persona
-- Goal
-- Trigger
-- Preconditions
-- Workflow
-- AI Participation
-- Success Criteria
-- Related APIs
-- Events
-- Business Rules
+↓
 
----
-
-# Journey Lifecycle
-
-```text
-Goal
+Analysis
 
 ↓
 
@@ -66,189 +66,252 @@ Monitoring
 
 ↓
 
-Decision
+Optimization
 
 ↓
 
-Completion
-```
+Continuous Improvement
 
 ---
 
 # Journey Catalog
 
-| Journey ID | Journey | Primary Persona |
-|------------|-----------------------------|----------------|
-| JRN-COACH-001 | Coach Onboarding | Coach |
-| JRN-COACH-002 | Daily Dashboard Review | Coach |
-| JRN-COACH-003 | Client Registration | Coach |
-| JRN-COACH-004 | Initial Assessment | Coach |
-| JRN-COACH-005 | Training Program Creation | Coach |
-| JRN-COACH-006 | Nutrition Plan Creation | Nutritionist |
-| JRN-COACH-007 | Client Follow-up | Coach |
-| JRN-COACH-008 | Appointment Management | Coach |
-| JRN-COACH-009 | AI Recommendation Review | Coach |
-| JRN-COACH-010 | Progress Evaluation | Coach |
-| JRN-COACH-011 | Team Collaboration | Team Manager |
-| JRN-COACH-012 | Business Analytics Review | Enterprise Coach |
+The Nutritionist Portal includes:
+
+- Client Onboarding
+- Initial Nutritional Assessment
+- Follow-up Consultation
+- Meal Plan Creation
+- Recipe Management
+- Supplement Planning
+- Shopping List Generation
+- Progress Monitoring
+- AI Consultation
+- Multidisciplinary Collaboration
+- Reporting
+- Client Communication
 
 ---
 
-# Journey 01 — Coach Onboarding
+# Journey 01
 
-## Goal
+## Client Onboarding
 
-Configure the professional workspace and prepare the platform for daily operations.
+### Trigger
 
----
+A new client is registered.
 
-### Steps
+### Workflow
 
 ```text
-Login
+Create Client
 
 ↓
 
-Profile Setup
+Verify Identity
 
 ↓
 
-Organization Selection
+Collect Medical History
 
 ↓
 
-Permissions
+Define Goals
 
 ↓
 
-AI Configuration
+Consent Management
 
 ↓
 
-Dashboard Ready
+Create Human Digital Twin
+
+↓
+
+Schedule Assessment
 ```
-
----
 
 ### AI Assistance
 
-EVO:
+- Risk identification
+- Missing information detection
+- Suggested assessment forms
 
-- Configures preferences.
-- Explains platform capabilities.
-- Suggests initial setup.
-- Recommends dashboard widgets.
+### Outcome
 
----
-
-### Success Criteria
-
-- Profile completed.
-- Organization assigned.
-- Dashboard configured.
-- Notifications enabled.
+Client profile ready for nutritional assessment.
 
 ---
 
-# Journey 02 — Daily Dashboard Review
+# Journey 02
 
-## Goal
+## Initial Nutritional Assessment
 
-Understand the operational status before beginning work.
+### Workflow
 
----
+```text
+Client
 
-### Activities
+↓
 
-- Review today's appointments.
-- Check AI alerts.
-- Review client messages.
-- Identify overdue tasks.
-- Analyze high-risk clients.
+Anthropometric Assessment
 
----
+↓
+
+Dietary Assessment
+
+↓
+
+Lifestyle Evaluation
+
+↓
+
+Clinical Indicators
+
+↓
+
+AI Analysis
+
+↓
+
+Nutrition Diagnosis
+```
+
+Collected information includes:
+
+- Height
+- Weight
+- Body composition
+- Waist circumference
+- Dietary habits
+- Allergies
+- Health conditions
+- Medications
+- Activity level
+- Goals
 
 ### AI Assistance
 
-EVO prioritizes:
+- Nutritional risk scoring
+- Deficiency detection
+- Recommended additional assessments
 
-- Urgent interventions.
-- High-risk clients.
-- Missed workouts.
-- Nutrition adherence.
-- Recovery warnings.
+### Outcome
 
----
-
-# Journey 03 — Client Registration
-
-```text
-New Client
-
-↓
-
-Identity Verification
-
-↓
-
-Profile
-
-↓
-
-Assessment
-
-↓
-
-Human Digital Twin
-
-↓
-
-AI Initialization
-
-↓
-
-Ready
-```
+Comprehensive nutritional profile.
 
 ---
 
-### Output
+# Journey 03
 
-A complete client profile with an initialized Human Digital Twin.
+## Meal Plan Creation
 
----
-
-# Journey 04 — Initial Assessment
-
-Professional performs:
-
-- Medical questionnaire.
-- Physical measurements.
-- Goals definition.
-- Lifestyle assessment.
-- Mobility evaluation.
-
----
-
-### AI Participation
-
-EVO generates:
-
-- Risk analysis.
-- Initial recommendations.
-- Suggested goals.
-- Baseline summary.
-
----
-
-# Journey 05 — Training Program Creation
+### Workflow
 
 ```text
 Assessment
 
 ↓
 
-Goals
+Energy Calculation
+
+↓
+
+Macro Distribution
+
+↓
+
+Meal Design
+
+↓
+
+Recipe Selection
+
+↓
+
+AI Optimization
+
+↓
+
+Professional Review
+
+↓
+
+Publish
+```
+
+### AI Assistance
+
+Supports:
+
+- Calorie estimation
+- Macronutrient optimization
+- Meal timing
+- Recipe suggestions
+- Portion calculations
+- Alternative meals
+
+### Outcome
+
+Personalized nutrition plan.
+
+---
+
+# Journey 04
+
+## Recipe Management
+
+Workflow:
+
+```text
+Recipe Library
+
+↓
+
+Search
+
+↓
+
+Customize
+
+↓
+
+Nutrition Analysis
+
+↓
+
+Assign
+
+↓
+
+Meal Plan
+```
+
+AI recommends:
+
+- Ingredient substitutions
+- Portion adjustments
+- Dietary adaptations
+- Preparation alternatives
+
+---
+
+# Journey 05
+
+## Supplement Planning
+
+Workflow:
+
+```text
+Assessment
+
+↓
+
+Identify Needs
+
+↓
+
+Review Contraindications
 
 ↓
 
@@ -256,299 +319,305 @@ AI Suggestions
 
 ↓
 
-Coach Review
+Professional Approval
 
 ↓
 
-Adjustments
-
-↓
-
-Approval
-
-↓
-
-Assignment
+Publish
 ```
 
----
+AI never prescribes supplements independently.
 
-### AI Support
-
-- Exercise recommendations.
-- Weekly planning.
-- Volume optimization.
-- Progression suggestions.
-
-Final approval belongs to the coach.
+Professional approval is mandatory.
 
 ---
 
-# Journey 06 — Nutrition Plan Creation
+# Journey 06
 
-Nutritionist:
+## Shopping List Generation
 
-- Reviews assessments.
-- Defines nutritional objectives.
-- Creates meal plans.
-- Schedules reviews.
-
----
-
-### EVO
-
-Suggests:
-
-- Calorie targets.
-- Meal timing.
-- Macronutrient distribution.
-- Alternative foods.
-
----
-
-# Journey 07 — Client Follow-up
-
-Professional reviews:
-
-- Progress.
-- Adherence.
-- Messages.
-- Measurements.
-- Recovery.
-
----
-
-### AI Analysis
-
-EVO identifies:
-
-- Positive trends.
-- Risk patterns.
-- Low adherence.
-- Recommended interventions.
-
----
-
-# Journey 08 — Appointment Management
+Workflow:
 
 ```text
-Schedule
+Meal Plan
 
 ↓
 
-Confirmation
+Aggregate Ingredients
 
 ↓
 
-Reminder
+Calculate Quantities
 
 ↓
 
-Session
+Group Categories
 
 ↓
 
-Summary
-
-↓
-
-Next Appointment
+Generate Shopping List
 ```
 
----
+Output formats:
 
-### AI Support
-
-- Detect scheduling conflicts.
-- Recommend available slots.
-- Optimize daily agenda.
-
----
-
-# Journey 09 — AI Recommendation Review
-
-Coach receives:
-
-- AI insights.
-- Risk alerts.
-- Suggested adjustments.
-- Behavioral analysis.
-
-Professional chooses:
-
-- Accept.
-- Modify.
-- Reject.
-
-Every decision is recorded.
+- Mobile
+- PDF
+- Printable
+- Shared List
 
 ---
 
-# Journey 10 — Progress Evaluation
+# Journey 07
 
-Coach compares:
-
-- Initial assessment.
-- Current status.
-- Goals.
-- Adherence.
-- Health indicators.
-
----
-
-### AI
-
-Produces:
-
-- Progress summary.
-- Predictive analysis.
-- Suggested next objectives.
-
----
-
-# Journey 11 — Team Collaboration
-
-Team Manager:
-
-- Assigns clients.
-- Reviews workload.
-- Shares observations.
-- Approves interventions.
-
----
-
-### AI
-
-Recommends:
-
-- Workload balancing.
-- Specialist referrals.
-- Team performance insights.
-
----
-
-# Journey 12 — Business Analytics Review
-
-Enterprise users review:
-
-- Active clients.
-- Revenue.
-- Coach productivity.
-- Program effectiveness.
-- AI adoption.
-- Customer retention.
-
----
-
-# Cross-Journey Capabilities
-
-All journeys support:
-
-- Notifications.
-- Messaging.
-- Attachments.
-- Audit logging.
-- AI assistance.
-- Accessibility.
-- Offline recovery.
-
----
-
-# Journey States
-
-```text
-Created
-
-↓
-
-In Progress
-
-↓
-
-Completed
-
-↓
-
-Archived
-```
-
----
-
-# Journey Metrics
-
-| Metric | Description |
-|----------|-------------|
-| Completion Rate | Journey success |
-| Average Duration | Time to completion |
-| AI Usage | AI interaction frequency |
-| User Satisfaction | Journey quality |
-| Drop-off Rate | Abandoned journeys |
-
----
-
-# Journey Analytics
-
-Analytics evaluate:
-
-- Journey efficiency.
-- Bottlenecks.
-- AI contribution.
-- User behavior.
-- Productivity.
-- Clinical outcomes.
-
----
-
-# Standard Journey Structure
-
-```text
-Trigger
-
-↓
+## Progress Monitoring
 
 Workflow
 
-↓
-
-AI
-
-↓
-
-Decision
+```text
+Measurements
 
 ↓
 
-Completion
+Diet Adherence
+
+↓
+
+Behavior Analysis
+
+↓
+
+AI Prediction
+
+↓
+
+Professional Review
+
+↓
+
+Plan Adjustment
 ```
+
+Indicators include:
+
+- Weight
+- Body composition
+- Compliance
+- Energy intake
+- Goal progress
+- Behavioral consistency
+
+---
+
+# Journey 08
+
+## AI Nutrition Consultation
+
+Workflow
+
+```text
+Professional Question
+
+↓
+
+Context Collection
+
+↓
+
+Digital Twin
+
+↓
+
+Knowledge Retrieval
+
+↓
+
+AI Recommendation
+
+↓
+
+Explanation
+
+↓
+
+Professional Decision
+```
+
+AI provides:
+
+- Nutritional guidance
+- Meal alternatives
+- Evidence summaries
+- Risk indicators
+
+Every recommendation includes confidence and explanation.
+
+---
+
+# Journey 09
+
+## Multidisciplinary Collaboration
+
+Workflow
+
+```text
+Nutritionist
+
+↓
+
+Coach
+
+↓
+
+Physician
+
+↓
+
+Physiotherapist
+
+↓
+
+Shared Client Timeline
+```
+
+Shared information respects:
+
+- Permissions
+- Consent
+- Privacy
+- Audit requirements
+
+---
+
+# Journey 10
+
+## Client Communication
+
+Supports:
+
+- Messages
+- Meal reminders
+- Progress updates
+- Educational material
+- Appointment reminders
+- AI summaries
+
+---
+
+# Journey 11
+
+## Reporting
+
+Workflow
+
+```text
+Assessment
+
+↓
+
+Progress
+
+↓
+
+AI Insights
+
+↓
+
+Charts
+
+↓
+
+Professional Review
+
+↓
+
+Export
+```
+
+Available formats:
+
+- PDF
+- Excel
+- Interactive Dashboard
+
+---
+
+# Human Digital Twin Updates
+
+Every journey contributes to:
+
+- Nutritional profile
+- Eating behavior
+- Body composition
+- Goal evolution
+- Recovery indicators
+- AI predictions
+
+The Digital Twin evolves continuously.
+
+---
+
+# AI Interaction Points
+
+AI assists during:
+
+- Assessments
+- Meal planning
+- Recipe recommendations
+- Deficiency detection
+- Progress analysis
+- Report generation
+- Client communication
+
+Human professionals always approve critical recommendations.
+
+---
+
+# Notifications
+
+Typical notifications include:
+
+- Assessment due
+- Meal plan published
+- Follow-up reminder
+- Low adherence alert
+- Nutritional risk detected
+- Client message received
+
+---
+
+# Business Events
+
+Journeys generate events such as:
+
+- NutritionalAssessmentCompleted
+- MealPlanPublished
+- SupplementPlanApproved
+- ProgressUpdated
+- AIRecommendationAccepted
+- ShoppingListGenerated
+
+---
+
+# Success Metrics
+
+Measured indicators:
+
+| KPI | Target |
+|------|---------|
+| Assessment Completion | >95% |
+| Meal Plan Publication | <30 minutes |
+| Client Adherence | >80% |
+| AI Acceptance | >75% |
+| Follow-up Completion | >90% |
 
 ---
 
 # Standard Visual Artifacts
 
-## Journey Map
+## Complete Nutrition Journey
 
 ```text
-Persona
-
-↓
-
-Actions
-
-↓
-
-AI
-
-↓
-
-Outcome
-```
-
----
-
-## Client Lifecycle
-
-```text
-Registration
+Client
 
 ↓
 
@@ -556,47 +625,23 @@ Assessment
 
 ↓
 
-Program
+Meal Plan
 
 ↓
 
-Follow-up
+Monitoring
 
 ↓
 
-Results
+Optimization
 ```
 
 ---
 
-## Coaching Cycle
+## AI Assisted Journey
 
 ```text
-Assess
-
-↓
-
-Plan
-
-↓
-
-Execute
-
-↓
-
-Monitor
-
-↓
-
-Improve
-```
-
----
-
-## AI Decision Flow
-
-```text
-Context
+Nutritionist
 
 ↓
 
@@ -608,7 +653,51 @@ Recommendation
 
 ↓
 
-Coach Decision
+Approval
+
+↓
+
+Client
+```
+
+---
+
+## Human Digital Twin Evolution
+
+```text
+Assessment
+
+↓
+
+Digital Twin
+
+↓
+
+Prediction
+
+↓
+
+Recommendation
+```
+
+---
+
+## Collaboration Journey
+
+```text
+Nutritionist
+
+↓
+
+Coach
+
+↓
+
+Physician
+
+↓
+
+Client
 ```
 
 ---
@@ -618,18 +707,20 @@ Coach Decision
 ```text
 artifacts/
 └── user-journeys/
-    ├── coach-onboarding.drawio
-    ├── client-lifecycle.drawio
-    ├── coaching-cycle.drawio
-    ├── ai-decision.drawio
-    ├── business-journeys.drawio
-    ├── journey-map.drawio
+    ├── onboarding.drawio
+    ├── assessment.drawio
+    ├── meal-planning.drawio
+    ├── progress.drawio
+    ├── ai-consultation.drawio
+    ├── collaboration.drawio
+    ├── digital-twin.drawio
     ├── mermaid/
     │   ├── onboarding.mmd
     │   ├── assessment.mmd
-    │   ├── training.mmd
-    │   ├── followup.mmd
-    │   └── analytics.mmd
+    │   ├── meal-plan.mmd
+    │   ├── progress.mmd
+    │   ├── ai.mmd
+    │   └── collaboration.mmd
     └── exports/
         ├── *.svg
         ├── *.png
@@ -648,7 +739,7 @@ artifacts/
 | Business Rules | Chapter 17 |
 | User Stories | Chapter 18 |
 | AI Services | Chapter 21 |
-| Event Architecture | Chapter 20 |
+| Data Model | Chapter 22 |
 
 ---
 
@@ -656,12 +747,12 @@ artifacts/
 
 This chapter is complete when:
 
-- Primary user journeys are documented.
-- Journey objectives are defined.
-- AI participation is specified.
-- Success criteria are identified.
-- Journey metrics are established.
-- Cross-journey capabilities are documented.
+- All core nutritional workflows are documented.
+- AI interaction points are defined.
+- Human Digital Twin updates are identified.
+- Collaboration journeys are specified.
+- Business events are mapped.
+- Success metrics are established.
 - Visual artifacts are available.
 - Traceability is complete.
 
@@ -669,10 +760,10 @@ This chapter is complete when:
 
 # Key Takeaways
 
-- User Journeys describe complete professional workflows rather than isolated interface interactions.
-- EVO supports every journey by providing contextual recommendations while preserving the professional's authority over decisions.
-- Human Digital Twins, analytics and business rules enrich each journey with personalized insights and operational intelligence.
-- Standardized journeys ensure consistency across UX, APIs, workflows, testing and analytics throughout the Coach Portal.
+- The Nutritionist Portal supports the complete nutritional care lifecycle, from client onboarding through continuous monitoring and optimization.
+- AI is embedded across every major workflow, providing contextual recommendations, predictive insights and evidence-based guidance while preserving professional oversight.
+- Every interaction enriches the Human Digital Twin, enabling increasingly personalized nutritional interventions over time.
+- Standardized journeys, multidisciplinary collaboration and event-driven integration ensure consistent, scalable and measurable nutritional care throughout the EVOXA ecosystem.
 
 ---
 
@@ -680,4 +771,4 @@ This chapter is complete when:
 
 **Chapter 06 — Information Architecture**
 
-This chapter defines the structural organization of the Coach Portal, including navigation hierarchy, content taxonomy, module relationships, information ownership and discoverability principles.
+This chapter defines the information architecture of the Nutritionist Portal, including navigation hierarchies, content organization, domain boundaries, information flows and relationships between modules to support efficient, intuitive and scalable professional workflows.
