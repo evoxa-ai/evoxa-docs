@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-08
-chapter_id: CH-04-COACH-08
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-08
+chapter_id: CH-05-NUTRITION-08
+feature_pack: FP-NUTRITION-0000
 title: Screen Catalog
 version: 1.0.0
 status: Draft
@@ -14,17 +14,17 @@ last_updated: 2026-08-04
 
 # Chapter 08 — Screen Catalog
 
-> *The Screen Catalog defines every screen, workspace and operational interface available within the Coach Portal, providing a complete inventory of professional user experiences, navigation paths and AI-assisted interactions.*
+> *The Screen Catalog defines the complete inventory of user interface screens within the Nutritionist Portal, including their purpose, navigation, permissions, business responsibilities, AI capabilities and integration points.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal is composed of multiple interconnected workspaces designed around professional workflows.
+The Nutritionist Portal consists of a collection of specialized workspaces supporting every stage of the nutritional care lifecycle.
 
-Rather than organizing screens by technical modules, the platform groups interfaces into business-oriented workspaces that enable professionals to complete end-to-end operational tasks efficiently.
+Each screen is designed around professional workflows, minimizing cognitive load while exposing contextual information and AI-powered assistance.
 
-Each screen has a clearly defined responsibility, ownership, permission model and relationship with business workflows, AI services and data domains.
+The catalog serves as the authoritative reference for UX, Frontend Engineering, QA and Product teams.
 
 ---
 
@@ -32,319 +32,422 @@ Each screen has a clearly defined responsibility, ownership, permission model an
 
 The Screen Catalog shall:
 
-- Define every screen.
-- Standardize naming.
-- Support modular navigation.
-- Improve discoverability.
-- Enable UX consistency.
-- Define ownership.
-- Support future expansion.
+- Standardize screen definitions.
+- Provide complete UI inventory.
+- Improve traceability.
+- Support navigation architecture.
+- Enable consistent UX.
+- Document permissions.
+- Facilitate future expansion.
 
 ---
 
-# Screen Architecture
+# Screen Philosophy
 
-```text
-Portal
+Every screen shall have:
 
-↓
-
-Workspace
-
-↓
-
-Screen
-
-↓
-
-Section
-
-↓
-
-Component
-
-↓
-
-Widget
-```
-
----
-
-# Workspace Catalog
-
-| Workspace | Purpose |
-|------------|----------|
-| Dashboard | Operational overview |
-| Clients | Client lifecycle |
-| Assessments | Health evaluations |
-| Training | Workout management |
-| Nutrition | Nutrition management |
-| Calendar | Scheduling |
-| Messaging | Communication |
-| Video Sessions | Telecoaching |
-| AI Copilot | AI assistance |
-| Analytics | Insights |
-| Billing | Financial operations |
-| Marketplace | Resources |
-| Administration | Configuration |
+- Unique identifier.
+- Business purpose.
+- Navigation entry.
+- Required permissions.
+- Primary workflows.
+- AI capabilities.
+- Related APIs.
+- Associated events.
 
 ---
 
 # Screen Classification
 
-| Type | Description |
-|--------|-------------|
-| Landing | Entry screen |
-| List | Collection of entities |
-| Detail | Individual entity |
-| Wizard | Guided workflow |
-| Dashboard | Operational summary |
-| Workspace | Business environment |
-| Configuration | Settings |
-| Analytics | KPI visualization |
+Screens are grouped into:
+
+- Global Screens
+- Dashboard
+- Client Management
+- Assessments
+- Nutrition Planning
+- Food Management
+- Progress
+- Collaboration
+- Reporting
+- Administration
 
 ---
 
-# Dashboard Workspace
+# Global Screens
 
-| Screen ID | Screen |
-|------------|---------|
-| SCR-COACH-001 | Main Dashboard |
-| SCR-COACH-002 | Today's Agenda |
-| SCR-COACH-003 | AI Priorities |
-| SCR-COACH-004 | Pending Tasks |
-| SCR-COACH-005 | Business KPIs |
-
----
-
-# Client Workspace
-
-| Screen ID | Screen |
-|------------|---------|
-| SCR-COACH-100 | Client Directory |
-| SCR-COACH-101 | Client Profile |
-| SCR-COACH-102 | Human Digital Twin |
-| SCR-COACH-103 | Goals |
-| SCR-COACH-104 | Timeline |
-| SCR-COACH-105 | Progress |
-| SCR-COACH-106 | Documents |
-| SCR-COACH-107 | Notes |
-| SCR-COACH-108 | Activity History |
+| ID | Screen | Purpose |
+|----|---------|----------|
+| SCR-0001 | Login | User authentication |
+| SCR-0002 | MFA Verification | Multi-factor authentication |
+| SCR-0003 | Forgot Password | Password recovery |
+| SCR-0004 | Notifications Center | Global notifications |
+| SCR-0005 | User Profile | Personal settings |
 
 ---
 
-# Assessment Workspace
+# Dashboard
 
-| Screen ID | Screen |
-|------------|---------|
-| SCR-COACH-200 | Assessment Dashboard |
-| SCR-COACH-201 | Initial Assessment |
-| SCR-COACH-202 | Body Composition |
-| SCR-COACH-203 | Physical Evaluation |
-| SCR-COACH-204 | Lifestyle Assessment |
-| SCR-COACH-205 | Medical History |
+## SCR-0100 — Nutrition Dashboard
 
----
+Purpose
 
-# Training Workspace
+Central workspace for nutrition professionals.
 
-| Screen ID | Screen |
-|------------|---------|
-| SCR-COACH-300 | Training Library |
-| SCR-COACH-301 | Program Builder |
-| SCR-COACH-302 | Exercise Library |
-| SCR-COACH-303 | Weekly Planner |
-| SCR-COACH-304 | Session Detail |
-| SCR-COACH-305 | Progression Planner |
+Displays:
+
+- Daily appointments
+- Pending assessments
+- AI insights
+- Client alerts
+- Recent activity
+- Performance indicators
+
+Permissions
+
+Nutritionist
 
 ---
 
-# Nutrition Workspace
+# Client Management
 
-| Screen ID | Screen |
-|------------|---------|
-| SCR-COACH-400 | Nutrition Dashboard |
-| SCR-COACH-401 | Meal Planner |
-| SCR-COACH-402 | Food Database |
-| SCR-COACH-403 | Supplement Plans |
-| SCR-COACH-404 | Nutrition Adherence |
+## SCR-0200 — Client Directory
 
----
+Displays:
 
-# Calendar Workspace
-
-| Screen ID | Screen |
-|------------|---------|
-| SCR-COACH-500 | Calendar |
-| SCR-COACH-501 | Daily Agenda |
-| SCR-COACH-502 | Appointment Detail |
-| SCR-COACH-503 | Availability |
-| SCR-COACH-504 | Recurring Sessions |
+- Client list
+- Filters
+- Search
+- Status
+- Assigned nutrition plans
 
 ---
 
-# Messaging Workspace
+## SCR-0201 — Client Profile
 
-| Screen ID | Screen |
-|------------|---------|
-| SCR-COACH-600 | Inbox |
-| SCR-COACH-601 | Conversation |
-| SCR-COACH-602 | Broadcast Messages |
-| SCR-COACH-603 | Attachments |
+Contains:
+
+- Personal information
+- Medical history
+- Goals
+- Dietary restrictions
+- Human Digital Twin
+- Timeline
 
 ---
 
-# Video Workspace
+## SCR-0202 — Client Timeline
 
-| Screen ID | Screen |
-|------------|---------|
-| SCR-COACH-700 | Session Lobby |
-| SCR-COACH-701 | Live Session |
-| SCR-COACH-702 | Session Summary |
+Displays:
+
+- Assessments
+- Meal plans
+- Progress
+- Messages
+- Appointments
+- AI recommendations
+
+---
+
+# Nutritional Assessments
+
+## SCR-0300 — Assessment List
+
+Features:
+
+- Search
+- Filters
+- Status
+- Scheduled assessments
+
+---
+
+## SCR-0301 — New Assessment
+
+Supports:
+
+- Anthropometric measurements
+- Dietary assessment
+- Clinical indicators
+- Lifestyle evaluation
+
+---
+
+## SCR-0302 — Assessment Detail
+
+Displays:
+
+- Results
+- AI analysis
+- Nutritional diagnosis
+- Recommendations
+- Attachments
+
+---
+
+# Meal Planning
+
+## SCR-0400 — Meal Plan Library
+
+Displays:
+
+- Existing plans
+- Templates
+- Favorites
+- Organization library
+
+---
+
+## SCR-0401 — Meal Plan Editor
+
+Capabilities:
+
+- Daily meals
+- Weekly schedule
+- Macro distribution
+- Portion control
+- Alternatives
+
+AI assists throughout planning.
+
+---
+
+## SCR-0402 — Meal Plan Preview
+
+Displays:
+
+- Nutritional summary
+- Macronutrients
+- Micronutrients
+- Calories
+- Export options
+
+---
+
+# Recipes
+
+## SCR-0500 — Recipe Library
+
+Features:
+
+- Categories
+- Search
+- Nutritional values
+- Favorites
+
+---
+
+## SCR-0501 — Recipe Editor
+
+Supports:
+
+- Ingredients
+- Preparation
+- Nutritional calculation
+- Dietary tags
+
+---
+
+# Food Database
+
+## SCR-0600 — Food Catalog
+
+Displays:
+
+- Foods
+- Categories
+- Nutritional values
+- Serving sizes
+
+---
+
+## SCR-0601 — Food Detail
+
+Contains:
+
+- Macronutrients
+- Micronutrients
+- Glycemic index
+- Allergens
+
+---
+
+# Supplements
+
+## SCR-0700 — Supplement Catalog
+
+Displays:
+
+- Products
+- Categories
+- Contraindications
+- Recommendations
+
+---
+
+## SCR-0701 — Supplement Planner
+
+Supports:
+
+- Scheduling
+- Dosage
+- Duration
+- AI recommendations
+
+---
+
+# Shopping Lists
+
+## SCR-0800 — Shopping List
+
+Displays:
+
+- Ingredients
+- Quantities
+- Categories
+- Export
+- Share
+
+---
+
+# Progress
+
+## SCR-0900 — Progress Dashboard
+
+Displays:
+
+- Weight trends
+- Body composition
+- Goal achievement
+- Nutritional adherence
+
+---
+
+## SCR-0901 — Measurements History
+
+Contains:
+
+- Historical measurements
+- Charts
+- Comparative analysis
+
+---
+
+# Reports
+
+## SCR-1000 — Report Center
+
+Supports:
+
+- Progress reports
+- Assessment reports
+- Nutrition summaries
+- Organization reports
+
+---
+
+## SCR-1001 — Report Viewer
+
+Displays:
+
+- Interactive reports
+- Export
+- Print
+- Share
+
+---
+
+# Calendar
+
+## SCR-1100 — Calendar
+
+Supports:
+
+- Daily schedule
+- Weekly agenda
+- Consultations
+- Follow-ups
+
+---
+
+# Messaging
+
+## SCR-1200 — Messages
+
+Features:
+
+- Conversations
+- Attachments
+- AI summaries
+- Notifications
 
 ---
 
 # AI Workspace
 
-| Screen ID | Screen |
-|------------|---------|
-| SCR-COACH-800 | EVO Copilot |
-| SCR-COACH-801 | AI Recommendations |
-| SCR-COACH-802 | Risk Center |
-| SCR-COACH-803 | Client Insights |
-| SCR-COACH-804 | AI History |
+## SCR-1300 — EVO Assistant
+
+Capabilities:
+
+- Meal recommendations
+- Recipe suggestions
+- Nutritional analysis
+- AI Chat
+- Explainability
 
 ---
 
-# Analytics Workspace
+## SCR-1301 — AI Recommendation Review
 
-| Screen ID | Screen |
-|------------|---------|
-| SCR-COACH-900 | Analytics Dashboard |
-| SCR-COACH-901 | Client KPIs |
-| SCR-COACH-902 | Business KPIs |
-| SCR-COACH-903 | Retention Analysis |
-| SCR-COACH-904 | AI Analytics |
+Displays:
 
----
-
-# Billing Workspace
-
-| Screen ID | Screen |
-|------------|---------|
-| SCR-COACH-1000 | Billing Dashboard |
-| SCR-COACH-1001 | Invoices |
-| SCR-COACH-1002 | Subscriptions |
-| SCR-COACH-1003 | Payments |
+- Recommendation
+- Confidence
+- Evidence
+- Alternatives
+- Approval workflow
 
 ---
 
-# Marketplace Workspace
+# Administration
 
-| Screen ID | Screen |
-|------------|---------|
-| SCR-COACH-1100 | Marketplace |
-| SCR-COACH-1101 | Templates |
-| SCR-COACH-1102 | Integrations |
+## SCR-1400 — Organization Settings
 
----
+Supports:
 
-# Administration Workspace
-
-| Screen ID | Screen |
-|------------|---------|
-| SCR-COACH-1200 | Settings |
-| SCR-COACH-1201 | Users |
-| SCR-COACH-1202 | Permissions |
-| SCR-COACH-1203 | Organization |
-| SCR-COACH-1204 | Audit Logs |
+- Preferences
+- Branding
+- AI configuration
+- Integrations
 
 ---
 
-# Screen Metadata
+## SCR-1401 — User Management
 
-Each screen defines:
+Features:
 
-- Screen ID
-- Workspace
-- Owner
-- Description
-- Primary Persona
+- Users
+- Roles
 - Permissions
-- Related Workflows
-- Related APIs
-- Events
-- Components
-- AI Capabilities
-- Responsive Behavior
+- Activity
 
 ---
 
-# Navigation Relationships
+# Human Digital Twin
 
-```text
-Dashboard
+## SCR-1500 — Digital Twin Dashboard
 
-↓
+Displays:
 
-Workspace
-
-↓
-
-Screen
-
-↓
-
-Detail
-
-↓
-
-Actions
-```
+- Nutritional profile
+- Behavior
+- Body composition
+- Predictions
+- AI insights
 
 ---
 
-# Screen Lifecycle
-
-```text
-Draft
-
-↓
-
-Designed
-
-↓
-
-Implemented
-
-↓
-
-Validated
-
-↓
-
-Released
-```
-
----
-
-# Future Screens
-
-Future workspaces include:
-
-- Wearables
-- Laboratory Results
-- Clinical Decision Support
-- Research
-- Insurance
-- AI Agents
-- Population Health
-
----
-
-# Standard Visual Artifacts
-
-## Workspace Map
+# Screen Relationships
 
 ```text
 Dashboard
@@ -355,43 +458,152 @@ Clients
 
 ↓
 
-Programs
+Assessment
 
 ↓
 
-Analytics
+Meal Plan
+
+↓
+
+Progress
+
+↓
+
+Reports
 ```
 
 ---
 
-## Screen Hierarchy
+# Navigation Levels
+
+The portal follows four navigation levels:
+
+1. Global
+2. Domain
+3. Context
+4. Task
+
+---
+
+# Permission Model
+
+Every screen defines:
+
+- View
+- Create
+- Update
+- Delete
+- Export
+- AI Actions
+
+Permissions are governed by Chapter 23.
+
+---
+
+# Screen Metadata
+
+Every screen includes:
+
+- Screen ID
+- Name
+- Owner
+- Version
+- Navigation Path
+- Required Role
+- APIs
+- Events
+- Components
+
+---
+
+# AI Touchpoints
+
+AI is integrated into:
+
+- Dashboard
+- Assessments
+- Meal Planning
+- Recipes
+- Supplements
+- Progress
+- Reports
+- Human Digital Twin
+
+---
+
+# Screen Metrics
+
+Measured indicators:
+
+- Screen usage
+- Task completion
+- Navigation efficiency
+- AI utilization
+- Time on screen
+- Error rate
+
+---
+
+# Repository Structure
 
 ```text
-Workspace
-
-↓
-
-Screen
-
-↓
-
-Section
-
-↓
-
-Component
+screens/
+├── authentication/
+├── dashboard/
+├── clients/
+├── assessments/
+├── meal-plans/
+├── recipes/
+├── foods/
+├── supplements/
+├── shopping/
+├── progress/
+├── reports/
+├── calendar/
+├── messaging/
+├── ai/
+├── administration/
+├── digital-twin/
+└── metadata.yml
 ```
 
 ---
 
-## Navigation Graph
+# Standard Visual Artifacts
+
+## Screen Map
 
 ```text
 Dashboard
 
 ↓
 
-Workspace
+Clients
+
+↓
+
+Assessment
+
+↓
+
+Meal Plans
+
+↓
+
+Progress
+```
+
+---
+
+## Navigation Tree
+
+```text
+Portal
+
+↓
+
+Domain
 
 ↓
 
@@ -404,14 +616,30 @@ Action
 
 ---
 
-## Professional Workspace
+## Client Workspace
 
 ```text
-Coach
+Client
 
 ↓
 
-Clients
+Assessment
+
+↓
+
+Plan
+
+↓
+
+Monitoring
+```
+
+---
+
+## AI Integration
+
+```text
+Screen
 
 ↓
 
@@ -419,11 +647,7 @@ AI
 
 ↓
 
-Programs
-
-↓
-
-Results
+Recommendation
 ```
 
 ---
@@ -433,38 +657,22 @@ Results
 ```text
 artifacts/
 └── screen-catalog/
-    ├── workspace-map.drawio
-    ├── navigation-graph.drawio
-    ├── screen-hierarchy.drawio
-    ├── professional-workspace.drawio
-    ├── dashboard-layout.drawio
-    ├── catalog-overview.drawio
+    ├── screen-map.drawio
+    ├── navigation-tree.drawio
+    ├── workspace.drawio
+    ├── ai-integration.drawio
+    ├── permissions.drawio
+    ├── screen-matrix.drawio
     ├── mermaid/
-    │   ├── workspaces.mmd
+    │   ├── screens.mmd
     │   ├── navigation.mmd
-    │   ├── hierarchy.mmd
-    │   ├── catalog.mmd
-    │   └── relationships.mmd
+    │   ├── workspace.mmd
+    │   ├── ai.mmd
+    │   └── permissions.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
-```
-
----
-
-# Repository Structure
-
-```text
-catalog/
-├── workspaces/
-├── screens/
-├── navigation/
-├── metadata/
-├── permissions/
-├── layouts/
-├── ai/
-└── diagrams/
+        ├── screen-catalog.svg
+        ├── screen-catalog.png
+        └── screen-catalog.pdf
 ```
 
 ---
@@ -478,8 +686,8 @@ catalog/
 | Layout Architecture | Chapter 09 |
 | Navigation Architecture | Chapter 10 |
 | Component Catalog | Chapter 12 |
-| Widget Catalog | Chapter 13 |
 | Workflow Architecture | Chapter 16 |
+| Security & Permissions | Chapter 23 |
 
 ---
 
@@ -487,12 +695,12 @@ catalog/
 
 This chapter is complete when:
 
-- All workspaces are identified.
-- Screens are cataloged.
-- Screen ownership is defined.
-- Navigation relationships are documented.
+- All portal screens are cataloged.
+- Screen identifiers are unique.
+- Navigation hierarchy is documented.
+- Permissions are defined.
+- AI touchpoints are identified.
 - Metadata standards are established.
-- Future expansion is supported.
 - Visual artifacts are available.
 - Traceability is complete.
 
@@ -500,10 +708,10 @@ This chapter is complete when:
 
 # Key Takeaways
 
-- The Coach Portal organizes its interface into business-oriented workspaces rather than isolated application modules.
-- Every screen has a defined purpose, ownership, navigation context and relationship with workflows, AI services and business domains.
-- A standardized catalog simplifies UX governance, implementation, testing and future platform expansion.
-- The workspace model enables professionals to perform complex operational tasks efficiently while maintaining a consistent user experience.
+- The Screen Catalog provides the authoritative inventory of every user interface within the Nutritionist Portal.
+- Each screen is uniquely identified and linked to business capabilities, navigation, permissions, APIs, events and AI services.
+- A structured screen taxonomy improves consistency, maintainability and cross-team collaboration throughout the EVOXA platform.
+- Comprehensive traceability ensures that every screen can be connected to user journeys, workflows, security policies and future product evolution.
 
 ---
 
@@ -511,4 +719,4 @@ This chapter is complete when:
 
 **Chapter 09 — Layout Architecture**
 
-This chapter defines the structural layout of every workspace, including page templates, responsive grids, navigation regions, panel composition, adaptive workspaces and layout governance.
+This chapter defines the structural layout of the Nutritionist Portal, including page templates, workspace organization, responsive behavior, layout regions, adaptive interfaces and interaction patterns that support professional nutritional workflows.
