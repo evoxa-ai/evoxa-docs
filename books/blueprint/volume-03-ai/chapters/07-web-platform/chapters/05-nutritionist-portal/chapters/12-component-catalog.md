@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-12
-chapter_id: CH-04-COACH-12
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-12
+chapter_id: CH-05-NUTRITION-12
+feature_pack: FP-NUTRITION-0000
 title: Component Catalog
 version: 1.0.0
 status: Draft
@@ -14,17 +14,17 @@ last_updated: 2026-08-04
 
 # Chapter 12 — Component Catalog
 
-> *The Component Catalog defines every reusable user interface component used throughout the Coach Portal, establishing implementation standards, interaction patterns, accessibility requirements and AI integration guidelines.*
+> *The Component Catalog defines the reusable user interface components of the Nutritionist Portal, establishing consistent behaviors, accessibility, AI integration and implementation guidelines across the EVOXA ecosystem.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal is built upon a reusable component architecture.
+The Nutritionist Portal is built using reusable UI components derived from the EVOXA Design System.
 
-Components are the fundamental building blocks used to construct every screen, workspace and workflow while ensuring consistency, maintainability and scalability.
+Each component follows standardized behavior, styling, accessibility and interaction rules to ensure a consistent user experience across all professional portals.
 
-Every component is versioned, documented and governed through the EVOXA Design System.
+The catalog provides the single source of truth for designers, frontend engineers and QA teams.
 
 ---
 
@@ -32,377 +32,505 @@ Every component is versioned, documented and governed through the EVOXA Design S
 
 The Component Catalog shall:
 
-- Standardize reusable UI elements.
-- Reduce duplicated implementations.
-- Improve UX consistency.
+- Standardize reusable UI components.
+- Reduce design duplication.
+- Improve development consistency.
 - Support accessibility.
-- Enable AI-native interactions.
+- Enable AI-enhanced interfaces.
 - Simplify maintenance.
-- Accelerate development.
+- Ensure scalability.
 
 ---
 
 # Component Philosophy
 
-Components are business-oriented rather than page-oriented.
+Every component shall be:
 
-Each component:
-
-- Solves a specific interaction.
-- Can be reused.
-- Supports accessibility.
-- Is independently testable.
-- Supports theming.
-- Supports responsive layouts.
-
----
-
-# Component Hierarchy
-
-```text
-Design Tokens
-
-↓
-
-Primitive Components
-
-↓
-
-Composite Components
-
-↓
-
-Business Components
-
-↓
-
-Workspace Templates
-
-↓
-
-Screens
-```
+- Reusable.
+- Configurable.
+- Accessible.
+- Responsive.
+- Testable.
+- Theme-aware.
+- AI-ready.
 
 ---
 
 # Component Classification
 
-| Layer | Description |
-|---------|-------------|
-| Primitive | Buttons, icons, typography |
-| Form | Inputs and validation |
-| Navigation | Menus and navigation |
-| Data Display | Cards, tables, charts |
-| Business | Client and program components |
-| AI | AI-specific components |
-| Layout | Containers and panels |
-| Feedback | Alerts and notifications |
+Components are organized into:
 
----
-
-# Primitive Components
-
-Examples:
-
-- Button
-- Icon
-- Avatar
-- Badge
-- Divider
-- Chip
-- Tooltip
-- Typography
-- Progress Indicator
-- Skeleton Loader
-
----
-
-# Form Components
-
-Examples:
-
-- Text Field
-- Number Field
-- Date Picker
-- Time Picker
-- Dropdown
-- Multi Select
-- Toggle
-- Checkbox
-- Radio Button
-- File Upload
-- Rich Text Editor
-
----
-
-# Navigation Components
-
-Examples:
-
-- Sidebar
-- Top Navigation
-- Breadcrumb
-- Tabs
-- Stepper
-- Pagination
-- Navigation Drawer
-- Context Menu
-- Command Palette
-
----
-
-# Data Display Components
-
-Examples:
-
-- Data Table
-- KPI Card
-- Statistic Card
-- Timeline
-- Activity Feed
-- Charts
-- Calendar Grid
-- Comparison View
-- Metric Card
-
----
-
-# Client Components
-
-Examples:
-
-- Client Card
-- Client Summary
-- Client Timeline
-- Human Digital Twin Panel
-- Goal Summary
-- Assessment Card
-- Progress Overview
-- Health Status
-
----
-
-# Training Components
-
-Examples:
-
-- Workout Card
-- Exercise Selector
-- Exercise Library
-- Weekly Planner
-- Session Builder
-- Progression Panel
-
----
-
-# Nutrition Components
-
-Examples:
-
-- Meal Card
-- Nutrition Summary
-- Food Selector
-- Macro Distribution
-- Meal Timeline
-- Supplement Card
-
----
-
-# Communication Components
-
-Examples:
-
-- Conversation List
-- Chat Window
-- Message Composer
-- Video Session Card
-- Notification Center
-
----
-
-# Analytics Components
-
-Examples:
-
-- KPI Widget
-- Trend Chart
-- Progress Chart
-- Heat Map
-- Leaderboard
-- Funnel Chart
-- Cohort Table
-
----
-
-# AI Components
-
-AI-native components include:
-
-- EVO Chat Panel
-- AI Recommendation Card
-- AI Insight Card
-- Risk Indicator
-- Confidence Badge
-- Recommendation Timeline
-- Explainability Panel
-- Prompt History
-
----
-
-# Feedback Components
-
-Examples:
-
-- Alert Banner
-- Toast Notification
-- Inline Validation
-- Success Dialog
-- Error Dialog
-- Confirmation Dialog
-- Loading Overlay
+- Layout Components
+- Navigation Components
+- Form Components
+- Data Components
+- Visualization Components
+- Feedback Components
+- AI Components
+- Human Digital Twin Components
+- Collaboration Components
 
 ---
 
 # Layout Components
 
-Examples:
+## CMP-001 Page Container
 
-- Workspace Container
-- Split Panel
-- Sidebar Panel
-- Context Panel
-- Dashboard Grid
-- Responsive Grid
-- Modal
-- Drawer
+Purpose
+
+Defines the main content area.
+
+Properties
+
+- Full Width
+- Fixed Width
+- Scrollable
+- Responsive
 
 ---
 
-# Component Metadata
+## CMP-002 Workspace
 
-Every component includes:
+Supports:
 
-- Component ID
-- Name
-- Category
-- Version
-- Description
-- States
-- Variants
-- Accessibility
-- Responsive Behavior
-- Dependencies
+- Client Workspace
+- Assessment Workspace
+- Meal Planning Workspace
+- Analytics Workspace
+
+---
+
+## CMP-003 Section
+
+Groups related information.
+
+Supports:
+
+- Header
+- Body
+- Footer
+
+---
+
+# Navigation Components
+
+## CMP-010 Sidebar
+
+Features
+
+- Collapsible
+- Favorites
+- Search
+- Icons
+- Notifications
+
+---
+
+## CMP-011 Breadcrumb
+
+Supports contextual navigation.
+
+---
+
+## CMP-012 Tabs
+
+Variants
+
+- Horizontal
+- Vertical
+- Scrollable
+
+---
+
+## CMP-013 Stepper
+
+Used for:
+
+- Assessments
+- Meal Planning
+- AI Review
+- Client Onboarding
+
+---
+
+# Form Components
+
+## CMP-020 Text Field
+
+States
+
+- Default
+- Focus
+- Error
+- Disabled
+- Success
+
+---
+
+## CMP-021 Number Field
+
+Supports:
+
+- Measurements
+- Calories
+- Portions
+- Weight
+
+---
+
+## CMP-022 Date Picker
+
+Used for:
+
+- Appointments
+- Assessments
+- Meal schedules
+
+---
+
+## CMP-023 Select
+
+Supports:
+
+- Single selection
+- Multiple selection
+- Searchable
+
+---
+
+## CMP-024 Switch
+
+Used for:
+
+- Preferences
+- Notifications
+- AI options
+
+---
+
+## CMP-025 Checkbox
+
+Supports grouped selections.
+
+---
+
+## CMP-026 Radio Group
+
+Single-choice options.
+
+---
+
+# Data Components
+
+## CMP-030 Table
+
+Capabilities
+
+- Sorting
+- Filtering
+- Pagination
+- Export
+- Selection
+
+---
+
+## CMP-031 Timeline
+
+Displays:
+
+- Assessments
+- Meal Plans
+- Progress
+- AI Events
+
+---
+
+## CMP-032 Card
+
+Used for:
+
+- KPI
+- Client Summary
+- AI Recommendation
+- Reports
+
+---
+
+## CMP-033 Statistic
+
+Displays:
+
+- Calories
+- BMI
+- Protein
+- Water
+- Body Fat
+
+---
+
+# Visualization Components
+
+## CMP-040 Line Chart
+
+Applications
+
+- Weight evolution
+- Calories
+- Measurements
+
+---
+
+## CMP-041 Bar Chart
+
+Applications
+
+- Macronutrients
+- Weekly intake
+- Compliance
+
+---
+
+## CMP-042 Pie Chart
+
+Applications
+
+- Nutrient distribution
+- Food groups
+
+---
+
+## CMP-043 Radar Chart
+
+Applications
+
+- Nutritional profile
+- Dietary balance
+
+---
+
+## CMP-044 Progress Ring
+
+Displays goal completion.
+
+---
+
+# Feedback Components
+
+## CMP-050 Toast
+
+Displays temporary notifications.
+
+---
+
+## CMP-051 Alert
+
+Levels
+
+- Success
+- Warning
+- Error
+- Information
+
+---
+
+## CMP-052 Dialog
+
+Supports:
+
+- Confirmation
+- Approval
+- Delete
+- AI Review
+
+---
+
+## CMP-053 Loading Skeleton
+
+Preferred loading indicator.
+
+---
+
+# AI Components
+
+## CMP-060 AI Recommendation Card
+
+Displays:
+
+- Recommendation
+- Confidence
+- Evidence
+- Actions
+
+---
+
+## CMP-061 AI Chat
+
+Supports:
+
+- Conversations
+- Suggestions
+- References
+- History
+
+---
+
+## CMP-062 AI Insight
+
+Displays contextual nutritional insights.
+
+---
+
+## CMP-063 AI Confidence Indicator
+
+Shows confidence percentage and explanation.
+
+---
+
+# Human Digital Twin Components
+
+## CMP-070 Digital Twin Summary
+
+Displays:
+
+- Current status
+- Trends
+- Health indicators
+
+---
+
+## CMP-071 Prediction Timeline
+
+Shows future nutritional projections.
+
+---
+
+## CMP-072 Nutrition Risk Indicator
+
+Visualizes nutritional risks.
+
+---
+
+# Collaboration Components
+
+## CMP-080 Comment Thread
+
+Supports multidisciplinary discussions.
+
+---
+
+## CMP-081 Mention
+
+Allows user mentions.
+
+---
+
+## CMP-082 Activity Feed
+
+Displays:
+
+- Assessments
+- AI actions
+- Reports
+- Updates
 
 ---
 
 # Component States
 
-Supported states:
+Every interactive component supports:
 
 - Default
 - Hover
 - Focus
 - Active
 - Disabled
-- Loading
 - Error
-- Success
-- Empty
+- Loading
 
 ---
 
-# Component Variants
+# Accessibility
 
-Each component may define:
-
-- Size
-- Color
-- Density
-- Layout
-- Theme
-- Interaction Mode
-
----
-
-# Accessibility Requirements
-
-Every component supports:
+All components comply with:
 
 - WCAG 2.2 AA
-- Keyboard Navigation
-- Screen Readers
-- Focus Indicators
-- High Contrast
-- ARIA Labels
+- Keyboard navigation
+- Screen reader compatibility
+- Focus visibility
+- High contrast
 
 ---
 
 # Responsive Behavior
 
-Components adapt across:
+Components adapt to:
 
 - Desktop
-- Laptop
 - Tablet
 - Mobile
 
-Behavior is documented for every breakpoint.
+Layouts remain consistent.
 
 ---
 
 # AI Integration
 
-AI-enabled components expose:
+AI-enabled components provide:
 
-- Recommendation context
-- Confidence level
-- Explanation
-- Suggested actions
-- Feedback controls
-
-Every recommendation is explainable.
+- Explainability
+- Confidence
+- Alternative recommendations
+- Professional approval
+- Feedback collection
 
 ---
 
-# Component Lifecycle
+# Design Tokens
+
+Components consume centralized tokens for:
+
+- Colors
+- Typography
+- Spacing
+- Borders
+- Shadows
+- Motion
+
+Defined in Chapter 14.
+
+---
+
+# Component Metadata
+
+Each component includes:
+
+- Component ID
+- Version
+- Owner
+- Status
+- Accessibility
+- Documentation
+- Figma Reference
+- Code Reference
+
+---
+
+# Repository Structure
 
 ```text
-Proposal
-
-↓
-
-Design
-
-↓
-
-Implementation
-
-↓
-
-Validation
-
-↓
-
-Release
-
-↓
-
-Maintenance
+components/
+├── layout/
+├── navigation/
+├── forms/
+├── data/
+├── charts/
+├── feedback/
+├── ai/
+├── digital-twin/
+├── collaboration/
+├── documentation/
+└── metadata.yml
 ```
-
----
-
-# Component Governance
-
-Every component requires:
-
-- UX Review
-- Accessibility Validation
-- Design Approval
-- QA Verification
-- Version Registration
-
-Changes are backward compatible whenever possible.
 
 ---
 
@@ -411,43 +539,39 @@ Changes are backward compatible whenever possible.
 ## Component Hierarchy
 
 ```text
-Tokens
+Layout
 
 ↓
 
-Primitive
+Navigation
 
 ↓
 
-Composite
+Content
 
 ↓
 
-Business
-
-↓
-
-Workspace
+Actions
 ```
 
 ---
 
-## Component Composition
+## Component Relationships
 
 ```text
+Page
+
+↓
+
+Workspace
+
+↓
+
+Section
+
+↓
+
 Component
-
-↓
-
-Variants
-
-↓
-
-States
-
-↓
-
-Behaviors
 ```
 
 ---
@@ -455,7 +579,7 @@ Behaviors
 ## AI Components
 
 ```text
-Context
+AI
 
 ↓
 
@@ -463,31 +587,27 @@ Recommendation
 
 ↓
 
-Explanation
+Review
 
 ↓
 
-Action
+Approval
 ```
 
 ---
 
-## Component Lifecycle
+## Human Digital Twin
 
 ```text
-Design
+Profile
 
 ↓
 
-Build
+Prediction
 
 ↓
 
-Test
-
-↓
-
-Release
+Insight
 ```
 
 ---
@@ -498,41 +618,21 @@ Release
 artifacts/
 └── component-catalog/
     ├── component-hierarchy.drawio
-    ├── component-composition.drawio
+    ├── forms.drawio
+    ├── navigation.drawio
     ├── ai-components.drawio
-    ├── responsive-components.drawio
-    ├── accessibility-components.drawio
-    ├── lifecycle.drawio
+    ├── digital-twin.drawio
+    ├── charts.drawio
     ├── mermaid/
     │   ├── hierarchy.mmd
-    │   ├── composition.mmd
-    │   ├── lifecycle.mmd
-    │   ├── accessibility.mmd
-    │   └── ai-components.mmd
+    │   ├── components.mmd
+    │   ├── ai.mmd
+    │   ├── charts.mmd
+    │   └── collaboration.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
-```
-
----
-
-# Repository Structure
-
-```text
-design-system/
-├── primitives/
-├── forms/
-├── navigation/
-├── data-display/
-├── business/
-├── ai/
-├── feedback/
-├── layouts/
-├── patterns/
-├── accessibility/
-├── documentation/
-└── metadata.yml
+        ├── component-catalog.svg
+        ├── component-catalog.png
+        └── component-catalog.pdf
 ```
 
 ---
@@ -541,10 +641,12 @@ design-system/
 
 | Artifact | Reference |
 |----------|-----------|
+| Screen Catalog | Chapter 08 |
+| Layout Architecture | Chapter 09 |
+| Navigation Architecture | Chapter 10 |
 | Design Principles | Chapter 11 |
 | Widget Catalog | Chapter 13 |
 | Design Tokens | Chapter 14 |
-| Responsive Design | Chapter 15 |
 | Accessibility & Internationalization | Chapter 25 |
 
 ---
@@ -554,12 +656,11 @@ design-system/
 This chapter is complete when:
 
 - Component taxonomy is defined.
-- Reusable components are cataloged.
-- Metadata structure is documented.
+- Reusable components are documented.
 - Accessibility requirements are specified.
 - AI-enabled components are identified.
-- Responsive behavior is documented.
-- Governance model is established.
+- Human Digital Twin components are documented.
+- Metadata standards are established.
 - Visual artifacts are available.
 - Traceability is complete.
 
@@ -567,10 +668,10 @@ This chapter is complete when:
 
 # Key Takeaways
 
-- The Component Catalog establishes a standardized library of reusable building blocks for the Coach Portal.
-- Components are organized by capability layers, ensuring consistency, scalability and maintainability across all workspaces.
-- AI-native, accessible and responsive components provide a unified experience aligned with EVOXA's design system.
-- Strong governance and versioning ensure that components evolve without compromising compatibility or user experience.
+- The Component Catalog establishes the reusable building blocks that power every interface of the Nutritionist Portal.
+- Standardized behaviors, accessibility rules and centralized design tokens ensure consistency, maintainability and scalability across the EVOXA ecosystem.
+- Specialized AI and Human Digital Twin components enable intelligent, explainable and context-aware professional experiences.
+- A shared component architecture allows designers, developers and QA teams to collaborate using a single, versioned source of truth.
 
 ---
 
@@ -578,4 +679,4 @@ This chapter is complete when:
 
 **Chapter 13 — Widget Catalog**
 
-This chapter defines the reusable dashboard widgets, analytical panels, KPI cards and AI insight modules used throughout the Coach Portal, including configuration, personalization, lifecycle and interaction patterns.
+This chapter defines the reusable dashboard widgets and information panels used throughout the Nutritionist Portal, including KPIs, analytics, AI insights, nutritional summaries and configurable workspace widgets.
