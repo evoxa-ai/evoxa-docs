@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-14
-chapter_id: CH-04-COACH-14
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-14
+chapter_id: CH-05-NUTRITION-14
+feature_pack: FP-NUTRITION-0000
 title: Design Tokens
 version: 1.0.0
 status: Draft
@@ -14,64 +14,48 @@ last_updated: 2026-08-04
 
 # Chapter 14 — Design Tokens
 
-> *The Design Tokens define the foundational visual language of the Coach Portal, providing a centralized and technology-agnostic source of truth for colors, typography, spacing, sizing, motion, elevation and theming across the EVOXA ecosystem.*
+> *The Design Tokens chapter defines the atomic visual properties that ensure consistency across every interface, component and widget of the Nutritionist Portal and the broader EVOXA Design System.*
 
 ---
 
 # Executive Summary
 
-Design Tokens provide the atomic foundation of the EVOXA Design System.
+Design Tokens represent the smallest reusable visual decisions of the EVOXA Design System.
 
-Every visual element within the Coach Portal derives its appearance from standardized tokens rather than hardcoded values.
+Rather than hardcoding visual values into components, tokens provide centralized definitions for colors, typography, spacing, sizing, borders, shadows, motion and semantic states.
 
-This approach guarantees visual consistency, scalability, maintainability and cross-platform compatibility.
+Every interface within the Nutritionist Portal consumes these tokens to ensure consistency, maintainability and scalability.
 
 ---
 
 # Objectives
 
-The Design Tokens shall:
+The Design Token System shall:
 
-- Standardize visual properties.
-- Eliminate hardcoded values.
-- Support multiple themes.
-- Enable platform consistency.
-- Improve maintainability.
-- Simplify implementation.
-- Facilitate future evolution.
+- Centralize visual properties.
+- Enable theme support.
+- Improve consistency.
+- Simplify maintenance.
+- Support accessibility.
+- Scale across portals.
+- Enable automated design synchronization.
 
 ---
 
 # Token Philosophy
 
-Every visual property must originate from a Design Token.
+Every visual property shall be represented as a token.
 
-Tokens define intent rather than implementation.
+Components never define colors, spacing or typography directly.
 
-Example:
-
-```text
-Primary Color
-
-↓
-
-Semantic Token
-
-↓
-
-Component
-
-↓
-
-Screen
-```
+Instead they consume standardized tokens.
 
 ---
 
 # Token Hierarchy
 
 ```text
-Core Tokens
+Primitive Tokens
 
 ↓
 
@@ -83,30 +67,31 @@ Component Tokens
 
 ↓
 
-Theme Tokens
+Widget Tokens
 
 ↓
 
-Runtime Values
+Screen Themes
 ```
 
 ---
 
 # Token Categories
 
-| Category | Purpose |
-|----------|----------|
-| Colors | Brand and semantic colors |
-| Typography | Fonts and text styles |
-| Spacing | Margins and padding |
-| Sizing | Dimensions |
-| Radius | Rounded corners |
-| Elevation | Shadows |
-| Motion | Animations |
-| Opacity | Transparency |
-| Borders | Border styles |
-| Icons | Icon sizing |
-| Z-Index | Layer ordering |
+The EVOXA Design System defines:
+
+- Color Tokens
+- Typography Tokens
+- Spacing Tokens
+- Size Tokens
+- Border Tokens
+- Radius Tokens
+- Shadow Tokens
+- Motion Tokens
+- Elevation Tokens
+- Opacity Tokens
+- Icon Tokens
+- Z-Index Tokens
 
 ---
 
@@ -114,12 +99,28 @@ Runtime Values
 
 ## Brand Colors
 
+Examples:
+
 ```text
 color.brand.primary
 
 color.brand.secondary
 
 color.brand.accent
+```
+
+---
+
+## Neutral Colors
+
+```text
+color.gray.50
+
+color.gray.100
+
+...
+
+color.gray.900
 ```
 
 ---
@@ -138,34 +139,52 @@ color.info
 
 ---
 
-## Neutral Palette
+## Nutrition Colors
+
+Used for nutritional indicators.
+
+Examples:
 
 ```text
-gray.50
+color.nutrition.protein
 
-gray.100
+color.nutrition.carbohydrate
 
-gray.200
+color.nutrition.fat
 
-...
+color.nutrition.water
 
-gray.900
+color.nutrition.fiber
+
+color.nutrition.vitamins
 ```
 
 ---
 
-## Surface Colors
+## Human Digital Twin Colors
 
 ```text
-surface.background
+color.digitalTwin.health
 
-surface.card
+color.digitalTwin.behavior
 
-surface.sidebar
+color.digitalTwin.prediction
 
-surface.header
+color.digitalTwin.alert
+```
 
-surface.panel
+---
+
+## AI Colors
+
+```text
+color.ai.primary
+
+color.ai.background
+
+color.ai.recommendation
+
+color.ai.confidence
 ```
 
 ---
@@ -174,35 +193,43 @@ surface.panel
 
 Typography includes:
 
-- Font Family
-- Font Weight
-- Font Size
-- Line Height
-- Letter Spacing
-
-Examples:
-
 ```text
-font.heading.xl
+font.family.primary
 
-font.heading.lg
+font.family.monospace
 
-font.body.md
+font.size.xs
 
-font.body.sm
+font.size.sm
 
-font.caption
+font.size.md
+
+font.size.lg
+
+font.size.xl
+
+font.weight.light
+
+font.weight.regular
+
+font.weight.medium
+
+font.weight.bold
+
+line.height.default
+
+letter.spacing.default
 ```
 
 ---
 
 # Spacing Tokens
 
-Spacing follows an 8-point grid.
-
-Examples:
+Standard spacing scale:
 
 ```text
+space.0
+
 space.2
 
 space.4
@@ -218,11 +245,15 @@ space.24
 space.32
 
 space.48
+
+space.64
 ```
+
+Spacing follows an 8-point grid.
 
 ---
 
-# Sizing Tokens
+# Size Tokens
 
 Examples:
 
@@ -233,11 +264,29 @@ size.icon.md
 
 size.icon.lg
 
-size.button.md
+size.avatar.sm
 
-size.sidebar
+size.avatar.md
 
-size.header
+size.avatar.lg
+
+size.sidebar.width
+
+size.header.height
+```
+
+---
+
+# Border Tokens
+
+```text
+border.width.none
+
+border.width.sm
+
+border.width.md
+
+border.width.lg
 ```
 
 ---
@@ -260,9 +309,7 @@ radius.full
 
 ---
 
-# Elevation Tokens
-
-Examples:
+# Shadow Tokens
 
 ```text
 shadow.sm
@@ -274,176 +321,190 @@ shadow.lg
 shadow.xl
 ```
 
-Elevation reflects hierarchy, not decoration.
+Used to indicate elevation rather than decoration.
+
+---
+
+# Elevation Tokens
+
+```text
+elevation.0
+
+elevation.1
+
+elevation.2
+
+elevation.3
+
+elevation.4
+```
 
 ---
 
 # Motion Tokens
 
-Animation standards:
-
-```text
-motion.fast
-
-motion.normal
-
-motion.slow
-```
-
-Transitions include:
-
-- Fade
-- Slide
-- Expand
-- Collapse
-- Dialog
-- Loading
-
-Animations remain subtle and purposeful.
-
----
-
-# Border Tokens
+Animations are standardized.
 
 Examples:
 
 ```text
-border.default
+motion.duration.fast
 
-border.focus
+motion.duration.normal
 
-border.error
+motion.duration.slow
 
-border.divider
+motion.easing.standard
+
+motion.easing.emphasized
+```
+
+---
+
+# Opacity Tokens
+
+```text
+opacity.disabled
+
+opacity.overlay
+
+opacity.hover
+
+opacity.focus
 ```
 
 ---
 
 # Icon Tokens
 
-Examples:
-
 ```text
-icon.16
+icon.size.sm
 
-icon.20
+icon.size.md
 
-icon.24
+icon.size.lg
 
-icon.32
+icon.stroke.default
 ```
 
 ---
 
 # Z-Index Tokens
 
-Layer priorities:
-
 ```text
-base
+z.modal
 
-dropdown
+z.tooltip
 
-sticky
+z.dropdown
 
-modal
+z.toast
 
-toast
-
-tooltip
+z.overlay
 ```
-
----
-
-# Theme Architecture
-
-Supported themes:
-
-- Light
-- Dark
-- High Contrast
-
-Future themes may include:
-
-- Enterprise Branding
-- White Label
-- Accessibility Themes
 
 ---
 
 # Semantic Tokens
 
-Semantic tokens describe meaning instead of color.
+Semantic tokens map business meaning.
+
+Examples:
+
+```text
+surface.background
+
+surface.card
+
+surface.sidebar
+
+surface.workspace
+
+text.primary
+
+text.secondary
+
+text.disabled
+
+border.default
+```
+
+---
+
+# Component Tokens
 
 Examples:
 
 ```text
 button.primary.background
 
-button.primary.text
+button.primary.color
+
+input.border
+
+input.focus
 
 table.header.background
 
-alert.error.background
-
-card.surface
+card.shadow
 ```
 
-Components consume semantic tokens rather than core values.
+Component tokens reference semantic tokens.
 
 ---
 
-# Component Integration
+# Widget Tokens
+
+Widget-specific examples:
 
 ```text
-Core Token
+widget.kpi.background
 
-↓
+widget.ai.border
 
-Semantic Token
+widget.timeline.color
 
-↓
-
-Component
-
-↓
-
-Widget
-
-↓
-
-Workspace
+widget.analytics.chart
 ```
 
 ---
 
-# Responsive Tokens
+# Theme Support
 
-Tokens adapt according to breakpoint.
+Supported themes:
 
-Examples:
+- Light
+- Dark
+- High Contrast
+- Organization Themes
 
-Desktop
-
-Tablet
-
-Mobile
-
-Large Displays
+Themes override semantic tokens without modifying components.
 
 ---
 
 # Accessibility
 
-Tokens ensure:
+Tokens support:
 
-- Minimum contrast ratios.
-- Readable typography.
-- Consistent spacing.
-- Visible focus indicators.
-- Color-independent communication.
+- WCAG 2.2 AA
+- Contrast validation
+- Color blindness compatibility
+- Reduced motion
+- Large text scaling
 
-Accessibility is built into the token system.
+---
+
+# Design Tool Integration
+
+Tokens synchronize with:
+
+- Figma
+- Storybook
+- Angular Library
+- React Library
+- Documentation
+
+Synchronization is automated whenever possible.
 
 ---
 
@@ -451,159 +512,39 @@ Accessibility is built into the token system.
 
 Every token includes:
 
-- Identifier
+- Token ID
 - Category
-- Value
 - Version
-- Theme
 - Status
 - Owner
+- Deprecation status
 
-Changes follow semantic versioning.
+Breaking changes require governance approval.
 
 ---
 
-# Token Lifecycle
+# Token Naming Convention
+
+Examples:
 
 ```text
-Proposal
+color.brand.primary
 
-↓
+space.16
 
-Review
+font.size.md
 
-↓
+radius.lg
 
-Approved
-
-↓
-
-Released
-
-↓
-
-Deprecated
+button.primary.background
 ```
 
----
+Names are:
 
-# Governance
-
-All new tokens require:
-
-- UX approval.
-- Design review.
-- Accessibility validation.
-- Cross-platform compatibility review.
-
-Duplicate tokens are not permitted.
-
----
-
-# Standard Visual Artifacts
-
-## Token Hierarchy
-
-```text
-Core
-
-↓
-
-Semantic
-
-↓
-
-Component
-
-↓
-
-Theme
-```
-
----
-
-## Theme Flow
-
-```text
-Brand
-
-↓
-
-Theme
-
-↓
-
-Semantic Tokens
-
-↓
-
-Components
-```
-
----
-
-## Component Resolution
-
-```text
-Token
-
-↓
-
-Component
-
-↓
-
-Widget
-
-↓
-
-Screen
-```
-
----
-
-## Token Lifecycle
-
-```text
-Create
-
-↓
-
-Review
-
-↓
-
-Release
-
-↓
-
-Maintain
-```
-
----
-
-# Visual Source Files
-
-```text
-artifacts/
-└── design-tokens/
-    ├── token-hierarchy.drawio
-    ├── theme-architecture.drawio
-    ├── semantic-tokens.drawio
-    ├── component-resolution.drawio
-    ├── token-lifecycle.drawio
-    ├── responsive-tokens.drawio
-    ├── mermaid/
-    │   ├── hierarchy.mmd
-    │   ├── themes.mmd
-    │   ├── semantic.mmd
-    │   ├── lifecycle.mmd
-    │   └── resolution.mmd
-    └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
-```
+- Human-readable
+- Consistent
+- Hierarchical
+- Stable
 
 ---
 
@@ -617,13 +558,108 @@ design-tokens/
 ├── sizing/
 ├── borders/
 ├── radius/
-├── elevation/
+├── shadows/
 ├── motion/
 ├── icons/
-├── themes/
 ├── semantic/
-├── accessibility/
+├── themes/
+├── documentation/
 └── metadata.yml
+```
+
+---
+
+# Standard Visual Artifacts
+
+## Token Hierarchy
+
+```text
+Primitive
+
+↓
+
+Semantic
+
+↓
+
+Component
+
+↓
+
+Widget
+```
+
+---
+
+## Color System
+
+```text
+Brand
+
+↓
+
+Semantic
+
+↓
+
+Component
+```
+
+---
+
+## Theme Resolution
+
+```text
+Theme
+
+↓
+
+Semantic Tokens
+
+↓
+
+Components
+```
+
+---
+
+## Component Consumption
+
+```text
+Component
+
+↓
+
+Semantic Token
+
+↓
+
+Primitive Token
+```
+
+---
+
+# Visual Source Files
+
+```text
+artifacts/
+└── design-tokens/
+    ├── token-hierarchy.drawio
+    ├── color-system.drawio
+    ├── typography.drawio
+    ├── themes.drawio
+    ├── token-resolution.drawio
+    ├── component-consumption.drawio
+    ├── mermaid/
+    │   ├── hierarchy.mmd
+    │   ├── colors.mmd
+    │   ├── themes.mmd
+    │   ├── typography.mmd
+    │   └── tokens.mmd
+    └── exports/
+        ├── design-tokens.svg
+        ├── design-tokens.png
+        └── design-tokens.pdf
 ```
 
 ---
@@ -644,13 +680,12 @@ design-tokens/
 
 This chapter is complete when:
 
-- Token hierarchy is defined.
-- Token categories are documented.
-- Theme architecture is specified.
-- Semantic tokens are established.
-- Accessibility rules are included.
-- Governance model is documented.
-- Versioning strategy is defined.
+- Token hierarchy is documented.
+- Primitive and semantic tokens are defined.
+- Component and widget tokens are specified.
+- Theme support is documented.
+- Accessibility requirements are incorporated.
+- Naming conventions and versioning rules are established.
 - Visual artifacts are available.
 - Traceability is complete.
 
@@ -658,10 +693,10 @@ This chapter is complete when:
 
 # Key Takeaways
 
-- Design Tokens provide the single source of truth for every visual property within the Coach Portal and the broader EVOXA Design System.
-- A layered token architecture enables consistent theming, accessibility and cross-platform implementation without hardcoded values.
-- Semantic tokens decouple design intent from implementation details, simplifying maintenance and future evolution.
-- Strong governance and versioning ensure that visual changes remain predictable, reusable and scalable across the EVOXA ecosystem.
+- Design Tokens provide the atomic visual foundation for every interface within the Nutritionist Portal and the broader EVOXA ecosystem.
+- A layered token hierarchy enables centralized control over colors, typography, spacing, motion and semantic meaning while preserving flexibility for themes and organizational branding.
+- Components and widgets consume tokens rather than hardcoded values, ensuring consistency, maintainability and scalability.
+- Standardized naming, governance and automated synchronization with design and development tools create a robust foundation for the long-term evolution of the EVOXA Design System.
 
 ---
 
@@ -669,4 +704,4 @@ This chapter is complete when:
 
 **Chapter 15 — Responsive Design**
 
-This chapter defines the responsive behavior of the Coach Portal, including breakpoints, adaptive layouts, interaction models, device-specific optimizations and cross-platform experience guidelines.
+This chapter defines the responsive design strategy of the Nutritionist Portal, including adaptive layouts, breakpoints, device-specific behaviors, touch interactions, responsive components and cross-device user experience principles.
