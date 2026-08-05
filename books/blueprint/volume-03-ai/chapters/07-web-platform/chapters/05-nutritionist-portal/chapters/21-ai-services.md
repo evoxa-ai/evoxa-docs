@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-21
-chapter_id: CH-04-COACH-21
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-21
+chapter_id: CH-05-NUTRITION-21
+feature_pack: FP-NUTRITION-0000
 title: AI Services
 version: 1.0.0
 status: Draft
@@ -14,60 +14,64 @@ last_updated: 2026-08-04
 
 # Chapter 21 — AI Services
 
-> *The AI Services chapter defines the artificial intelligence architecture of the Coach Portal, including intelligent assistants, recommendation engines, predictive models, Human Digital Twin services, orchestration, governance and responsible AI principles.*
+> *The AI Services chapter defines the artificial intelligence capabilities of the Nutritionist Portal, including intelligent assistants, specialized AI agents, predictive models, Human Digital Twin integration, LLM orchestration, explainability, governance and continuous learning.*
 
 ---
 
 # Executive Summary
 
-Artificial Intelligence is a foundational capability of EVOXA.
+Artificial Intelligence is a foundational capability of the Nutritionist Portal.
 
-Rather than existing as an isolated chatbot, EVO operates as a distributed AI platform composed of specialized services that assist professionals throughout the complete coaching lifecycle.
+Rather than relying on a single Large Language Model, the platform adopts an AI-native architecture composed of specialized AI services coordinated by the EVO Orchestrator.
 
-Every AI capability is explainable, governed, observable and continuously improved through professional feedback.
+Each AI service has a clearly defined responsibility and operates within a governed, explainable and auditable framework.
+
+The platform combines predictive analytics, generative AI, recommendation systems and Human Digital Twin intelligence to assist — but never replace — professional nutritional decision-making.
 
 ---
 
 # Objectives
 
-The AI Services shall:
+The AI Platform shall:
 
-- Assist professional decision making.
-- Automate repetitive work.
-- Generate explainable recommendations.
-- Predict outcomes.
-- Personalize coaching.
-- Support Human Digital Twins.
-- Learn continuously from validated feedback.
+- Support professional decision-making.
+- Provide explainable recommendations.
+- Coordinate specialized AI agents.
+- Maintain regulatory compliance.
+- Protect client privacy.
+- Continuously improve through feedback.
+- Scale across all EVOXA portals.
 
 ---
 
 # AI Philosophy
 
-Artificial Intelligence augments professionals.
+Artificial Intelligence shall be:
 
-It does not replace them.
+- Explainable
+- Auditable
+- Context-aware
+- Human-supervised
+- Secure
+- Ethical
+- Modular
 
-The Coach Portal follows these principles:
-
-- Human-in-the-loop
-- Explainability
-- Transparency
-- Safety
-- Accountability
-- Continuous Learning
-- Context Awareness
+AI augments professionals rather than replacing them.
 
 ---
 
-# AI Service Layers
+# AI Architecture
 
 ```text
 User
 
 ↓
 
-Coach Portal
+Nutritionist Portal
+
+↓
+
+EVO AI Gateway
 
 ↓
 
@@ -75,409 +79,401 @@ AI Orchestrator
 
 ↓
 
-Specialized AI Services
+Specialized AI Agents
 
 ↓
 
-Foundation Models
+Knowledge Sources
 
 ↓
 
-Knowledge Layer
-
-↓
-
-Data Platform
+Response
 ```
 
 ---
 
-# AI Platform
+# AI Service Categories
 
-```text
-EVO AI Platform
+The Nutritionist Portal uses:
 
-├── Conversation Engine
-├── Recommendation Engine
-├── Prediction Engine
-├── Risk Detection Engine
-├── Human Digital Twin Engine
-├── Nutrition AI
-├── Training AI
-├── Recovery AI
-├── Behavioral AI
-├── Explainability Engine
-├── Memory Engine
-├── AI Orchestrator
-└── Multi-Agent Coordinator
-```
-
----
-
-# AI Service Catalog
-
-| Service | Purpose |
-|----------|----------|
-| Conversation Engine | Natural interaction |
-| Recommendation Engine | Personalized recommendations |
-| Prediction Engine | Outcome prediction |
-| Risk Detection Engine | Early risk detection |
-| Human Digital Twin Engine | Client digital representation |
-| Nutrition AI | Meal optimization |
-| Training AI | Program optimization |
-| Recovery AI | Recovery recommendations |
-| Behavioral AI | Habit analysis |
-| Explainability Engine | AI reasoning |
-| Memory Engine | Long-term contextual memory |
-| AI Orchestrator | Coordinates AI services |
-
----
-
-# Conversation Engine
-
-Responsibilities:
-
-- Natural language understanding.
-- Context management.
-- Multi-turn conversations.
-- Voice support.
-- Tool invocation.
-- Professional assistance.
-
----
-
-# Recommendation Engine
-
-Provides:
-
-- Exercise recommendations.
-- Nutrition suggestions.
-- Coaching actions.
-- Client prioritization.
-- Follow-up recommendations.
-- Goal optimization.
-
-Recommendations include confidence and explanation.
-
----
-
-# Prediction Engine
-
-Predicts:
-
-- Goal achievement.
-- Dropout probability.
-- Injury risk.
-- Adherence.
-- Progress trends.
-- Recovery time.
-
-Predictions are probabilistic rather than deterministic.
-
----
-
-# Risk Detection Engine
-
-Detects:
-
-- Low adherence.
-- High injury risk.
-- Burnout.
-- Nutritional deficiencies.
-- Missed appointments.
-- Health deterioration.
-
-Alerts require professional review.
-
----
-
-# Human Digital Twin Engine
-
-Maintains:
-
-- Physiological profile.
-- Behavioral profile.
-- Training history.
-- Nutrition history.
-- Recovery history.
-- Goal evolution.
-- Predictive indicators.
-
-The Digital Twin evolves continuously.
-
----
-
-# Nutrition AI
-
-Supports:
-
-- Meal generation.
-- Macro optimization.
-- Dietary substitutions.
-- Allergy detection.
-- Nutritional balance.
-- Compliance analysis.
-
----
-
-# Training AI
-
-Supports:
-
-- Exercise selection.
-- Progressive overload.
-- Weekly planning.
-- Recovery optimization.
-- Volume adjustment.
-- Program adaptation.
-
----
-
-# Recovery AI
-
-Analyzes:
-
-- Fatigue.
-- Sleep.
-- Recovery readiness.
-- Training load.
-- Recovery trends.
-
----
-
-# Behavioral AI
-
-Identifies:
-
-- Habits.
-- Motivation patterns.
-- Engagement.
-- Consistency.
-- Behavioral changes.
-- Coaching opportunities.
-
----
-
-# Explainability Engine
-
-Every AI output includes:
-
-- Reasoning.
-- Evidence.
-- Confidence score.
-- Supporting data.
-- Alternative recommendations.
-
-Explainability is mandatory.
-
----
-
-# Memory Engine
-
-Maintains long-term context:
-
-- Professional preferences.
-- Client history.
-- Previous recommendations.
-- Accepted suggestions.
-- Rejected suggestions.
-- Organizational knowledge.
-
-Memory respects privacy and consent policies.
+- Conversational AI
+- Recommendation Engine
+- Nutrition Analysis Engine
+- Predictive Analytics
+- Human Digital Twin Intelligence
+- Document Intelligence
+- Vision AI
+- Knowledge Retrieval (RAG)
+- Safety & Governance
+- Learning Services
 
 ---
 
 # AI Orchestrator
 
-Coordinates:
+The EVO Orchestrator coordinates:
 
-- Context gathering.
-- Model selection.
-- Service execution.
-- Result aggregation.
-- Explainability.
-- Monitoring.
+- Agent selection.
+- Prompt routing.
+- Context assembly.
+- Tool execution.
+- Memory retrieval.
+- Response aggregation.
+- Safety validation.
 
-Clients interact with a unified AI interface.
-
----
-
-# Multi-Agent Architecture
-
-```text
-Coach
-
-↓
-
-AI Orchestrator
-
-↓
-
-Training Agent
-
-Nutrition Agent
-
-Recovery Agent
-
-Behavior Agent
-
-↓
-
-Response Composer
-```
-
-Agents collaborate before generating a final recommendation.
+The orchestrator abstracts underlying AI providers.
 
 ---
 
-# AI Workflow
+# Conversational AI
 
-```text
-Context
+## AIS-001 — EVO Assistant
 
-↓
+Capabilities:
 
-Knowledge Retrieval
+- Clinical questions.
+- Meal planning support.
+- Recipe suggestions.
+- Nutrition education.
+- Workflow guidance.
 
-↓
+Features:
 
-AI Services
-
-↓
-
-Recommendation
-
-↓
-
-Professional Review
-
-↓
-
-Feedback
-
-↓
-
-Learning
-```
+- Multi-turn conversations.
+- Context persistence.
+- Role awareness.
+- Organization awareness.
 
 ---
 
-# Knowledge Sources
+# Recommendation Engine
 
-AI services consume:
+## AIS-010 — Meal Recommendation
 
-- Human Digital Twin.
+Generates:
+
+- Meal suggestions.
+- Portion adjustments.
+- Nutrient balancing.
+- Dietary substitutions.
+
+Every recommendation includes:
+
+- Confidence score.
+- Explanation.
+- Supporting evidence.
+
+---
+
+## AIS-011 — Recipe Recommendation
+
+Uses:
+
+- Preferences.
+- Allergies.
+- Restrictions.
+- Seasonal availability.
+- Organization templates.
+
+---
+
+## AIS-012 — Supplement Recommendation
+
+Evaluates:
+
+- Nutritional deficiencies.
+- Clinical history.
+- Contraindications.
+- Current medications.
+
+Professional approval is mandatory.
+
+---
+
+# Nutrition Analysis Engine
+
+## AIS-020 — Nutritional Analysis
+
+Calculates:
+
+- Macronutrients.
+- Micronutrients.
+- Dietary quality.
+- Nutritional gaps.
+- Compliance with targets.
+
+---
+
+## AIS-021 — Meal Optimization
+
+Optimizes:
+
+- Calories.
+- Protein.
+- Carbohydrates.
+- Fat.
+- Fiber.
+- Cost.
+- Variety.
+
+---
+
+# Predictive Analytics
+
+## AIS-030 — Weight Prediction
+
+Predicts:
+
+- Short-term evolution.
+- Long-term evolution.
+- Plateau risk.
+
+---
+
+## AIS-031 — Adherence Prediction
+
+Estimates:
+
+- Meal adherence.
+- Appointment attendance.
+- Program completion.
+
+---
+
+## AIS-032 — Risk Prediction
+
+Predicts:
+
+- Nutritional deficiencies.
+- Low adherence.
+- Weight regain.
+- High-risk situations.
+
+---
+
+# Human Digital Twin Intelligence
+
+## AIS-040 — Digital Twin Reasoning
+
+Uses:
+
+- Historical assessments.
+- Measurements.
+- Behavior.
+- Clinical data.
+- Nutrition history.
+
+Produces:
+
+- Personalized insights.
+- Future simulations.
+- Goal forecasts.
+
+---
+
+## AIS-041 — Scenario Simulation
+
+Examples:
+
+"What happens if calories are reduced by 10%?"
+
+"What happens if protein intake increases?"
+
+The AI simulates expected outcomes before implementation.
+
+---
+
+# Retrieval-Augmented Generation (RAG)
+
+Knowledge sources include:
+
+- Scientific literature.
+- Clinical guidelines.
+- Organization protocols.
+- Food databases.
+- Recipe repositories.
+- Internal documentation.
+
+Responses reference their supporting sources.
+
+---
+
+# Vision AI
+
+Capabilities:
+
+- Meal recognition.
+- Portion estimation.
+- Food classification.
+- Label analysis.
+- Progress photo comparison.
+
+Vision outputs are reviewed by professionals when used for clinical purposes.
+
+---
+
+# Document Intelligence
+
+Processes:
+
+- Laboratory reports.
+- Medical documents.
+- Food diaries.
+- Nutrition questionnaires.
+- PDFs and images.
+
+Extracted information becomes structured data after validation.
+
+---
+
+# AI Memory
+
+Context includes:
+
+- Current client.
+- Consultation history.
+- Meal plans.
 - Assessments.
-- Programs.
-- Nutrition plans.
-- Progress data.
-- Business Rules.
-- Organizational policies.
-- Scientific evidence.
+- Preferences.
+- Conversation history.
+
+Memory follows organization boundaries and privacy policies.
 
 ---
 
-# Responsible AI
+# Prompt Management
 
-The platform guarantees:
+Prompt templates are versioned.
 
-- Human oversight.
-- Explainability.
-- Bias monitoring.
-- Data minimization.
-- Auditability.
-- Privacy by design.
-- Safe recommendations.
+Each prompt defines:
 
----
-
-# AI Metrics
-
-The platform measures:
-
-- Recommendation acceptance.
-- Prediction accuracy.
-- Response latency.
-- Hallucination rate.
-- User satisfaction.
-- Feedback quality.
-- Automation impact.
+- Objective.
+- Context variables.
+- Safety constraints.
+- Output schema.
+- Version.
 
 ---
 
-# AI Security
+# AI Safety
 
-Every AI request validates:
+Safety mechanisms include:
 
-- Authentication.
-- Authorization.
-- Tenant isolation.
-- Data permissions.
-- Prompt protection.
-- Audit logging.
+- Prompt validation.
+- Content filtering.
+- Hallucination detection.
+- Sensitive topic detection.
+- Human approval workflows.
+
+Unsafe outputs are blocked or flagged.
 
 ---
 
-# AI Lifecycle
+# Explainability
 
-```text
-Model
+Every AI recommendation provides:
 
-↓
-
-Validation
-
-↓
-
-Deployment
-
-↓
-
-Monitoring
-
-↓
-
-Retraining
-
-↓
-
-Versioning
-```
+- Confidence score.
+- Supporting evidence.
+- Reasoning summary.
+- Alternative recommendations.
+- Timestamp.
+- Model version.
 
 ---
 
 # AI Governance
 
-Every AI capability defines:
+Every AI interaction records:
 
-- Service owner.
+- Prompt.
+- Context.
+- Model.
 - Version.
-- Model registry.
-- Prompt templates.
-- Evaluation metrics.
-- Risk classification.
-- Monitoring dashboards.
-- Rollback strategy.
+- Response.
+- Feedback.
+- Approval decision.
+
+Complete auditability is maintained.
 
 ---
 
-# AI Repository
+# Feedback Loop
+
+Professionals may:
+
+- Accept recommendations.
+- Reject recommendations.
+- Edit recommendations.
+- Rate usefulness.
+- Provide comments.
+
+Feedback is used to improve future models where permitted.
+
+---
+
+# AI Metrics
+
+Measured indicators:
+
+| Metric | Target |
+|----------|---------|
+| Recommendation Acceptance | >75% |
+| Hallucination Rate | <1% |
+| Average Response Time | <2 s |
+| User Satisfaction | >90% |
+| AI Availability | >99.9% |
+| Explanation Coverage | 100% |
+
+---
+
+# AI Model Versioning
+
+Every model includes:
+
+- Model ID
+- Version
+- Provider
+- Training date
+- Validation status
+- Deployment status
+
+Multiple versions may coexist during controlled rollouts.
+
+---
+
+# Security & Privacy
+
+AI services enforce:
+
+- Data minimization.
+- Encryption in transit.
+- Encryption at rest.
+- Tenant isolation.
+- Consent verification.
+- Access control.
+
+Sensitive health data is handled according to applicable regulations.
+
+---
+
+# Repository Structure
 
 ```text
-ai/
-├── conversation/
-├── recommendation/
-├── prediction/
-├── nutrition/
-├── training/
-├── recovery/
-├── behavior/
+ai-services/
+├── orchestrator/
+├── conversational/
+├── recommendations/
+├── nutrition-analysis/
+├── predictions/
 ├── digital-twin/
-├── explainability/
-├── memory/
-├── orchestration/
+├── vision/
+├── document-intelligence/
+├── rag/
 ├── prompts/
-├── evaluations/
+├── safety/
+├── governance/
+├── monitoring/
 └── metadata.yml
 ```
 
@@ -488,27 +484,31 @@ ai/
 ## AI Platform
 
 ```text
-Coach
+Portal
 
 ↓
 
-AI Orchestrator
+AI Gateway
 
 ↓
 
-Specialized AI Services
+Orchestrator
+
+↓
+
+Specialized Agents
 ```
 
 ---
 
-## Recommendation Flow
+## AI Decision Flow
 
 ```text
 Context
 
 ↓
 
-Analysis
+Reasoning
 
 ↓
 
@@ -516,11 +516,7 @@ Recommendation
 
 ↓
 
-Explanation
-
-↓
-
-Decision
+Professional Review
 ```
 
 ---
@@ -545,18 +541,22 @@ Recommendation
 
 ---
 
-## Multi-Agent System
+## Feedback Loop
 
 ```text
-Coordinator
+Recommendation
 
 ↓
 
-Specialized Agents
+Professional Decision
 
 ↓
 
-Unified Response
+Feedback
+
+↓
+
+Continuous Improvement
 ```
 
 ---
@@ -567,21 +567,22 @@ Unified Response
 artifacts/
 └── ai-services/
     ├── ai-platform.drawio
-    ├── orchestration.drawio
-    ├── multi-agent.drawio
-    ├── recommendation-flow.drawio
+    ├── orchestrator.drawio
+    ├── agent-architecture.drawio
+    ├── rag.drawio
     ├── digital-twin.drawio
-    ├── ai-governance.drawio
+    ├── safety.drawio
+    ├── feedback-loop.drawio
     ├── mermaid/
     │   ├── platform.mmd
-    │   ├── orchestration.mmd
     │   ├── agents.mmd
+    │   ├── rag.mmd
     │   ├── digital-twin.mmd
-    │   └── lifecycle.mmd
+    │   └── governance.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
+        ├── ai-services.svg
+        ├── ai-services.png
+        └── ai-services.pdf
 ```
 
 ---
@@ -592,7 +593,6 @@ artifacts/
 |----------|-----------|
 | Workflow Architecture | Chapter 16 |
 | Business Rules | Chapter 17 |
-| User Stories | Chapter 18 |
 | API Contracts | Chapter 19 |
 | Event Architecture | Chapter 20 |
 | Data Model | Chapter 22 |
@@ -605,24 +605,24 @@ artifacts/
 
 This chapter is complete when:
 
-- AI service catalog is documented.
-- AI architecture is defined.
-- Human Digital Twin integration is specified.
-- Multi-agent orchestration is documented.
-- Explainability requirements are established.
-- Responsible AI principles are defined.
-- AI governance model is documented.
-- Visual artifacts are available.
-- Traceability is complete.
+- AI architecture is documented.
+- Specialized AI services are defined.
+- AI orchestration is specified.
+- Human Digital Twin intelligence is integrated.
+- RAG, Vision AI and Document Intelligence are documented.
+- Explainability, governance and safety mechanisms are established.
+- Model lifecycle and versioning are defined.
+- Security, privacy and monitoring requirements are documented.
+- Visual artifacts and traceability are complete.
 
 ---
 
 # Key Takeaways
 
-- EVO operates as a distributed AI platform composed of specialized services rather than a single conversational assistant.
-- Human-in-the-loop, explainability and governance ensure that AI augments professional expertise while preserving accountability and trust.
-- Specialized engines for recommendations, predictions, recovery, nutrition and Human Digital Twins enable highly personalized and evidence-informed coaching.
-- A unified AI Orchestrator coordinates multiple services, providing a scalable foundation for future AI capabilities across the EVOXA ecosystem.
+- The Nutritionist Portal adopts an AI-native architecture built around specialized services coordinated by the EVO Orchestrator rather than a single monolithic AI model.
+- AI capabilities span conversational assistance, nutritional recommendations, predictive analytics, Human Digital Twin reasoning, Vision AI and Retrieval-Augmented Generation.
+- Every recommendation is explainable, auditable and subject to professional oversight, ensuring responsible and trustworthy use of AI in nutritional care.
+- Modular AI services, centralized governance and continuous feedback provide a scalable foundation that can evolve across the entire EVOXA ecosystem.
 
 ---
 
@@ -630,4 +630,4 @@ This chapter is complete when:
 
 **Chapter 22 — Data Model**
 
-This chapter defines the logical and physical data model of the Coach Portal, including entities, aggregates, relationships, persistence strategies, Human Digital Twin structures, AI data requirements and domain ownership.
+This chapter defines the conceptual, logical and physical data models of the Nutritionist Portal, including entities, relationships, domain aggregates, persistence strategies, Human Digital Twin structures and integration with the shared EVOXA data platform.
