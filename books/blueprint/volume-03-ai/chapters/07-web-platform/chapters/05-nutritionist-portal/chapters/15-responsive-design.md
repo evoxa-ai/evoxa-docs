@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-15
-chapter_id: CH-04-COACH-15
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-15
+chapter_id: CH-05-NUTRITION-15
+feature_pack: FP-NUTRITION-0000
 title: Responsive Design
 version: 1.0.0
 status: Draft
@@ -14,382 +14,471 @@ last_updated: 2026-08-04
 
 # Chapter 15 — Responsive Design
 
-> *The Responsive Design chapter defines how the Coach Portal adapts across devices, screen sizes and interaction models while preserving productivity, usability and professional workflows.*
+> *The Responsive Design chapter defines how the Nutritionist Portal adapts to different screen sizes, interaction models and professional usage scenarios while preserving workflow continuity and user productivity.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal is designed primarily for desktop professionals but must provide a consistent experience across laptops, tablets and mobile devices.
+The Nutritionist Portal is designed as a responsive and adaptive application that supports nutrition professionals across desktop, tablet and mobile devices.
 
-Rather than merely resizing content, the platform adapts layouts, navigation patterns, interaction models and information density according to the device and the user's operational context.
+Rather than merely resizing layouts, the portal adapts information density, navigation patterns and interaction models to match the user's context and device capabilities.
 
-This adaptive strategy ensures that professionals remain productive regardless of where they access the platform.
+The objective is to deliver a seamless professional experience regardless of where nutritional care is provided.
 
 ---
 
 # Objectives
 
-The Responsive Design shall:
+The Responsive Design strategy shall:
 
-- Support every supported device.
-- Preserve professional workflows.
-- Adapt layouts intelligently.
-- Maintain accessibility.
-- Optimize performance.
-- Minimize context switching.
-- Ensure visual consistency.
+- Support every major device.
+- Preserve workflow continuity.
+- Maintain visual consistency.
+- Optimize touch interactions.
+- Reduce navigation complexity.
+- Improve accessibility.
+- Enable offline-friendly workflows where applicable.
 
 ---
 
 # Responsive Philosophy
 
-The Coach Portal follows an adaptive workspace strategy.
+The portal follows an **Adaptive Professional Experience (APX)** model.
 
-Instead of simply shrinking the interface, each device receives an optimized experience based on:
+Adaptation considers:
 
 - Screen size.
-- Interaction model.
-- Available space.
+- Input method.
+- Device capabilities.
 - Professional workflow.
-- Information priority.
+- User preferences.
+- Accessibility settings.
 
 ---
 
 # Supported Devices
 
-| Device | Support Level |
-|----------|---------------|
-| Desktop | Full Experience |
-| Laptop | Full Experience |
-| Tablet Landscape | Full Experience |
-| Tablet Portrait | Optimized Experience |
-| Mobile Landscape | Essential Experience |
-| Mobile Portrait | Essential Experience |
+The portal officially supports:
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile Phone
+- Foldable Devices (future)
+- Large Displays
 
 ---
 
 # Breakpoints
 
-| Breakpoint | Width |
-|-------------|-------|
-| XS | <576 px |
-| SM | ≥576 px |
-| MD | ≥768 px |
-| LG | ≥992 px |
-| XL | ≥1200 px |
-| XXL | ≥1600 px |
+| Device | Width |
+|----------|-------|
+| Mobile | <768 px |
+| Tablet | 768–1023 px |
+| Small Desktop | 1024–1439 px |
+| Desktop | 1440–1919 px |
+| Large Desktop | ≥1920 px |
 
 ---
 
 # Adaptive Layout Strategy
 
-```text
+## Desktop
+
+Optimized for:
+
+- Long consultations
+- Meal planning
+- Analytics
+- Multi-panel layouts
+- Large data tables
+
+Supports three-column layouts.
+
+---
+
+## Tablet
+
+Optimized for:
+
+- In-person consultations
+- Client assessments
+- Measurements
+- Note taking
+
+Supports two-column layouts.
+
+---
+
+## Mobile
+
+Optimized for:
+
+- Quick reviews
+- Progress tracking
+- Messaging
+- Notifications
+- Appointment management
+
+Prioritizes one-handed operation.
+
+---
+
+# Layout Adaptation
+
 Desktop
 
+```text
+Sidebar
+
 ↓
+
+Workspace
+
+↓
+
+AI Panel
+```
 
 Tablet
 
+```text
+Navigation
+
 ↓
+
+Workspace
+
+↓
+
+Context Drawer
+```
 
 Mobile
 
-↓
-
-Essential Workspace
-```
-
-Each layout prioritizes the most relevant information for the available screen size.
-
----
-
-# Desktop Experience
-
-Desktop provides:
-
-- Three-column layout.
-- Persistent sidebar.
-- AI context panel.
-- Multi-panel workspaces.
-- Full dashboards.
-- Advanced analytics.
-
-Desktop is the reference experience.
-
----
-
-# Laptop Experience
-
-Laptop preserves all desktop functionality while optimizing spacing and panel widths.
-
-Supported features:
-
-- Collapsible sidebar.
-- Adaptive grids.
-- Compact tables.
-- Dynamic widget layout.
-
----
-
-# Tablet Experience
-
-Tablet focuses on touch-first interaction.
-
-Adaptations include:
-
-- Two-column layout.
-- Larger touch targets.
-- Simplified navigation.
-- Collapsible AI panel.
-- Responsive dashboards.
-
----
-
-# Mobile Experience
-
-Mobile supports essential workflows.
-
-Available features include:
-
-- Client lookup.
-- Messaging.
-- Calendar.
-- Notifications.
-- Session summaries.
-- AI recommendations.
-- Quick notes.
-
-Complex workflows are intentionally simplified.
-
----
-
-# Information Priority
-
-Information is displayed according to priority.
-
 ```text
-Critical Alerts
+Bottom Navigation
 
 ↓
 
-Current Task
+Workspace
 
 ↓
 
-Primary Actions
-
-↓
-
-Supporting Information
-
-↓
-
-Historical Data
+Floating Actions
 ```
-
-Lower-priority information is progressively disclosed.
 
 ---
 
 # Navigation Adaptation
 
+Desktop
+
+Persistent Sidebar
+
+Tablet
+
+Collapsible Sidebar
+
+Mobile
+
+Bottom Navigation + Drawer
+
+---
+
+# Workspace Adaptation
+
+The workspace dynamically adjusts:
+
+- Grid columns.
+- Widget sizes.
+- Information density.
+- Action placement.
+
+---
+
+# Component Adaptation
+
+Components adjust:
+
+- Padding
+- Typography
+- Icon size
+- Touch targets
+- Input controls
+
+Every component supports responsive behavior.
+
+---
+
+# Dashboard Adaptation
+
 Desktop:
 
-Persistent sidebar.
+- KPI Grid
+- Calendar
+- AI Panel
+- Alerts
+- Analytics
 
 Tablet:
 
-Collapsible sidebar.
+- KPI Grid
+- Appointments
+- Alerts
 
 Mobile:
 
-Bottom navigation.
-
-Floating actions provide quick access to high-frequency tasks.
-
----
-
-# Responsive Grids
-
-| Device | Grid |
-|----------|------|
-| Desktop | 12 Columns |
-| Laptop | 12 Columns |
-| Tablet | 8 Columns |
-| Mobile | 4 Columns |
-
-The grid system preserves alignment and consistency.
+- KPI Cards
+- Tasks
+- Notifications
 
 ---
 
-# Adaptive Widgets
+# Client Workspace
 
-Widgets automatically adapt:
+Desktop
 
-- Size.
-- Layout.
-- Density.
-- Content.
-- Visualization.
+```text
+Profile
 
-Example:
+Assessment
 
-Desktop:
+Meal Plan
 
-```
-Revenue
-Chart
-KPIs
-Trend
+AI
 ```
 
-Mobile:
+Tablet
 
+```text
+Profile
+
+Assessment
+
+Tabs
 ```
-Revenue
-Trend
+
+Mobile
+
+```text
+Profile
+
+Tabs
+
+Actions
 ```
 
 ---
 
-# Adaptive Tables
+# Tables
 
-Large tables transform into:
+Desktop
 
-- Cards.
-- Expandable rows.
-- Horizontal scroll.
-- Progressive loading.
+Full table.
 
-The objective is to preserve readability without losing functionality.
+Tablet
+
+Horizontal scrolling.
+
+Mobile
+
+Card layout.
 
 ---
 
 # Forms
 
-Forms adapt through:
+Desktop
 
-- Single-column layouts.
-- Larger controls.
-- Sticky action buttons.
-- Inline validation.
+Multi-column.
 
-Multi-column forms collapse gracefully.
+Tablet
 
----
+Two-column.
 
-# AI Panel Adaptation
+Mobile
 
-Desktop:
-
-Persistent right panel.
-
-Tablet:
-
-Slide-over panel.
-
-Mobile:
-
-Bottom sheet.
-
-AI remains accessible without occupying excessive space.
+Single-column.
 
 ---
 
-# Responsive Charts
+# Charts
 
 Charts automatically:
 
+- Resize.
 - Simplify labels.
-- Reduce legends.
-- Prioritize key metrics.
-- Enable touch interactions.
+- Reduce visual density.
+- Preserve readability.
 
-Interactive filtering remains available.
+---
+
+# Widget Adaptation
+
+Widgets support:
+
+- Resize
+- Collapse
+- Hide details
+- Full-screen mode
+
+---
+
+# AI Workspace
+
+Desktop
+
+Side AI assistant.
+
+Tablet
+
+Slide-over AI panel.
+
+Mobile
+
+Bottom sheet AI assistant.
+
+AI remains available without interrupting workflows.
+
+---
+
+# Human Digital Twin
+
+Desktop
+
+Interactive dashboard.
+
+Tablet
+
+Tabbed summary.
+
+Mobile
+
+Timeline view.
+
+---
+
+# Touch Experience
+
+Touch targets follow:
+
+Minimum size
+
+48 × 48 px
+
+Gestures supported:
+
+- Swipe
+- Drag
+- Scroll
+- Long Press
+- Pinch (charts)
+
+---
+
+# Keyboard Support
+
+Desktop includes:
+
+- Keyboard shortcuts
+- Tab navigation
+- Command palette
+- Search shortcuts
 
 ---
 
 # Performance Strategy
 
-Responsive behavior includes:
+Responsive performance includes:
 
-- Lazy loading.
-- Progressive rendering.
-- Deferred charts.
-- Adaptive image loading.
-- Component virtualization.
-
-Performance remains consistent across devices.
-
----
-
-# Offline Experience
-
-Supported on tablets and mobile:
-
-- Cached dashboards.
-- Offline notes.
-- Pending synchronization.
-- Draft preservation.
-
-Users can continue working during connectivity interruptions.
+- Lazy loading
+- Progressive rendering
+- Adaptive image loading
+- Deferred widgets
+- Virtual scrolling
 
 ---
 
 # Accessibility
 
-Responsive layouts comply with:
+Responsive accessibility supports:
 
-- WCAG 2.2 AA.
-- Minimum touch targets.
-- Keyboard navigation.
-- Screen readers.
-- High contrast.
+- Screen readers
+- High contrast
+- Large text
+- Reduced motion
+- Keyboard-only navigation
 
-Accessibility remains consistent across breakpoints.
-
----
-
-# Responsive States
-
-Every screen supports:
-
-- Loading.
-- Empty.
-- Active.
-- Error.
-- Offline.
-- Read-only.
-
-State transitions remain consistent.
+Accessibility behavior remains consistent.
 
 ---
 
-# Responsive Governance
+# Offline Behavior
 
-Every new screen shall:
+When connectivity is limited:
 
-- Support all breakpoints.
-- Respect adaptive layouts.
-- Preserve accessibility.
-- Maintain workflow continuity.
-- Follow responsive grid standards.
+- Cached client data.
+- Draft meal plans.
+- Offline notes.
+- Background synchronization.
 
-Responsive validation is mandatory before release.
+Critical actions require synchronization before publication.
+
+---
+
+# Responsive Metrics
+
+Measured indicators:
+
+| Metric | Target |
+|----------|---------|
+| Mobile Load Time | <2 s |
+| Tablet Rendering | <2 s |
+| CLS | <0.1 |
+| Responsive Score | >95 |
+| Lighthouse Accessibility | >95 |
+| Lighthouse Performance | >90 |
+
+---
+
+# Governance
+
+Every responsive interface shall:
+
+- Follow Design System breakpoints.
+- Preserve workflow continuity.
+- Respect accessibility standards.
+- Support AI integration.
+- Maintain interaction consistency.
+
+---
+
+# Repository Structure
+
+```text
+responsive/
+├── breakpoints/
+├── layouts/
+├── navigation/
+├── components/
+├── widgets/
+├── ai/
+├── digital-twin/
+├── accessibility/
+├── performance/
+└── metadata.yml
+```
 
 ---
 
 # Standard Visual Artifacts
 
-## Device Hierarchy
+## Responsive Strategy
 
 ```text
 Desktop
-
-↓
-
-Laptop
 
 ↓
 
@@ -402,58 +491,46 @@ Mobile
 
 ---
 
-## Adaptive Layout
+## Layout Adaptation
 
 ```text
-Workspace
+Three Columns
 
 ↓
 
-Breakpoint
+Two Columns
 
 ↓
 
-Layout
-
-↓
-
-Interaction
+One Column
 ```
 
 ---
 
-## Grid System
+## Navigation Evolution
 
 ```text
-12
-
-↓
-
-8
-
-↓
-
-4
-```
-
----
-
-## AI Panel
-
-```text
-Desktop
-
-↓
-
-Side Panel
-
-Tablet
+Sidebar
 
 ↓
 
 Drawer
 
-Mobile
+↓
+
+Bottom Navigation
+```
+
+---
+
+## AI Responsive Behavior
+
+```text
+Side Panel
+
+↓
+
+Slide Panel
 
 ↓
 
@@ -468,38 +545,21 @@ Bottom Sheet
 artifacts/
 └── responsive-design/
     ├── breakpoints.drawio
-    ├── adaptive-layout.drawio
-    ├── grid-system.drawio
-    ├── mobile-navigation.drawio
-    ├── ai-panel.drawio
-    ├── responsive-widgets.drawio
+    ├── responsive-layouts.drawio
+    ├── navigation.drawio
+    ├── workspace.drawio
+    ├── ai-responsive.drawio
+    ├── digital-twin.drawio
     ├── mermaid/
     │   ├── breakpoints.mmd
     │   ├── layouts.mmd
     │   ├── navigation.mmd
-    │   ├── widgets.mmd
-    │   └── ai-panel.mmd
+    │   ├── ai.mmd
+    │   └── responsive.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
-```
-
----
-
-# Repository Structure
-
-```text
-responsive/
-├── breakpoints/
-├── layouts/
-├── grids/
-├── widgets/
-├── navigation/
-├── ai-panel/
-├── accessibility/
-├── performance/
-└── metadata.yml
+        ├── responsive-design.svg
+        ├── responsive-design.png
+        └── responsive-design.pdf
 ```
 
 ---
@@ -524,13 +584,12 @@ responsive/
 This chapter is complete when:
 
 - Supported devices are defined.
-- Breakpoints are documented.
-- Adaptive layouts are specified.
-- Navigation behavior is defined.
-- Responsive grids are documented.
-- AI panel adaptation is specified.
-- Accessibility requirements are included.
-- Performance considerations are documented.
+- Breakpoints are standardized.
+- Adaptive layouts are documented.
+- Navigation behavior is specified for each device.
+- Responsive components and widgets are documented.
+- AI and Human Digital Twin responsive behavior are defined.
+- Accessibility and performance targets are established.
 - Visual artifacts are available.
 - Traceability is complete.
 
@@ -538,10 +597,10 @@ This chapter is complete when:
 
 # Key Takeaways
 
-- The Coach Portal adopts an adaptive responsive strategy that optimizes professional workflows rather than simply resizing interfaces.
-- Layouts, navigation, widgets and AI interactions adjust intelligently to the capabilities of each device while preserving consistency.
-- Responsive behavior is tightly integrated with accessibility, performance and offline support to ensure a reliable experience across all environments.
-- Standardized responsive governance enables future workspaces and features to evolve without compromising usability or visual coherence.
+- The Nutritionist Portal implements an Adaptive Professional Experience that optimizes workflows according to device capabilities rather than simply resizing the interface.
+- Responsive layouts preserve productivity by adapting navigation, information density and interaction patterns for desktop, tablet and mobile environments.
+- AI workspaces and Human Digital Twin visualizations remain available across all devices using context-appropriate presentation models.
+- Shared responsive standards ensure consistency, accessibility and performance across the entire EVOXA ecosystem.
 
 ---
 
@@ -549,4 +608,4 @@ This chapter is complete when:
 
 **Chapter 16 — Workflow Architecture**
 
-This chapter defines the end-to-end operational workflows of the Coach Portal, including business processes, orchestration, automation, AI-assisted execution, state transitions and workflow governance.
+This chapter defines the internal workflow architecture of the Nutritionist Portal, including business processes, state transitions, orchestration, automation, AI-assisted workflows and event-driven interactions that govern nutritional care throughout the EVOXA platform.
