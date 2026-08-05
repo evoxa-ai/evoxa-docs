@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-07
-chapter_id: CH-04-COACH-07
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-07
+chapter_id: CH-05-NUTRITION-07
+feature_pack: FP-NUTRITION-0000
 title: UX Goals
 version: 1.0.0
 status: Draft
@@ -14,345 +14,395 @@ last_updated: 2026-08-04
 
 # Chapter 07 — UX Goals
 
-> *The UX Goals chapter defines the user experience objectives of the Coach Portal, ensuring that professionals can efficiently manage clients, collaborate with AI and perform complex workflows through a consistent, intuitive and scalable interface.*
+> *The UX Goals chapter defines the user experience objectives of the Nutritionist Portal, ensuring that every interaction is intuitive, efficient, accessible and enhanced by Artificial Intelligence while preserving professional control.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal is designed as a Professional Operating System where productivity, clarity and contextual intelligence are prioritized.
+The Nutritionist Portal is designed to maximize professional efficiency while minimizing cognitive effort.
 
-Unlike consumer applications, professional users spend several hours per day using the platform.
+The user experience combines modern interaction principles, AI-assisted workflows and evidence-based information presentation to support nutrition professionals throughout the complete nutritional care lifecycle.
 
-The user experience must minimize cognitive effort while maximizing operational efficiency and decision quality.
-
-Artificial Intelligence complements the professional by surfacing relevant information at the right moment without interrupting established workflows.
+Rather than simply digitizing existing processes, the portal redesigns professional workflows to improve productivity, decision quality and client engagement.
 
 ---
 
-# UX Vision
+# Objectives
 
-Enable professionals to focus on coaching rather than software.
+The UX strategy shall:
 
-The interface should feel like an intelligent assistant rather than an administrative tool.
-
----
-
-# UX Objectives
-
-The Coach Portal shall:
-
-- Reduce administrative workload.
-- Increase productivity.
-- Support rapid decision making.
-- Minimize cognitive load.
-- Provide contextual AI assistance.
-- Enable scalable client management.
-- Maintain consistency across modules.
-- Support continuous professional workflows.
+- Reduce cognitive load.
+- Increase professional productivity.
+- Simplify complex workflows.
+- Promote AI-assisted decision making.
+- Improve discoverability.
+- Minimize navigation effort.
+- Ensure accessibility.
 
 ---
 
-# UX Principles
+# UX Philosophy
 
-The Coach Portal follows these principles.
+The Nutritionist Portal follows four principles:
 
-## Productivity First
+- Simplicity
+- Clarity
+- Context
+- Intelligence
 
-Every interaction should reduce the number of clicks, context switches and repetitive tasks.
-
----
-
-## Client-Centered
-
-Every workflow begins with the client rather than the module.
+Every interaction should help professionals focus on nutritional care rather than software operation.
 
 ---
 
-## Context Awareness
+# User Experience Principles
 
-The platform adapts according to:
+The interface shall be:
 
-- Selected client.
-- Professional role.
-- Current workflow.
-- Pending tasks.
-- AI insights.
-
----
-
-## AI-Native Experience
-
-EVO is integrated into every workflow.
-
-AI provides:
-
-- Suggestions.
-- Summaries.
-- Alerts.
-- Recommendations.
-- Explanations.
-
-Professionals always make the final decision.
+- Predictable
+- Consistent
+- Efficient
+- Explainable
+- Responsive
+- Accessible
+- Context-aware
 
 ---
 
-## Progressive Disclosure
+# Professional First
 
-Advanced functionality appears only when necessary.
+The portal prioritizes professional workflows.
 
-Users are never overwhelmed by unnecessary information.
+Interfaces expose:
 
----
-
-## Consistency
-
-Navigation, terminology and interaction patterns remain consistent across all modules.
-
----
-
-## Explainability
-
-Every AI recommendation explains:
-
-- Why it was generated.
-- Supporting evidence.
-- Confidence level.
-- Recommended action.
+- Relevant information first.
+- Minimal distractions.
+- Intelligent defaults.
+- Contextual recommendations.
+- Progressive disclosure.
 
 ---
 
-# UX Design Goals
+# AI-Assisted Experience
 
-| Goal | Description |
-|--------|-------------|
-| Efficiency | Complete tasks quickly |
-| Learnability | Easy to understand |
-| Discoverability | Easy to find information |
-| Predictability | Consistent behavior |
-| Accessibility | Inclusive design |
-| Trust | Explainable AI |
-| Scalability | Support growing practices |
+Artificial Intelligence enhances the experience by:
 
----
+- Suggesting meal plans.
+- Recommending recipes.
+- Highlighting nutritional risks.
+- Summarizing assessments.
+- Predicting adherence.
+- Explaining recommendations.
 
-# Professional Workflows
+AI remains advisory.
 
-The UX optimizes recurring workflows such as:
-
-- Client onboarding.
-- Daily dashboard review.
-- Program creation.
-- Follow-up sessions.
-- Progress reviews.
-- Team collaboration.
-- Business reporting.
-
-Each workflow minimizes unnecessary navigation.
+Professionals retain final decision-making authority.
 
 ---
 
-# AI Experience Goals
+# Cognitive Load Reduction
 
-Artificial Intelligence should:
+The interface minimizes mental effort through:
 
-- Anticipate user needs.
-- Reduce manual work.
-- Prioritize important information.
-- Explain recommendations.
-- Learn from interactions.
-- Respect professional autonomy.
-
-AI remains transparent and predictable.
+- Progressive disclosure.
+- Logical grouping.
+- Visual hierarchy.
+- Consistent navigation.
+- Smart defaults.
+- Context-aware actions.
 
 ---
 
-# Information Density
+# Contextual Workspaces
 
-Professional users require high information density without sacrificing readability.
+Every screen adapts to its context.
 
-The interface shall support:
+Examples:
 
-- Summary views.
-- Expandable sections.
-- Smart filters.
-- Saved layouts.
-- Multi-panel navigation.
+- Client Dashboard
+- Assessment Workspace
+- Meal Planning Workspace
+- Progress Workspace
+- AI Consultation Workspace
+
+Each workspace exposes only the tools required for the current task.
 
 ---
 
-# Navigation Experience
+# Workflow Optimization
 
-Navigation should be:
+Common activities require minimal interaction.
 
-- Fast.
-- Contextual.
-- Predictable.
-- Searchable.
-- Keyboard-friendly.
+Examples:
 
-Frequently used actions remain within immediate reach.
+- Create meal plan.
+- Update anthropometric data.
+- Review client progress.
+- Approve AI recommendations.
+- Export reports.
+
+Frequently used actions remain immediately accessible.
+
+---
+
+# Information Hierarchy
+
+Priority order:
+
+1. Critical alerts.
+2. Current client context.
+3. Active workflow.
+4. Recommendations.
+5. Historical information.
+6. Administrative actions.
 
 ---
 
 # Dashboard Experience
 
-The Dashboard serves as the operational home.
+The Dashboard provides:
 
-It prioritizes:
+- Daily schedule.
+- Pending consultations.
+- AI insights.
+- Client alerts.
+- Follow-up reminders.
+- Recent activity.
 
-- Today's agenda.
-- High-priority alerts.
-- Client status.
-- AI recommendations.
-- Pending approvals.
-- Business KPIs.
-
----
-
-# Multi-Client Experience
-
-Professionals can manage:
-
-- Multiple clients.
-- Multiple programs.
-- Multiple appointments.
-- Multiple conversations.
-
-Context switching shall be fast and preserve the user's workflow.
+Professionals should understand their priorities within seconds of opening the portal.
 
 ---
 
-# Feedback Principles
+# Navigation Goals
 
-The platform continuously communicates:
+Navigation shall:
 
-- Success.
-- Progress.
+- Require minimal clicks.
+- Preserve context.
+- Support global search.
+- Enable keyboard navigation.
+- Reduce unnecessary transitions.
+
+---
+
+# Search Experience
+
+Search supports:
+
+- Clients.
+- Recipes.
+- Foods.
+- Meal plans.
+- Assessments.
+- Reports.
+
+Capabilities include:
+
+- Full-text search.
+- Filters.
+- Saved searches.
+- Semantic AI search.
+- Recent searches.
+
+---
+
+# Data Visualization
+
+Visualizations prioritize clarity.
+
+Supported components include:
+
+- Progress charts.
+- Body composition trends.
+- Nutritional adherence.
+- Macronutrient distribution.
+- Micronutrient analysis.
+- Goal tracking.
+
+Charts emphasize actionable insights over visual complexity.
+
+---
+
+# Feedback
+
+The interface provides immediate feedback for:
+
+- Save operations.
+- AI processing.
+- Validation.
+- Synchronization.
 - Errors.
-- Warnings.
-- Recommendations.
-- Background processes.
+- Notifications.
 
-Feedback is immediate and understandable.
+System status is always visible.
 
 ---
 
 # Error Prevention
 
-The UX minimizes errors through:
+The portal reduces errors through:
 
-- Validation.
-- Smart defaults.
-- Auto-save.
-- Undo support.
+- Smart validation.
+- Contextual suggestions.
+- Inline guidance.
 - Confirmation for destructive actions.
+- Undo where appropriate.
 
 ---
 
 # Personalization
 
-Professionals can personalize:
+Professionals may personalize:
 
 - Dashboard widgets.
-- Shortcuts.
-- Favorite clients.
-- Preferred layouts.
+- Favorite reports.
+- Navigation shortcuts.
+- Measurement units.
+- Theme.
 - Notification preferences.
-- AI assistance level.
 
 ---
 
-# Accessibility Goals
+# Collaboration Experience
 
-The Coach Portal complies with:
+The UX supports seamless collaboration with:
+
+- Coaches.
+- Physicians.
+- Physiotherapists.
+- Administrators.
+
+Shared information respects permissions and consent policies.
+
+---
+
+# Mobile Continuity
+
+Responsive behavior ensures continuity across:
+
+- Desktop.
+- Tablet.
+- Mobile devices.
+
+Users can continue workflows across devices without losing context.
+
+---
+
+# Accessibility
+
+The portal complies with:
 
 - WCAG 2.2 AA.
-- Keyboard accessibility.
-- Screen reader compatibility.
-- Responsive layouts.
-- High-contrast themes.
+- Keyboard navigation.
+- Screen readers.
+- High contrast.
+- Reduced motion.
 
-Accessibility is integrated from the design phase.
+Accessibility is integrated into every interaction.
 
 ---
 
 # UX Metrics
 
+Success indicators include:
+
 | Metric | Target |
 |----------|---------|
-| Time to Complete Common Tasks | -30% vs baseline |
-| Daily Active Usage | >90% |
-| Task Success Rate | >95% |
-| Navigation Errors | <2% |
-| AI Recommendation Acceptance | >70% |
-| User Satisfaction | >4.5 / 5 |
+| Task Completion Rate | >95% |
+| Average Meal Plan Creation | <15 min |
+| Navigation Success | >95% |
+| AI Recommendation Acceptance | >75% |
+| User Satisfaction | >90% |
+| Time to Locate Client | <10 sec |
 
 ---
 
-# UX Success Indicators
+# UX Governance
 
-The experience is successful when professionals can:
+Every new feature shall:
 
-- Find any client within seconds.
-- Build programs rapidly.
-- Understand AI recommendations.
-- Monitor hundreds of clients efficiently.
-- Perform daily work without unnecessary interruptions.
+- Follow the Design System.
+- Meet accessibility requirements.
+- Preserve navigation consistency.
+- Support responsive layouts.
+- Include usability validation.
+- Respect AI explainability principles.
 
 ---
 
-# UX Architecture
+# UX Lifecycle
 
 ```text
-Professional
+Research
 
 ↓
 
-Dashboard
+Design
 
 ↓
 
-Context
+Prototype
 
 ↓
 
-AI Assistance
+Validate
 
 ↓
 
-Decision
+Develop
 
 ↓
 
-Execution
+Measure
+
+↓
+
+Improve
+```
+
+---
+
+# Repository Structure
+
+```text
+ux/
+├── research/
+├── usability/
+├── interaction/
+├── dashboards/
+├── navigation/
+├── accessibility/
+├── ai-experience/
+├── metrics/
+├── governance/
+└── metadata.yml
 ```
 
 ---
 
 # Standard Visual Artifacts
 
-## UX Principles
+## UX Philosophy
 
 ```text
-Productivity
+Simple
 
 ↓
 
-Context
+Contextual
 
 ↓
 
-AI
+Intelligent
 
 ↓
 
-Efficiency
+Professional
 ```
 
 ---
 
-## Professional Workflow
+## Workspace Model
 
 ```text
 Client
@@ -363,15 +413,11 @@ Assessment
 
 ↓
 
-Program
+Meal Plan
 
 ↓
 
-Monitoring
-
-↓
-
-Results
+Progress
 ```
 
 ---
@@ -379,7 +425,11 @@ Results
 ## AI Interaction
 
 ```text
-Context
+Nutritionist
+
+↓
+
+AI
 
 ↓
 
@@ -388,30 +438,26 @@ Recommendation
 ↓
 
 Decision
-
-↓
-
-Learning
 ```
 
 ---
 
-## Dashboard Priorities
+## User Flow
 
 ```text
-Alerts
+Navigation
 
 ↓
 
-Agenda
+Task
 
 ↓
 
-Clients
+Completion
 
 ↓
 
-KPIs
+Feedback
 ```
 
 ---
@@ -422,21 +468,21 @@ KPIs
 artifacts/
 └── ux-goals/
     ├── ux-principles.drawio
-    ├── professional-workflow.drawio
-    ├── dashboard-priorities.drawio
+    ├── workspace-model.drawio
     ├── ai-interaction.drawio
-    ├── information-density.drawio
-    ├── navigation-model.drawio
+    ├── navigation-flow.drawio
+    ├── dashboard-layout.drawio
+    ├── usability-metrics.drawio
     ├── mermaid/
-    │   ├── ux-principles.mmd
-    │   ├── workflows.mmd
+    │   ├── ux.mmd
+    │   ├── workspaces.mmd
     │   ├── ai.mmd
-    │   ├── dashboard.mmd
-    │   └── navigation.mmd
+    │   ├── navigation.mmd
+    │   └── lifecycle.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
+        ├── ux-goals.svg
+        ├── ux-goals.png
+        └── ux-goals.pdf
 ```
 
 ---
@@ -449,8 +495,8 @@ artifacts/
 | User Journeys | Chapter 05 |
 | Information Architecture | Chapter 06 |
 | Screen Catalog | Chapter 08 |
-| Layout Architecture | Chapter 09 |
 | Design Principles | Chapter 11 |
+| Responsive Design | Chapter 15 |
 | Accessibility & Internationalization | Chapter 25 |
 
 ---
@@ -459,12 +505,13 @@ artifacts/
 
 This chapter is complete when:
 
-- UX vision is defined.
-- UX principles are documented.
-- Productivity goals are established.
-- AI interaction principles are defined.
-- Accessibility objectives are documented.
-- UX metrics are established.
+- UX philosophy is documented.
+- Professional interaction principles are defined.
+- AI-assisted experience is specified.
+- Dashboard and navigation goals are established.
+- Accessibility and personalization requirements are documented.
+- UX metrics are defined.
+- Governance requirements are established.
 - Visual artifacts are available.
 - Traceability is complete.
 
@@ -472,10 +519,10 @@ This chapter is complete when:
 
 # Key Takeaways
 
-- The Coach Portal prioritizes professional productivity through a client-centered and workflow-oriented user experience.
-- AI enhances decision-making by providing contextual recommendations, summaries and alerts without disrupting established workflows.
-- Consistent navigation, progressive disclosure and personalization reduce cognitive load while supporting complex daily operations.
-- Accessibility, explainability and measurable UX outcomes ensure that the platform remains usable, trustworthy and scalable for professionals of all sizes.
+- The Nutritionist Portal delivers a professional-first user experience focused on efficiency, clarity and evidence-based decision making.
+- AI augments professional workflows by providing contextual recommendations, predictive insights and intelligent automation while maintaining full human oversight.
+- Information architecture, navigation and visual hierarchy are designed to reduce cognitive load and accelerate routine nutritional tasks.
+- Consistent governance, accessibility and measurable UX objectives ensure a scalable and high-quality experience across the EVOXA ecosystem.
 
 ---
 
@@ -483,4 +530,4 @@ This chapter is complete when:
 
 **Chapter 08 — Screen Catalog**
 
-This chapter defines every screen of the Coach Portal, including navigation hierarchy, responsibilities, layouts, permissions, related workflows, AI integrations and screen-level design specifications.
+This chapter defines the complete inventory of user interface screens within the Nutritionist Portal, including their purpose, functional responsibilities, navigation relationships, permissions and integration points across the EVOXA platform.
