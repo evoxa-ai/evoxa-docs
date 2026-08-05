@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-18
-chapter_id: CH-04-COACH-18
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-18
+chapter_id: CH-05-NUTRITION-18
+feature_pack: FP-NUTRITION-0000
 title: User Stories
 version: 1.0.0
 status: Draft
@@ -14,17 +14,17 @@ last_updated: 2026-08-04
 
 # Chapter 18 — User Stories
 
-> *The User Stories chapter defines the functional requirements of the Coach Portal from the perspective of professional users, ensuring traceability across business goals, workflows, APIs, AI services and implementation.*
+> *The User Stories chapter defines the functional requirements of the Nutritionist Portal from the perspective of end users, providing a complete, traceable and testable specification for implementation.*
 
 ---
 
 # Executive Summary
 
-User Stories describe the expected behavior of the Coach Portal from the perspective of its professional users.
+User Stories translate business objectives into actionable development requirements.
 
-Each story represents a measurable business capability linked to workflows, business rules, feature packs and acceptance criteria.
+Every story follows a standardized structure and includes acceptance criteria, business value, dependencies and traceability to workflows, APIs, AI services and business rules.
 
-Stories provide a common language for Product, UX, Engineering, QA and AI teams.
+The collection of stories represents the functional scope of the Nutritionist Portal.
 
 ---
 
@@ -33,429 +33,363 @@ Stories provide a common language for Product, UX, Engineering, QA and AI teams.
 The User Stories shall:
 
 - Describe user needs.
-- Capture business value.
-- Support implementation.
-- Enable testing.
+- Define functional requirements.
+- Support Agile delivery.
 - Improve traceability.
-- Define acceptance criteria.
-- Link business goals with technical implementation.
+- Facilitate testing.
+- Enable prioritization.
+- Align development with business goals.
 
 ---
 
-# Story Philosophy
+# User Story Structure
 
-Every User Story must answer:
-
-- Who needs it?
-- What do they want?
-- Why is it valuable?
-- How is success measured?
-
----
-
-# User Story Template
-
-```text
-As a
-
-<Persona>
-
-I want
-
-<Capability>
-
-So that
-
-<Business Value>
-```
-
----
-
-# Story Metadata
-
-Each User Story includes:
+Each story includes:
 
 - Story ID
-- Feature Pack
-- Persona
-- Priority
+- Title
+- Description
+- Actor
 - Business Value
-- Workflow
-- Business Rules
-- APIs
-- Events
-- AI Participation
-- Story Points
+- Preconditions
+- Main Flow
 - Acceptance Criteria
+- Dependencies
+- Related APIs
+- Related Events
+- Related Business Rules
 
 ---
 
-# Story Priorities
+# Story Categories
+
+The Nutritionist Portal includes:
+
+- Client Management
+- Assessments
+- Meal Planning
+- Recipes
+- Food Database
+- Supplements
+- Progress Tracking
+- Reports
+- AI Assistance
+- Collaboration
+- Administration
+
+---
+
+# Client Management
+
+## US-001 — Register a New Client
+
+**As a** Nutritionist
+
+**I want to** register a new client
+
+**So that** I can manage nutritional care within the platform.
+
+### Acceptance Criteria
+
+- Client profile is created.
+- Required fields are validated.
+- Consent can be recorded.
+- Human Digital Twin is initialized.
+- Audit log is generated.
+
+Related Rules:
+
+- BR-001
+- BR-002
+
+---
+
+## US-002 — View Client Profile
+
+**As a** Nutritionist
+
+**I want to** access a complete client profile
+
+**So that** I can review nutritional history and current status.
+
+Acceptance Criteria
+
+- Profile loads within performance targets.
+- Timeline is available.
+- Digital Twin summary is visible.
+- Permissions are enforced.
+
+---
+
+# Assessments
+
+## US-010 — Create Nutritional Assessment
+
+As a Nutritionist
+
+I want to perform a nutritional assessment
+
+So that nutritional interventions are based on current information.
+
+Acceptance Criteria
+
+- Anthropometric data can be recorded.
+- Clinical information is validated.
+- Assessment can be saved as draft.
+- AI analysis is available.
+- Assessment can be approved.
+
+---
+
+## US-011 — Review Assessment History
+
+Acceptance Criteria
+
+- Historical assessments are available.
+- Previous versions remain immutable.
+- Trends are displayed graphically.
+
+---
+
+# Meal Planning
+
+## US-020 — Create Meal Plan
+
+As a Nutritionist
+
+I want to create a personalized meal plan
+
+So that my client receives an individualized nutrition program.
+
+Acceptance Criteria
+
+- Energy target defined.
+- Macro distribution calculated.
+- Recipes can be assigned.
+- AI recommendations available.
+- Plan can be published.
+
+---
+
+## US-021 — Duplicate Meal Plan
+
+Acceptance Criteria
+
+- Existing plans can be cloned.
+- Modifications do not affect previous versions.
+- New version is created.
+
+---
+
+## US-022 — Publish Meal Plan
+
+Acceptance Criteria
+
+- Plan passes validation.
+- Client is notified.
+- Shopping list is generated.
+- Previous version archived.
+
+---
+
+# Recipes
+
+## US-030 — Manage Recipes
+
+Acceptance Criteria
+
+- Recipes can be created.
+- Ingredients managed.
+- Nutritional values calculated.
+- Dietary categories assigned.
+
+---
+
+## US-031 — AI Recipe Suggestions
+
+Acceptance Criteria
+
+- AI proposes alternatives.
+- Restrictions respected.
+- Confidence level displayed.
+
+---
+
+# Supplements
+
+## US-040 — Create Supplement Plan
+
+Acceptance Criteria
+
+- Contraindications checked.
+- Professional approval required.
+- AI recommendations optional.
+
+---
+
+# Progress Tracking
+
+## US-050 — Record Progress
+
+Acceptance Criteria
+
+- Measurements stored.
+- Historical comparison available.
+- Goal progress calculated.
+- Human Digital Twin updated.
+
+---
+
+## US-051 — Review Trends
+
+Acceptance Criteria
+
+- Charts generated.
+- Historical comparison available.
+- AI predictions displayed.
+
+---
+
+# Reports
+
+## US-060 — Generate Report
+
+Acceptance Criteria
+
+- Uses approved data only.
+- PDF export available.
+- Organization branding applied.
+- Audit event generated.
+
+---
+
+# AI Assistance
+
+## US-070 — Ask EVO
+
+As a Nutritionist
+
+I want to ask EVO for nutritional recommendations
+
+So that I can receive contextual decision support.
+
+Acceptance Criteria
+
+- AI uses client context.
+- Human Digital Twin consulted.
+- Confidence score displayed.
+- Explanation provided.
+- Recommendation not automatically applied.
+
+---
+
+## US-071 — Review AI Recommendations
+
+Acceptance Criteria
+
+- Recommendations explained.
+- Alternatives displayed.
+- Approval required.
+- Feedback can be submitted.
+
+---
+
+# Collaboration
+
+## US-080 — Share Client Information
+
+Acceptance Criteria
+
+- Permissions validated.
+- Audit log generated.
+- Shared timeline updated.
+
+---
+
+## US-081 — Communicate with Coach
+
+Acceptance Criteria
+
+- Secure messaging.
+- Notifications generated.
+- Conversation history retained.
+
+---
+
+# Administration
+
+## US-090 — Configure Organization
+
+Acceptance Criteria
+
+- Branding configurable.
+- Notification preferences configurable.
+- Nutrition templates configurable.
+
+---
+
+# Common Acceptance Criteria
+
+Every story shall satisfy:
+
+- Authorization verified.
+- Validation executed.
+- Audit generated.
+- Events published.
+- Performance targets met.
+- Accessibility requirements satisfied.
+
+---
+
+# Story Prioritization
 
 | Priority | Description |
 |----------|-------------|
-| Critical | Core functionality |
-| High | Essential capability |
-| Medium | Important enhancement |
-| Low | Nice to have |
+| P0 | Critical |
+| P1 | High |
+| P2 | Medium |
+| P3 | Low |
 
 ---
 
-# Feature Pack Mapping
+# Story Status
 
-| Feature Pack | Stories |
-|--------------|----------|
-| FP-COACH-0001 | Dashboard |
-| FP-COACH-0002 | Clients |
-| FP-COACH-0003 | Assessments |
-| FP-COACH-0004 | Training |
-| FP-COACH-0005 | Nutrition |
-| FP-COACH-0006 | Calendar |
-| FP-COACH-0007 | Messaging |
-| FP-COACH-0008 | Video Sessions |
-| FP-COACH-0009 | AI Assistant |
-| FP-COACH-0010 | Analytics |
-| FP-COACH-0011 | Billing |
-| FP-COACH-0012 | Marketplace |
+Supported states:
+
+- Draft
+- Approved
+- Ready
+- In Development
+- In Testing
+- Released
+- Deprecated
 
 ---
 
-# Dashboard Stories
+# Traceability Matrix
 
-## US-0001
+Each story references:
 
-**Persona**
-
-Coach
-
-**Story**
-
-As a Coach,
-
-I want to see my operational dashboard,
-
-so that I can immediately understand today's priorities.
-
-Business Value:
-
-Increase productivity.
-
-Priority:
-
-Critical.
-
-Workflow:
-
-WF-001
-
-Business Rules:
-
-BR-0001
+- Workflow
+- Business Rule
+- API
+- Event
+- UI Screen
+- Component
+- Test Case
 
 ---
 
-## US-0002
-
-As a Coach,
-
-I want to customize my dashboard,
-
-so that I can prioritize the information most relevant to my daily work.
-
----
-
-# Client Management Stories
-
-## US-0100
-
-As a Coach,
-
-I want to register a new client,
-
-so that I can begin the onboarding process.
-
----
-
-## US-0101
-
-As a Coach,
-
-I want to review a client's Human Digital Twin,
-
-so that I can personalize recommendations.
-
----
-
-## US-0102
-
-As a Coach,
-
-I want to access a client's complete history,
-
-so that I can make informed decisions.
-
----
-
-# Assessment Stories
-
-## US-0200
-
-As a Coach,
-
-I want to perform an initial assessment,
-
-so that I can establish a baseline.
-
----
-
-## US-0201
-
-As a Physiotherapist,
-
-I want to register functional evaluations,
-
-so that I can monitor recovery.
-
----
-
-# Training Stories
-
-## US-0300
-
-As a Coach,
-
-I want to create a personalized training plan,
-
-so that every client receives a program aligned with their goals.
-
----
-
-## US-0301
-
-As a Coach,
-
-I want EVO to recommend exercises,
-
-so that I can create better programs faster.
-
----
-
-# Nutrition Stories
-
-## US-0400
-
-As a Nutritionist,
-
-I want to create nutrition plans,
-
-so that clients receive personalized dietary guidance.
-
----
-
-## US-0401
-
-As a Nutritionist,
-
-I want AI to suggest nutritional improvements,
-
-so that meal plans become more effective.
-
----
-
-# Calendar Stories
-
-## US-0500
-
-As a Coach,
-
-I want to schedule appointments,
-
-so that I can organize my daily agenda.
-
----
-
-## US-0501
-
-As a Coach,
-
-I want appointment reminders,
-
-so that missed sessions decrease.
-
----
-
-# Messaging Stories
-
-## US-0600
-
-As a Coach,
-
-I want secure messaging,
-
-so that communication remains centralized.
-
----
-
-# AI Stories
-
-## US-0700
-
-As a Coach,
-
-I want EVO to analyze client progress,
-
-so that I receive proactive recommendations.
-
----
-
-## US-0701
-
-As a Coach,
-
-I want AI recommendations to explain their reasoning,
-
-so that I understand why they were generated.
-
----
-
-# Analytics Stories
-
-## US-0800
-
-As an Enterprise Coach,
-
-I want business dashboards,
-
-so that I can monitor organizational performance.
-
----
-
-# Billing Stories
-
-## US-0900
-
-As an Administrator,
-
-I want subscription management,
-
-so that billing remains automated.
-
----
-
-# Marketplace Stories
-
-## US-1000
-
-As a Coach,
-
-I want reusable program templates,
-
-so that I can reduce repetitive work.
-
----
-
-# AI Participation
-
-Stories involving AI define:
-
-- AI Context
-- Inputs
-- Outputs
-- Confidence
-- Explainability
-- User Feedback
-
-Professional approval is mandatory for AI-generated recommendations that affect client care.
-
----
-
-# Story Relationships
-
-```text
-Persona
-
-↓
-
-User Story
-
-↓
-
-Workflow
-
-↓
-
-Business Rules
-
-↓
-
-API
-
-↓
-
-Events
-
-↓
-
-Acceptance Tests
-```
-
----
-
-# Story Lifecycle
-
-```text
-Draft
-
-↓
-
-Approved
-
-↓
-
-Planned
-
-↓
-
-Implemented
-
-↓
-
-Tested
-
-↓
-
-Released
-
-↓
-
-Deprecated
-```
-
----
-
-# Story Governance
-
-Every User Story shall include:
-
-- Business owner.
-- Technical owner.
-- UX review.
-- QA validation.
-- Traceability.
-- Version history.
-
----
-
-# Story Metrics
-
-The Product Team tracks:
-
-- Stories completed.
-- Story cycle time.
-- Defect rate.
-- Acceptance rate.
-- AI adoption.
-- Business value delivered.
+# User Story Metrics
+
+Measured indicators:
+
+| Metric | Target |
+|----------|---------|
+| Story Completion | >95% |
+| Acceptance Rate | >98% |
+| Defect Leakage | <2% |
+| Test Coverage | >90% |
 
 ---
 
@@ -463,17 +397,17 @@ The Product Team tracks:
 
 ```text
 user-stories/
-├── dashboard/
-├── clients/
+├── client/
 ├── assessments/
-├── training/
-├── nutrition/
-├── calendar/
-├── messaging/
+├── meal-plans/
+├── recipes/
+├── supplements/
+├── progress/
+├── reports/
 ├── ai/
-├── analytics/
-├── billing/
-├── marketplace/
+├── collaboration/
+├── administration/
+├── traceability/
 └── metadata.yml
 ```
 
@@ -484,23 +418,23 @@ user-stories/
 ## Story Lifecycle
 
 ```text
-Idea
+Draft
 
 ↓
 
-Story
+Approved
 
 ↓
 
-Implementation
+Development
 
 ↓
 
-Validation
+Testing
 
 ↓
 
-Release
+Released
 ```
 
 ---
@@ -508,11 +442,7 @@ Release
 ## Traceability
 
 ```text
-Persona
-
-↓
-
-Story
+User Story
 
 ↓
 
@@ -521,22 +451,10 @@ Workflow
 ↓
 
 API
-```
-
----
-
-## Story Dependency
-
-```text
-Feature Pack
 
 ↓
 
-Story
-
-↓
-
-Business Rule
+Event
 
 ↓
 
@@ -545,10 +463,10 @@ Test
 
 ---
 
-## AI Story
+## AI Story Flow
 
 ```text
-Coach
+Nutritionist
 
 ↓
 
@@ -565,27 +483,47 @@ Approval
 
 ---
 
+## Development Flow
+
+```text
+Requirement
+
+↓
+
+Story
+
+↓
+
+Implementation
+
+↓
+
+Validation
+```
+
+---
+
 # Visual Source Files
 
 ```text
 artifacts/
 └── user-stories/
-    ├── story-map.drawio
-    ├── story-lifecycle.drawio
+    ├── lifecycle.drawio
     ├── traceability.drawio
-    ├── dependency-map.drawio
-    ├── ai-story.drawio
-    ├── acceptance-flow.drawio
+    ├── ai-stories.drawio
+    ├── workflow-links.drawio
+    ├── prioritization.drawio
+    ├── development-flow.drawio
     ├── mermaid/
     │   ├── lifecycle.mmd
-    │   ├── stories.mmd
     │   ├── traceability.mmd
     │   ├── ai.mmd
-    │   └── dependencies.mmd
+    │   ├── development.mmd
+    │   └── workflow.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
+        ├── user-stories.svg
+        ├── user-stories.png
+        └── user-stories.pdf
 ```
 
 ---
@@ -594,14 +532,13 @@ artifacts/
 
 | Artifact | Reference |
 |----------|-----------|
-| Personas | Chapter 04 |
-| User Journeys | Chapter 05 |
 | Workflow Architecture | Chapter 16 |
 | Business Rules | Chapter 17 |
 | API Contracts | Chapter 19 |
 | Event Architecture | Chapter 20 |
 | AI Services | Chapter 21 |
-| Testing & Quality | Chapter 27 |
+| Data Model | Chapter 22 |
+| Testing & Quality Assurance | Chapter 27 |
 
 ---
 
@@ -609,23 +546,22 @@ artifacts/
 
 This chapter is complete when:
 
-- User Stories are documented.
-- Personas are linked.
-- Workflows are referenced.
-- Business Rules are mapped.
-- AI participation is identified.
-- Acceptance criteria are defined.
-- Story lifecycle is documented.
-- Traceability is complete.
+- User story categories are defined.
+- Core functional stories are documented.
+- Acceptance criteria are specified.
+- Traceability to workflows, APIs, events and business rules is established.
+- Prioritization and lifecycle are documented.
+- Metrics and governance are defined.
+- Visual artifacts are available.
 
 ---
 
 # Key Takeaways
 
-- User Stories translate business objectives into implementable functional requirements while maintaining full traceability to personas, workflows, business rules and technical artifacts.
-- Every story includes measurable business value, clear acceptance criteria and governance metadata to support product planning and delivery.
-- AI-assisted stories explicitly define context, explainability and professional approval, ensuring responsible use of intelligent capabilities.
-- A centralized User Story Registry provides a scalable foundation for agile development, quality assurance and long-term product evolution.
+- User Stories provide the functional specification that bridges business requirements and software implementation for the Nutritionist Portal.
+- Every story is uniquely identified, testable and fully traceable to workflows, business rules, APIs, events, UI components and quality assurance activities.
+- Standardized acceptance criteria and lifecycle states enable predictable delivery while maintaining alignment with the EVOXA architecture.
+- AI-assisted features, Human Digital Twin interactions and multidisciplinary collaboration are treated as first-class functional capabilities, ensuring that intelligent services are integrated consistently across the product.
 
 ---
 
@@ -633,4 +569,4 @@ This chapter is complete when:
 
 **Chapter 19 — API Contracts**
 
-This chapter defines the complete API surface of the Coach Portal, including REST endpoints, request and response schemas, authentication, authorization, versioning, error handling, event integration and AI service contracts.
+This chapter defines the REST APIs, GraphQL endpoints, WebSocket channels, request/response schemas, authentication requirements, versioning strategy and integration contracts used by the Nutritionist Portal and the EVOXA platform.
