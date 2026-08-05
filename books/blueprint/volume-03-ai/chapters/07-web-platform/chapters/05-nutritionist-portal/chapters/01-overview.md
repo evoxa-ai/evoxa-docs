@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-01
-chapter_id: CH-04-COACH-01
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-01
+chapter_id: CH-05-NUTRITION-01
+feature_pack: FP-NUTRITION-0000
 title: Overview
 version: 1.0.0
 status: Draft
@@ -14,313 +14,346 @@ last_updated: 2026-08-04
 
 # Chapter 01 — Overview
 
-> *The Coach Portal is the professional operating system of the EVOXA Platform, empowering coaches, trainers, nutritionists and healthcare professionals to manage clients, deliver personalized care and collaborate with EVO, the AI-native assistant.*
+> *The Nutritionist Portal is the professional workspace for nutritionists, dietitians and clinical nutrition specialists within the EVOXA ecosystem. It combines evidence-based nutritional care, intelligent automation and AI-powered decision support to improve patient outcomes and operational efficiency.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal provides a comprehensive digital workspace for professionals responsible for improving the health, fitness and wellbeing of their clients.
+The Nutritionist Portal is one of the core professional applications of the EVOXA Platform.
 
-Unlike the User Portal, which focuses on a single individual's journey, the Coach Portal enables professionals to manage multiple clients simultaneously while leveraging Artificial Intelligence, Human Digital Twins and advanced analytics to deliver personalized, scalable and measurable services.
+It enables nutrition professionals to perform nutritional assessments, create personalized meal plans, monitor adherence, evaluate progress and collaborate with coaches, physicians and other healthcare professionals.
 
-The Coach Portal centralizes every aspect of professional operations, including client management, assessments, nutrition planning, training design, communication, scheduling, AI-assisted decision support and business analytics.
+Unlike traditional nutrition software, the Nutritionist Portal integrates Artificial Intelligence, Human Digital Twins and advanced analytics to support evidence-based nutritional care.
 
 ---
 
 # Vision
 
-To become the most advanced AI-native platform for health and fitness professionals, enabling them to deliver better outcomes through intelligent automation, data-driven insights and personalized care.
+To become the most intelligent and comprehensive digital workspace for nutrition professionals worldwide.
+
+The platform empowers professionals through automation, predictive analytics and AI-assisted recommendations while preserving professional judgment and clinical responsibility.
 
 ---
 
 # Mission
 
-Provide coaches with a unified platform that combines client management, operational efficiency, artificial intelligence and advanced analytics into a single professional workspace.
+Provide nutrition professionals with a unified platform that simplifies nutritional care, improves client adherence and enables personalized interventions through intelligent technologies.
 
 ---
 
 # Strategic Goals
 
-The Coach Portal shall:
+The Nutritionist Portal aims to:
 
-- Improve coaching efficiency.
-- Enhance client engagement.
-- Deliver AI-assisted recommendations.
-- Enable evidence-based decisions.
-- Scale professional operations.
-- Support multidisciplinary collaboration.
+- Improve nutritional outcomes.
+- Increase professional productivity.
 - Reduce administrative workload.
-- Increase client retention.
-- Improve health outcomes.
+- Deliver highly personalized nutrition plans.
+- Enable multidisciplinary collaboration.
+- Integrate AI into daily nutritional practice.
+- Continuously evolve through data-driven insights.
 
 ---
 
-# Platform Position
+# Target Users
 
-The Coach Portal is one of the core products within the EVOXA ecosystem.
+Primary users include:
 
-```text
-EVOXA Platform
+- Registered Dietitians
+- Clinical Nutritionists
+- Sports Nutritionists
+- Wellness Nutrition Coaches
+- Preventive Health Professionals
 
-├── Public Portal
+Secondary users include:
 
-├── User Portal
-
-├── Coach Portal
-
-├── Enterprise Portal
-
-├── AI Platform (EVO)
-
-├── Administration Portal
-
-└── Marketplace
-```
-
-Each product shares the same architectural foundation while serving different user groups.
-
----
-
-# Target Audience
-
-The Coach Portal supports:
-
-- Personal Trainers
-- Strength Coaches
-- Nutritionists
-- Dietitians
+- Physicians
+- Coaches
 - Physiotherapists
-- Wellness Professionals
-- Sports Scientists
-- Medical Specialists (future)
-- Corporate Wellness Teams
-
----
-
-# Business Value
-
-The platform delivers measurable value by:
-
-- Centralizing client information.
-- Automating repetitive tasks.
-- Supporting personalized coaching.
-- Improving communication.
-- Tracking long-term progress.
-- Providing actionable analytics.
-- Increasing operational efficiency.
-- Enabling AI-powered decision support.
+- Health Organizations
+- Administrators
 
 ---
 
 # Core Capabilities
 
-The Coach Portal includes the following capability domains.
+The Nutritionist Portal provides:
 
-| Capability | Description |
-|------------|-------------|
-| Dashboard | Operational overview |
-| Client Management | Client lifecycle management |
-| Human Digital Twin | Personalized client intelligence |
-| Assessments | Health and fitness evaluations |
-| Training | Workout planning and monitoring |
-| Nutrition | Meal planning and dietary management |
-| Calendar | Scheduling and appointments |
-| Messaging | Secure client communication |
-| Video Sessions | Remote coaching |
-| AI Assistant (EVO) | Intelligent coaching support |
-| Analytics | Performance and business insights |
-| Billing | Payments and subscriptions |
-| Marketplace | Templates and integrations |
-| Settings | Configuration and preferences |
+- Client Management
+- Nutrition Assessments
+- Anthropometric Tracking
+- Meal Planning
+- Recipe Management
+- Food Database
+- Supplement Planning
+- Allergy & Restriction Management
+- Shopping Lists
+- Progress Monitoring
+- AI Nutrition Assistant
+- Human Digital Twin Integration
+- Reports & Analytics
 
 ---
 
-# Functional Scope
+# Business Value
 
-The Coach Portal enables professionals to:
+The platform creates value by:
 
-- Register and onboard clients.
-- Perform health assessments.
-- Build personalized programs.
-- Monitor adherence.
-- Analyze progress.
-- Communicate securely.
-- Schedule appointments.
-- Receive AI recommendations.
-- Generate reports.
-- Manage professional operations.
+- Standardizing nutritional workflows.
+- Improving client engagement.
+- Reducing manual planning effort.
+- Supporting evidence-based recommendations.
+- Increasing adherence to nutrition plans.
+- Providing predictive nutritional insights.
+- Enhancing collaboration across healthcare teams.
 
 ---
 
-# AI-Native Experience
+# Key Differentiators
 
-Artificial Intelligence is embedded throughout the Coach Portal.
+Compared with traditional nutrition software, EVOXA provides:
 
-EVO assists professionals by:
-
-- Suggesting training programs.
-- Recommending nutrition plans.
-- Identifying behavioral patterns.
-- Detecting client risks.
-- Predicting goal achievement.
-- Prioritizing interventions.
-- Generating reports.
-- Explaining recommendations.
-
-AI augments professional expertise without replacing human judgment.
+- AI-assisted nutritional planning.
+- Human Digital Twin integration.
+- Predictive adherence analysis.
+- Automated macro and micronutrient optimization.
+- Personalized meal recommendations.
+- Intelligent supplementation guidance.
+- Event-driven architecture.
+- Enterprise-grade scalability.
 
 ---
 
-# Human Digital Twin
+# Human Digital Twin Integration
 
-Each client is represented by a Human Digital Twin that consolidates:
+Every active client is associated with a Human Digital Twin.
 
-- Personal profile.
-- Health metrics.
-- Goals.
-- Nutrition history.
-- Training history.
+The Digital Twin continuously incorporates:
+
+- Nutritional assessments.
+- Dietary habits.
+- Body composition.
+- Health conditions.
+- Training workload.
 - Recovery indicators.
-- Behavioral insights.
-- AI interactions.
-- Wearable device data.
+- Behavioral patterns.
+- AI-generated predictions.
 
-The Human Digital Twin provides the contextual foundation for every AI recommendation.
+This enables continuously personalized nutritional recommendations.
 
 ---
 
-# Operational Model
+# AI Integration
+
+Artificial Intelligence supports professionals through:
+
+- Meal recommendations.
+- Recipe generation.
+- Macro optimization.
+- Micronutrient analysis.
+- Dietary risk detection.
+- Supplement recommendations.
+- Adherence prediction.
+- Progress forecasting.
+
+AI augments professional expertise rather than replacing it.
+
+---
+
+# Collaboration
+
+The Nutritionist Portal collaborates with:
+
+- Coach Portal
+- User Portal
+- Enterprise Portal
+- AI Platform
+- Human Digital Twin
+- Analytics Platform
+
+Information is shared securely through standardized APIs and domain events.
+
+---
+
+# Architectural Position
+
+Within the EVOXA ecosystem:
 
 ```text
-Coach
+User Portal
 
 ↓
 
-Dashboard
+Nutritionist Portal
 
 ↓
 
-Clients
+AI Platform
 
 ↓
 
-Digital Twins
+Human Digital Twin
 
 ↓
 
-Programs
+Data Platform
 
 ↓
 
-AI Assistance
-
-↓
-
-Monitoring
-
-↓
-
-Analytics
+Analytics Platform
 ```
+
+The portal is built upon shared platform capabilities including Identity, Events, Security and Observability.
 
 ---
 
 # Design Principles
 
-The Coach Portal follows these principles:
+The Nutritionist Portal follows:
 
-- AI-Native
-- Professional First
-- Data-Driven
-- Workflow-Oriented
-- Human-Centered
-- Explainable AI
+- User-Centered Design
+- Evidence-Based Nutrition
+- AI-Assisted Decision Making
 - Accessibility by Design
+- Privacy by Design
 - Security by Design
+- Cloud-Native Architecture
+- Domain-Driven Design
 
 ---
 
-# Architecture Principles
+# Functional Scope
 
-The platform is designed using:
+The portal supports:
 
-- Domain-Driven Design (DDD)
-- Event-Driven Architecture
-- Clean Architecture
-- API-First Design
-- Cloud-Native Deployment
-- Zero Trust Security
-- Observability by Design
+- Individual nutritional care.
+- Sports nutrition.
+- Preventive nutrition.
+- Wellness programs.
+- Clinical nutrition workflows.
+- Enterprise nutrition programs.
+
+Future releases may expand into additional healthcare domains.
+
+---
+
+# Out of Scope
+
+The Nutritionist Portal does not replace:
+
+- Electronic Medical Records (EMR)
+- Hospital Information Systems
+- Laboratory Information Systems
+- Financial Accounting Platforms
+
+Instead, it integrates with these systems where appropriate.
 
 ---
 
 # Success Indicators
 
-Success is measured through:
+The success of the Nutritionist Portal is measured through:
 
-- Coach productivity.
-- Client retention.
-- Program completion.
-- AI adoption.
-- Recommendation acceptance.
-- Revenue growth.
-- Customer satisfaction.
-- Platform reliability.
-
----
-
-# Dependencies
-
-The Coach Portal depends on:
-
-- Identity Platform
-- AI Platform
-- Human Digital Twin Platform
-- Analytics Platform
-- Notification Platform
-- Event Platform
-- Security Platform
-- Integration Platform
+- Professional adoption.
+- Client adherence.
+- Meal plan completion.
+- AI recommendation acceptance.
+- User satisfaction.
+- Operational efficiency.
+- Clinical outcome improvements.
 
 ---
 
-# Repository Structure
+# Standard Visual Artifacts
+
+## Portal Overview
 
 ```text
-04-coach-portal/
+Nutritionist
 
-├── artifacts/
-├── catalog/
-├── chapters/
-├── diagrams/
-├── exports/
-├── figma/
+↓
 
-README.md
-SUMMARY.md
-MANIFEST.md
-metadata.yml
+Nutritionist Portal
+
+↓
+
+AI Services
+
+↓
+
+Human Digital Twin
+
+↓
+
+Client
 ```
 
 ---
 
-# Related Feature Packs
+## Ecosystem Position
 
-| ID | Feature Pack |
-|----|--------------|
-| FP-COACH-0001 | Dashboard |
-| FP-COACH-0002 | Clients |
-| FP-COACH-0003 | Assessments |
-| FP-COACH-0004 | Training |
-| FP-COACH-0005 | Nutrition |
-| FP-COACH-0006 | Calendar |
-| FP-COACH-0007 | Messaging |
-| FP-COACH-0008 | Video Sessions |
-| FP-COACH-0009 | AI Assistant |
-| FP-COACH-0010 | Analytics |
-| FP-COACH-0011 | Billing |
-| FP-COACH-0012 | Marketplace |
+```text
+Coach Portal
+
+↓
+
+Nutritionist Portal
+
+↓
+
+User Portal
+
+↓
+
+AI Platform
+```
+
+---
+
+## Core Functional Domains
+
+```text
+Assessments
+
+↓
+
+Meal Plans
+
+↓
+
+Progress
+
+↓
+
+AI
+
+↓
+
+Reports
+```
+
+---
+
+# Visual Source Files
+
+```text
+artifacts/
+└── overview/
+    ├── portal-overview.drawio
+    ├── ecosystem.drawio
+    ├── capabilities.drawio
+    ├── architecture-position.drawio
+    ├── mermaid/
+    │   ├── overview.mmd
+    │   ├── ecosystem.mmd
+    │   ├── capabilities.mmd
+    │   └── architecture.mmd
+    └── exports/
+        ├── overview.svg
+        ├── overview.png
+        └── overview.pdf
+```
 
 ---
 
@@ -334,9 +367,8 @@ metadata.yml
 | User Journeys | Chapter 05 |
 | Workflow Architecture | Chapter 16 |
 | AI Services | Chapter 21 |
-| Data Model | Chapter 22 |
-| Security & Permissions | Chapter 23 |
-| Product Evolution | Chapter 30 |
+| Human Digital Twin | Cross-Platform |
+| EVOXA Platform | Volume 03 |
 
 ---
 
@@ -344,24 +376,24 @@ metadata.yml
 
 This chapter is complete when:
 
-- Vision and mission are documented.
-- Business objectives are defined.
-- Target users are identified.
-- Core capabilities are established.
-- AI strategy is introduced.
-- Human Digital Twin integration is described.
-- Architecture principles are documented.
-- Dependencies are identified.
+- The portal vision is documented.
+- Objectives are defined.
+- Business value is explained.
+- Core capabilities are identified.
+- AI integration is described.
+- Human Digital Twin integration is established.
+- Architectural position is documented.
+- Visual artifacts are defined.
 - Traceability is complete.
 
 ---
 
 # Key Takeaways
 
-- The Coach Portal is the operational hub for health and fitness professionals within the EVOXA ecosystem.
-- Artificial Intelligence and the Human Digital Twin are foundational capabilities that enhance professional decision-making and personalized care.
-- The platform unifies client management, program delivery, communication, analytics and business operations in a single AI-native workspace.
-- A modular, secure and scalable architecture enables the Coach Portal to evolve alongside the broader EVOXA platform while supporting future healthcare and enterprise scenarios.
+- The Nutritionist Portal provides an AI-powered workspace for nutrition professionals within the EVOXA ecosystem.
+- Human Digital Twin integration enables continuously personalized nutritional care.
+- AI enhances meal planning, nutritional analysis and professional decision making while preserving human oversight.
+- The portal is built upon shared enterprise capabilities, ensuring scalability, security and seamless collaboration with the rest of the EVOXA platform.
 
 ---
 
@@ -369,4 +401,4 @@ This chapter is complete when:
 
 **Chapter 02 — Business Overview**
 
-This chapter defines the business context of the Coach Portal, including market positioning, stakeholders, value proposition, business model, competitive advantages, revenue opportunities and strategic alignment with the EVOXA ecosystem.
+This chapter defines the business context, market opportunity, stakeholders, value proposition and strategic objectives of the Nutritionist Portal within the EVOXA ecosystem.
