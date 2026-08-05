@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-27
-chapter_id: CH-04-COACH-27
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-27
+chapter_id: CH-05-NUTRITION-27
+feature_pack: FP-NUTRITION-0000
 title: Testing & Quality Assurance
 version: 1.0.0
 status: Draft
@@ -14,17 +14,17 @@ last_updated: 2026-08-04
 
 # Chapter 27 — Testing & Quality Assurance
 
-> *The Testing & Quality Assurance chapter defines the quality engineering strategy of the Coach Portal, including automated testing, AI evaluation, security validation, performance verification, accessibility compliance and continuous quality governance.*
+> *The Testing & Quality Assurance chapter defines the quality engineering strategy of the Nutritionist Portal, including automated testing, AI validation, security testing, performance verification and continuous quality governance across the EVOXA ecosystem.*
 
 ---
 
 # Executive Summary
 
-Quality is a core architectural capability of the Coach Portal.
+The Nutritionist Portal adopts a Quality Engineering (QE) approach where quality is embedded throughout the software development lifecycle.
 
-The platform adopts a Continuous Quality Engineering approach where every change is validated through automated and manual verification processes before reaching production.
+Testing is automated wherever possible and covers business workflows, APIs, AI services, security, accessibility, performance and user experience.
 
-Quality encompasses software correctness, user experience, AI reliability, security, compliance and operational readiness.
+Quality gates ensure that every release meets the defined engineering and business standards before deployment.
 
 ---
 
@@ -32,73 +32,37 @@ Quality encompasses software correctness, user experience, AI reliability, secur
 
 The Quality Strategy shall:
 
-- Prevent defects early.
+- Prevent defects.
 - Automate validation.
-- Ensure functional correctness.
-- Verify AI behavior.
-- Validate security.
-- Guarantee performance.
-- Support continuous delivery.
+- Ensure business correctness.
+- Validate AI behavior.
+- Maintain security.
+- Verify performance.
+- Enable continuous delivery.
 
 ---
 
 # Quality Philosophy
 
-Quality is built into every stage of development.
+Quality is everyone's responsibility.
 
-Every feature must be:
+Testing is:
 
-- Designed.
-- Implemented.
-- Tested.
-- Reviewed.
-- Observed.
-- Continuously improved.
+- Continuous
+- Automated
+- Repeatable
+- Traceable
+- Measurable
+- Risk-based
 
-Testing is everyone's responsibility.
-
----
-
-# Quality Architecture
-
-```text
-Requirements
-
-↓
-
-Design
-
-↓
-
-Development
-
-↓
-
-Automated Testing
-
-↓
-
-Quality Gates
-
-↓
-
-Release
-
-↓
-
-Monitoring
-
-↓
-
-Feedback
-```
+Testing begins during requirements definition and continues through production monitoring.
 
 ---
 
 # Testing Pyramid
 
 ```text
-E2E Tests
+End-to-End Tests
 
 ↓
 
@@ -113,74 +77,76 @@ Component Tests
 Unit Tests
 ```
 
-The majority of automated tests should be unit and integration tests.
+Automation is prioritized at the lower levels of the pyramid.
 
 ---
 
-# Testing Categories
+# Test Categories
 
-| Category | Purpose |
-|----------|----------|
-| Unit | Validate isolated logic |
-| Component | Validate UI components |
-| Integration | Validate service interactions |
-| API | Validate REST contracts |
-| End-to-End | Validate user journeys |
-| Performance | Validate response times |
-| Security | Validate protection mechanisms |
-| Accessibility | Validate WCAG compliance |
-| AI Evaluation | Validate AI quality |
-| Chaos | Validate resilience |
+The Nutritionist Portal includes:
+
+- Unit Tests
+- Component Tests
+- Integration Tests
+- API Tests
+- Contract Tests
+- End-to-End Tests
+- Workflow Tests
+- Event Tests
+- Database Tests
+- AI Evaluation
+- Security Tests
+- Performance Tests
+- Accessibility Tests
+- Usability Tests
+- Regression Tests
+- Smoke Tests
+- Chaos Tests
 
 ---
 
 # Unit Testing
 
+Every business service shall include unit tests.
+
 Coverage includes:
 
-- Business Rules.
-- Domain Services.
-- Utilities.
-- Validation logic.
-- AI orchestration logic.
-- Calculations.
+- Domain logic
+- Calculations
+- Validators
+- Utilities
+- Business rules
 
-Minimum coverage target:
+Target coverage:
 
-```
-85%
-```
-
-Critical domains:
-
-```
-95%
-```
+>90%
 
 ---
 
 # Component Testing
 
-Validates:
+UI components are validated independently.
 
-- UI rendering.
-- User interaction.
-- Accessibility.
-- State management.
-- Error handling.
+Includes:
+
+- Rendering
+- Interaction
+- States
+- Accessibility
+- Responsive behavior
 
 ---
 
 # Integration Testing
 
-Validates:
+Integration tests validate communication between:
 
-- APIs.
-- Databases.
-- Event Bus.
-- AI Services.
-- Authentication.
-- Third-party integrations.
+- APIs
+- Database
+- Event Platform
+- Workflow Engine
+- AI Platform
+- Authentication
 
 ---
 
@@ -188,236 +154,230 @@ Validates:
 
 Every endpoint validates:
 
-- Request schema.
-- Response schema.
-- Status codes.
-- Authentication.
-- Authorization.
-- Validation rules.
-- Error responses.
-- Idempotency.
+- Success responses
+- Validation errors
+- Authorization
+- Pagination
+- Filtering
+- Rate limiting
+- Version compatibility
 
-Contracts must remain backward compatible within the same major version.
-
----
-
-# End-to-End Testing
-
-Core scenarios include:
-
-- Coach onboarding.
-- Client onboarding.
-- Assessment workflow.
-- Training creation.
-- Nutrition planning.
-- Scheduling.
-- Messaging.
-- Billing.
-- AI-assisted workflows.
+OpenAPI specifications are automatically verified.
 
 ---
 
-# AI Evaluation
+# Contract Testing
 
-AI quality is validated through:
+Producer and consumer contracts are validated continuously.
 
-- Recommendation accuracy.
-- Explainability.
-- Hallucination detection.
-- Safety validation.
-- Prompt evaluation.
-- Response consistency.
-- Professional approval rate.
+Contract testing applies to:
 
-Human review remains mandatory for production model evaluation.
+- REST APIs
+- GraphQL
+- WebSocket
+- Event Schemas
 
----
-
-# Security Testing
-
-Includes:
-
-- Authentication testing.
-- Authorization testing.
-- Penetration testing.
-- Dependency scanning.
-- Secret detection.
-- OWASP Top 10 validation.
-- API security testing.
+Breaking changes block releases.
 
 ---
 
-# Performance Testing
+# Workflow Testing
 
-Includes:
+Business workflows validate:
 
-- Load testing.
-- Stress testing.
-- Spike testing.
-- Endurance testing.
-- Scalability testing.
-
-Performance objectives are validated before release.
-
----
-
-# Accessibility Testing
-
-Validation includes:
-
-- WCAG 2.2 AA.
-- Keyboard navigation.
-- Screen reader compatibility.
-- Contrast analysis.
-- Responsive accessibility.
+- State transitions
+- Rule enforcement
+- Approval flows
+- Automation
+- Exception handling
 
 ---
 
 # Event Testing
 
-Validates:
+The Event Platform validates:
 
-- Event publication.
-- Event consumption.
-- Retry mechanisms.
-- Dead Letter Queue.
-- Replay capability.
-- Event ordering.
+- Event publication
+- Event consumption
+- Ordering
+- Idempotency
+- Retry mechanisms
+- Dead Letter Queue handling
 
 ---
 
-# Data Quality Testing
+# Database Testing
 
-Validates:
+Validations include:
 
-- Referential integrity.
-- Required fields.
-- Duplicate detection.
-- Data consistency.
-- Migration correctness.
+- Schema integrity
+- Migrations
+- Constraints
+- Performance
+- Data consistency
+
+---
+
+# AI Testing
+
+AI validation includes:
+
+- Prompt testing
+- Response quality
+- Hallucination detection
+- Safety evaluation
+- Explainability
+- Recommendation consistency
+- Human approval flows
+
+AI evaluation datasets are versioned.
+
+---
+
+# Human Digital Twin Testing
+
+Validation includes:
+
+- Synchronization
+- Prediction accuracy
+- Timeline integrity
+- Historical reconstruction
+- Scenario simulation
+
+---
+
+# Security Testing
+
+Security validation includes:
+
+- Authentication
+- Authorization
+- OWASP Top 10
+- Penetration testing
+- Secrets scanning
+- Dependency scanning
+- Static code analysis
+
+---
+
+# Performance Testing
+
+Performance validation includes:
+
+- Load testing
+- Stress testing
+- Spike testing
+- Endurance testing
+- Capacity testing
+
+---
+
+# Accessibility Testing
+
+Accessibility validation includes:
+
+- WCAG 2.2 AA
+- Keyboard navigation
+- Screen readers
+- Contrast ratios
+- Responsive accessibility
+
+---
+
+# End-to-End Testing
+
+Critical scenarios include:
+
+- Client registration
+- Assessment workflow
+- Meal plan publication
+- AI recommendation
+- Report generation
+- Progress monitoring
+
+---
+
+# Regression Testing
+
+Regression suites execute automatically before every release.
+
+Critical regressions block deployment.
 
 ---
 
 # Test Data Management
 
-Test environments use:
+Test datasets include:
 
-- Synthetic data.
-- Masked production data.
-- Seed datasets.
-- AI evaluation datasets.
+- Synthetic clients
+- Nutritional assessments
+- Meal plans
+- Recipes
+- Progress records
+- AI conversations
 
-Sensitive production data is never exposed without proper protection.
-
----
-
-# Test Automation
-
-Automation covers:
-
-- Pull Requests.
-- Continuous Integration.
-- Nightly execution.
-- Release validation.
-- Regression suites.
+Sensitive production data is never used directly.
 
 ---
 
-# Quality Gates
+# Test Environments
 
-Every release requires successful validation of:
+Standard environments:
 
-- Build.
-- Static analysis.
-- Unit tests.
-- Integration tests.
-- API tests.
-- Security scans.
-- Performance benchmarks.
-- Accessibility checks.
+- Local
+- Development
+- Integration
+- QA
+- Staging
+- Production
 
-Deployment is blocked if mandatory gates fail.
+Environment parity is maintained wherever practical.
 
 ---
 
-# Static Analysis
+# CI/CD Quality Gates
 
-The platform uses:
+Pipeline validation includes:
 
-- Code linting.
-- Dependency analysis.
-- Security scanning.
-- Code quality metrics.
-- Complexity analysis.
+- Build success
+- Unit tests
+- Integration tests
+- Security scans
+- AI evaluation
+- Performance checks
+- Accessibility validation
+- Code quality analysis
 
----
-
-# Defect Management
-
-Defects are classified as:
-
-| Severity | Description |
-|----------|-------------|
-| Critical | Blocks release |
-| High | Major functionality affected |
-| Medium | Partial impact |
-| Low | Minor issue |
+Deployments proceed only after all mandatory gates pass.
 
 ---
 
 # Quality Metrics
 
-Measured indicators:
-
-- Test coverage.
-- Defect density.
-- Escaped defects.
-- Build success rate.
-- Mean Time to Detect.
-- Mean Time to Resolve.
-- Automation coverage.
-- AI evaluation score.
+| Metric | Target |
+|----------|---------|
+| Unit Test Coverage | >90% |
+| API Test Coverage | 100% |
+| Critical Workflow Coverage | 100% |
+| Defect Escape Rate | <2% |
+| Build Success Rate | >99% |
+| Accessibility Compliance | 100% WCAG AA |
 
 ---
 
-# Quality Governance
+# Defect Management
 
-Every feature defines:
+Defects include:
 
-- Acceptance Criteria.
-- Test Strategy.
-- Quality Owner.
-- Automation Status.
-- Release Readiness.
-- Risk Assessment.
+- Severity
+- Priority
+- Root Cause
+- Owner
+- Resolution
+- Verification
+- Closure
 
----
-
-# Quality Lifecycle
-
-```text
-Plan
-
-↓
-
-Implement
-
-↓
-
-Validate
-
-↓
-
-Release
-
-↓
-
-Monitor
-
-↓
-
-Improve
-```
+Root cause analysis is required for critical defects.
 
 ---
 
@@ -428,14 +388,17 @@ quality/
 ├── unit/
 ├── integration/
 ├── api/
-├── e2e/
-├── performance/
-├── security/
-├── accessibility/
+├── contracts/
+├── workflows/
 ├── ai/
-├── datasets/
-├── reports/
-├── quality-gates/
+├── security/
+├── performance/
+├── accessibility/
+├── e2e/
+├── regression/
+├── test-data/
+├── environments/
+├── governance/
 └── metadata.yml
 ```
 
@@ -463,10 +426,14 @@ Unit
 
 ---
 
-## Continuous Quality
+## CI/CD Quality Gates
 
 ```text
-Code
+Commit
+
+↓
+
+Build
 
 ↓
 
@@ -474,11 +441,15 @@ Tests
 
 ↓
 
+Security
+
+↓
+
 Quality Gates
 
 ↓
 
-Release
+Deployment
 ```
 
 ---
@@ -503,22 +474,26 @@ Approval
 
 ---
 
-## Release Validation
+## Defect Lifecycle
 
 ```text
-Build
+Detected
 
 ↓
 
-Testing
+Triaged
 
 ↓
 
-Approval
+Fixed
 
 ↓
 
-Deployment
+Verified
+
+↓
+
+Closed
 ```
 
 ---
@@ -529,21 +504,21 @@ Deployment
 artifacts/
 └── testing-quality/
     ├── testing-pyramid.drawio
-    ├── quality-pipeline.drawio
+    ├── ci-cd-gates.drawio
     ├── ai-validation.drawio
-    ├── release-gates.drawio
     ├── defect-lifecycle.drawio
-    ├── automation-coverage.drawio
+    ├── quality-metrics.drawio
+    ├── regression-suite.drawio
     ├── mermaid/
     │   ├── pyramid.mmd
     │   ├── pipeline.mmd
     │   ├── ai.mmd
-    │   ├── quality-gates.mmd
-    │   └── lifecycle.mmd
+    │   ├── defects.mmd
+    │   └── governance.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
+        ├── testing-quality.svg
+        ├── testing-quality.png
+        └── testing-quality.pdf
 ```
 
 ---
@@ -558,7 +533,6 @@ artifacts/
 | Event Architecture | Chapter 20 |
 | AI Services | Chapter 21 |
 | Security & Permissions | Chapter 23 |
-| Accessibility & Internationalization | Chapter 25 |
 | Performance & Scalability | Chapter 26 |
 | Release & Deployment | Chapter 28 |
 
@@ -569,23 +543,21 @@ artifacts/
 This chapter is complete when:
 
 - Testing strategy is documented.
-- Testing pyramid is defined.
-- AI evaluation methodology is specified.
-- Security and performance testing are documented.
-- Accessibility validation is included.
-- Quality gates are established.
-- Quality metrics are defined.
-- Visual artifacts are available.
-- Traceability is complete.
+- Test categories and coverage targets are defined.
+- AI evaluation methodology is established.
+- Security, accessibility and performance testing are specified.
+- CI/CD quality gates are documented.
+- Quality metrics and defect management processes are defined.
+- Visual artifacts and traceability are complete.
 
 ---
 
 # Key Takeaways
 
-- The Coach Portal adopts a Continuous Quality Engineering strategy that embeds quality throughout the software lifecycle rather than treating it as a final validation step.
-- Automated testing spans business logic, APIs, workflows, AI services, security, accessibility and performance, ensuring comprehensive coverage.
-- Quality gates, measurable metrics and governance policies provide consistent release confidence while reducing operational risk.
-- Continuous monitoring and feedback complete the quality lifecycle, enabling the EVOXA platform to evolve without compromising reliability or user trust.
+- The Nutritionist Portal adopts a Quality Engineering approach where testing and validation are continuous activities integrated into the development lifecycle.
+- Automated testing spans business logic, APIs, workflows, events, AI services, security, accessibility and performance, ensuring comprehensive quality coverage.
+- AI capabilities are evaluated using dedicated quality criteria, including explainability, safety, consistency and human oversight.
+- Standardized quality gates, measurable metrics and full traceability provide confidence for frequent, reliable and scalable releases across the EVOXA ecosystem.
 
 ---
 
@@ -593,4 +565,4 @@ This chapter is complete when:
 
 **Chapter 28 — Release & Deployment**
 
-This chapter defines the release management and deployment architecture of the Coach Portal, including CI/CD pipelines, deployment strategies, environment management, infrastructure provisioning, rollback mechanisms and operational governance.
+This chapter defines the release management strategy, deployment architecture, environment promotion model, rollback procedures, infrastructure automation and operational controls used to deliver the Nutritionist Portal safely and consistently.
