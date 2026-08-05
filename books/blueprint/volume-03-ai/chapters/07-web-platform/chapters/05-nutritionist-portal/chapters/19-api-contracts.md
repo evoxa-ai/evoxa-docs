@@ -1,11 +1,11 @@
 ---
-document_id: BP-0003-V3-C07-04-19
-chapter_id: CH-04-COACH-19
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-19
+chapter_id: CH-05-NUTRITION-19
+feature_pack: FP-NUTRITION-0000
 title: API Contracts
 version: 1.0.0
 status: Draft
-owner: API Architecture Board
+owner: Platform Architecture Board
 authors:
   - EVOXA Architecture Team
 classification: Internal
@@ -14,89 +14,84 @@ last_updated: 2026-08-04
 
 # Chapter 19 — API Contracts
 
-> *The API Contracts chapter defines the complete service interface of the Coach Portal, establishing REST conventions, security standards, resource models, AI integration contracts and interoperability guidelines across the EVOXA Platform.*
+> *The API Contracts chapter defines the service interfaces exposed and consumed by the Nutritionist Portal, including REST APIs, GraphQL endpoints, WebSocket channels, authentication, versioning, AI integrations and event-based communication.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal exposes a comprehensive set of REST APIs that enable interaction between professional applications, AI services, mobile clients and external systems.
+The Nutritionist Portal communicates with the EVOXA ecosystem through standardized API contracts.
 
-Every API follows a standardized contract that guarantees consistency, security, discoverability and long-term compatibility.
+APIs are designed using an API-First strategy, ensuring consistency, scalability and interoperability across all portals and backend services.
 
-API contracts are versioned independently from implementation.
+Every contract is versioned, documented and independently testable.
 
 ---
 
 # Objectives
 
-The API Architecture shall:
+The API Contracts shall:
 
-- Standardize REST APIs.
-- Ensure interoperability.
-- Support AI integration.
-- Enable platform scalability.
-- Protect client data.
-- Simplify SDK generation.
+- Standardize service communication.
+- Enable interoperability.
+- Support AI integrations.
 - Maintain backward compatibility.
+- Simplify frontend development.
+- Enable external integrations.
+- Support future evolution.
 
 ---
 
 # API Philosophy
 
-Every API follows:
+Every API shall be:
 
-- Resource-oriented design.
-- REST principles.
-- OpenAPI specification.
-- Stateless communication.
-- Consistent naming.
-- Versioned contracts.
-- Predictable behavior.
-
----
-
-# API Layers
-
-```text
-Client
-
-↓
-
-Gateway
-
-↓
-
-REST API
-
-↓
-
-Application Services
-
-↓
-
-Domain Services
-
-↓
-
-Repositories
-```
+- Versioned
+- Stateless
+- Secure
+- Observable
+- Documented
+- Testable
+- Backward compatible
 
 ---
 
-# Base URL
+# API Categories
+
+The Nutritionist Portal exposes:
+
+- Authentication APIs
+- Client APIs
+- Assessment APIs
+- Meal Plan APIs
+- Recipe APIs
+- Food Database APIs
+- Supplement APIs
+- Progress APIs
+- Report APIs
+- AI APIs
+- Human Digital Twin APIs
+- Notification APIs
+- Administration APIs
+
+---
+
+# API Versioning
+
+Current version:
 
 ```text
-/api/v1
+/api/v1/
 ```
 
 Future versions:
 
 ```text
-/api/v2
+/api/v2/
+/api/v3/
 ```
 
-Versioning is URI-based.
+Versioning follows semantic versioning principles.
 
 ---
 
@@ -105,60 +100,339 @@ Versioning is URI-based.
 Supported methods:
 
 - OAuth2
-- JWT Bearer
+- JWT
 - Refresh Tokens
 - API Keys (Integrations)
-- Service Accounts
-
-Every request requires authentication unless explicitly documented.
-
----
-
-# Authorization
+- Organization Tokens
 
 Authorization uses Role-Based Access Control (RBAC).
 
-Examples:
-
-- Coach
-- Nutritionist
-- Physiotherapist
-- Team Manager
-- Administrator
-
-Permissions are evaluated before every protected operation.
-
 ---
 
-# API Naming Standards
-
-Resources use plural nouns.
-
-Examples:
+# REST API Structure
 
 ```text
-GET /clients
+/api/v1
 
-POST /clients
-
-GET /programs
-
-GET /appointments
+/auth
+/clients
+/assessments
+/meal-plans
+/recipes
+/foods
+/supplements
+/progress
+/reports
+/ai
+/digital-twin
+/notifications
+/settings
 ```
-
-Avoid verbs in resource paths.
 
 ---
 
-# HTTP Methods
+# Authentication APIs
 
-| Method | Purpose |
-|----------|----------|
-| GET | Read |
-| POST | Create |
-| PUT | Replace |
-| PATCH | Partial Update |
-| DELETE | Remove |
+## POST /auth/login
+
+Authenticates users.
+
+Returns:
+
+- Access Token
+- Refresh Token
+- User Profile
+- Permissions
+
+---
+
+## POST /auth/refresh
+
+Issues a new access token.
+
+---
+
+## POST /auth/logout
+
+Invalidates the current session.
+
+---
+
+# Client APIs
+
+## GET /clients
+
+Returns paginated clients.
+
+---
+
+## POST /clients
+
+Creates a client.
+
+---
+
+## GET /clients/{id}
+
+Returns complete client information.
+
+---
+
+## PUT /clients/{id}
+
+Updates client profile.
+
+---
+
+## DELETE /clients/{id}
+
+Archives the client.
+
+---
+
+# Assessment APIs
+
+## GET /assessments
+
+Returns assessment list.
+
+---
+
+## POST /assessments
+
+Creates assessment.
+
+---
+
+## GET /assessments/{id}
+
+Returns assessment details.
+
+---
+
+## PUT /assessments/{id}
+
+Updates draft assessment.
+
+---
+
+## POST /assessments/{id}/approve
+
+Approves assessment.
+
+---
+
+# Meal Plan APIs
+
+## GET /meal-plans
+
+Returns meal plans.
+
+---
+
+## POST /meal-plans
+
+Creates meal plan.
+
+---
+
+## POST /meal-plans/{id}/publish
+
+Publishes meal plan.
+
+---
+
+## POST /meal-plans/{id}/duplicate
+
+Duplicates meal plan.
+
+---
+
+# Recipe APIs
+
+```text
+GET /recipes
+
+POST /recipes
+
+PUT /recipes/{id}
+
+DELETE /recipes/{id}
+```
+
+---
+
+# Food Database APIs
+
+```text
+GET /foods
+
+GET /foods/{id}
+
+GET /foods/search
+```
+
+---
+
+# Supplement APIs
+
+```text
+GET /supplements
+
+POST /supplements
+
+POST /supplements/{id}/approve
+```
+
+---
+
+# Progress APIs
+
+```text
+GET /progress
+
+POST /progress
+
+GET /progress/charts
+```
+
+---
+
+# Report APIs
+
+```text
+GET /reports
+
+POST /reports
+
+GET /reports/{id}
+
+GET /reports/{id}/download
+```
+
+---
+
+# AI APIs
+
+## POST /ai/chat
+
+Conversational AI.
+
+---
+
+## POST /ai/meal-plan
+
+Meal recommendations.
+
+---
+
+## POST /ai/recipes
+
+Recipe suggestions.
+
+---
+
+## POST /ai/analysis
+
+Nutrition analysis.
+
+---
+
+## POST /ai/predictions
+
+Future projections.
+
+---
+
+## POST /ai/explain
+
+Recommendation explanation.
+
+---
+
+# Human Digital Twin APIs
+
+```text
+GET /digital-twin/{clientId}
+
+GET /digital-twin/{clientId}/timeline
+
+GET /digital-twin/{clientId}/predictions
+
+POST /digital-twin/sync
+```
+
+---
+
+# Notification APIs
+
+```text
+GET /notifications
+
+PUT /notifications/read
+
+POST /notifications/preferences
+```
+
+---
+
+# Administration APIs
+
+```text
+GET /organization
+
+PUT /organization
+
+GET /users
+
+GET /roles
+```
+
+---
+
+# GraphQL
+
+GraphQL supports:
+
+- Dashboard aggregation
+- Client workspace
+- Analytics
+- Reports
+
+Endpoint:
+
+```text
+/graphql
+```
+
+---
+
+# WebSocket
+
+Real-time channels:
+
+```text
+/ws/notifications
+
+/ws/ai
+
+/ws/progress
+
+/ws/messages
+```
+
+---
+
+# Event APIs
+
+Published events include:
+
+- ClientCreated
+- AssessmentApproved
+- MealPlanPublished
+- ProgressUpdated
+- ReportGenerated
+- AIRecommendationAccepted
 
 ---
 
@@ -169,20 +443,20 @@ Avoid verbs in resource paths.
   "success": true,
   "data": {},
   "meta": {},
-  "links": {}
+  "errors": []
 }
 ```
 
 ---
 
-# Standard Error
+# Error Response
 
 ```json
 {
   "success": false,
   "error": {
-    "code": "CLIENT_NOT_FOUND",
-    "message": "Client not found."
+    "code": "VALIDATION_ERROR",
+    "message": "Invalid request"
   }
 }
 ```
@@ -191,317 +465,75 @@ Avoid verbs in resource paths.
 
 # Pagination
 
-Supported parameters:
+Standard parameters:
 
 ```text
-?page=1
-
-?page_size=25
-```
-
-Response:
-
-```json
-{
-  "data": [],
-  "pagination": {
-    "page": 1,
-    "page_size": 25,
-    "total": 340
-  }
-}
+?page=
+?pageSize=
+?sort=
+?filter=
 ```
 
 ---
 
 # Filtering
 
-Example:
-
-```text
-GET /clients?status=active
-
-GET /appointments?date=today
-
-GET /programs?coach=12
-```
-
----
-
-# Sorting
-
-```text
-?sort=name
-
-?sort=-created_at
-```
-
----
-
-# Search
-
-```text
-GET /clients/search?q=john
-```
-
----
-
-# Resource Catalog
-
-## Clients
-
-```text
-GET /clients
-
-POST /clients
-
-GET /clients/{id}
-
-PATCH /clients/{id}
-
-DELETE /clients/{id}
-```
-
----
-
-## Assessments
-
-```text
-GET /assessments
-
-POST /assessments
-
-GET /assessments/{id}
-```
-
----
-
-## Training
-
-```text
-GET /training-programs
-
-POST /training-programs
-
-PATCH /training-programs/{id}
-```
-
----
-
-## Nutrition
-
-```text
-GET /nutrition-plans
-
-POST /nutrition-plans
-
-PATCH /nutrition-plans/{id}
-```
-
----
-
-## Calendar
-
-```text
-GET /appointments
-
-POST /appointments
-
-PATCH /appointments/{id}
-```
-
----
-
-## Messaging
-
-```text
-GET /messages
-
-POST /messages
-```
-
----
-
-## AI
-
-```text
-POST /ai/recommendations
-
-POST /ai/chat
-
-POST /ai/summaries
-
-GET /ai/history
-```
-
----
-
-## Analytics
-
-```text
-GET /analytics/dashboard
-
-GET /analytics/clients
-
-GET /analytics/business
-```
-
----
-
-## Billing
-
-```text
-GET /subscriptions
-
-GET /payments
-
-POST /payments
-```
-
----
-
-# AI Contracts
-
-Every AI endpoint returns:
-
-```json
-{
-  "recommendation": "...",
-  "confidence": 0.94,
-  "explanation": "...",
-  "sources": []
-}
-```
-
-AI contracts remain explainable.
-
----
-
-# Validation
-
-Validation errors return:
-
-```http
-422 Unprocessable Entity
-```
-
----
-
-# Status Codes
-
-| Code | Meaning |
-|--------|----------|
-| 200 | Success |
-| 201 | Created |
-| 204 | No Content |
-| 400 | Bad Request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 409 | Conflict |
-| 422 | Validation Error |
-| 429 | Too Many Requests |
-| 500 | Internal Error |
-
----
-
-# Idempotency
-
-POST endpoints supporting retries accept:
-
-```text
-Idempotency-Key
-```
-
-header.
-
----
-
-# Rate Limiting
-
-Example:
-
-```text
-100 requests/minute
-```
-
-Headers:
-
-```text
-X-RateLimit-Limit
-
-X-RateLimit-Remaining
-```
-
----
-
-# Event Integration
-
-Every write operation publishes domain events.
-
-Example:
-
-```text
-ClientCreated
-
-ProgramAssigned
-
-AssessmentCompleted
-```
-
----
-
-# Webhooks
-
-Supported events:
-
-- client.created
-- assessment.completed
-- program.assigned
-- payment.completed
-
-Webhook deliveries are signed and retryable.
-
----
-
-# API Versioning
-
-Major versions:
-
-```
-v1
-
-v2
-```
-
-Breaking changes require a new major version.
-
----
-
-# OpenAPI
-
-Every endpoint is documented through:
-
-- OpenAPI 3.1
-- Swagger UI
-- Redoc
-
-SDKs are generated automatically.
+Supports:
+
+- Search
+- Status
+- Date
+- Organization
+- Nutritionist
+- Client
 
 ---
 
 # Security
 
-APIs support:
+Every endpoint validates:
 
-- HTTPS
 - JWT
-- RBAC
-- Audit Logging
-- Rate Limiting
-- Input Validation
-- CORS
-- CSRF protection (where applicable)
+- Permissions
+- Organization
+- Consent
+- Audit
+
+---
+
+# Rate Limiting
+
+Examples:
+
+| Endpoint | Limit |
+|----------|---------|
+| Login | 5/min |
+| AI Chat | 60/hour |
+| Reports | 30/hour |
+| Search | 300/hour |
+
+---
+
+# Observability
+
+Every request generates:
+
+- Trace ID
+- Correlation ID
+- Audit Entry
+- Metrics
+- Structured Logs
+
+---
+
+# API Documentation
+
+Generated using:
+
+- OpenAPI 3.1
+- Swagger UI
+- ReDoc
+- Postman Collections
 
 ---
 
@@ -509,18 +541,22 @@ APIs support:
 
 ```text
 api/
-├── openapi/
+├── authentication/
 ├── clients/
 ├── assessments/
-├── training/
-├── nutrition/
-├── calendar/
-├── messaging/
-├── analytics/
+├── meal-plans/
+├── recipes/
+├── foods/
+├── supplements/
+├── progress/
+├── reports/
 ├── ai/
-├── billing/
-├── webhooks/
+├── digital-twin/
+├── websocket/
+├── graphql/
+├── events/
 ├── schemas/
+├── openapi/
 └── metadata.yml
 ```
 
@@ -528,54 +564,34 @@ api/
 
 # Standard Visual Artifacts
 
+## API Layers
+
+```text
+Frontend
+
+↓
+
+REST
+
+↓
+
+Application
+
+↓
+
+Domain
+```
+
+---
+
 ## API Flow
 
 ```text
-Client
-
-↓
-
-Gateway
-
-↓
-
-API
-
-↓
-
-Service
-
-↓
-
-Database
-```
-
----
-
-## Authentication Flow
-
-```text
-Login
-
-↓
-
-JWT
-
-↓
-
-API
-
-↓
-
-Authorization
-```
-
----
-
-## Request Lifecycle
-
-```text
 Request
+
+↓
+
+Authentication
 
 ↓
 
@@ -583,7 +599,7 @@ Validation
 
 ↓
 
-Business Rules
+Business
 
 ↓
 
@@ -592,22 +608,42 @@ Response
 
 ---
 
-## AI API
+## AI APIs
 
 ```text
-Request
+Nutritionist
 
 ↓
 
-AI
+AI API
 
 ↓
 
-Recommendation
+LLM
 
 ↓
 
 Response
+```
+
+---
+
+## Human Digital Twin
+
+```text
+Assessment
+
+↓
+
+API
+
+↓
+
+Digital Twin
+
+↓
+
+Prediction
 ```
 
 ---
@@ -617,22 +653,23 @@ Response
 ```text
 artifacts/
 └── api-contracts/
-    ├── api-overview.drawio
+    ├── api-map.drawio
     ├── authentication.drawio
-    ├── request-lifecycle.drawio
+    ├── rest.drawio
+    ├── graphql.drawio
+    ├── websocket.drawio
     ├── ai-api.drawio
-    ├── versioning.drawio
-    ├── webhooks.drawio
+    ├── digital-twin.drawio
     ├── mermaid/
     │   ├── api.mmd
     │   ├── auth.mmd
-    │   ├── lifecycle.mmd
-    │   ├── ai.mmd
-    │   └── webhooks.mmd
+    │   ├── graphql.mmd
+    │   ├── websocket.mmd
+    │   └── events.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
+        ├── api-contracts.svg
+        ├── api-contracts.png
+        └── api-contracts.pdf
 ```
 
 ---
@@ -655,24 +692,23 @@ artifacts/
 
 This chapter is complete when:
 
-- API conventions are documented.
-- Resource catalog is defined.
-- Authentication and authorization are specified.
-- Error handling is standardized.
-- AI contracts are documented.
-- Versioning strategy is established.
-- Webhooks and events are defined.
-- OpenAPI documentation is available.
-- Traceability is complete.
+- API taxonomy is documented.
+- REST, GraphQL and WebSocket interfaces are defined.
+- Authentication and authorization mechanisms are specified.
+- AI and Human Digital Twin endpoints are documented.
+- Standard request/response formats are established.
+- Versioning, pagination, filtering and rate limiting policies are defined.
+- Observability and documentation standards are included.
+- Visual artifacts and traceability are complete.
 
 ---
 
 # Key Takeaways
 
-- The Coach Portal exposes a standardized, versioned and secure REST API aligned with modern API-first principles.
-- Consistent contracts, OpenAPI documentation and independent versioning simplify integration, SDK generation and long-term maintenance.
-- AI endpoints provide explainable recommendations with confidence scores, preserving transparency and professional oversight.
-- API governance ensures interoperability across the EVOXA ecosystem while supporting scalability, security and future platform evolution.
+- The Nutritionist Portal adopts an API-First architecture with standardized REST, GraphQL and WebSocket interfaces that enable seamless integration across the EVOXA ecosystem.
+- Authentication, authorization, observability and versioning are treated as first-class concerns, ensuring secure and maintainable service contracts.
+- AI services and Human Digital Twin capabilities are exposed through dedicated APIs, allowing intelligent features to be consumed consistently by web, mobile and future clients.
+- Well-defined API contracts provide a stable integration layer that supports internal development, external partners and long-term platform evolution.
 
 ---
 
@@ -680,4 +716,4 @@ This chapter is complete when:
 
 **Chapter 20 — Event Architecture**
 
-This chapter defines the event-driven architecture of the Coach Portal, including domain events, event contracts, message flows, asynchronous processing, integration patterns and event governance.
+This chapter defines the event-driven architecture of the Nutritionist Portal, including domain events, event schemas, publishers, subscribers, asynchronous workflows and integration with the EVOXA Event Platform.
