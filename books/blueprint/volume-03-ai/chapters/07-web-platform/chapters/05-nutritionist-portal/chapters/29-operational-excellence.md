@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-29
-chapter_id: CH-04-COACH-29
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-29
+chapter_id: CH-05-NUTRITION-29
+feature_pack: FP-NUTRITION-0000
 title: Operational Excellence
 version: 1.0.0
 status: Draft
@@ -14,93 +14,59 @@ last_updated: 2026-08-04
 
 # Chapter 29 — Operational Excellence
 
-> *The Operational Excellence chapter defines the operational model of the Coach Portal, including service reliability, incident management, platform governance, operational metrics, continuous improvement and long-term operational sustainability.*
+> *The Operational Excellence chapter defines the operational model, reliability engineering practices, service management, AI operations and continuous improvement processes that ensure the Nutritionist Portal remains reliable, secure and efficient throughout its lifecycle.*
 
 ---
 
 # Executive Summary
 
-Operational Excellence ensures that the Coach Portal remains reliable, secure, scalable and continuously improving throughout its operational lifecycle.
+Operational Excellence ensures that the Nutritionist Portal delivers reliable services while continuously improving operational efficiency.
 
-The platform combines modern operational disciplines—including Site Reliability Engineering (SRE), Platform Engineering, DevSecOps, FinOps and AIOps—to provide resilient services while enabling rapid innovation.
+The platform adopts modern operational practices based on Site Reliability Engineering (SRE), AI Operations (AIOps), Platform Engineering and proactive governance.
 
-Operational processes are standardized, measurable and continuously optimized.
+Operations are driven by measurable objectives, automation and continuous feedback.
 
 ---
 
 # Objectives
 
-The Operational Model shall:
+The operational model shall:
 
-- Maximize service reliability.
+- Maximize reliability.
 - Minimize operational risk.
-- Improve operational efficiency.
-- Enable rapid recovery.
-- Optimize infrastructure costs.
-- Standardize operations.
+- Improve service quality.
+- Automate repetitive tasks.
 - Support continuous improvement.
+- Optimize operational costs.
+- Scale globally.
 
 ---
 
 # Operational Philosophy
 
-Operations are proactive rather than reactive.
+Operations shall be:
 
-The platform continuously:
+- Proactive
+- Automated
+- Observable
+- Measurable
+- Resilient
+- Continuously improved
 
-- Monitors itself.
-- Detects anomalies.
-- Prevents incidents.
-- Learns from failures.
-- Improves operational processes.
-
-Operational excellence is everyone's responsibility.
-
----
-
-# Operational Architecture
-
-```text
-Platform
-
-↓
-
-Monitoring
-
-↓
-
-Detection
-
-↓
-
-Diagnosis
-
-↓
-
-Response
-
-↓
-
-Recovery
-
-↓
-
-Learning
-```
+Operational excellence is a continuous process rather than a fixed destination.
 
 ---
 
-# Operational Domains
+# Operational Pillars
 
-| Domain | Purpose |
-|----------|----------|
-| Service Reliability | Availability |
-| Incident Management | Operational response |
-| Platform Engineering | Developer enablement |
-| DevSecOps | Secure operations |
-| FinOps | Cost optimization |
-| AIOps | Intelligent operations |
-| Business Operations | Operational KPIs |
+The platform is built upon:
+
+- Site Reliability Engineering (SRE)
+- Platform Engineering
+- DevSecOps
+- AI Operations (AIOps)
+- Continuous Improvement
+- Service Governance
 
 ---
 
@@ -108,14 +74,14 @@ Learning
 
 SRE practices include:
 
+- Service Level Indicators (SLIs)
 - Service Level Objectives (SLOs)
 - Error Budgets
-- Reliability Reviews
-- Incident Analysis
+- Incident Reduction
+- Reliability Automation
 - Capacity Planning
-- Automation
 
-Reliability is measured continuously.
+Reliability targets are reviewed periodically.
 
 ---
 
@@ -123,37 +89,26 @@ Reliability is measured continuously.
 
 Examples:
 
-| Service | SLO |
-|----------|------|
+| Service | Target |
+|----------|---------|
+| Platform Availability | 99.9% |
+| AI Availability | 99.9% |
+| Workflow Success | >99% |
 | API Availability | 99.9% |
-| Dashboard Availability | 99.9% |
-| AI Services | 99.5% |
 | Authentication | 99.95% |
-| Messaging | 99.9% |
-
-SLOs are reviewed periodically.
 
 ---
 
 # Error Budgets
 
-Error budgets define acceptable operational risk.
+Error budgets determine:
 
-Example:
+- Release velocity.
+- Operational priorities.
+- Technical debt management.
+- Reliability improvements.
 
-```text
-Availability
-
-99.9%
-
-↓
-
-Allowed Downtime
-
-0.1%
-```
-
-Error budget consumption influences release velocity.
+Exhausted error budgets trigger operational review.
 
 ---
 
@@ -178,40 +133,108 @@ Mitigation
 
 ↓
 
-Recovery
+Resolution
 
 ↓
 
 Postmortem
-```
 
-Every major incident receives a documented post-incident review.
+↓
+
+Improvement
+```
 
 ---
 
 # Incident Severity
 
+Supported levels:
+
 | Level | Description |
 |--------|-------------|
-| SEV-1 | Critical platform outage |
-| SEV-2 | Major functionality degraded |
-| SEV-3 | Partial degradation |
-| SEV-4 | Minor operational issue |
+| P1 | Critical |
+| P2 | High |
+| P3 | Medium |
+| P4 | Low |
 
-Response procedures vary by severity.
+Response procedures vary according to severity.
 
 ---
 
-# Problem Management
+# Postmortems
 
-Problems represent recurring issues.
+Every major incident requires:
 
-Activities include:
+- Timeline.
+- Root cause analysis.
+- Contributing factors.
+- Corrective actions.
+- Preventive actions.
+- Ownership.
 
-- Root Cause Analysis.
-- Permanent corrective actions.
-- Preventive improvements.
-- Knowledge documentation.
+Postmortems are blameless.
+
+---
+
+# Platform Engineering
+
+Shared platform services include:
+
+- Kubernetes
+- API Gateway
+- Event Platform
+- AI Platform
+- Monitoring
+- Security
+- Developer Platform
+
+Self-service capabilities are prioritized.
+
+---
+
+# AI Operations (AIOps)
+
+AIOps automates:
+
+- Anomaly detection.
+- Capacity forecasting.
+- Incident correlation.
+- Performance optimization.
+- Root cause suggestions.
+- Operational recommendations.
+
+AI augments operational teams without replacing human decision-making.
+
+---
+
+# Operational Automation
+
+Automated operations include:
+
+- Scaling.
+- Backups.
+- Certificate renewal.
+- Secret rotation.
+- Log archival.
+- Health verification.
+- Routine maintenance.
+
+Automation is versioned and audited.
+
+---
+
+# Capacity Management
+
+Capacity planning considers:
+
+- User growth.
+- Organization growth.
+- AI consumption.
+- Event throughput.
+- Storage growth.
+- Infrastructure utilization.
+
+Forecasts are updated regularly.
 
 ---
 
@@ -220,71 +243,95 @@ Activities include:
 Operational changes require:
 
 - Risk assessment.
+- Impact analysis.
+- Rollback plan.
 - Approval workflow.
-- Deployment validation.
-- Rollback readiness.
-- Post-change verification.
+- Validation.
 
-Emergency changes follow accelerated approval procedures.
+Emergency changes follow expedited procedures.
 
 ---
 
-# Platform Engineering
+# Backup & Recovery
 
-The Platform Team provides:
+Backups include:
 
-- Developer platforms.
-- Self-service infrastructure.
-- Deployment automation.
-- Shared tooling.
-- Internal documentation.
-- Golden paths.
+- Databases.
+- Object storage.
+- Configuration.
+- Secrets.
+- AI configuration.
+- Audit records.
 
----
-
-# DevSecOps
-
-Operational security includes:
-
-- Continuous vulnerability scanning.
-- Secret rotation.
-- Compliance monitoring.
-- Policy enforcement.
-- Runtime protection.
-
-Security is integrated into daily operations.
+Recovery procedures are tested periodically.
 
 ---
 
-# FinOps
+# Business Continuity
 
-Infrastructure costs are continuously optimized.
+Business continuity includes:
 
-Metrics include:
-
-- Compute utilization.
-- Storage costs.
-- AI inference costs.
-- Database utilization.
-- Network traffic.
-- Cost per tenant.
-
-Operational decisions consider both performance and cost.
+- Disaster recovery.
+- Multi-region deployment.
+- Data replication.
+- Operational runbooks.
+- Communication plans.
 
 ---
 
-# AIOps
+# Operational Runbooks
 
-AI supports operations through:
+Runbooks exist for:
 
-- Anomaly detection.
-- Predictive alerts.
-- Capacity forecasting.
-- Incident correlation.
-- Automated diagnostics.
-- Operational recommendations.
+- Service failures.
+- Database recovery.
+- AI degradation.
+- Workflow failures.
+- Event platform issues.
+- Security incidents.
 
-AI augments operational teams without replacing human oversight.
+Runbooks are version-controlled.
+
+---
+
+# AI Operational Governance
+
+Operational AI monitoring includes:
+
+- Model health.
+- Drift detection.
+- Prompt failures.
+- Response latency.
+- Token consumption.
+- Cost optimization.
+
+Model updates follow controlled release procedures.
+
+---
+
+# Human Digital Twin Operations
+
+Operational controls include:
+
+- Synchronization monitoring.
+- Prediction validation.
+- Data consistency.
+- Historical reconstruction.
+- Recovery procedures.
+
+---
+
+# Operational Metrics
+
+Measured indicators:
+
+| Metric | Target |
+|----------|---------|
+| MTTR | <30 min |
+| MTBF | Increasing trend |
+| Incident Recurrence | <5% |
+| Deployment Success | >99% |
+| SLO Compliance | >99% |
 
 ---
 
@@ -292,95 +339,24 @@ AI augments operational teams without replacing human oversight.
 
 Dashboards include:
 
-- Platform Health.
-- Reliability.
-- AI Operations.
-- Infrastructure.
-- Business KPIs.
-- Cost Analytics.
-- Security Operations.
+- Platform Health
+- Service Reliability
+- AI Operations
+- Capacity
+- Security
+- Executive Overview
 
 ---
 
-# Knowledge Management
+# Governance
 
-Operational documentation includes:
+Operational governance defines:
 
-- Runbooks.
-- Playbooks.
-- Standard Operating Procedures.
-- Architecture Decisions.
-- Troubleshooting Guides.
-- Postmortems.
-
-Knowledge is version controlled.
-
----
-
-# Continuous Improvement
-
-Improvement sources include:
-
-- Incident reviews.
-- User feedback.
-- Operational metrics.
-- AI recommendations.
-- Performance analysis.
-- Reliability reviews.
-
-Improvements are prioritized through governance processes.
-
----
-
-# Operational Metrics
-
-Measured indicators include:
-
-- Mean Time to Detect (MTTD).
-- Mean Time to Respond (MTTRsp).
-- Mean Time to Recover (MTTR).
-- Change Failure Rate.
-- Error Budget Consumption.
-- Customer Satisfaction.
-- Cost Efficiency.
-
----
-
-# Operational Governance
-
-Every operational capability defines:
-
-- Owner.
-- Objectives.
-- KPIs.
-- Review cadence.
+- Ownership.
 - Escalation paths.
-- Documentation.
-- Automation strategy.
-
----
-
-# Operational Lifecycle
-
-```text
-Plan
-
-↓
-
-Operate
-
-↓
-
-Observe
-
-↓
-
-Improve
-
-↓
-
-Standardize
-```
+- On-call rotations.
+- Review cadence.
+- Operational policies.
 
 ---
 
@@ -389,15 +365,16 @@ Standardize
 ```text
 operations/
 ├── sre/
+├── aiops/
 ├── incidents/
 ├── runbooks/
-├── playbooks/
-├── aiops/
-├── finops/
-├── platform-engineering/
+├── capacity/
+├── backups/
+├── continuity/
 ├── dashboards/
 ├── governance/
-├── postmortems/
+├── automation/
+├── metrics/
 └── metadata.yml
 ```
 
@@ -405,13 +382,9 @@ operations/
 
 # Standard Visual Artifacts
 
-## Operational Model
+## Incident Lifecycle
 
 ```text
-Observe
-
-↓
-
 Detect
 
 ↓
@@ -420,7 +393,7 @@ Respond
 
 ↓
 
-Recover
+Resolve
 
 ↓
 
@@ -429,50 +402,58 @@ Improve
 
 ---
 
-## Incident Lifecycle
+## SRE Model
 
 ```text
-Alert
+SLIs
 
 ↓
 
-Response
+SLOs
 
 ↓
 
-Mitigation
+Error Budget
 
 ↓
 
-Recovery
+Continuous Improvement
 ```
 
 ---
 
-## SRE Loop
+## AIOps Flow
 
 ```text
-SLO
+Telemetry
 
 ↓
 
-Measure
+AI Analysis
 
 ↓
 
-Improve
+Recommendation
+
+↓
+
+Operator
 ```
 
 ---
 
-## Continuous Improvement
+## Operational Feedback Loop
 
 ```text
-Operations
+Operation
 
 ↓
 
-Learning
+Metrics
+
+↓
+
+Review
 
 ↓
 
@@ -486,22 +467,22 @@ Optimization
 ```text
 artifacts/
 └── operational-excellence/
-    ├── operational-model.drawio
     ├── incident-lifecycle.drawio
-    ├── sre-loop.drawio
+    ├── sre-model.drawio
     ├── aiops.drawio
-    ├── finops.drawio
-    ├── continuous-improvement.drawio
+    ├── runbooks.drawio
+    ├── capacity.drawio
+    ├── governance.drawio
     ├── mermaid/
-    │   ├── operations.mmd
     │   ├── incidents.mmd
     │   ├── sre.mmd
     │   ├── aiops.mmd
-    │   └── improvement.mmd
+    │   ├── operations.mmd
+    │   └── governance.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
+        ├── operational-excellence.svg
+        ├── operational-excellence.png
+        └── operational-excellence.pdf
 ```
 
 ---
@@ -522,23 +503,23 @@ artifacts/
 
 This chapter is complete when:
 
-- Operational model is documented.
-- SRE practices are defined.
-- Incident management process is specified.
-- Operational metrics are documented.
-- AIOps and FinOps strategies are established.
-- Governance and continuous improvement are defined.
-- Visual artifacts are available.
-- Traceability is complete.
+- SRE practices are documented.
+- Operational governance is defined.
+- Incident management and postmortems are specified.
+- AIOps capabilities are documented.
+- Backup, recovery and continuity procedures are established.
+- Operational metrics and dashboards are defined.
+- Runbooks and automation strategies are documented.
+- Visual artifacts and traceability are complete.
 
 ---
 
 # Key Takeaways
 
-- The Coach Portal adopts an operational model based on reliability engineering, automation and continuous improvement to ensure long-term platform sustainability.
-- Site Reliability Engineering, DevSecOps, Platform Engineering, FinOps and AIOps work together to optimize availability, security, cost efficiency and operational resilience.
-- Standardized operational processes, measurable KPIs and knowledge management enable rapid incident response and organizational learning.
-- Operational Excellence is embedded into the platform through governance, automation and data-driven decision making rather than reactive operational practices.
+- The Nutritionist Portal operates under a modern operational model that combines Site Reliability Engineering, Platform Engineering and AIOps to maximize reliability and efficiency.
+- Reliability objectives, error budgets and blameless postmortems create a culture of continuous operational improvement.
+- Automation, observability and standardized operational runbooks reduce operational risk while improving service quality.
+- Shared governance, measurable operational metrics and proactive capacity management provide a sustainable foundation for the long-term operation of the EVOXA ecosystem.
 
 ---
 
@@ -546,4 +527,4 @@ This chapter is complete when:
 
 **Chapter 30 — Product Evolution**
 
-This final chapter defines the long-term evolution strategy of the Coach Portal, including product vision, roadmap management, architectural evolution, innovation framework, technical debt governance, feature lifecycle and continuous product transformation.
+This chapter defines the long-term evolution strategy of the Nutritionist Portal, including product roadmap, architectural evolution, innovation management, AI maturity, platform extensibility and continuous value delivery across the EVOXA ecosystem.
