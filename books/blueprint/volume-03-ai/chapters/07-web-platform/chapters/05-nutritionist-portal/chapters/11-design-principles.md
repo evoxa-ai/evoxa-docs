@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-11
-chapter_id: CH-04-COACH-11
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-11
+chapter_id: CH-05-NUTRITION-11
+feature_pack: FP-NUTRITION-0000
 title: Design Principles
 version: 1.0.0
 status: Draft
@@ -14,17 +14,17 @@ last_updated: 2026-08-04
 
 # Chapter 11 — Design Principles
 
-> *The Design Principles define the visual, interaction and experience foundations of the Coach Portal, ensuring consistency, usability, trust and productivity across every professional workflow.*
+> *The Design Principles chapter defines the visual, interaction and experience principles that guide every interface within the Nutritionist Portal, ensuring consistency, usability, accessibility and alignment with the EVOXA Design System.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal is a professional application designed for continuous daily use.
+The Nutritionist Portal adopts a unified design philosophy centered on professional productivity, scientific credibility and intelligent assistance.
 
-Its design language prioritizes operational efficiency while maintaining a modern, intuitive and trustworthy experience.
+Every interface element is intentionally designed to reduce cognitive effort, improve decision making and provide a consistent experience across the EVOXA ecosystem.
 
-Every interface element, interaction and visual pattern follows a common design philosophy that supports scalability, accessibility and AI-assisted decision making.
+The portal follows the shared EVOXA Design System while incorporating nutrition-specific visual patterns.
 
 ---
 
@@ -33,273 +33,397 @@ Every interface element, interaction and visual pattern follows a common design 
 The Design Principles shall:
 
 - Ensure visual consistency.
-- Improve professional productivity.
-- Reduce cognitive effort.
-- Build user trust.
-- Support AI collaboration.
-- Maintain accessibility.
-- Scale across future modules.
+- Improve usability.
+- Reduce cognitive load.
+- Strengthen professional trust.
+- Support accessibility.
+- Enable scalable UI development.
+- Integrate AI naturally.
 
 ---
 
 # Design Philosophy
 
-The Coach Portal is designed as a Professional Operating System.
+The Nutritionist Portal is guided by five principles:
 
-The interface should feel:
+- Simplicity
+- Consistency
+- Context
+- Evidence
+- Intelligence
 
-- Calm.
-- Predictable.
-- Efficient.
-- Reliable.
-- Intelligent.
-
-The design should never compete with the professional's attention.
+Interfaces should emphasize nutritional information rather than decorative elements.
 
 ---
 
 # Core Design Principles
 
-## Productivity First
+Every interface shall be:
 
-Every interaction should reduce the time required to complete professional tasks.
+- Clear
+- Predictable
+- Efficient
+- Explainable
+- Accessible
+- Responsive
+- Professional
+
+---
+
+# Professional Experience
+
+The interface should feel like a professional clinical workspace.
+
+Characteristics include:
+
+- Minimal visual noise.
+- Structured information.
+- High readability.
+- Consistent spacing.
+- Logical grouping.
+- Fast interaction.
+
+---
+
+# Scientific Credibility
+
+Visual presentation should reinforce confidence.
 
 Examples:
 
-- Fewer clicks.
-- Keyboard shortcuts.
-- Bulk operations.
-- Smart defaults.
+- Reliable data visualization.
+- Clear nutritional indicators.
+- Transparent AI recommendations.
+- Evidence references.
+- Professional terminology.
 
 ---
 
-## Client-Centered
+# AI Transparency
 
-Every workflow revolves around the client.
+Artificial Intelligence must always be explainable.
 
-The client context remains visible throughout the experience.
+Every recommendation should display:
 
----
-
-## Consistency
-
-Visual patterns remain identical across all workspaces.
-
-Consistency applies to:
-
-- Colors.
-- Components.
-- Navigation.
-- Terminology.
-- Interactions.
-
----
-
-## Progressive Disclosure
-
-Complex functionality appears only when required.
-
-Professionals are not overwhelmed by unnecessary options.
-
----
-
-## Explainable AI
-
-Every AI recommendation includes:
-
-- Why it was generated.
-- Supporting evidence.
 - Confidence level.
-- Suggested actions.
+- Supporting evidence.
+- Alternative options.
+- Professional review controls.
 
-AI never behaves as a black box.
-
----
-
-## Context Awareness
-
-The interface adapts according to:
-
-- Active client.
-- Professional role.
-- Workflow.
-- Organization.
-- Permissions.
-
----
-
-## Minimal Cognitive Load
-
-Interfaces prioritize:
-
-- Readability.
-- Information hierarchy.
-- Predictable layouts.
-- Reduced distractions.
-
----
-
-## Accessibility by Design
-
-Accessibility is integrated from the beginning.
-
-The platform complies with:
-
-- WCAG 2.2 AA.
-- Keyboard navigation.
-- Screen readers.
-- High contrast.
-
----
-
-# Visual Identity
-
-The Coach Portal communicates:
-
-- Professionalism.
-- Trust.
-- Precision.
-- Calmness.
-- Intelligence.
-
-Visual emphasis supports decision making rather than decoration.
+AI should never appear as a black box.
 
 ---
 
 # Information Hierarchy
 
-Priority order:
+Visual hierarchy follows this order:
 
-```text
-Critical Alerts
+1. Critical alerts.
+2. Client context.
+3. Current task.
+4. Recommendations.
+5. Historical data.
+6. Secondary actions.
 
-↓
-
-Current Context
-
-↓
-
-Primary Actions
-
-↓
-
-Supporting Information
-
-↓
-
-Secondary Actions
-```
+Primary information must always remain visible.
 
 ---
 
-# Interaction Principles
+# Progressive Disclosure
+
+Complex workflows reveal information progressively.
+
+Benefits include:
+
+- Reduced cognitive load.
+- Cleaner interfaces.
+- Faster navigation.
+- Better focus.
+
+Advanced options remain available without overwhelming users.
+
+---
+
+# Consistency
+
+Consistency applies to:
+
+- Navigation.
+- Components.
+- Icons.
+- Colors.
+- Typography.
+- Layouts.
+- Interactions.
+
+Users should never need to relearn interface behavior.
+
+---
+
+# Context Awareness
+
+Interfaces adapt to:
+
+- User role.
+- Current workflow.
+- Client context.
+- Organization settings.
+- Device type.
+
+Only relevant information is displayed.
+
+---
+
+# Interaction Design
 
 Interactions should be:
 
 - Immediate.
 - Predictable.
-- Reversible.
+- Reversible where appropriate.
+- Keyboard accessible.
 - Responsive.
-- Forgiving.
 
-Users always understand the outcome of their actions.
-
----
-
-# Feedback Principles
-
-The system communicates:
-
-- Success.
-- Errors.
-- Warnings.
-- Progress.
-- Background processing.
-- AI reasoning.
-
-Feedback is timely and actionable.
+Feedback is provided after every important action.
 
 ---
 
-# Error Prevention
+# Visual Language
 
-The interface minimizes mistakes through:
+The portal emphasizes:
 
-- Inline validation.
-- Smart suggestions.
-- Auto-save.
-- Confirmation dialogs.
-- Undo functionality.
+- Neutral backgrounds.
+- Clear typography.
+- Meaningful color usage.
+- Informative icons.
+- Data-focused layouts.
+
+Decorative graphics are minimized.
 
 ---
 
-# AI Design Principles
+# Color Principles
 
-EVO follows these principles:
+Colors communicate meaning.
 
-- Transparent.
-- Helpful.
-- Contextual.
-- Explainable.
-- Non-intrusive.
-- Respectful of professional autonomy.
+Examples:
 
-Professionals always retain final control.
+- Success
+- Warning
+- Error
+- Information
+- Nutrition status
+- Goal achievement
+
+Color alone shall never convey critical information.
+
+---
+
+# Typography Principles
+
+Typography prioritizes:
+
+- Readability.
+- Clear hierarchy.
+- Consistent spacing.
+- Accessible sizing.
+- Responsive scaling.
+
+---
+
+# Iconography
+
+Icons shall be:
+
+- Simple.
+- Recognizable.
+- Consistent.
+- Accessible.
+
+Every icon has an accessible label.
+
+---
+
+# Data Visualization
+
+Charts should prioritize:
+
+- Accuracy.
+- Simplicity.
+- Comparability.
+- Trend visibility.
+- Clinical relevance.
+
+Avoid unnecessary visual effects.
+
+---
+
+# AI Visual Identity
+
+AI-generated content is clearly distinguished.
+
+Elements include:
+
+- EVO identifier.
+- Confidence indicator.
+- Recommendation label.
+- Explanation panel.
+- Review status.
+
+Professionals always know when content originates from AI.
+
+---
+
+# Human Digital Twin Representation
+
+The Digital Twin uses:
+
+- Timeline visualization.
+- Health indicators.
+- Behavioral trends.
+- Nutritional evolution.
+- Predictive summaries.
+
+Historical evolution is emphasized over isolated measurements.
+
+---
+
+# Accessibility
+
+Design follows:
+
+- WCAG 2.2 AA.
+- High contrast.
+- Keyboard navigation.
+- Screen readers.
+- Reduced motion.
+- Logical focus order.
+
+Accessibility is integrated from the beginning.
 
 ---
 
 # Responsive Principles
 
-The experience adapts seamlessly across:
+Layouts adapt without changing interaction patterns.
+
+Supported devices:
 
 - Desktop.
-- Laptop.
 - Tablet.
 - Mobile.
 
-Core workflows remain fully functional on all supported devices.
+Navigation and workflows remain consistent.
 
 ---
 
-# Design Consistency
+# Motion Design
 
-All screens shall share:
+Animations are:
 
-- Grid system.
-- Typography.
-- Color system.
-- Spacing.
-- Iconography.
-- Motion.
-- Elevation.
-- Interaction patterns.
+- Minimal.
+- Purposeful.
+- Fast.
+- Optional.
+
+Motion supports understanding rather than decoration.
 
 ---
 
-# Trust Principles
+# Empty States
 
-The interface promotes trust through:
+Empty states should:
 
-- Consistent behavior.
-- Clear permissions.
-- Audit visibility.
-- Secure interactions.
-- Explainable AI.
-- Reliable performance.
+- Explain the situation.
+- Suggest the next action.
+- Encourage productivity.
+- Maintain visual consistency.
 
 ---
 
-# Sustainability
+# Error States
 
-Design assets shall be:
+Errors must:
 
-- Reusable.
-- Modular.
-- Versioned.
-- Documented.
-- Testable.
+- Explain the problem.
+- Suggest corrective actions.
+- Preserve entered information.
+- Avoid technical language.
 
-The design system evolves without breaking existing experiences.
+---
+
+# Loading States
+
+Loading indicators should:
+
+- Communicate progress.
+- Prevent duplicate actions.
+- Preserve layout stability.
+
+Skeleton screens are preferred over generic spinners.
+
+---
+
+# Design Governance
+
+Every new interface shall:
+
+- Use approved components.
+- Follow spacing rules.
+- Respect typography hierarchy.
+- Support accessibility.
+- Maintain AI transparency.
+- Pass UX review.
+
+---
+
+# Design Lifecycle
+
+```text
+Research
+
+↓
+
+Concept
+
+↓
+
+Design
+
+↓
+
+Prototype
+
+↓
+
+Validation
+
+↓
+
+Implementation
+
+↓
+
+Continuous Improvement
+```
+
+---
+
+# Repository Structure
+
+```text
+design/
+├── principles/
+├── visual-language/
+├── interaction/
+├── typography/
+├── colors/
+├── icons/
+├── accessibility/
+├── ai/
+├── governance/
+└── metadata.yml
+```
 
 ---
 
@@ -308,23 +432,19 @@ The design system evolves without breaking existing experiences.
 ## Design Philosophy
 
 ```text
+Simple
+
+↓
+
 Professional
 
 ↓
 
-Context
+Intelligent
 
 ↓
 
-AI
-
-↓
-
-Decision
-
-↓
-
-Action
+Trustworthy
 ```
 
 ---
@@ -332,50 +452,26 @@ Action
 ## Information Hierarchy
 
 ```text
-Alerts
+Critical
 
 ↓
 
-Primary Content
-
-↓
-
-Details
-
-↓
-
-Secondary Actions
-```
-
----
-
-## Interaction Flow
-
-```text
-User Action
-
-↓
-
-Feedback
-
-↓
-
-Confirmation
-
-↓
-
-Completion
-```
-
----
-
-## Explainable AI
-
-```text
 Context
 
 ↓
 
+Task
+
+↓
+
+Details
+```
+
+---
+
+## AI Transparency
+
+```text
 Recommendation
 
 ↓
@@ -389,6 +485,22 @@ Decision
 
 ---
 
+## Visual Consistency
+
+```text
+Design System
+
+↓
+
+Components
+
+↓
+
+Screens
+```
+
+---
+
 # Visual Source Files
 
 ```text
@@ -396,52 +508,21 @@ artifacts/
 └── design-principles/
     ├── design-philosophy.drawio
     ├── information-hierarchy.drawio
-    ├── interaction-flow.drawio
-    ├── ai-principles.drawio
-    ├── trust-model.drawio
-    ├── responsive-principles.drawio
+    ├── ai-transparency.drawio
+    ├── interaction-model.drawio
+    ├── visual-language.drawio
+    ├── design-governance.drawio
     ├── mermaid/
     │   ├── philosophy.mmd
     │   ├── hierarchy.mmd
-    │   ├── interaction.mmd
     │   ├── ai.mmd
-    │   └── trust.mmd
+    │   ├── interaction.mmd
+    │   └── governance.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
+        ├── design-principles.svg
+        ├── design-principles.png
+        └── design-principles.pdf
 ```
-
----
-
-# Repository Structure
-
-```text
-design/
-├── principles/
-├── visual-language/
-├── interaction/
-├── accessibility/
-├── ai-guidelines/
-├── responsive/
-├── governance/
-└── metadata.yml
-```
-
----
-
-# Design Governance
-
-Every new screen, component and workflow shall:
-
-- Follow the Design System.
-- Use approved components.
-- Respect spacing and typography tokens.
-- Support accessibility.
-- Integrate AI consistently.
-- Pass UX review before implementation.
-
-Exceptions require approval from the Design System Board.
 
 ---
 
@@ -454,7 +535,6 @@ Exceptions require approval from the Design System Board.
 | Layout Architecture | Chapter 09 |
 | Navigation Architecture | Chapter 10 |
 | Component Catalog | Chapter 12 |
-| Widget Catalog | Chapter 13 |
 | Design Tokens | Chapter 14 |
 | Accessibility & Internationalization | Chapter 25 |
 
@@ -465,11 +545,11 @@ Exceptions require approval from the Design System Board.
 This chapter is complete when:
 
 - Design philosophy is documented.
-- Core design principles are defined.
-- Interaction principles are established.
-- AI design principles are specified.
-- Accessibility requirements are included.
-- Governance model is documented.
+- Visual and interaction principles are defined.
+- AI transparency guidelines are established.
+- Accessibility and responsive design principles are documented.
+- Information hierarchy is specified.
+- Governance rules are defined.
 - Visual artifacts are available.
 - Traceability is complete.
 
@@ -477,10 +557,10 @@ This chapter is complete when:
 
 # Key Takeaways
 
-- The Coach Portal adopts a professional-first design philosophy that prioritizes productivity, clarity and trust.
-- Consistent visual language, contextual interactions and explainable AI create a cohesive user experience across all workspaces.
-- Accessibility, responsiveness and reusable design assets ensure that the platform remains scalable and maintainable as it evolves.
-- Design governance guarantees that future features preserve the identity and quality standards of the EVOXA ecosystem.
+- The Nutritionist Portal adopts a professional, evidence-based design language that prioritizes clarity, usability and scientific credibility.
+- Every interface is built upon consistent visual, interaction and accessibility principles that reduce cognitive load and improve productivity.
+- AI interactions are transparent, explainable and always subject to professional review, reinforcing trust in intelligent recommendations.
+- Shared design principles ensure consistency across all EVOXA portals while allowing nutrition-specific workflows and visualizations to evolve independently.
 
 ---
 
@@ -488,4 +568,4 @@ This chapter is complete when:
 
 **Chapter 12 — Component Catalog**
 
-This chapter defines the complete catalog of reusable UI components used throughout the Coach Portal, including composition rules, variants, behaviors, accessibility requirements, AI integration patterns and implementation guidelines.
+This chapter defines the complete catalog of reusable UI components used throughout the Nutritionist Portal, including their properties, behaviors, accessibility requirements, AI integrations and implementation guidelines within the EVOXA Design System.
