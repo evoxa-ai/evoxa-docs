@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-20
-chapter_id: CH-04-COACH-20
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-20
+chapter_id: CH-05-NUTRITION-20
+feature_pack: FP-NUTRITION-0000
 title: Event Architecture
 version: 1.0.0
 status: Draft
@@ -14,17 +14,17 @@ last_updated: 2026-08-04
 
 # Chapter 20 — Event Architecture
 
-> *The Event Architecture defines the event-driven communication model of the Coach Portal, enabling asynchronous workflows, scalable integrations, AI orchestration and distributed business processes across the EVOXA platform.*
+> *The Event Architecture chapter defines the event-driven communication model used by the Nutritionist Portal, enabling scalable, asynchronous and loosely coupled interactions across the EVOXA ecosystem.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal follows an Event-Driven Architecture (EDA) in which business activities generate immutable domain events.
+The Nutritionist Portal adopts an Event-Driven Architecture (EDA) where business activities produce immutable domain events.
 
-Rather than tightly coupling services through direct communication, business capabilities interact by publishing and consuming events through a centralized Event Platform.
+Instead of tightly coupling systems through synchronous requests, business events are published to the EVOXA Event Platform, allowing multiple services to react independently.
 
-This architecture enables scalability, resilience, observability and extensibility while reducing dependencies between domains.
+This architecture supports scalability, resilience, extensibility and real-time processing.
 
 ---
 
@@ -32,53 +32,45 @@ This architecture enables scalability, resilience, observability and extensibili
 
 The Event Architecture shall:
 
-- Standardize domain events.
-- Enable asynchronous processing.
-- Decouple platform services.
-- Support AI orchestration.
+- Decouple business services.
+- Support asynchronous communication.
+- Enable real-time processing.
 - Improve scalability.
 - Facilitate integrations.
-- Enable complete auditability.
+- Simplify automation.
+- Maintain complete auditability.
 
 ---
 
 # Event Philosophy
 
-Every meaningful business action produces a business event.
+Every meaningful business action becomes a domain event.
 
-Events represent facts.
+Events are:
 
-Examples:
+- Immutable
+- Versioned
+- Timestamped
+- Traceable
+- Replayable
+- Observable
 
-- Client Created
-- Assessment Approved
-- Training Assigned
-- Goal Achieved
-
-Events never represent commands.
+Events represent facts that have already occurred.
 
 ---
 
-# Event Architecture Overview
+# Event Lifecycle
 
 ```text
-User
+Business Action
 
 ↓
 
-API
+Validation
 
 ↓
 
-Application Service
-
-↓
-
-Domain
-
-↓
-
-Event Publisher
+Domain Event
 
 ↓
 
@@ -87,130 +79,219 @@ Event Bus
 ↓
 
 Subscribers
+
+↓
+
+Business Reactions
+
+↓
+
+Monitoring
 ```
 
 ---
 
-# Event Layers
+# Event Categories
+
+The Nutritionist Portal publishes:
+
+- Client Events
+- Assessment Events
+- Meal Plan Events
+- Recipe Events
+- Supplement Events
+- Progress Events
+- AI Events
+- Human Digital Twin Events
+- Reporting Events
+- Security Events
+- Notification Events
+
+---
+
+# Client Events
+
+Examples:
 
 ```text
-Business Events
+ClientCreated
 
-↓
+ClientUpdated
 
-Domain Events
+ClientArchived
 
-↓
+ConsentGranted
 
-Integration Events
-
-↓
-
-Infrastructure Events
+ConsentRevoked
 ```
 
 ---
 
-# Event Types
+# Assessment Events
 
-| Type | Description |
-|------|-------------|
-| Domain | Business facts |
-| Integration | Cross-platform communication |
-| Notification | User notifications |
-| Audit | Compliance tracking |
-| AI | AI processing |
-| Analytics | KPI generation |
-| Infrastructure | Technical monitoring |
+```text
+AssessmentStarted
+
+AssessmentCompleted
+
+AssessmentApproved
+
+AssessmentRejected
+
+AssessmentCorrected
+```
 
 ---
 
-# Core Domain Events
+# Meal Plan Events
 
-| Event ID | Event |
-|----------|-------|
-| EVT-0001 | ClientCreated |
-| EVT-0002 | ClientUpdated |
-| EVT-0003 | ClientArchived |
-| EVT-0004 | AssessmentCompleted |
-| EVT-0005 | AssessmentApproved |
-| EVT-0006 | TrainingProgramCreated |
-| EVT-0007 | TrainingAssigned |
-| EVT-0008 | NutritionPlanPublished |
-| EVT-0009 | AppointmentScheduled |
-| EVT-0010 | SessionCompleted |
-| EVT-0011 | GoalAchieved |
-| EVT-0012 | ProgressUpdated |
+```text
+MealPlanCreated
+
+MealPlanUpdated
+
+MealPlanPublished
+
+MealPlanArchived
+
+MealPlanDuplicated
+```
+
+---
+
+# Recipe Events
+
+```text
+RecipeCreated
+
+RecipeUpdated
+
+RecipeDeleted
+
+RecipeRecommended
+```
+
+---
+
+# Supplement Events
+
+```text
+SupplementPlanCreated
+
+SupplementApproved
+
+SupplementRejected
+
+SupplementCompleted
+```
+
+---
+
+# Progress Events
+
+```text
+MeasurementRecorded
+
+ProgressUpdated
+
+GoalAchieved
+
+GoalMissed
+
+AdherenceUpdated
+```
 
 ---
 
 # AI Events
 
-Examples:
+```text
+AIRecommendationGenerated
 
-- AIRecommendationGenerated
-- RiskDetected
-- BehaviorPatternDetected
-- DigitalTwinUpdated
-- PredictionCompleted
-- RecommendationAccepted
-- RecommendationRejected
+AIRecommendationAccepted
+
+AIRecommendationRejected
+
+AIConversationStarted
+
+AIConversationCompleted
+```
+
+---
+
+# Human Digital Twin Events
+
+```text
+DigitalTwinCreated
+
+DigitalTwinUpdated
+
+PredictionGenerated
+
+PredictionUpdated
+
+BehaviorProfileUpdated
+```
+
+---
+
+# Report Events
+
+```text
+ReportRequested
+
+ReportGenerated
+
+ReportExported
+```
 
 ---
 
 # Notification Events
 
-Examples:
+```text
+NotificationCreated
 
-- ReminderScheduled
-- ReminderSent
-- NotificationDelivered
-- NotificationRead
+NotificationDelivered
 
----
-
-# Billing Events
-
-Examples:
-
-- SubscriptionActivated
-- SubscriptionExpired
-- InvoiceGenerated
-- PaymentCompleted
-- PaymentFailed
+NotificationRead
+```
 
 ---
 
-# Audit Events
+# Security Events
 
-Examples:
+```text
+LoginSucceeded
 
-- UserLoggedIn
-- PermissionChanged
-- ProgramApproved
-- AssessmentReviewed
-- ClientAccessed
+LoginFailed
 
-Audit events are immutable.
+PermissionDenied
+
+SessionExpired
+
+SensitiveActionExecuted
+```
 
 ---
 
-# Event Structure
+# Event Schema
 
 Every event contains:
 
-```json
-{
-  "event_id": "uuid",
-  "event_type": "ClientCreated",
-  "version": "1.0",
-  "timestamp": "...",
-  "tenant_id": "...",
-  "actor": {},
-  "resource": {},
-  "payload": {},
-  "metadata": {}
-}
+```yaml
+eventId:
+eventName:
+eventVersion:
+aggregateId:
+aggregateType:
+organizationId:
+actorId:
+timestamp:
+correlationId:
+causationId:
+payload:
+metadata:
 ```
 
 ---
@@ -219,155 +300,169 @@ Every event contains:
 
 Metadata includes:
 
-- Event ID
-- Version
-- Timestamp
-- Correlation ID
-- Causation ID
-- Tenant ID
-- User ID
-- Source Service
 - Trace ID
+- Correlation ID
+- Source Service
+- Environment
+- Schema Version
+- Tenant ID
 
 ---
 
-# Event Naming
+# Event Bus
 
-Naming convention:
+All events are published to the EVOXA Event Platform.
+
+Supported transports include:
+
+- Kafka
+- RabbitMQ
+- Azure Event Grid
+- AWS EventBridge
+- Google Pub/Sub
+
+Transport implementation is abstracted behind the platform.
+
+---
+
+# Event Topics
+
+Examples:
 
 ```text
-<Entity><PastTense>
+clients.*
 
-Examples
+assessments.*
 
-ClientCreated
+meal-plans.*
 
-AssessmentApproved
+recipes.*
 
-ProgramPublished
+progress.*
 
-SessionCompleted
+reports.*
+
+ai.*
+
+digital-twin.*
+
+notifications.*
+
+security.*
 ```
 
 ---
 
-# Event Publishing
+# Publishers
 
-Every write operation may publish one or more events.
+Primary publishers:
 
-Example:
-
-```text
-Create Client
-
-↓
-
-Persist
-
-↓
-
-Publish ClientCreated
-
-↓
-
-AI Processing
-
-↓
-
-Analytics
-
-↓
-
-Notifications
-```
-
----
-
-# Event Consumers
-
-Consumers include:
-
-- AI Platform
-- Analytics
-- Notification Service
-- Billing
+- Nutritionist Portal
+- AI Services
 - Human Digital Twin
-- Mobile Platform
-- Audit Platform
+- Workflow Engine
 - Reporting Engine
 
-Consumers remain loosely coupled.
+---
+
+# Subscribers
+
+Typical subscribers include:
+
+- Notification Service
+- Analytics Platform
+- AI Platform
+- Audit Service
+- Coach Portal
+- User Portal
+- Enterprise Portal
+- Data Lake
 
 ---
 
 # Event Ordering
 
-Ordering is guaranteed only within the same aggregate.
+Ordering guarantees:
 
-Cross-domain ordering is not guaranteed.
+- Per aggregate.
+- Within workflow.
+- By timestamp.
 
-Consumers must be idempotent.
+Global ordering is not required.
 
 ---
 
-# Event Versioning
+# Idempotency
+
+Subscribers shall process duplicate events safely.
 
 Every event includes:
 
-- Schema Version
-- Event Version
-
-Breaking changes create a new version.
-
----
-
-# Event Delivery
-
-Supported semantics:
-
-- At-Least-Once
-- Retry
-- Dead Letter Queue
-- Replay
-
-Consumers must tolerate duplicate deliveries.
+- Event ID
+- Version
+- Deduplication Key
 
 ---
 
-# Event Retry Strategy
+# Event Replay
 
-Retries follow exponential backoff.
+Replay supports:
 
-Example:
+- Disaster recovery.
+- Analytics rebuild.
+- AI retraining.
+- Historical reconstruction.
+- Debugging.
 
-```
-1 sec
+---
 
-↓
+# Event Retention
 
-5 sec
+Recommended retention:
 
-↓
+| Event Type | Retention |
+|------------|-----------|
+| Business Events | Permanent |
+| Audit Events | Permanent |
+| Notification Events | 180 Days |
+| AI Events | 2 Years |
+| Telemetry | 90 Days |
 
-30 sec
+---
 
-↓
+# Event Security
 
-5 min
-```
+Every event is:
+
+- Authenticated
+- Authorized
+- Encrypted in transit
+- Signed where required
+- Audited
+
+Sensitive payloads may be encrypted.
+
+---
+
+# Event Monitoring
+
+Metrics include:
+
+- Events Published
+- Events Processed
+- Failed Deliveries
+- Retry Count
+- Processing Latency
+- Dead Letter Queue Size
 
 ---
 
 # Dead Letter Queue
 
-Events that cannot be processed are moved to:
+Unprocessed events are redirected to:
 
 ```text
 DLQ
-
-↓
-
-Monitoring
 
 ↓
 
@@ -376,100 +471,55 @@ Investigation
 ↓
 
 Replay
+
+↓
+
+Resolution
 ```
 
 ---
 
-# Event Replay
+# Event Versioning
 
-Historical events may be replayed for:
+Rules:
 
-- Analytics
-- AI retraining
-- Disaster recovery
-- New projections
-
-Replay never modifies historical events.
-
----
-
-# Event Security
-
-Every event validates:
-
-- Tenant isolation
-- Authorization context
-- Digital signatures (optional)
-- Integrity
-- Encryption in transit
-
-Sensitive data is minimized.
-
----
-
-# Event Observability
-
-Each event is traceable through:
-
-- Correlation ID
-- Trace ID
-- Distributed tracing
-- Event logs
-- Processing metrics
+- Events are immutable.
+- Breaking changes require a new version.
+- Consumers support parallel versions during migration.
 
 ---
 
 # Event Governance
 
-Every event defines:
+Every event shall define:
 
-- Event ID
 - Owner
+- Schema
 - Version
+- Documentation
 - Publisher
-- Consumers
-- Payload Schema
-- Business Rules
-- Retention Policy
+- Subscribers
+- SLA
 
 ---
 
-# Event Lifecycle
-
-```text
-Proposed
-
-↓
-
-Approved
-
-↓
-
-Published
-
-↓
-
-Consumed
-
-↓
-
-Archived
-```
-
----
-
-# Event Repository
+# Repository Structure
 
 ```text
 events/
-├── domain/
-├── integration/
+├── clients/
+├── assessments/
+├── meal-plans/
+├── recipes/
+├── supplements/
+├── progress/
 ├── ai/
-├── audit/
-├── analytics/
+├── digital-twin/
 ├── notifications/
-├── billing/
+├── reporting/
+├── security/
 ├── schemas/
+├── governance/
 └── metadata.yml
 ```
 
@@ -480,31 +530,11 @@ events/
 ## Event Flow
 
 ```text
-Action
-
-↓
-
-Domain
+Business Action
 
 ↓
 
 Event
-
-↓
-
-Bus
-
-↓
-
-Consumers
-```
-
----
-
-## Event Bus
-
-```text
-Publisher
 
 ↓
 
@@ -524,7 +554,15 @@ Publish
 
 ↓
 
+Transport
+
+↓
+
 Consume
+
+↓
+
+Process
 
 ↓
 
@@ -533,10 +571,14 @@ Archive
 
 ---
 
-## AI Event Flow
+## Event Ecosystem
 
 ```text
-Assessment
+Nutritionist Portal
+
+↓
+
+Event Platform
 
 ↓
 
@@ -544,11 +586,31 @@ AI
 
 ↓
 
-Recommendation
+Coach Portal
 
 ↓
 
-Notification
+Analytics
+
+↓
+
+Digital Twin
+```
+
+---
+
+## Event Replay
+
+```text
+Event Store
+
+↓
+
+Replay
+
+↓
+
+Rebuild State
 ```
 
 ---
@@ -559,21 +621,21 @@ Notification
 artifacts/
 └── event-architecture/
     ├── event-flow.drawio
-    ├── event-bus.drawio
-    ├── domain-events.drawio
-    ├── ai-events.drawio
-    ├── retry-strategy.drawio
     ├── event-lifecycle.drawio
+    ├── event-bus.drawio
+    ├── subscribers.drawio
+    ├── replay.drawio
+    ├── governance.drawio
     ├── mermaid/
-    │   ├── event-flow.mmd
-    │   ├── bus.mmd
     │   ├── lifecycle.mmd
-    │   ├── ai.mmd
-    │   └── replay.mmd
+    │   ├── bus.mmd
+    │   ├── replay.mmd
+    │   ├── topics.mmd
+    │   └── governance.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
+        ├── event-architecture.svg
+        ├── event-architecture.png
+        └── event-architecture.pdf
 ```
 
 ---
@@ -584,11 +646,11 @@ artifacts/
 |----------|-----------|
 | Workflow Architecture | Chapter 16 |
 | Business Rules | Chapter 17 |
+| User Stories | Chapter 18 |
 | API Contracts | Chapter 19 |
 | AI Services | Chapter 21 |
 | Data Model | Chapter 22 |
 | Observability & Analytics | Chapter 24 |
-| Operational Excellence | Chapter 29 |
 
 ---
 
@@ -597,11 +659,12 @@ artifacts/
 This chapter is complete when:
 
 - Event taxonomy is documented.
-- Core domain events are cataloged.
-- Event payload standards are defined.
-- Publishing and consumption patterns are specified.
-- Retry, replay and DLQ strategies are documented.
-- Security and governance requirements are established.
+- Domain events are defined.
+- Event schemas are standardized.
+- Publishers and subscribers are identified.
+- Event versioning and governance are documented.
+- Replay, idempotency and DLQ strategies are specified.
+- Monitoring and security requirements are established.
 - Visual artifacts are available.
 - Traceability is complete.
 
@@ -609,10 +672,10 @@ This chapter is complete when:
 
 # Key Takeaways
 
-- The Coach Portal adopts an Event-Driven Architecture that treats business events as immutable facts and decouples platform services through asynchronous communication.
-- Standardized event contracts, versioning and metadata enable reliable integrations, AI orchestration and distributed processing across the EVOXA ecosystem.
-- Robust delivery guarantees, replay capabilities and observability mechanisms provide resilience, auditability and operational transparency.
-- Event governance ensures that every published event remains traceable, versioned and aligned with business processes and platform evolution.
+- The Nutritionist Portal uses an event-driven architecture where every significant business action produces immutable domain events.
+- Asynchronous communication through the EVOXA Event Platform enables scalability, loose coupling and seamless integration with AI services, the Human Digital Twin and other portals.
+- Standardized event schemas, versioning, replay capabilities and governance provide a reliable foundation for long-term platform evolution.
+- Comprehensive monitoring, security and observability ensure that event processing remains transparent, resilient and auditable across the entire EVOXA ecosystem.
 
 ---
 
@@ -620,4 +683,4 @@ This chapter is complete when:
 
 **Chapter 21 — AI Services**
 
-This chapter defines the AI service architecture of the Coach Portal, including intelligent assistants, recommendation engines, prediction models, Human Digital Twin services, orchestration, governance and responsible AI practices.
+This chapter defines the artificial intelligence capabilities of the Nutritionist Portal, including AI assistants, nutritional recommendation engines, predictive models, Human Digital Twin integration, LLM orchestration, safety mechanisms and AI governance policies.
