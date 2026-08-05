@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-23
-chapter_id: CH-04-COACH-23
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-23
+chapter_id: CH-05-NUTRITION-23
+feature_pack: FP-NUTRITION-0000
 title: Security & Permissions
 version: 1.0.0
 status: Draft
@@ -14,17 +14,17 @@ last_updated: 2026-08-04
 
 # Chapter 23 — Security & Permissions
 
-> *The Security & Permissions chapter defines the security architecture of the Coach Portal, including authentication, authorization, tenant isolation, data protection, AI security, auditability and governance across the EVOXA ecosystem.*
+> *The Security & Permissions chapter defines the authentication, authorization, access control, data protection, AI governance and auditing mechanisms that safeguard the Nutritionist Portal and ensure secure operation across the EVOXA ecosystem.*
 
 ---
 
 # Executive Summary
 
-Security is a foundational capability of the Coach Portal.
+Security is a foundational capability of the Nutritionist Portal.
 
-The platform adopts a Zero Trust Architecture where every request is authenticated, authorized, validated and audited.
+The platform adopts a Zero Trust security model combined with multi-layer authorization, comprehensive auditing and privacy-by-design principles.
 
-Security controls extend beyond application access to include AI services, Human Digital Twins, APIs, events, storage, infrastructure and compliance.
+Every request, workflow, AI interaction and data access is authenticated, authorized, monitored and traceable.
 
 ---
 
@@ -32,39 +32,35 @@ Security controls extend beyond application access to include AI services, Human
 
 The Security Architecture shall:
 
-- Protect sensitive information.
+- Protect sensitive data.
 - Enforce least privilege.
-- Support multi-tenant isolation.
-- Secure AI services.
-- Enable auditing.
-- Ensure regulatory compliance.
-- Support enterprise deployments.
+- Support multi-tenancy.
+- Enable secure AI usage.
+- Maintain regulatory compliance.
+- Ensure auditability.
+- Scale across the EVOXA ecosystem.
 
 ---
 
-# Security Principles
+# Security Philosophy
 
-The Coach Portal follows:
+Security follows six principles:
 
 - Zero Trust
 - Least Privilege
 - Defense in Depth
-- Secure by Default
 - Privacy by Design
-- AI Safety
+- Secure by Default
 - Continuous Verification
-- Auditability
+
+No request is trusted automatically.
 
 ---
 
-# Security Architecture
+# Security Layers
 
 ```text
-User
-
-↓
-
-Identity Provider
+Identity
 
 ↓
 
@@ -76,15 +72,15 @@ Authorization
 
 ↓
 
-Application
+Business Rules
 
 ↓
 
-Domain
+API Security
 
 ↓
 
-Data
+Data Protection
 
 ↓
 
@@ -93,66 +89,31 @@ Audit
 
 ---
 
-# Security Layers
-
-```text
-Identity
-
-↓
-
-Access Control
-
-↓
-
-Application Security
-
-↓
-
-API Security
-
-↓
-
-Data Security
-
-↓
-
-AI Security
-
-↓
-
-Infrastructure Security
-
-↓
-
-Monitoring
-```
-
----
-
 # Identity Management
 
-Supported identity providers:
+Every identity includes:
 
-- EVOXA Identity
-- Microsoft Entra ID
-- Google Identity
-- Okta
-- Auth0
-- SAML 2.0
-- OpenID Connect
+- User ID
+- Organization ID
+- Role
+- Permissions
+- Status
+- MFA Configuration
+
+Identity is centrally managed.
 
 ---
 
 # Authentication
 
-Supported mechanisms:
+Supported methods:
 
-- OAuth 2.1
+- OAuth2
 - OpenID Connect
 - JWT
 - Refresh Tokens
-- API Keys
-- Service Accounts
+- Multi-Factor Authentication (MFA)
+- Single Sign-On (SSO)
 
 ---
 
@@ -161,24 +122,11 @@ Supported mechanisms:
 Supported factors:
 
 - Authenticator App
-- Passkeys (WebAuthn)
-- Security Keys
-- Email OTP
-- SMS OTP (optional)
+- Push Notification
+- Email (optional)
+- Security Key (FIDO2/WebAuthn)
 
-MFA is configurable per organization.
-
----
-
-# Session Management
-
-Sessions support:
-
-- Sliding expiration.
-- Absolute expiration.
-- Session revocation.
-- Device tracking.
-- Concurrent session policies.
+MFA is required for privileged roles.
 
 ---
 
@@ -186,100 +134,131 @@ Sessions support:
 
 Authorization combines:
 
-- Role-Based Access Control (RBAC)
-- Attribute-Based Access Control (ABAC)
+- RBAC (Role-Based Access Control)
+- ABAC (Attribute-Based Access Control)
+- PBAC (Policy-Based Access Control)
+
+Access decisions are evaluated centrally.
 
 ---
 
-# Standard Roles
+# Default Roles
 
-| Role | Description |
-|--------|-------------|
-| Coach | Coaching services |
-| Nutritionist | Nutrition management |
-| Physiotherapist | Rehabilitation |
-| Team Manager | Team supervision |
-| Administrator | Organization management |
-| Super Administrator | Platform management |
+The Nutritionist Portal defines:
 
----
-
-# Permission Model
-
-Permissions follow:
-
-```text
-Resource
-
-↓
-
-Action
-
-↓
-
-Condition
-
-↓
-
-Decision
-```
-
-Example:
-
-```
-Client
-
-↓
-
-Read
-
-↓
-
-Assigned Coach
-
-↓
-
-Allow
-```
+- Organization Owner
+- Organization Administrator
+- Lead Nutritionist
+- Nutritionist
+- Assistant Nutritionist
+- Coach
+- Physician (Read-Only)
+- Auditor
+- Support Operator
+- API Integration
 
 ---
 
-# Tenant Isolation
+# Permission Categories
+
+Permissions are grouped into:
+
+- Client Management
+- Assessments
+- Meal Plans
+- Recipes
+- Supplements
+- Reports
+- AI Services
+- Administration
+- Organization Settings
+- Security
+
+---
+
+# Permission Types
+
+Each resource supports:
+
+- View
+- Create
+- Update
+- Delete
+- Approve
+- Publish
+- Export
+- Share
+- Archive
+
+---
+
+# Resource-Based Permissions
+
+Permissions are evaluated against:
+
+- Organization
+- Client Ownership
+- Assigned Nutritionist
+- Workflow State
+- Client Consent
+- Data Classification
+
+---
+
+# Context-Aware Authorization
+
+Access decisions may consider:
+
+- User role.
+- Organization.
+- Device trust.
+- Geographic location.
+- Time of access.
+- Active workflow.
+- Client relationship.
+
+---
+
+# Multi-Tenancy
 
 Every request validates:
 
-- Tenant ID
-- Organization membership
+- Organization ID
+- Tenant isolation
 - Resource ownership
 - Cross-tenant restrictions
 
-Cross-tenant access is prohibited unless explicitly configured.
+Data is never shared between organizations unless explicitly authorized.
 
 ---
 
-# Data Protection
+# Human Digital Twin Security
 
-Sensitive data is protected through:
+The Human Digital Twin is classified as highly sensitive.
 
-- Encryption at rest.
-- Encryption in transit.
-- Data masking.
-- Field-level encryption (where required).
-- Secure backups.
+Access requires:
+
+- Explicit permission.
+- Client consent.
+- Audit logging.
+- Organization validation.
+
+AI services receive only the minimum required context.
 
 ---
 
-# Secret Management
+# AI Security
 
-Secrets include:
+AI interactions enforce:
 
-- API Keys
-- Encryption Keys
-- Database Credentials
-- OAuth Secrets
-- AI Credentials
+- Consent verification.
+- Context minimization.
+- Prompt validation.
+- Response filtering.
+- Explainability.
+- Human approval.
 
-Secrets are stored in a secure vault.
+Sensitive prompts are logged securely.
 
 ---
 
@@ -287,129 +266,119 @@ Secrets are stored in a secure vault.
 
 Every API validates:
 
-- Authentication
-- Authorization
-- Rate limiting
-- Input validation
-- Audit logging
-- CSRF protection (where applicable)
-- CORS policy
-
----
-
-# AI Security
-
-AI services enforce:
-
-- Prompt validation.
-- Tenant isolation.
-- Context filtering.
-- Output validation.
-- Prompt injection protection.
-- Sensitive data redaction.
-
-Every AI interaction is auditable.
-
----
-
-# Human Digital Twin Security
-
-Access requires:
-
-- Explicit authorization.
+- JWT signature.
+- Token expiration.
+- Required scopes.
 - Organization membership.
-- Professional role.
-- Audit registration.
+- Permission policies.
 
-Only authorized services may update Digital Twin data.
+Rate limiting and abuse detection are mandatory.
 
 ---
 
-# Audit Logging
+# Session Management
 
-Security events include:
+Sessions include:
 
-- Login.
-- Logout.
-- Failed authentication.
-- Permission changes.
-- Sensitive data access.
+- Expiration.
+- Refresh Tokens.
+- Device registration.
+- Revocation.
+- Idle timeout.
+
+Suspicious sessions are automatically terminated.
+
+---
+
+# Data Protection
+
+Protected information includes:
+
+- Personal information.
+- Health data.
+- Nutritional history.
 - AI interactions.
-- Administrative actions.
+- Human Digital Twin.
+- Audit records.
 
-Audit records are immutable.
+Encryption is applied both in transit and at rest.
 
 ---
 
 # Encryption
 
-Supported encryption:
+Supported standards:
 
-| Scope | Standard |
-|--------|----------|
-| Data at Rest | AES-256 |
-| Data in Transit | TLS 1.3 |
-| Password Hashing | Argon2id |
-| Signing | Ed25519 or RSA-4096 |
+- TLS 1.3
+- AES-256
+- SHA-256
+- Argon2id (password hashing)
 
----
-
-# Compliance
-
-The platform supports:
-
-- GDPR
-- HIPAA (deployment dependent)
-- ISO 27001
-- SOC 2
-- Local health regulations
-
-Compliance features are configurable by deployment.
+Cryptographic keys are managed centrally.
 
 ---
 
-# Threat Protection
+# Secrets Management
 
-Security controls include:
+Sensitive secrets include:
 
-- Brute-force protection.
-- Account lockout.
-- Suspicious login detection.
-- Device reputation.
-- Rate limiting.
-- Anomaly detection.
-- Web Application Firewall.
+- API Keys
+- OAuth Secrets
+- Database Credentials
+- Encryption Keys
+- AI Provider Keys
+
+Secrets are stored in a dedicated secrets manager.
 
 ---
 
-# Privacy Controls
+# Audit Logging
 
-The platform supports:
+The following actions generate immutable audit events:
 
-- Consent management.
-- Data export.
-- Right to deletion.
-- Data retention policies.
-- Privacy preferences.
+- Login
+- Logout
+- Client access
+- Assessment approval
+- Meal plan publication
+- AI recommendation acceptance
+- Permission changes
+- Organization configuration updates
 
 ---
 
 # Security Monitoring
 
-Continuous monitoring includes:
+Security telemetry includes:
 
-- Authentication failures.
-- Permission violations.
-- API abuse.
-- AI misuse.
-- Infrastructure alerts.
-- Security events.
+- Failed logins
+- Permission denials
+- Token revocations
+- Suspicious API usage
+- AI abuse attempts
+- Cross-tenant access attempts
+
+Alerts are generated automatically.
+
+---
+
+# Compliance
+
+The platform supports compliance with:
+
+- GDPR
+- HIPAA (where applicable)
+- ISO 27001
+- SOC 2
+- Organization-specific policies
+
+Compliance controls are configurable.
 
 ---
 
 # Incident Response
 
-Standard workflow:
+Security incidents follow:
 
 ```text
 Detection
@@ -437,45 +406,18 @@ Post-Incident Review
 
 ---
 
-# Security Lifecycle
+# Permission Metadata
 
-```text
-Design
+Every permission defines:
 
-↓
-
-Implementation
-
-↓
-
-Validation
-
-↓
-
-Deployment
-
-↓
-
-Monitoring
-
-↓
-
-Continuous Improvement
-```
-
----
-
-# Security Governance
-
-Every security capability defines:
-
-- Owner.
-- Policy.
-- Controls.
-- Compliance mapping.
-- Audit requirements.
-- Monitoring.
-- Review cycle.
+- Permission ID
+- Name
+- Description
+- Resource
+- Action
+- Scope
+- Owner
+- Version
 
 ---
 
@@ -487,12 +429,15 @@ security/
 ├── authentication/
 ├── authorization/
 ├── permissions/
-├── ai-security/
-├── encryption/
-├── compliance/
-├── audit/
-├── incident-response/
 ├── policies/
+├── api-security/
+├── ai-security/
+├── digital-twin/
+├── encryption/
+├── audit/
+├── compliance/
+├── monitoring/
+├── governance/
 └── metadata.yml
 ```
 
@@ -500,26 +445,26 @@ security/
 
 # Standard Visual Artifacts
 
-## Security Layers
+## Authentication Flow
 
 ```text
-Identity
+User
 
 ↓
 
-Access
+Identity Provider
 
 ↓
 
-Application
+Authentication
 
 ↓
 
-Data
+Token
 
 ↓
 
-Monitoring
+Portal
 ```
 
 ---
@@ -527,15 +472,19 @@ Monitoring
 ## Authorization Flow
 
 ```text
-Authentication
+Request
 
 ↓
 
-Role
+RBAC
 
 ↓
 
-Permission
+ABAC
+
+↓
+
+Policy Engine
 
 ↓
 
@@ -544,22 +493,18 @@ Decision
 
 ---
 
-## Zero Trust
+## Security Layers
 
 ```text
-Request
+Identity
 
 ↓
 
-Verify
+Authentication
 
 ↓
 
-Authorize
-
-↓
-
-Execute
+Authorization
 
 ↓
 
@@ -568,22 +513,26 @@ Audit
 
 ---
 
-## Incident Response
+## AI Security
 
 ```text
-Detect
+Prompt
 
 ↓
 
-Contain
+Validation
 
 ↓
 
-Recover
+AI
 
 ↓
 
-Learn
+Filtering
+
+↓
+
+Approval
 ```
 
 ---
@@ -593,22 +542,22 @@ Learn
 ```text
 artifacts/
 └── security-permissions/
+    ├── authentication.drawio
+    ├── authorization.drawio
     ├── zero-trust.drawio
-    ├── authorization-flow.drawio
-    ├── security-layers.drawio
-    ├── tenant-isolation.drawio
     ├── ai-security.drawio
-    ├── incident-response.drawio
+    ├── multi-tenancy.drawio
+    ├── audit.drawio
     ├── mermaid/
+    │   ├── auth.mmd
+    │   ├── permissions.mmd
     │   ├── zero-trust.mmd
-    │   ├── authorization.mmd
-    │   ├── identity.mmd
-    │   ├── ai-security.mmd
-    │   └── incident.mmd
+    │   ├── ai.mmd
+    │   └── governance.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
+        ├── security-permissions.svg
+        ├── security-permissions.png
+        └── security-permissions.pdf
 ```
 
 ---
@@ -623,7 +572,7 @@ artifacts/
 | AI Services | Chapter 21 |
 | Data Model | Chapter 22 |
 | Observability & Analytics | Chapter 24 |
-| Operational Excellence | Chapter 29 |
+| Testing & Quality Assurance | Chapter 27 |
 
 ---
 
@@ -631,24 +580,23 @@ artifacts/
 
 This chapter is complete when:
 
-- Security principles are documented.
-- Authentication and authorization models are defined.
-- Tenant isolation is specified.
-- AI security controls are documented.
-- Data protection strategy is established.
-- Audit and compliance requirements are defined.
-- Security governance is documented.
-- Visual artifacts are available.
-- Traceability is complete.
+- Authentication mechanisms are documented.
+- Authorization models (RBAC, ABAC and PBAC) are defined.
+- Multi-tenancy and tenant isolation are specified.
+- AI security and Human Digital Twin protection are documented.
+- Encryption, audit logging and secrets management are defined.
+- Compliance and incident response procedures are established.
+- Security monitoring requirements are documented.
+- Visual artifacts and traceability are complete.
 
 ---
 
 # Key Takeaways
 
-- The Coach Portal adopts a Zero Trust security architecture where every request is continuously verified, authorized and audited.
-- Authentication, RBAC/ABAC authorization, tenant isolation and strong encryption protect sensitive business, health and AI-related data.
-- AI services are governed through dedicated security controls that mitigate prompt injection, unauthorized access and data leakage.
-- Centralized governance, continuous monitoring and compliance support provide a secure foundation for enterprise deployments of the EVOXA platform.
+- The Nutritionist Portal implements a Zero Trust security architecture that continuously validates identity, context and permissions before granting access to any resource.
+- A hybrid authorization model combining RBAC, ABAC and policy-based controls provides flexible and fine-grained access management across organizations and workflows.
+- AI services and Human Digital Twin data are protected through dedicated governance, consent verification, explainability requirements and comprehensive audit logging.
+- Centralized identity management, encryption, monitoring and compliance controls provide a scalable security foundation for the entire EVOXA ecosystem.
 
 ---
 
@@ -656,4 +604,4 @@ This chapter is complete when:
 
 **Chapter 24 — Observability & Analytics**
 
-This chapter defines the observability architecture of the Coach Portal, including logging, metrics, distributed tracing, AI telemetry, operational dashboards, business analytics and platform health monitoring.
+This chapter defines the observability strategy of the Nutritionist Portal, including logging, metrics, distributed tracing, operational dashboards, AI telemetry, business analytics and platform health monitoring.
