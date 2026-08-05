@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-02
-chapter_id: CH-04-COACH-02
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-02
+chapter_id: CH-05-NUTRITION-02
+feature_pack: FP-NUTRITION-0000
 title: Business Overview
 version: 1.0.0
 status: Draft
@@ -14,138 +14,88 @@ last_updated: 2026-08-04
 
 # Chapter 02 — Business Overview
 
-> *The Coach Portal provides health, fitness and wellness professionals with an AI-native operating platform that unifies client management, personalized care delivery, business operations and intelligent decision support.*
+> *The Business Overview defines the strategic purpose, business value, market positioning and organizational impact of the Nutritionist Portal within the EVOXA ecosystem.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal is the professional workspace within the EVOXA ecosystem.
+The Nutritionist Portal is the professional nutrition management platform of EVOXA.
 
-It enables coaches, nutritionists, physiotherapists and healthcare professionals to efficiently manage clients, deliver personalized services and leverage Artificial Intelligence to improve health outcomes while scaling their professional practice.
+It enables nutritionists, dietitians and healthcare organizations to deliver personalized nutritional care supported by Artificial Intelligence, Human Digital Twins and advanced analytics.
 
-Unlike traditional coaching software that focuses on scheduling or workout creation, the Coach Portal integrates Human Digital Twins, AI-powered recommendations, analytics and business operations into a single intelligent platform.
-
----
-
-# Business Context
-
-The health and wellness industry is rapidly evolving toward personalized, data-driven and AI-assisted care.
-
-Professionals increasingly require platforms that can:
-
-- Manage growing client portfolios.
-- Automate repetitive tasks.
-- Deliver personalized experiences.
-- Analyze large volumes of health data.
-- Improve long-term client engagement.
-- Increase operational efficiency.
-
-Traditional solutions address isolated problems rather than the complete coaching lifecycle.
+The portal transforms nutrition from isolated consultations into a continuous, data-driven and collaborative process.
 
 ---
 
-# Business Problem
+# Business Vision
 
-Current coaching tools present several limitations:
+To become the leading intelligent nutrition platform for preventive health, sports performance and clinical nutrition worldwide.
 
-- Client information is fragmented.
-- Training and nutrition systems are disconnected.
-- Limited automation.
-- Minimal AI capabilities.
-- Poor long-term analytics.
-- Manual administrative work.
-- Limited scalability.
-- Weak client engagement.
+---
 
-These inefficiencies reduce professional productivity and negatively impact client outcomes.
+# Business Mission
+
+Empower nutrition professionals with intelligent tools that improve nutritional outcomes while reducing administrative workload and increasing personalization.
+
+---
+
+# Strategic Objectives
+
+The Nutritionist Portal aims to:
+
+- Improve nutritional adherence.
+- Personalize every nutrition plan.
+- Reduce time spent creating meal plans.
+- Improve multidisciplinary collaboration.
+- Increase client engagement.
+- Enable predictive nutritional interventions.
+- Support evidence-based clinical decisions.
+
+---
+
+# Business Problems
+
+Traditional nutrition workflows commonly suffer from:
+
+- Manual meal planning.
+- Limited personalization.
+- Poor client adherence.
+- Fragmented health information.
+- Lack of predictive insights.
+- Difficult collaboration with other professionals.
+- Repetitive administrative work.
+
+These limitations reduce both professional efficiency and client outcomes.
 
 ---
 
 # Business Opportunity
 
-EVOXA addresses these challenges by providing a unified AI-native platform where professionals can:
+Growing demand for:
 
-- Manage all client information.
-- Deliver personalized programs.
-- Monitor progress continuously.
-- Automate repetitive processes.
-- Collaborate with AI.
-- Scale their business.
-- Improve measurable health outcomes.
+- Preventive healthcare.
+- Sports nutrition.
+- Digital health.
+- Remote consultations.
+- AI-assisted healthcare.
+- Personalized nutrition.
+- Corporate wellness programs.
+
+The Nutritionist Portal addresses these trends through an integrated digital platform.
 
 ---
 
 # Value Proposition
 
-The Coach Portal delivers value through four strategic pillars.
+The Nutritionist Portal delivers value by:
 
-## 1. Professional Productivity
-
-Reduce administrative effort through intelligent automation.
-
-Examples:
-
-- Automatic reports.
-- Smart scheduling.
-- AI-generated programs.
-- Progress summaries.
-- Intelligent reminders.
-
----
-
-## 2. Better Client Outcomes
-
-Enable continuous monitoring through:
-
-- Human Digital Twins.
-- Predictive analytics.
-- Goal tracking.
-- Personalized recommendations.
-- Behavioral insights.
-
----
-
-## 3. Business Growth
-
-Support professional expansion through:
-
-- Multi-client management.
-- Subscription management.
-- Billing.
-- Analytics.
-- Marketplace.
-- Team collaboration.
-
----
-
-## 4. AI-Augmented Coaching
-
-Artificial Intelligence enhances professional expertise by:
-
-- Generating recommendations.
-- Detecting risks.
-- Predicting adherence.
-- Optimizing plans.
-- Explaining decisions.
-- Supporting evidence-based coaching.
-
-Human professionals remain responsible for final decisions.
-
----
-
-# Business Objectives
-
-The Coach Portal aims to:
-
-- Increase coaching efficiency.
-- Improve client retention.
-- Increase program adherence.
-- Improve health outcomes.
-- Reduce operational costs.
-- Increase recurring revenue.
-- Expand service capacity.
-- Improve customer satisfaction.
+- Automating repetitive nutritional tasks.
+- Supporting evidence-based nutrition.
+- Providing AI-assisted recommendations.
+- Continuously monitoring adherence.
+- Integrating nutrition with training and recovery.
+- Enhancing communication between professionals and clients.
 
 ---
 
@@ -153,201 +103,274 @@ The Coach Portal aims to:
 
 Primary markets include:
 
-- Independent Personal Trainers.
-- Nutrition Clinics.
-- Wellness Centers.
-- Fitness Studios.
-- Sports Academies.
-- Physiotherapy Clinics.
-- Corporate Wellness Programs.
-- Healthcare Organizations.
+- Sports nutrition clinics.
+- Clinical nutrition practices.
+- Hospitals.
+- Wellness centers.
+- Fitness organizations.
+- Corporate wellness providers.
+- High-performance sports teams.
+
+Future expansion includes public health and research institutions.
 
 ---
 
-# Business Stakeholders
+# Stakeholders
 
-| Stakeholder | Responsibility |
-|--------------|---------------|
-| Coaches | Client management |
-| Nutritionists | Nutrition planning |
-| Physiotherapists | Recovery programs |
-| Enterprise Administrators | Organization management |
-| Clients | Program participation |
-| EVO AI | Decision support |
+Primary stakeholders:
+
+- Nutritionists.
+- Dietitians.
+- Clinical Nutrition Specialists.
+- Sports Nutrition Professionals.
+
+Secondary stakeholders:
+
+- Coaches.
+- Physicians.
+- Physiotherapists.
+- Clients.
+- Organization Administrators.
+- Platform Operators.
 
 ---
 
 # Business Capabilities
 
-The Coach Portal supports:
+Core business capabilities include:
 
-| Capability | Description |
-|------------|-------------|
-| Client Lifecycle Management | End-to-end client management |
-| Assessments | Health and fitness evaluations |
-| Training Management | Program creation and monitoring |
-| Nutrition Management | Meal planning and adherence |
-| Communication | Secure messaging and consultations |
-| Scheduling | Calendar and appointments |
-| AI Decision Support | Intelligent recommendations |
-| Analytics | Business and clinical insights |
-| Billing | Subscription and payment management |
+- Nutritional Assessment.
+- Meal Planning.
+- Recipe Management.
+- Supplement Planning.
+- Food Database Management.
+- Dietary Monitoring.
+- Progress Tracking.
+- AI Nutritional Recommendations.
+- Reporting & Analytics.
 
 ---
 
-# Business Model
+# Competitive Advantages
 
-The Coach Portal supports multiple commercial models.
+The Nutritionist Portal differentiates itself through:
 
-Examples:
-
-- Monthly subscriptions.
-- Annual subscriptions.
-- Enterprise licensing.
-- Team licenses.
-- Marketplace commissions.
-- Premium AI services.
-- Professional certifications.
+- AI-powered nutritional recommendations.
+- Human Digital Twin integration.
+- Continuous adherence monitoring.
+- Predictive nutritional analytics.
+- Enterprise-grade collaboration.
+- Event-driven architecture.
+- Unified ecosystem with other EVOXA portals.
 
 ---
 
-# Revenue Opportunities
+# Human Digital Twin Business Value
 
-Potential revenue streams include:
+The Human Digital Twin enables:
 
-- SaaS subscriptions.
-- AI premium features.
-- Marketplace transactions.
-- Enterprise contracts.
-- White-label solutions.
-- Professional education.
-- API licensing.
+- Personalized nutritional interventions.
+- Dynamic meal adjustments.
+- Longitudinal health analysis.
+- Behavioral nutrition insights.
+- Early nutritional risk detection.
+- Predictive coaching.
 
----
-
-# Competitive Differentiators
-
-Compared with traditional coaching platforms, EVOXA provides:
-
-- AI-native architecture.
-- Human Digital Twin.
-- Explainable AI.
-- Unified client management.
-- Integrated analytics.
-- Workflow automation.
-- Enterprise scalability.
-- Modular platform architecture.
+This creates a continuously evolving representation of each client.
 
 ---
 
-# Success Metrics
+# Artificial Intelligence Business Value
 
-Business success is measured through:
+AI contributes by:
 
-- Active coaches.
-- Active clients.
-- Program completion rate.
-- Client retention.
-- AI recommendation acceptance.
-- Monthly recurring revenue.
-- Net Promoter Score (NPS).
-- Customer Lifetime Value (CLV).
+- Optimizing meal plans.
+- Suggesting recipes.
+- Detecting nutritional deficiencies.
+- Predicting adherence risks.
+- Recommending supplementation.
+- Supporting clinical decision making.
 
----
-
-# Strategic Alignment
-
-The Coach Portal aligns with the EVOXA vision by:
-
-- Empowering professionals.
-- Expanding AI capabilities.
-- Supporting digital health.
-- Enabling preventive care.
-- Building a connected wellness ecosystem.
-
----
-
-# Business Risks
-
-Potential risks include:
-
-- Low AI adoption.
-- Data privacy concerns.
-- Regulatory changes.
-- Competitive pressure.
-- Technology adoption barriers.
-- Integration complexity.
-
-Mitigation strategies are addressed throughout the architecture.
-
----
-
-# Future Opportunities
-
-Future evolution includes:
-
-- Telemedicine integration.
-- Wearable ecosystems.
-- Clinical decision support.
-- AI agents.
-- Population health analytics.
-- Global enterprise deployments.
-- Research and academic partnerships.
-
----
-
-# Standard Business Model
-
-```text
-Professional
-
-↓
-
-Coach Portal
-
-↓
-
-Human Digital Twin
-
-↓
-
-AI Assistant (EVO)
-
-↓
-
-Personalized Care
-
-↓
-
-Health Outcomes
-```
+Human professionals retain final authority over all recommendations.
 
 ---
 
 # Business Ecosystem
 
+The Nutritionist Portal collaborates with:
+
+- User Portal.
+- Coach Portal.
+- Enterprise Portal.
+- Admin Portal.
+- AI Platform.
+- Analytics Platform.
+- Human Digital Twin Platform.
+
+---
+
+# Revenue Enablement
+
+The platform supports multiple business models:
+
+- Individual subscriptions.
+- Organization licenses.
+- Enterprise deployments.
+- Premium AI capabilities.
+- Marketplace integrations.
+- API licensing.
+- White-label solutions.
+
+---
+
+# Business Success Factors
+
+Critical success factors include:
+
+- Professional adoption.
+- Client retention.
+- Meal plan adherence.
+- AI recommendation acceptance.
+- Operational efficiency.
+- Revenue growth.
+- Customer satisfaction.
+
+---
+
+# Key Business Metrics
+
+Examples:
+
+| KPI | Target |
+|------|---------|
+| Active Nutritionists | Growth by market |
+| Active Clients | Continuous increase |
+| Meal Plans Published | Monthly growth |
+| Client Adherence | >80% |
+| AI Recommendation Acceptance | >75% |
+| Client Satisfaction | >90% |
+| Nutrition Plan Completion | >85% |
+
+---
+
+# Risks
+
+Potential business risks include:
+
+- Low user adoption.
+- Regulatory changes.
+- Data privacy concerns.
+- AI trust challenges.
+- Competitive pressure.
+- Integration complexity.
+
+Mitigation strategies are defined through governance and continuous improvement.
+
+---
+
+# Strategic Alignment
+
+The Nutritionist Portal aligns with EVOXA strategic pillars:
+
+- Intelligent Healthcare.
+- Human-Centered AI.
+- Data-Driven Decisions.
+- Preventive Health.
+- Operational Excellence.
+- Enterprise Scalability.
+
+---
+
+# Standard Visual Artifacts
+
+## Business Value Chain
+
 ```text
-Clients
+Assessment
 
 ↓
 
-Coach Portal
+Analysis
+
+↓
+
+Meal Planning
+
+↓
+
+Monitoring
+
+↓
+
+Improvement
+```
+
+---
+
+## Stakeholder Ecosystem
+
+```text
+Nutritionist
+
+↓
+
+Nutritionist Portal
+
+↓
+
+Client
+
+↓
+
+Coach
 
 ↓
 
 AI Platform
+```
+
+---
+
+## Value Creation Model
+
+```text
+Data
 
 ↓
 
-Analytics
+AI
 
 ↓
 
-Marketplace
+Recommendations
 
 ↓
 
-Enterprise Services
+Better Outcomes
+```
+
+---
+
+# Visual Source Files
+
+```text
+artifacts/
+└── business-overview/
+    ├── business-model.drawio
+    ├── stakeholder-map.drawio
+    ├── value-chain.drawio
+    ├── ecosystem.drawio
+    ├── kpi-dashboard.drawio
+    ├── mermaid/
+    │   ├── value-chain.mmd
+    │   ├── stakeholders.mmd
+    │   ├── ecosystem.mmd
+    │   ├── strategy.mmd
+    │   └── business-model.mmd
+    └── exports/
+        ├── business-overview.svg
+        ├── business-overview.png
+        └── business-overview.pdf
 ```
 
 ---
@@ -361,6 +384,7 @@ Enterprise Services
 | Personas | Chapter 04 |
 | User Journeys | Chapter 05 |
 | AI Services | Chapter 21 |
+| Data Model | Chapter 22 |
 | Product Evolution | Chapter 30 |
 
 ---
@@ -369,24 +393,24 @@ Enterprise Services
 
 This chapter is complete when:
 
-- Business context is documented.
-- Business problems are identified.
-- Value proposition is defined.
-- Business objectives are established.
-- Target markets are described.
+- Business vision is documented.
+- Mission and strategic objectives are defined.
 - Stakeholders are identified.
+- Business capabilities are described.
+- Value proposition is established.
 - Revenue opportunities are documented.
-- Success metrics are defined.
-- Strategic alignment is complete.
+- Business KPIs are defined.
+- Visual artifacts are specified.
+- Traceability is complete.
 
 ---
 
 # Key Takeaways
 
-- The Coach Portal is the professional operating system within the EVOXA ecosystem, designed to unify client management, care delivery and business operations.
-- Artificial Intelligence enhances professional decision-making while preserving human oversight and accountability.
-- The platform addresses operational inefficiencies by integrating coaching, nutrition, analytics and automation into a single AI-native environment.
-- Its modular architecture supports independent professionals, multidisciplinary teams and enterprise organizations, enabling sustainable growth and improved health outcomes.
+- The Nutritionist Portal is a strategic component of the EVOXA ecosystem, enabling intelligent, personalized and collaborative nutritional care.
+- Artificial Intelligence and the Human Digital Twin enhance professional decision making while preserving clinical oversight.
+- The platform addresses modern nutrition challenges through automation, predictive analytics and seamless collaboration.
+- A clear business strategy, measurable KPIs and enterprise-ready architecture position the Nutritionist Portal for long-term growth and continuous innovation.
 
 ---
 
@@ -394,4 +418,4 @@ This chapter is complete when:
 
 **Chapter 03 — Product Scope**
 
-This chapter defines the functional boundaries of the Coach Portal, including supported capabilities, excluded functionality, feature packs, module ownership, integration boundaries and long-term product scope.
+This chapter defines the functional boundaries, product capabilities, included features, exclusions and long-term scope of the Nutritionist Portal.
