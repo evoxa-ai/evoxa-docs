@@ -1,11 +1,11 @@
 ---
-document_id: BP-0003-V3-C07-04-25
-chapter_id: CH-04-COACH-25
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-25
+chapter_id: CH-05-NUTRITION-25
+feature_pack: FP-NUTRITION-0000
 title: Accessibility & Internationalization
 version: 1.0.0
 status: Draft
-owner: UX Architecture Board
+owner: UX & Accessibility Board
 authors:
   - EVOXA Architecture Team
 classification: Internal
@@ -14,336 +14,356 @@ last_updated: 2026-08-04
 
 # Chapter 25 — Accessibility & Internationalization
 
-> *The Accessibility & Internationalization chapter defines how the Coach Portal provides an inclusive, multilingual and culturally adaptable experience while complying with international accessibility standards and supporting global deployments.*
+> *The Accessibility & Internationalization chapter defines the standards, principles and implementation guidelines that ensure the Nutritionist Portal is inclusive, multilingual and usable by people with diverse abilities across different regions and cultures.*
 
 ---
 
 # Executive Summary
 
-Accessibility and Internationalization are foundational capabilities of the Coach Portal.
+The Nutritionist Portal is designed according to an Accessibility by Design philosophy.
 
-The platform is designed to ensure that professionals can efficiently perform their work regardless of language, culture, physical abilities or preferred interaction methods.
+Accessibility and internationalization are integrated from the earliest stages of design and development, ensuring that every user can interact effectively regardless of language, device, ability or location.
 
-Accessibility is integrated into the Design System, Components, Workflows and AI Services from the beginning.
+The portal follows internationally recognized accessibility standards while supporting localization, regional customization and multilingual content across the EVOXA ecosystem.
 
 ---
 
 # Objectives
 
-The Accessibility Strategy shall:
+The platform shall:
 
-- Ensure inclusive experiences.
-- Support global deployments.
+- Support inclusive experiences.
+- Meet recognized accessibility standards.
 - Enable multilingual interfaces.
+- Adapt to regional requirements.
 - Improve usability.
 - Support assistive technologies.
-- Comply with accessibility standards.
-- Scale across regions.
+- Scale globally.
 
 ---
 
 # Accessibility Philosophy
 
-Accessibility is not a feature.
+Accessibility is considered a core product capability.
 
-It is a platform capability.
-
-Every screen, component, workflow and AI interaction must be accessible by design.
-
----
-
-# Accessibility Principles
-
-The Coach Portal follows:
+Every interface shall be:
 
 - Perceivable
 - Operable
 - Understandable
 - Robust
 
-Aligned with WCAG principles.
+Accessibility is never treated as an optional enhancement.
 
 ---
 
 # Accessibility Standards
 
-The platform complies with:
+The Nutritionist Portal follows:
 
 - WCAG 2.2 AA
 - WAI-ARIA
-- EN 301 549
-- Section 508 (where applicable)
+- HTML Accessibility Best Practices
+- EN 301 549 (where applicable)
 
-Compliance is validated throughout development.
+Future updates shall track revisions to these standards.
 
 ---
 
 # Inclusive Design Principles
 
-The interface shall support:
+Interfaces should support users with:
 
-- Keyboard-only users.
-- Screen reader users.
-- Low vision.
-- Color vision deficiency.
-- Reduced mobility.
-- Cognitive accessibility.
-- Temporary impairments.
+- Visual impairments
+- Hearing impairments
+- Motor impairments
+- Cognitive differences
+- Temporary disabilities
+- Situational limitations
 
 ---
 
-# Keyboard Navigation
+# Keyboard Accessibility
 
-Every feature supports:
+Every function must be accessible using only the keyboard.
 
-- Logical tab order.
-- Focus visibility.
-- Keyboard shortcuts.
-- Skip navigation links.
-- Modal focus trapping.
-- Escape handling.
+Supported interactions include:
 
-No functionality requires a mouse.
+- Tab navigation
+- Reverse tab navigation
+- Arrow key navigation
+- Keyboard shortcuts
+- Escape handling
+- Logical focus order
+
+No keyboard traps are permitted.
 
 ---
 
 # Screen Reader Support
 
-All components expose:
+All interactive elements provide:
 
-- ARIA roles.
-- Labels.
-- Descriptions.
-- Live regions.
-- Landmark regions.
-- Status announcements.
+- Accessible names
+- Roles
+- States
+- Descriptions
+- Live region announcements where required
 
-Dynamic updates are announced appropriately.
-
----
-
-# Color and Contrast
-
-Requirements include:
-
-- WCAG AA contrast ratios.
-- Color-independent status indicators.
-- High contrast mode.
-- Consistent semantic colors.
-
-Information is never conveyed solely by color.
+Semantic HTML is preferred over custom implementations.
 
 ---
 
-# Typography
+# Visual Accessibility
 
-Typography ensures:
+Interfaces support:
 
-- Readability.
-- Adjustable scaling.
-- Responsive line spacing.
-- Clear hierarchy.
-- Adequate spacing.
+- High contrast mode
+- Large text scaling
+- Reduced motion
+- Focus indicators
+- Color-independent communication
 
-Zoom up to 200% is fully supported.
+Minimum contrast ratios:
+
+| Element | Ratio |
+|----------|-------|
+| Normal Text | 4.5:1 |
+| Large Text | 3:1 |
+| UI Components | 3:1 |
 
 ---
 
-# Motion & Animation
+# Color Usage
 
-Animations respect user preferences.
+Color is never the sole indicator of meaning.
 
-Supported options:
+Additional cues include:
 
-- Reduced motion.
-- Animation disablement.
-- Minimal transitions.
+- Icons
+- Labels
+- Patterns
+- Status text
 
-Motion never interferes with task completion.
+---
+
+# Typography Accessibility
+
+Typography supports:
+
+- Responsive scaling
+- Adequate line height
+- Readable font sizes
+- Clear hierarchy
+- User-controlled zoom up to 200%
+
+---
+
+# Motion Accessibility
+
+Animations:
+
+- Are optional where appropriate.
+- Respect reduced-motion preferences.
+- Never block interactions.
+- Support user comprehension.
 
 ---
 
 # Forms Accessibility
 
-Forms include:
+Every form includes:
 
-- Explicit labels.
-- Inline validation.
-- Error summaries.
-- Required field indicators.
-- Accessible help text.
+- Labels
+- Helper text
+- Error identification
+- Error suggestions
+- Required field indicators
+- Accessible validation messages
 
-Validation messages are descriptive and actionable.
+---
+
+# Tables Accessibility
+
+Accessible tables provide:
+
+- Column headers
+- Row headers where appropriate
+- Captions
+- Keyboard navigation
+- Responsive alternatives on small screens
+
+---
+
+# Charts Accessibility
+
+Data visualizations provide:
+
+- Text summaries
+- Alternative descriptions
+- Pattern differentiation
+- Keyboard interaction
+- Accessible legends
 
 ---
 
 # AI Accessibility
 
-AI services provide:
+AI-generated content shall:
 
-- Accessible conversational interfaces.
-- Screen reader compatibility.
-- Explainable recommendations.
-- Voice interaction support.
-- Keyboard interaction.
+- Clearly indicate AI origin.
+- Support screen readers.
+- Provide explainable recommendations.
+- Avoid inaccessible formatting.
 
-AI outputs remain understandable and accessible.
+Voice interactions may be supported in future versions.
 
 ---
 
-# Internationalization Strategy
+# Human Digital Twin Accessibility
+
+The Human Digital Twin interface supports:
+
+- Accessible timelines
+- Screen reader summaries
+- Alternative chart descriptions
+- Keyboard navigation
+
+Predictive information remains understandable without visual charts.
+
+---
+
+# Internationalization (i18n)
 
 The platform separates:
 
-- Language.
-- Formatting.
-- Content.
-- Regional configuration.
+- Content
+- Layout
+- Locale
+- Formatting
+- Resources
 
-No text is hardcoded.
+No user-facing text is hardcoded.
+
+---
+
+# Localization (l10n)
+
+Supported localization includes:
+
+- Language
+- Date formats
+- Time formats
+- Number formatting
+- Units of measure
+- Currency
+- Time zones
 
 ---
 
 # Supported Languages
 
-Initial languages include:
+Initial languages:
 
 - English
 - Spanish
 - Portuguese
 
-Future language packs are supported without code changes.
+Future languages can be added without application changes.
 
 ---
 
-# Localization
+# Regional Configuration
 
-Localization includes:
+Regional adaptations include:
 
-- Dates
-- Time
-- Numbers
-- Currency
-- Units
-- Time zones
-- Measurement systems
+- Metric / Imperial units
+- Nutritional guidelines
+- Food databases
+- Dietary recommendations
+- Regulatory content
 
-Formatting adapts to the user's locale.
+---
+
+# Translation Management
+
+Translations are versioned.
+
+Each resource defines:
+
+- Translation Key
+- Language
+- Status
+- Version
+- Owner
+
+Missing translations are automatically detected.
 
 ---
 
 # Cultural Adaptation
 
-The platform supports:
+Interfaces adapt to:
 
-- Local terminology.
-- Regional preferences.
-- Country-specific regulations.
-- Organization branding.
-- Cultural conventions.
-
----
-
-# Right-to-Left Support
-
-The architecture supports:
-
-- RTL layouts.
-- Mirrored navigation.
-- RTL typography.
-- Bidirectional content.
-
-Future RTL languages require no layout redesign.
+- Local terminology
+- Food naming conventions
+- Dietary practices
+- Reading direction
+- Regional holidays where relevant
 
 ---
 
-# Translation Architecture
+# Date & Time Handling
 
-```text
-UI
+All timestamps are stored in UTC.
 
-↓
+Presentation uses:
 
-Translation Keys
-
-↓
-
-Language Packs
-
-↓
-
-Localized Interface
-```
-
-Translations are managed independently of the application code.
-
----
-
-# Locale Management
-
-Locale configuration includes:
-
-- Language
-- Country
-- Currency
-- Time Zone
-- Calendar
-- Measurement System
-
-User preferences override defaults where permitted.
+- User locale
+- Organization preferences
+- Time zone configuration
 
 ---
 
 # Accessibility Testing
 
-Validation includes:
+Testing includes:
 
-- Automated testing.
-- Manual review.
-- Keyboard testing.
-- Screen reader testing.
-- Contrast validation.
-- Responsive accessibility testing.
-
-Accessibility defects are treated as functional defects.
-
----
-
-# Internationalization Testing
-
-Testing covers:
-
-- Translation completeness.
-- Locale formatting.
-- RTL compatibility.
-- Overflow handling.
-- Dynamic language switching.
+- Automated scanning
+- Manual keyboard testing
+- Screen reader testing
+- Contrast validation
+- User testing
+- Regression testing
 
 ---
 
 # Accessibility Metrics
 
-Measured indicators include:
+Measured indicators:
 
-- Accessibility defects.
-- Keyboard coverage.
-- Screen reader compatibility.
-- Contrast compliance.
-- WCAG compliance rate.
+| Metric | Target |
+|----------|---------|
+| WCAG Compliance | 100% AA |
+| Keyboard Coverage | 100% |
+| Contrast Compliance | 100% |
+| Screen Reader Compatibility | 100% |
+| Lighthouse Accessibility | >95 |
 
 ---
 
 # Governance
 
-Every new feature shall:
+Accessibility reviews are required for:
 
-- Meet WCAG 2.2 AA.
-- Support localization.
-- Use translation keys.
-- Pass accessibility validation.
-- Respect Design System guidelines.
+- New screens
+- Components
+- Widgets
+- AI interfaces
+- Reports
+- Dashboards
 
-Accessibility reviews are mandatory before release.
+No feature is considered complete without accessibility validation.
 
 ---
 
@@ -355,13 +375,14 @@ accessibility/
 ├── aria/
 ├── keyboard/
 ├── screen-readers/
+├── visual/
 ├── forms/
+├── charts/
 ├── ai/
-├── testing/
-├── governance/
-├── locales/
+├── internationalization/
+├── localization/
 ├── translations/
-├── rtl/
+├── governance/
 └── metadata.yml
 ```
 
@@ -369,7 +390,7 @@ accessibility/
 
 # Standard Visual Artifacts
 
-## Accessibility Model
+## Accessibility Principles
 
 ```text
 Perceivable
@@ -389,26 +410,14 @@ Robust
 
 ---
 
-## Translation Flow
+## Localization Flow
 
 ```text
-Translation Key
+Resource
 
 ↓
 
-Language Pack
-
-↓
-
-Localized UI
-```
-
----
-
-## Locale Resolution
-
-```text
-User
+Translation
 
 ↓
 
@@ -416,31 +425,43 @@ Locale
 
 ↓
 
-Formatting
-
-↓
-
-Interface
+Rendered UI
 ```
 
 ---
 
-## Accessibility Validation
+## Keyboard Navigation
 
 ```text
-Design
+Focus
 
 ↓
 
-Development
+Interaction
 
 ↓
 
-Testing
+Confirmation
+```
+
+---
+
+## Translation Pipeline
+
+```text
+Source
 
 ↓
 
-Compliance
+Translation
+
+↓
+
+Validation
+
+↓
+
+Publication
 ```
 
 ---
@@ -450,22 +471,22 @@ Compliance
 ```text
 artifacts/
 └── accessibility-i18n/
-    ├── accessibility-model.drawio
-    ├── translation-flow.drawio
-    ├── locale-management.drawio
-    ├── rtl-layout.drawio
-    ├── accessibility-testing.drawio
-    ├── governance.drawio
+    ├── accessibility-principles.drawio
+    ├── keyboard-navigation.drawio
+    ├── localization.drawio
+    ├── translation-pipeline.drawio
+    ├── ai-accessibility.drawio
+    ├── cultural-adaptation.drawio
     ├── mermaid/
     │   ├── accessibility.mmd
+    │   ├── keyboard.mmd
+    │   ├── localization.mmd
     │   ├── translations.mmd
-    │   ├── locale.mmd
-    │   ├── rtl.mmd
     │   └── governance.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
+        ├── accessibility-i18n.svg
+        ├── accessibility-i18n.png
+        └── accessibility-i18n.pdf
 ```
 
 ---
@@ -474,14 +495,13 @@ artifacts/
 
 | Artifact | Reference |
 |----------|-----------|
-| UX Goals | Chapter 07 |
-| Layout Architecture | Chapter 09 |
 | Design Principles | Chapter 11 |
 | Component Catalog | Chapter 12 |
-| Widget Catalog | Chapter 13 |
 | Design Tokens | Chapter 14 |
 | Responsive Design | Chapter 15 |
-| Testing & Quality | Chapter 27 |
+| AI Services | Chapter 21 |
+| Security & Permissions | Chapter 23 |
+| Testing & Quality Assurance | Chapter 27 |
 
 ---
 
@@ -490,23 +510,22 @@ artifacts/
 This chapter is complete when:
 
 - Accessibility principles are documented.
-- WCAG compliance targets are defined.
+- WCAG 2.2 AA compliance is defined.
 - Keyboard and screen reader support are specified.
-- Internationalization strategy is documented.
-- Localization architecture is defined.
-- Translation governance is established.
-- Accessibility testing requirements are documented.
-- Visual artifacts are available.
-- Traceability is complete.
+- Internationalization and localization strategies are documented.
+- Translation management is established.
+- AI accessibility requirements are included.
+- Accessibility metrics and governance are defined.
+- Visual artifacts and traceability are complete.
 
 ---
 
 # Key Takeaways
 
-- The Coach Portal is designed with accessibility as a core platform capability, ensuring inclusive experiences for professionals with diverse abilities and interaction preferences.
-- Internationalization separates language, formatting and regional configuration, enabling global deployments without application redesign.
-- Accessibility and localization are integrated into the Design System, AI services, workflows and quality assurance processes from the outset.
-- Strong governance and standardized testing ensure that accessibility and internationalization remain consistent as the EVOXA platform evolves.
+- The Nutritionist Portal is designed with accessibility and internationalization as foundational capabilities rather than post-development enhancements.
+- Compliance with WCAG 2.2 AA, keyboard accessibility, screen reader compatibility and inclusive design principles ensures equitable access for diverse users.
+- A comprehensive internationalization strategy separates content, locale and presentation, enabling multilingual deployment and regional adaptation without modifying application code.
+- Shared accessibility and localization standards promote consistency across all EVOXA portals while supporting future global expansion.
 
 ---
 
@@ -514,4 +533,4 @@ This chapter is complete when:
 
 **Chapter 26 — Performance & Scalability**
 
-This chapter defines the performance architecture of the Coach Portal, including scalability strategies, caching, distributed processing, AI workload optimization, capacity planning, resilience and performance governance.
+This chapter defines the performance objectives, scalability architecture, capacity planning, optimization strategies and resilience mechanisms that ensure the Nutritionist Portal can efficiently support growth across users, organizations and AI workloads.
