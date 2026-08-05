@@ -1,0 +1,80 @@
+document:
+  id: BP-0003-V3-C07-06
+  title: Enterprise Portal Blueprint
+  subtitle: Enterprise Administration Platform
+  version: 1.0.0
+  status: Draft
+
+classification:
+  visibility: Internal
+  confidentiality: Restricted
+
+ownership:
+  owner: Platform Architecture Board
+  authors:
+    - EVOXA Architecture Team
+
+portal:
+  id: enterprise-portal
+  name: Enterprise Portal
+  section: 07-web-platform
+  volume: volume-03-ai
+
+purpose:
+  description: >
+    Defines the complete functional, business,
+    UX, AI and technical architecture of the
+    EVOXA Enterprise Portal.
+
+lifecycle:
+  created: 2026-08-05
+  last_updated: 2026-08-05
+  review_cycle: Quarterly
+
+chapters:
+  total: 30
+
+artifacts:
+  diagrams: true
+  figma: true
+  exports: true
+  catalog: true
+
+dependencies:
+  - Identity Platform
+  - API Platform
+  - AI Platform
+  - Event Platform
+  - Notification Platform
+  - Analytics Platform
+  - Human Digital Twin Platform
+
+standards:
+  architecture:
+    - Domain Driven Design
+    - Event Driven Architecture
+    - API First
+    - Cloud Native
+
+  ux:
+    - Design System
+    - WCAG 2.2 AA
+    - Responsive Design
+
+  ai:
+    - Explainable AI
+    - Responsible AI
+    - Human-in-the-Loop
+
+  security:
+    - Zero Trust
+    - RBAC
+    - ABAC
+    - OAuth2
+    - OpenID Connect
+
+repository:
+  path: books/blueprint/volume-03-ai/chapters/07-web-platform/chapters/06-enterprise-portal
+
+next:
+  first_chapter: 01-overview.md
