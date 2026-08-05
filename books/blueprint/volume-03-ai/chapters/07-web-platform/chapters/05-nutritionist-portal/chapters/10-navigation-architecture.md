@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-10
-chapter_id: CH-04-COACH-10
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-10
+chapter_id: CH-05-NUTRITION-10
+feature_pack: FP-NUTRITION-0000
 title: Navigation Architecture
 version: 1.0.0
 status: Draft
@@ -14,17 +14,17 @@ last_updated: 2026-08-04
 
 # Chapter 10 — Navigation Architecture
 
-> *The Navigation Architecture defines how professionals move through the Coach Portal, ensuring fast, predictable and context-aware access to every capability, workflow and AI-powered experience.*
+> *The Navigation Architecture chapter defines how users move throughout the Nutritionist Portal, ensuring intuitive, contextual and efficient navigation across professional workflows while maintaining consistency with the EVOXA ecosystem.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal supports complex professional workflows involving multiple clients, programs, appointments and business activities.
+The Navigation Architecture provides a structured navigation model that supports complex nutritional workflows while minimizing cognitive load.
 
-The navigation architecture is designed to minimize context switching while allowing professionals to access information and actions with minimal effort.
+Navigation is organized around professional tasks rather than technical modules, allowing nutritionists to move naturally between assessments, meal planning, client monitoring and AI-assisted recommendations.
 
-Navigation adapts to the user's role, current workflow, permissions and AI recommendations.
+The architecture combines persistent global navigation, contextual navigation and workflow-driven transitions.
 
 ---
 
@@ -32,37 +32,44 @@ Navigation adapts to the user's role, current workflow, permissions and AI recom
 
 The Navigation Architecture shall:
 
-- Reduce navigation effort.
-- Support complex workflows.
+- Reduce navigation complexity.
+- Minimize clicks.
 - Preserve user context.
-- Improve discoverability.
-- Enable AI-assisted navigation.
+- Support professional workflows.
+- Enable contextual navigation.
+- Integrate AI naturally.
 - Scale across future modules.
-- Maintain consistency.
 
 ---
 
 # Navigation Philosophy
 
-Navigation is task-oriented rather than menu-oriented.
+Navigation follows four principles:
 
-Every navigation action should answer one of the following questions:
+- Context
+- Continuity
+- Predictability
+- Efficiency
 
-- Where am I?
-- What can I do?
-- What should I do next?
-- How do I return?
+Users should always know:
+
+- Where they are.
+- What they are doing.
+- What they can do next.
+- How to return.
 
 ---
 
 # Navigation Layers
+
+The portal implements five navigation layers.
 
 ```text
 Global Navigation
 
 ↓
 
-Workspace Navigation
+Domain Navigation
 
 ↓
 
@@ -70,120 +77,139 @@ Context Navigation
 
 ↓
 
+Task Navigation
+
+↓
+
 Action Navigation
 ```
 
-Each layer has a specific responsibility.
+Each layer addresses a specific navigation need.
 
 ---
 
 # Global Navigation
 
-Global navigation provides access to major capability domains.
+Global Navigation is always available.
 
-```text
-Dashboard
+Primary sections:
 
-Clients
-
-Programs
-
-Calendar
-
-Messaging
-
-Analytics
-
-Billing
-
-Marketplace
-
-Administration
-```
-
-Characteristics:
-
-- Always visible.
-- Role-aware.
-- Permission-aware.
-- Search-integrated.
-- Responsive.
+- Dashboard
+- Clients
+- Assessments
+- Meal Plans
+- Recipes
+- Food Database
+- Supplements
+- Shopping Lists
+- Reports
+- Calendar
+- Messages
+- AI Workspace
+- Settings
 
 ---
 
-# Workspace Navigation
+# Domain Navigation
 
-Each workspace defines its own navigation.
+Each domain exposes its own navigation.
 
 Example:
 
-```text
-Clients
+Client
 
 ↓
 
-Profile
+Overview
 
 Assessments
 
-Training
+Meal Plans
 
-Nutrition
+Progress
 
-Timeline
+Reports
 
 Messages
 
-Reports
-```
-
-Workspace navigation remains consistent across all clients.
+Digital Twin
 
 ---
 
 # Context Navigation
 
-The Coach Portal preserves business context.
-
-Examples:
+Context changes according to:
 
 - Current client.
-- Selected program.
-- Active appointment.
-- Selected report.
-- Current organization.
+- Current assessment.
+- Meal plan.
+- Active consultation.
+- AI conversation.
 
-Changing screens does not reset the active context unless explicitly requested.
+The current context is always visible.
+
+---
+
+# Task Navigation
+
+Task navigation guides users through workflows.
+
+Example:
+
+```text
+Assessment
+
+↓
+
+Diagnosis
+
+↓
+
+Meal Plan
+
+↓
+
+Review
+
+↓
+
+Publish
+```
+
+Progress indicators show the current step.
 
 ---
 
 # Action Navigation
 
-Users access contextual actions directly from the current screen.
+Every screen exposes primary actions.
 
 Examples:
 
-- Create Program
-- Schedule Appointment
-- Send Message
-- Generate Report
-- Request AI Recommendation
+- Save
+- Publish
+- Generate
+- Export
+- Share
+- Approve
+- AI Suggest
 
-Actions are available where they are needed.
+Primary actions remain visually prominent.
 
 ---
 
-# Navigation Regions
+# Navigation Components
 
-The interface includes:
+The portal uses:
 
-- Global Header.
-- Navigation Sidebar.
-- Workspace Menu.
-- Breadcrumbs.
-- Context Panel.
-- Quick Actions.
-- Footer Status.
+- Sidebar
+- Top Navigation
+- Breadcrumbs
+- Tabs
+- Stepper
+- Context Panel
+- Quick Actions
+- Floating Action Button (mobile)
 
 ---
 
@@ -191,12 +217,13 @@ The interface includes:
 
 The sidebar supports:
 
-- Collapse.
-- Expand.
-- Pin.
-- Favorites.
-- Recently Used.
-- Workspace grouping.
+- Expand/Collapse
+- Favorites
+- Recently Used
+- Search
+- Organization switching
+
+Navigation state persists across sessions.
 
 ---
 
@@ -217,224 +244,291 @@ John Smith
 
 >
 
-Training
+Assessment
 
 >
 
-Week 03
+Follow-up
 ```
 
-Breadcrumbs always represent the current navigation path.
+Breadcrumbs support rapid navigation without losing context.
 
 ---
 
-# Search-Driven Navigation
+# Tabs
 
-Global search supports:
+Tabs organize related information.
 
-- Clients.
-- Programs.
-- Exercises.
-- Nutrition plans.
-- Reports.
-- Messages.
-- AI conversations.
+Example:
 
-Search results include direct navigation actions.
+Client Profile
+
+- Overview
+- History
+- Assessments
+- Meal Plans
+- Progress
+- Messages
+- Files
+- Digital Twin
+
+Tabs preserve state during navigation.
+
+---
+
+# Search Navigation
+
+Global search provides direct access to:
+
+- Clients
+- Foods
+- Recipes
+- Meal Plans
+- Reports
+- Messages
+- AI Conversations
+
+Search supports:
+
+- Full-text search
+- Semantic search
+- Filters
+- Saved searches
+- Recent searches
 
 ---
 
 # Quick Navigation
 
-Professionals may access:
+Frequently used shortcuts include:
 
-- Recent clients.
-- Favorite clients.
-- Active sessions.
-- Recent reports.
-- AI suggestions.
+- New Client
+- New Assessment
+- New Meal Plan
+- AI Assistant
+- Today's Schedule
+- Reports
 
-This minimizes repetitive navigation.
+Shortcuts are configurable.
 
 ---
 
-# Keyboard Navigation
+# Workflow Navigation
 
-Supported shortcuts include:
+Typical workflow:
 
-| Shortcut | Action |
-|-----------|--------|
-| Ctrl + K | Global Search |
-| Ctrl + D | Dashboard |
-| Ctrl + C | Clients |
-| Ctrl + Shift + A | AI Assistant |
-| Ctrl + / | Keyboard Shortcuts |
-| Esc | Close dialog |
+```text
+Client
 
-Additional shortcuts may be configured by users.
+↓
+
+Assessment
+
+↓
+
+Meal Plan
+
+↓
+
+Shopping List
+
+↓
+
+Monitoring
+
+↓
+
+Reports
+```
+
+Users complete workflows without unnecessary navigation.
+
+---
+
+# AI Navigation
+
+The AI Workspace integrates into every workflow.
+
+Examples:
+
+Assessment
+
+↓
+
+AI Analysis
+
+↓
+
+Recommendations
+
+↓
+
+Approval
+
+↓
+
+Continue Workflow
+
+AI assistance never forces users to leave the current screen.
+
+---
+
+# Human Digital Twin Navigation
+
+Every client workspace includes quick access to:
+
+- Digital Twin Summary
+- Nutrition History
+- Body Composition
+- Predictions
+- Behavioral Trends
+
+The Digital Twin remains available across all client-related workflows.
+
+---
+
+# Cross-Portal Navigation
+
+Authorized users may navigate to:
+
+- User Portal
+- Coach Portal
+- Enterprise Portal
+- Admin Portal
+
+Context is preserved when supported.
 
 ---
 
 # Deep Linking
 
-Every major entity has a unique URL.
+Every screen supports unique URLs.
 
 Examples:
 
 ```text
-/clients/1024
+/client/{id}
 
-/clients/1024/training
+/assessment/{id}
 
-/programs/540
+/meal-plan/{id}
 
-/calendar/appointments/884
+/report/{id}
 ```
 
-Deep links support:
-
-- Browser history.
-- Sharing.
-- Notifications.
-- AI-generated links.
+Links can be shared securely according to permissions.
 
 ---
 
-# AI-Assisted Navigation
+# Navigation State
 
-EVO recommends navigation based on context.
+The portal preserves:
 
-Examples:
+- Current client
+- Filters
+- Sorting
+- Scroll position
+- Selected tabs
+- Search queries
 
-- Client requires attention.
-- Appointment begins soon.
-- Nutrition review pending.
-- High-risk alert generated.
-- Program needs adjustment.
-
-Recommendations include direct navigation.
-
----
-
-# Notification Navigation
-
-Notifications link directly to:
-
-- Client.
-- Program.
-- Appointment.
-- Report.
-- AI recommendation.
-- Task.
-
-Navigation preserves workflow state.
+This reduces unnecessary repetition.
 
 ---
 
-# Multi-Task Navigation
+# Notifications Navigation
 
-Professionals may work across multiple contexts.
+Notifications provide contextual links to:
 
-Supported features:
+- Assessments
+- Reports
+- Messages
+- Meal Plans
+- AI Recommendations
 
-- Multiple browser tabs.
-- Pinned workspaces.
-- Draft preservation.
-- Navigation history.
-- Workspace restoration.
-
----
-
-# Navigation States
-
-Every navigation flow supports:
-
-- Loading.
-- Empty.
-- Active.
-- Error.
-- Offline.
-- Unauthorized.
-
-Transitions remain consistent across the platform.
+Each notification opens the relevant workspace.
 
 ---
 
-# Navigation Personalization
+# Mobile Navigation
 
-Professionals can customize:
+Mobile uses:
 
-- Favorite modules.
-- Sidebar order.
-- Default landing page.
-- Quick actions.
-- Keyboard shortcuts.
-- Recently used items.
+- Bottom Navigation
+- Slide-out Sidebar
+- Floating Action Button
+- Gesture support
 
-Preferences synchronize across devices.
+Navigation remains consistent with desktop workflows.
 
 ---
 
-# Responsive Navigation
+# Accessibility
 
-## Desktop
+Navigation supports:
 
-Persistent sidebar.
-
----
-
-## Tablet
-
-Collapsible sidebar.
+- Keyboard shortcuts
+- Logical tab order
+- Screen readers
+- Skip navigation links
+- Focus indicators
 
 ---
 
-## Mobile
+# Navigation Metrics
 
-Bottom navigation with contextual menus.
+Measured indicators:
 
----
-
-# Navigation Analytics
-
-The platform measures:
-
-- Navigation paths.
-- Search usage.
-- Frequently accessed screens.
-- Drop-off points.
-- Shortcut usage.
-- AI navigation acceptance.
-
-Insights support continuous UX improvements.
+| Metric | Target |
+|----------|---------|
+| Average Clicks per Workflow | <6 |
+| Navigation Success Rate | >95% |
+| Client Search Time | <5 sec |
+| Screen Transition | <300 ms |
+| Breadcrumb Usage | Tracked |
+| AI Shortcut Usage | Tracked |
 
 ---
 
 # Navigation Governance
 
-Every new module shall:
+Every navigation element shall:
 
-- Integrate into the navigation hierarchy.
+- Follow Design System standards.
 - Preserve context.
-- Support breadcrumbs.
-- Support deep links.
+- Support responsive behavior.
 - Respect permissions.
-- Follow naming standards.
+- Maintain accessibility compliance.
 
-Navigation consistency is mandatory.
+---
+
+# Repository Structure
+
+```text
+navigation/
+├── global/
+├── domains/
+├── workflows/
+├── breadcrumbs/
+├── search/
+├── shortcuts/
+├── mobile/
+├── accessibility/
+├── governance/
+└── metadata.yml
+```
 
 ---
 
 # Standard Visual Artifacts
 
-## Navigation Hierarchy
+## Navigation Layers
 
 ```text
 Global
 
 ↓
 
-Workspace
+Domain
 
 ↓
 
@@ -442,47 +536,7 @@ Context
 
 ↓
 
-Action
-```
-
----
-
-## Navigation Flow
-
-```text
-Dashboard
-
-↓
-
-Clients
-
-↓
-
-Profile
-
-↓
-
-Training
-
-↓
-
-Session
-```
-
----
-
-## Search Navigation
-
-```text
-Search
-
-↓
-
-Results
-
-↓
-
-Entity
+Task
 
 ↓
 
@@ -491,22 +545,62 @@ Action
 
 ---
 
-## AI Navigation
+## Client Navigation
 
 ```text
-Alert
+Client
 
 ↓
 
-Recommendation
+Assessment
 
 ↓
 
-Navigation
+Meal Plan
 
 ↓
 
-Workflow
+Monitoring
+```
+
+---
+
+## Workflow Navigation
+
+```text
+Start
+
+↓
+
+Task
+
+↓
+
+Review
+
+↓
+
+Complete
+```
+
+---
+
+## Cross-Portal Navigation
+
+```text
+Nutritionist Portal
+
+↓
+
+Coach Portal
+
+↓
+
+User Portal
+
+↓
+
+Enterprise Portal
 ```
 
 ---
@@ -516,39 +610,22 @@ Workflow
 ```text
 artifacts/
 └── navigation-architecture/
-    ├── navigation-hierarchy.drawio
-    ├── workspace-navigation.drawio
+    ├── navigation-layers.drawio
+    ├── sidebar.drawio
     ├── breadcrumbs.drawio
-    ├── ai-navigation.drawio
-    ├── search-navigation.drawio
-    ├── responsive-navigation.drawio
+    ├── workflow-navigation.drawio
+    ├── cross-portal.drawio
+    ├── mobile-navigation.drawio
     ├── mermaid/
     │   ├── navigation.mmd
+    │   ├── workflows.mmd
     │   ├── breadcrumbs.mmd
-    │   ├── search.mmd
-    │   ├── ai-navigation.mmd
-    │   └── responsive.mmd
+    │   ├── mobile.mmd
+    │   └── cross-portal.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
-```
-
----
-
-# Repository Structure
-
-```text
-navigation/
-├── global/
-├── workspaces/
-├── breadcrumbs/
-├── search/
-├── deep-links/
-├── shortcuts/
-├── ai-navigation/
-├── responsive/
-└── metadata.yml
+        ├── navigation-architecture.svg
+        ├── navigation-architecture.png
+        └── navigation-architecture.pdf
 ```
 
 ---
@@ -561,8 +638,9 @@ navigation/
 | UX Goals | Chapter 07 |
 | Screen Catalog | Chapter 08 |
 | Layout Architecture | Chapter 09 |
+| Design Principles | Chapter 11 |
+| Responsive Design | Chapter 15 |
 | Workflow Architecture | Chapter 16 |
-| Accessibility & Internationalization | Chapter 25 |
 
 ---
 
@@ -570,12 +648,13 @@ navigation/
 
 This chapter is complete when:
 
-- Navigation hierarchy is defined.
-- Global and workspace navigation are documented.
-- Context preservation is specified.
-- Search and deep linking are supported.
-- AI-assisted navigation is defined.
-- Responsive behavior is documented.
+- Navigation layers are defined.
+- Global and contextual navigation models are documented.
+- Workflow navigation is specified.
+- AI and Human Digital Twin navigation are integrated.
+- Deep linking and state preservation are documented.
+- Mobile and accessibility navigation are defined.
+- Navigation metrics are established.
 - Visual artifacts are available.
 - Traceability is complete.
 
@@ -583,10 +662,10 @@ This chapter is complete when:
 
 # Key Takeaways
 
-- The Coach Portal provides a multi-layer navigation architecture optimized for professional workflows and long-duration use.
-- Navigation is context-aware, preserving the active client and workflow while reducing unnecessary context switching.
-- AI enhances discoverability by surfacing relevant actions, alerts and navigation shortcuts without disrupting the user experience.
-- Standardized navigation patterns ensure scalability, consistency and efficient task execution across the entire EVOXA platform.
+- The Navigation Architecture is centered on professional nutritional workflows rather than isolated application modules.
+- Multi-layer navigation preserves user context while enabling efficient movement between clients, assessments, meal plans, progress monitoring and AI-assisted tasks.
+- Shared navigation patterns, deep linking and state preservation improve usability, productivity and collaboration across the EVOXA ecosystem.
+- Consistent governance, accessibility and responsive navigation ensure a scalable experience across desktop, tablet and mobile devices.
 
 ---
 
@@ -594,4 +673,4 @@ This chapter is complete when:
 
 **Chapter 11 — Design Principles**
 
-This chapter defines the visual, interaction and experience principles that guide every screen, component and workflow of the Coach Portal, ensuring a cohesive and professional design system aligned with the EVOXA platform.
+This chapter defines the visual, interaction and experience principles that guide every interface of the Nutritionist Portal, ensuring consistency, usability, accessibility and alignment with the EVOXA Design System.
