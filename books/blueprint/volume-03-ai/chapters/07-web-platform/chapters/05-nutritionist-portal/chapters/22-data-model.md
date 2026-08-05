@@ -1,7 +1,7 @@
 ---
-document_id: BP-0003-V3-C07-04-22
-chapter_id: CH-04-COACH-22
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-22
+chapter_id: CH-05-NUTRITION-22
+feature_pack: FP-NUTRITION-0000
 title: Data Model
 version: 1.0.0
 status: Draft
@@ -14,17 +14,17 @@ last_updated: 2026-08-04
 
 # Chapter 22 — Data Model
 
-> *The Data Model defines the logical, conceptual and physical data architecture of the Coach Portal, including business entities, aggregates, domain ownership, Human Digital Twin structures, AI data requirements and persistence strategies across the EVOXA platform.*
+> *The Data Model chapter defines the conceptual, logical and physical information model of the Nutritionist Portal, including domain entities, aggregates, relationships, persistence strategies, Human Digital Twin structures and integration with the shared EVOXA Data Platform.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal manages highly interconnected operational, analytical and AI-driven information.
+The Nutritionist Portal manages highly structured clinical, nutritional and behavioral information.
 
-Rather than relying on a single relational model, EVOXA adopts a polyglot persistence architecture in which different storage technologies are selected according to workload characteristics.
+The platform adopts a Domain-Driven Design (DDD) approach where business entities are organized into aggregates with clearly defined ownership, lifecycle and consistency boundaries.
 
-The data model follows Domain-Driven Design (DDD), ensuring clear ownership, scalability and long-term maintainability.
+The data model supports transactional processing, analytics, AI services and Human Digital Twin evolution while remaining independent from the underlying persistence technology.
 
 ---
 
@@ -32,142 +32,75 @@ The data model follows Domain-Driven Design (DDD), ensuring clear ownership, sca
 
 The Data Model shall:
 
-- Standardize business entities.
-- Support Human Digital Twins.
-- Enable AI services.
-- Preserve data integrity.
-- Support analytics.
+- Represent business concepts accurately.
+- Support transactional integrity.
+- Enable AI reasoning.
+- Preserve historical data.
 - Scale horizontally.
-- Enable event sourcing.
+- Support analytics.
+- Integrate across EVOXA.
 
 ---
 
 # Data Philosophy
 
-Data is organized around business domains.
+Data is treated as a strategic asset.
 
-Every entity has:
+Every entity shall be:
 
-- Single ownership.
-- Version history.
-- Auditability.
-- Traceability.
-- Lifecycle.
-- Relationships.
-- Metadata.
+- Identifiable.
+- Versioned where appropriate.
+- Auditable.
+- Traceable.
+- Extensible.
+- Governed.
 
----
-
-# Data Architecture
-
-```text
-Applications
-
-↓
-
-Domain Services
-
-↓
-
-Aggregates
-
-↓
-
-Repositories
-
-↓
-
-Persistence Layer
-
-↓
-
-Storage Engines
-```
+Business meaning always takes precedence over storage implementation.
 
 ---
 
-# Storage Architecture
+# Domain Model
 
-```text
-Transactional Database
+The Nutritionist domain consists of:
 
-↓
-
-Event Store
-
-↓
-
-Analytics Warehouse
-
-↓
-
-Vector Database
-
-↓
-
-Knowledge Graph
-
-↓
-
-Object Storage
-
-↓
-
-Cache
-```
-
----
-
-# Storage Technologies
-
-| Storage | Purpose |
-|----------|----------|
-| PostgreSQL | Transactional data |
-| Event Store | Domain events |
-| Redis | Cache |
-| Object Storage | Files and media |
-| Vector Database | Semantic search |
-| Knowledge Graph | AI relationships |
-| Data Warehouse | Analytics |
-
-Technology selection may evolve without changing the domain model.
-
----
-
-# Domain Catalog
-
-| Domain | Owner |
-|----------|-------|
-| Identity | IAM |
-| Organizations | Core Platform |
-| Clients | Client Domain |
-| Assessments | Assessment Domain |
-| Training | Training Domain |
-| Nutrition | Nutrition Domain |
-| Calendar | Scheduling Domain |
-| Messaging | Communication Domain |
-| AI | AI Platform |
-| Billing | Finance Domain |
-| Analytics | Data Platform |
-
----
-
-# Aggregate Catalog
-
-Core aggregates include:
-
-- Organization
-- Coach
-- Client
+- Organizations
+- Users
+- Clients
+- Assessments
+- Meal Plans
+- Recipes
+- Foods
+- Supplements
+- Measurements
+- Reports
 - Human Digital Twin
-- Assessment
-- Training Program
-- Nutrition Plan
-- Appointment
-- Conversation
-- Invoice
+- AI Interactions
 
-Aggregates enforce transactional consistency.
+---
+
+# Aggregate Boundaries
+
+```text
+Organization
+
+├── Users
+
+├── Clients
+
+│   ├── Assessments
+
+│   ├── Meal Plans
+
+│   ├── Progress
+
+│   ├── Reports
+
+│   └── Digital Twin
+
+└── Configuration
+```
+
+Each aggregate defines consistency boundaries and transactional ownership.
 
 ---
 
@@ -175,132 +108,176 @@ Aggregates enforce transactional consistency.
 
 ## Organization
 
-Stores organizational information.
+Represents a tenant within EVOXA.
 
-Relationships:
+Attributes:
 
-- Coaches
-- Clients
-- Billing
-- Settings
+- Organization ID
+- Name
+- Branding
+- Configuration
+- Subscription
+- Status
 
 ---
 
-## Coach
+## User
 
-Represents professional users.
+Represents authenticated professionals.
 
-Includes:
+Attributes:
 
-- Profile
-- Credentials
+- User ID
+- Name
+- Role
 - Permissions
-- Specialties
-- Availability
+- Organization
+- Status
 
 ---
 
 ## Client
 
-Represents end users receiving services.
+Represents an individual receiving nutritional care.
 
-Includes:
+Attributes:
 
-- Personal profile
+- Client ID
+- Demographics
+- Contact Information
 - Goals
-- Assessments
-- Programs
-- History
-- Consent
-
----
-
-## Human Digital Twin
-
-Maintains:
-
-- Physiological profile.
-- Behavioral profile.
-- Training profile.
-- Nutrition profile.
-- Recovery profile.
-- Predictive indicators.
-
-Exactly one Digital Twin exists per active client.
+- Dietary Restrictions
+- Medical History
+- Consent Status
 
 ---
 
 ## Assessment
 
-Stores:
+Stores nutritional evaluations.
 
-- Measurements.
-- Evaluations.
-- Health indicators.
-- Functional tests.
-- Attachments.
+Attributes:
 
-Assessments are immutable after approval.
+- Assessment ID
+- Date
+- Measurements
+- Clinical Indicators
+- Dietary Evaluation
+- Lifestyle Factors
+- Approval Status
 
 ---
 
-## Training Program
+## Meal Plan
+
+Represents a nutritional intervention.
+
+Attributes:
+
+- Meal Plan ID
+- Target Calories
+- Macronutrients
+- Meals
+- Recipes
+- Effective Dates
+- Publication Status
+
+---
+
+## Recipe
+
+Attributes:
+
+- Recipe ID
+- Ingredients
+- Instructions
+- Nutritional Profile
+- Categories
+- Allergens
+
+---
+
+## Food
+
+Attributes:
+
+- Food ID
+- Name
+- Nutritional Composition
+- Serving Units
+- Food Group
+
+---
+
+## Supplement
+
+Attributes:
+
+- Supplement ID
+- Name
+- Dosage
+- Contraindications
+- Schedule
+
+---
+
+## Measurement
+
+Represents periodic client measurements.
+
+Examples:
+
+- Weight
+- Height
+- Body Fat
+- Muscle Mass
+- Waist Circumference
+
+---
+
+## Report
+
+Stores generated reports.
+
+Attributes:
+
+- Report ID
+- Type
+- Generation Date
+- Version
+- Export Format
+
+---
+
+# Human Digital Twin
+
+The Human Digital Twin is modeled as a dedicated aggregate.
 
 Contains:
 
-- Objectives.
-- Sessions.
-- Exercises.
-- Progressions.
-- Versions.
+- Physiological Profile
+- Nutritional Profile
+- Behavioral Profile
+- Clinical Timeline
+- Goals
+- Predictions
+- AI Insights
 
-Programs support version history.
-
----
-
-## Nutrition Plan
-
-Stores:
-
-- Meals.
-- Macronutrients.
-- Supplements.
-- Restrictions.
-- Adherence.
+It is continuously synchronized through domain events.
 
 ---
 
-## Appointment
+# AI Interaction Model
 
-Includes:
+Every AI interaction stores:
 
-- Date.
-- Duration.
-- Participants.
-- Notes.
-- Status.
-
----
-
-## Conversation
-
-Contains:
-
-- Messages.
-- Attachments.
-- Participants.
-- AI summaries.
-
----
-
-## Billing
-
-Includes:
-
-- Subscriptions.
-- Invoices.
-- Payments.
-- Transactions.
+- Prompt
+- Context
+- Retrieved Knowledge
+- Model Version
+- Response
+- Confidence
+- Professional Decision
 
 ---
 
@@ -311,7 +288,7 @@ Organization
 
 ↓
 
-Coach
+Users
 
 ↓
 
@@ -319,177 +296,158 @@ Clients
 
 ↓
 
-Programs
-
-↓
-
 Assessments
 
 ↓
 
-Digital Twin
+Meal Plans
+
+↓
+
+Measurements
+
+↓
+
+Reports
 ```
 
 ---
 
-# Entity Lifecycle
+# Cardinality
 
-Every entity supports:
+Examples:
 
-```text
-Created
-
-↓
-
-Active
-
-↓
-
-Updated
-
-↓
-
-Archived
-
-↓
-
-Deleted
-```
-
-Soft delete is preferred for business entities.
+- Organization → Users (1:N)
+- Organization → Clients (1:N)
+- Client → Assessments (1:N)
+- Client → Meal Plans (1:N)
+- Meal Plan → Recipes (1:N)
+- Recipe → Foods (N:M)
+- Client → Measurements (1:N)
 
 ---
 
-# Metadata Model
+# Persistence Strategy
 
-Every entity contains:
+The platform supports:
 
-- ID
-- Version
-- Created At
-- Updated At
-- Created By
-- Updated By
-- Tenant ID
-- Status
-- Audit Reference
+- Relational databases.
+- Document storage.
+- Object storage.
+- Vector databases.
+- Time-series databases.
+
+The persistence layer is abstracted from the domain model.
+
+---
+
+# Historical Data
+
+Historical records are immutable where required.
+
+Versioning applies to:
+
+- Assessments
+- Meal Plans
+- Reports
+- AI Models
+- Human Digital Twin States
 
 ---
 
 # Data Integrity
 
-Integrity is maintained through:
+Integrity mechanisms include:
 
-- Foreign keys.
-- Aggregate boundaries.
-- Business Rules.
-- Domain validation.
-- Optimistic locking.
+- Primary Keys
+- Foreign Keys
+- Unique Constraints
+- Domain Validations
+- Business Rules
+- Optimistic Locking
 
 ---
 
-# Human Digital Twin Model
+# Multi-Tenancy
+
+Every entity includes:
+
+- Organization ID
+- Ownership
+- Audit Metadata
+
+Data isolation is mandatory.
+
+---
+
+# Audit Model
+
+Every entity tracks:
+
+- Created By
+- Created At
+- Updated By
+- Updated At
+- Version
+- Status
+
+---
+
+# Data Lifecycle
 
 ```text
-Identity
+Create
 
 ↓
 
-Health
+Validate
 
 ↓
 
-Behavior
+Use
 
 ↓
 
-Nutrition
+Archive
 
 ↓
 
-Training
+Retention
 
 ↓
 
-Recovery
-
-↓
-
-Predictions
+Deletion
 ```
 
-The Digital Twin is continuously updated through events.
+Retention policies follow organizational and regulatory requirements.
 
 ---
 
-# AI Data Layer
+# AI Integration
 
-AI consumes:
+The AI Platform consumes:
 
-- Assessments.
-- Progress.
-- Programs.
-- Nutrition.
-- Behaviors.
-- Events.
-- Knowledge Graph.
-- Vector embeddings.
-
----
-
-# Event Sourcing
-
-Selected aggregates support event sourcing.
-
-Examples:
-
-- Human Digital Twin
 - Assessments
-- Programs
+- Meal Plans
+- Measurements
+- Human Digital Twin
+- Historical Trends
+- Food Database
 
-Events remain immutable.
-
----
-
-# Data Retention
-
-Retention policies vary by entity.
-
-Examples:
-
-| Entity | Retention |
-|----------|-----------|
-| Audit Logs | 7 years |
-| Messages | Configurable |
-| Assessments | Organization Policy |
-| AI Logs | Configurable |
+All AI access is governed by permissions and consent.
 
 ---
 
-# Data Security
+# Analytics Integration
 
-Every entity supports:
+Operational data feeds:
 
-- Tenant isolation.
-- Encryption at rest.
-- Encryption in transit.
-- RBAC.
-- Audit logging.
-- Data masking.
+- Data Warehouse
+- Data Lake
+- BI Dashboards
+- Predictive Models
 
----
-
-# Data Governance
-
-Each domain defines:
-
-- Data owner.
-- Steward.
-- Classification.
-- Retention.
-- Quality rules.
-- Lineage.
-- Versioning.
+ETL and streaming pipelines keep analytical stores synchronized.
 
 ---
 
@@ -497,16 +455,17 @@ Each domain defines:
 
 ```text
 data-model/
-├── domains/
+├── conceptual/
+├── logical/
+├── physical/
 ├── aggregates/
 ├── entities/
-├── relationships/
-├── schemas/
-├── metadata/
+├── value-objects/
+├── repositories/
+├── digital-twin/
 ├── ai/
-├── events/
-├── warehouse/
-├── diagrams/
+├── analytics/
+├── governance/
 └── metadata.yml
 ```
 
@@ -521,23 +480,27 @@ Organization
 
 ↓
 
-Coach
-
-↓
-
 Client
 
 ↓
 
-Programs
+Assessment
+
+↓
+
+Meal Plan
+
+↓
+
+Progress
 ```
 
 ---
 
-## Aggregate Model
+## Aggregate Structure
 
 ```text
-Aggregate
+Aggregate Root
 
 ↓
 
@@ -553,39 +516,39 @@ Value Objects
 ## Human Digital Twin
 
 ```text
-Data
+Assessments
 
 ↓
 
-Twin
+Digital Twin
 
 ↓
 
-Prediction
-
-↓
-
-Recommendation
+Predictions
 ```
 
 ---
 
-## Storage Architecture
+## Data Lifecycle
 
 ```text
-PostgreSQL
+Create
 
 ↓
 
-Events
+Validate
 
 ↓
 
-Warehouse
+Store
 
 ↓
 
-AI
+Analyze
+
+↓
+
+Archive
 ```
 
 ---
@@ -595,22 +558,22 @@ AI
 ```text
 artifacts/
 └── data-model/
-    ├── domain-model.drawio
-    ├── er-diagram.drawio
-    ├── aggregates.drawio
+    ├── conceptual-model.drawio
+    ├── logical-model.drawio
+    ├── aggregate-map.drawio
+    ├── entity-relationships.drawio
     ├── digital-twin.drawio
-    ├── storage-architecture.drawio
-    ├── ai-data-layer.drawio
+    ├── persistence.drawio
     ├── mermaid/
-    │   ├── domains.mmd
-    │   ├── entities.mmd
-    │   ├── er.mmd
-    │   ├── storage.mmd
-    │   └── twin.mmd
+    │   ├── domain.mmd
+    │   ├── aggregates.mmd
+    │   ├── erd.mmd
+    │   ├── digital-twin.mmd
+    │   └── lifecycle.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
+        ├── data-model.svg
+        ├── data-model.png
+        └── data-model.pdf
 ```
 
 ---
@@ -621,7 +584,6 @@ artifacts/
 |----------|-----------|
 | Workflow Architecture | Chapter 16 |
 | Business Rules | Chapter 17 |
-| User Stories | Chapter 18 |
 | API Contracts | Chapter 19 |
 | Event Architecture | Chapter 20 |
 | AI Services | Chapter 21 |
@@ -634,24 +596,24 @@ artifacts/
 
 This chapter is complete when:
 
-- Domain model is documented.
+- Domain entities are documented.
 - Aggregate boundaries are defined.
-- Entity catalog is complete.
-- Relationships are specified.
-- Human Digital Twin model is documented.
-- Polyglot persistence architecture is defined.
-- Data governance is established.
-- Visual artifacts are available.
-- Traceability is complete.
+- Entity relationships are specified.
+- Human Digital Twin structures are modeled.
+- AI interaction data is represented.
+- Persistence strategies are documented.
+- Multi-tenancy and audit requirements are defined.
+- Data lifecycle and governance are established.
+- Visual artifacts and traceability are complete.
 
 ---
 
 # Key Takeaways
 
-- The Coach Portal adopts a domain-driven, polyglot persistence strategy that aligns storage technologies with business and technical requirements.
-- Business entities, aggregates and metadata are governed through clear ownership, lifecycle management and versioning.
-- The Human Digital Twin acts as a central domain object, continuously enriched by events, assessments and AI services.
-- Strong governance, security and traceability provide a scalable data foundation for analytics, automation and intelligent decision support across the EVOXA ecosystem.
+- The Nutritionist Portal uses a domain-driven data model that represents business concepts independently of the underlying persistence technology.
+- Aggregate boundaries, immutable histories and governed entities provide consistency, auditability and long-term maintainability.
+- The Human Digital Twin is modeled as a first-class aggregate that consolidates nutritional, physiological, behavioral and predictive information.
+- The shared data model supports transactional workloads, AI reasoning, analytics and cross-portal interoperability across the EVOXA ecosystem.
 
 ---
 
@@ -659,4 +621,4 @@ This chapter is complete when:
 
 **Chapter 23 — Security & Permissions**
 
-This chapter defines the security architecture of the Coach Portal, including authentication, authorization, tenant isolation, data protection, audit logging, AI security, compliance controls and permission governance.
+This chapter defines the security architecture of the Nutritionist Portal, including authentication, authorization, role-based access control, multi-tenancy, data protection, AI governance controls, audit logging and compliance mechanisms.
