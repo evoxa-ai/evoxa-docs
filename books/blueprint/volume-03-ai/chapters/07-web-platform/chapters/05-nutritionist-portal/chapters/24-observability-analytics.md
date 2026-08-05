@@ -1,11 +1,11 @@
 ---
-document_id: BP-0003-V3-C07-04-24
-chapter_id: CH-04-COACH-24
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-24
+chapter_id: CH-05-NUTRITION-24
+feature_pack: FP-NUTRITION-0000
 title: Observability & Analytics
 version: 1.0.0
 status: Draft
-owner: Platform Observability Board
+owner: Platform Operations Board
 authors:
   - EVOXA Architecture Team
 classification: Internal
@@ -14,17 +14,17 @@ last_updated: 2026-08-04
 
 # Chapter 24 — Observability & Analytics
 
-> *The Observability & Analytics chapter defines how the Coach Portal measures, monitors and analyzes the health, performance and operational behavior of the platform, its users, AI services and business processes.*
+> *The Observability & Analytics chapter defines the monitoring, telemetry, operational analytics, business intelligence and AI observability capabilities that ensure the reliability, performance and continuous improvement of the Nutritionist Portal.*
 
 ---
 
 # Executive Summary
 
-Observability is a first-class capability within the EVOXA Platform.
+The Nutritionist Portal adopts a comprehensive observability strategy that extends beyond infrastructure monitoring.
 
-Every interaction, workflow, AI recommendation and infrastructure component produces telemetry that enables continuous monitoring, diagnostics and optimization.
+Every request, workflow, event, AI interaction and business process generates telemetry that enables real-time visibility, proactive issue detection and data-driven optimization.
 
-The platform combines operational observability with business intelligence, AI telemetry and user experience analytics.
+Observability is implemented as a shared capability across the EVOXA platform.
 
 ---
 
@@ -32,23 +32,34 @@ The platform combines operational observability with business intelligence, AI t
 
 The Observability Platform shall:
 
-- Monitor platform health.
-- Detect incidents rapidly.
+- Monitor system health.
+- Detect anomalies.
+- Support troubleshooting.
 - Measure business performance.
-- Analyze user behavior.
 - Monitor AI quality.
-- Support compliance.
-- Enable continuous improvement.
+- Improve user experience.
+- Enable continuous optimization.
 
 ---
 
 # Observability Philosophy
 
-Everything important is observable.
+Every important action shall generate telemetry.
 
-Every operation shall produce telemetry.
+Telemetry shall be:
 
-Observability includes:
+- Structured
+- Contextual
+- Correlated
+- Searchable
+- Auditable
+- Actionable
+
+---
+
+# Observability Pillars
+
+The platform is based on:
 
 - Logs
 - Metrics
@@ -56,151 +67,62 @@ Observability includes:
 - Events
 - Business KPIs
 - AI Telemetry
-- User Experience Metrics
 
 ---
 
-# Observability Architecture
+# Telemetry Sources
 
-```text
-Applications
+The Nutritionist Portal generates telemetry from:
 
-↓
-
-Telemetry
-
-↓
-
-Collectors
-
-↓
-
-Observability Platform
-
-↓
-
-Dashboards
-
-↓
-
-Alerts
-
-↓
-
-Analytics
-```
-
----
-
-# Observability Layers
-
-```text
-Infrastructure
-
-↓
-
-Platform
-
-↓
-
-Application
-
-↓
-
-Business
-
-↓
-
-AI
-
-↓
-
-User Experience
-```
-
----
-
-# Telemetry Types
-
-| Type | Purpose |
-|-------|----------|
-| Logs | Operational events |
-| Metrics | Quantitative measurements |
-| Traces | Distributed execution |
-| Events | Business activities |
-| Profiles | Performance analysis |
-| AI Telemetry | AI monitoring |
+- Web Application
+- Mobile Applications
+- Backend APIs
+- Workflow Engine
+- Event Platform
+- AI Platform
+- Human Digital Twin
+- Database
+- Cache
+- External Integrations
 
 ---
 
 # Logging
 
-The platform generates structured logs.
+Structured logs include:
 
-Categories include:
+- Timestamp
+- Trace ID
+- Correlation ID
+- Organization ID
+- User ID
+- Workflow ID
+- Log Level
+- Service
+- Message
 
-- Authentication
-- API
-- Workflow
-- Database
-- AI
-- Security
-- Audit
-- Notifications
-- Background Jobs
+Supported levels:
 
-Logs use JSON format.
+- DEBUG
+- INFO
+- WARNING
+- ERROR
+- CRITICAL
 
 ---
 
 # Metrics
 
-Standard metrics include:
+System metrics include:
 
-## Infrastructure
-
-- CPU
-- Memory
-- Disk
-- Network
-- Containers
-- Kubernetes
-- Database
-
----
-
-## Application
-
-- Request Rate
-- Response Time
-- Error Rate
-- Availability
-- Queue Size
-- Active Sessions
-
----
-
-## Business
-
-- Active Coaches
-- Active Clients
-- Programs Created
-- Sessions Completed
-- Nutrition Plans Published
-- Revenue
-- Retention
-
----
-
-## AI
-
-- Recommendation Count
-- Acceptance Rate
-- Confidence Distribution
-- Latency
-- Hallucination Rate
-- Feedback Score
-- Model Usage
+- CPU Usage
+- Memory Usage
+- Disk Usage
+- Network Latency
+- API Latency
+- Database Performance
+- Cache Hit Ratio
+- Queue Depth
 
 ---
 
@@ -210,98 +132,108 @@ Every request receives:
 
 - Trace ID
 - Span ID
-- Correlation ID
+- Parent Span
 
-Tracing covers:
+Trace propagation covers:
 
 - APIs
-- AI Services
+- Microservices
 - Event Bus
-- Database
-- External Integrations
+- AI Services
+- Database Queries
 
 ---
 
-# Business Analytics
+# Event Observability
 
-Dashboards include:
+Observed metrics include:
 
-- Client Growth
-- Program Completion
-- Appointment Attendance
-- Engagement
-- Coach Productivity
-- Goal Achievement
-- Revenue Trends
-
----
-
-# AI Analytics
-
-AI dashboards monitor:
-
-- Recommendation Quality
-- Prediction Accuracy
-- Model Performance
-- Prompt Usage
-- Feedback
-- Explainability
-- Cost per Request
-
----
-
-# User Experience Analytics
-
-Measured indicators include:
-
-- Navigation paths
-- Screen usage
-- Task completion
-- Drop-off points
-- Search usage
-- Dashboard customization
-- Widget utilization
+- Events Published
+- Events Processed
+- Event Latency
+- Failed Events
+- Retry Count
+- Dead Letter Queue
 
 ---
 
 # Workflow Analytics
 
-Every workflow tracks:
+Collected indicators:
 
-- Execution time
-- Bottlenecks
-- Failure rate
-- Automation percentage
-- Manual interventions
-- Approval time
+- Workflow Duration
+- Completion Rate
+- Approval Time
+- Failure Rate
+- Automation Rate
+
+Each workflow is traceable end-to-end.
 
 ---
 
-# Event Analytics
+# API Analytics
+
+Monitored metrics:
+
+- Requests per Minute
+- Response Time
+- Error Rate
+- Rate Limit Hits
+- Authentication Failures
+
+---
+
+# User Experience Analytics
 
 Measured indicators:
 
-- Published events
-- Consumer latency
-- Retry count
-- Dead Letter Queue
-- Replay frequency
-- Event throughput
+- Page Load Time
+- Screen Rendering Time
+- User Sessions
+- Navigation Flow
+- Feature Usage
+- Search Success Rate
 
 ---
 
-# Alerting
+# Business Analytics
 
-Alerts support:
+Business KPIs include:
 
-- Threshold-based alerts
-- Anomaly detection
-- Predictive alerts
-- AI health alerts
-- Business KPI alerts
-- Security alerts
+- Active Clients
+- Assessments Completed
+- Meal Plans Published
+- Follow-up Completion
+- Nutritional Goal Achievement
+- Program Adherence
 
-Alerts are configurable per organization.
+---
+
+# AI Observability
+
+AI telemetry includes:
+
+- Requests
+- Response Time
+- Token Usage
+- Cost
+- Hallucination Detection
+- Recommendation Acceptance
+- Confidence Distribution
+- Model Version
+- Feedback Score
+
+---
+
+# Human Digital Twin Analytics
+
+Observed indicators:
+
+- Synchronization Status
+- Prediction Accuracy
+- Profile Completeness
+- Update Frequency
+- Model Drift
 
 ---
 
@@ -310,133 +242,121 @@ Alerts are configurable per organization.
 Operational dashboards include:
 
 - Platform Health
-- Business Operations
+- API Health
+- Workflow Monitoring
 - AI Operations
-- Security
-- Workflow Health
-- Customer Success
-- Executive Dashboard
+- Security Monitoring
+- Business Performance
 
 ---
 
-# AI Telemetry
+# Alerting
 
-Every AI interaction records:
+Alerts are generated for:
 
-- Prompt ID
-- Model Version
-- Context Size
-- Latency
-- Confidence
-- Cost
-- Feedback
-- Outcome
-
-Sensitive information is protected according to platform policies.
-
----
-
-# Performance Monitoring
-
-The platform monitors:
-
+- High Error Rate
 - Slow APIs
-- Slow Queries
-- Memory usage
-- CPU utilization
-- Cache hit ratio
-- Queue latency
+- Failed Workflows
+- AI Failures
+- Event Queue Backlog
+- Database Issues
+- Security Incidents
+
+Alert severity:
+
+- Critical
+- High
+- Medium
+- Low
 
 ---
 
-# Error Monitoring
+# Analytics Dimensions
 
-Captured errors include:
+Data can be analyzed by:
 
-- Exceptions
-- API failures
-- Database errors
-- AI failures
-- Integration failures
-- Background job failures
-
-Errors are grouped and prioritized automatically.
-
----
-
-# Service Level Objectives (SLOs)
-
-| Metric | Target |
-|----------|---------|
-| Availability | 99.9% |
-| API Latency (P95) | <300 ms |
-| AI Response Time (P95) | <2 s |
-| Workflow Success Rate | >99% |
-| Error Rate | <1% |
+- Organization
+- Nutritionist
+- Client
+- Workflow
+- Feature
+- Device
+- Time Period
 
 ---
 
 # Data Retention
 
-Telemetry retention:
+Recommended retention:
 
-| Data | Retention |
-|------|-----------|
-| Logs | 90 days |
-| Metrics | 13 months |
-| Traces | 30 days |
-| Audit Logs | 7 years |
-| AI Telemetry | Configurable |
-
----
-
-# Observability Security
-
-Telemetry supports:
-
-- Tenant isolation
-- Encryption
-- Access control
-- Audit logging
-- Data masking
-- Retention policies
+| Data Type | Retention |
+|------------|-----------|
+| Logs | 90 Days |
+| Metrics | 24 Months |
+| Traces | 30 Days |
+| Business KPIs | Permanent |
+| AI Metrics | 24 Months |
+| Audit Logs | Permanent |
 
 ---
 
-# Observability Governance
+# Observability Integrations
 
-Every telemetry source defines:
+Supported platforms include:
+
+- OpenTelemetry
+- Prometheus
+- Grafana
+- Jaeger
+- Loki
+- ELK Stack
+- Azure Monitor
+- Google Cloud Operations
+- AWS CloudWatch
+
+Vendor selection is independent of the architecture.
+
+---
+
+# Service Level Objectives (SLO)
+
+Examples:
+
+| Service | Target |
+|----------|---------|
+| API Availability | 99.9% |
+| AI Response Time | <2 s |
+| Workflow Success | >99% |
+| Dashboard Load | <2 s |
+| Event Delivery | >99.99% |
+
+---
+
+# AI Quality Metrics
+
+Measured indicators:
+
+- Recommendation Acceptance
+- Recommendation Rejection
+- Feedback Score
+- Safety Violations
+- Prompt Failures
+- Retrieval Accuracy
+- Context Quality
+
+---
+
+# Governance
+
+Every observable asset defines:
 
 - Owner
-- Schema
-- Sampling policy
+- KPIs
+- Alerts
+- Dashboards
 - Retention
-- Consumers
-- Dashboard mapping
-
----
-
-# Observability Lifecycle
-
-```text
-Collect
-
-↓
-
-Store
-
-↓
-
-Analyze
-
-↓
-
-Alert
-
-↓
-
-Improve
-```
+- SLO
+- SLA
 
 ---
 
@@ -444,16 +364,17 @@ Improve
 
 ```text
 observability/
-├── logs/
+├── logging/
 ├── metrics/
-├── traces/
+├── tracing/
 ├── dashboards/
 ├── alerts/
-├── ai/
-├── business/
 ├── workflows/
-├── telemetry/
-├── slo/
+├── ai/
+├── digital-twin/
+├── analytics/
+├── business-kpis/
+├── governance/
 └── metadata.yml
 ```
 
@@ -461,22 +382,26 @@ observability/
 
 # Standard Visual Artifacts
 
-## Observability Stack
+## Telemetry Flow
 
 ```text
+Application
+
+↓
+
 Telemetry
 
 ↓
 
-Platform
+Collector
+
+↓
+
+Storage
 
 ↓
 
 Dashboards
-
-↓
-
-Alerts
 ```
 
 ---
@@ -484,11 +409,15 @@ Alerts
 ## Distributed Tracing
 
 ```text
-Request
+Client
 
 ↓
 
 API
+
+↓
+
+Workflow
 
 ↓
 
@@ -497,10 +426,6 @@ AI
 ↓
 
 Database
-
-↓
-
-Response
 ```
 
 ---
@@ -520,7 +445,7 @@ Response
 
 ↓
 
-Feedback
+Evaluation
 ```
 
 ---
@@ -532,15 +457,15 @@ Events
 
 ↓
 
+Metrics
+
+↓
+
 KPIs
 
 ↓
 
 Dashboards
-
-↓
-
-Decisions
 ```
 
 ---
@@ -550,12 +475,12 @@ Decisions
 ```text
 artifacts/
 └── observability-analytics/
-    ├── observability-stack.drawio
-    ├── telemetry-flow.drawio
+    ├── telemetry.drawio
     ├── tracing.drawio
-    ├── ai-observability.drawio
     ├── dashboards.drawio
-    ├── alerting.drawio
+    ├── ai-monitoring.drawio
+    ├── business-kpis.drawio
+    ├── alerts.drawio
     ├── mermaid/
     │   ├── telemetry.mmd
     │   ├── tracing.mmd
@@ -563,9 +488,9 @@ artifacts/
     │   ├── dashboards.mmd
     │   └── alerts.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
+        ├── observability.svg
+        ├── observability.png
+        └── observability.pdf
 ```
 
 ---
@@ -575,9 +500,9 @@ artifacts/
 | Artifact | Reference |
 |----------|-----------|
 | Workflow Architecture | Chapter 16 |
+| API Contracts | Chapter 19 |
 | Event Architecture | Chapter 20 |
 | AI Services | Chapter 21 |
-| Data Model | Chapter 22 |
 | Security & Permissions | Chapter 23 |
 | Performance & Scalability | Chapter 26 |
 | Operational Excellence | Chapter 29 |
@@ -588,23 +513,22 @@ artifacts/
 
 This chapter is complete when:
 
-- Observability architecture is documented.
-- Logging, metrics and tracing standards are defined.
-- Business and AI analytics are specified.
-- Alerting strategy is documented.
-- SLOs and telemetry retention are established.
-- Security and governance requirements are defined.
-- Visual artifacts are available.
-- Traceability is complete.
+- Logging, metrics and tracing strategies are documented.
+- Workflow, API and event telemetry are defined.
+- AI observability and Human Digital Twin analytics are specified.
+- Dashboards, alerts and SLOs are documented.
+- Business KPIs and governance are established.
+- Data retention policies are defined.
+- Visual artifacts and traceability are complete.
 
 ---
 
 # Key Takeaways
 
-- The Coach Portal adopts a unified observability strategy that combines infrastructure monitoring, application telemetry, business analytics and AI performance into a single operational platform.
-- Structured logs, metrics, distributed tracing and business events provide complete visibility across the EVOXA ecosystem.
-- AI telemetry, workflow analytics and user experience metrics enable continuous optimization of intelligent services and professional workflows.
-- Standardized governance, SLOs and secure telemetry management ensure that observability scales with the platform while supporting compliance, operational excellence and data-driven decision making.
+- The Nutritionist Portal implements a full-stack observability strategy that combines technical telemetry, business analytics and AI monitoring into a unified operational model.
+- Distributed tracing, structured logging and standardized metrics provide complete visibility across workflows, APIs, events and microservices.
+- AI observability extends beyond infrastructure by measuring recommendation quality, explainability, safety, model performance and user feedback.
+- Integrated dashboards, SLOs and business KPIs enable proactive operations, continuous optimization and informed decision-making across the EVOXA ecosystem.
 
 ---
 
@@ -612,4 +536,4 @@ This chapter is complete when:
 
 **Chapter 25 — Accessibility & Internationalization**
 
-This chapter defines the accessibility and internationalization strategy of the Coach Portal, including inclusive design principles, multilingual support, localization, assistive technologies, cultural adaptation and compliance with international accessibility standards.
+This chapter defines the accessibility, localization and internationalization standards of the Nutritionist Portal, ensuring that every interface is inclusive, multilingual and compliant with recognized accessibility guidelines.
