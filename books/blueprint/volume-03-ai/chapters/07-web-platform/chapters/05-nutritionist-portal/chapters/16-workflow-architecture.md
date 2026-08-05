@@ -1,11 +1,11 @@
 ---
-document_id: BP-0003-V3-C07-04-16
-chapter_id: CH-04-COACH-16
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-16
+chapter_id: CH-05-NUTRITION-16
+feature_pack: FP-NUTRITION-0000
 title: Workflow Architecture
 version: 1.0.0
 status: Draft
-owner: Solution Architecture Board
+owner: Enterprise Architecture Board
 authors:
   - EVOXA Architecture Team
 classification: Internal
@@ -14,17 +14,17 @@ last_updated: 2026-08-04
 
 # Chapter 16 — Workflow Architecture
 
-> *The Workflow Architecture defines the operational processes executed within the Coach Portal, including orchestration, automation, AI-assisted decision support, state transitions and business process governance.*
+> *The Workflow Architecture defines the orchestration of business processes, workflow states, automation rules, AI-assisted decisions and event-driven interactions that govern nutritional care throughout the EVOXA ecosystem.*
 
 ---
 
 # Executive Summary
 
-The Coach Portal orchestrates every professional activity performed throughout the client lifecycle.
+The Nutritionist Portal is built around business workflows rather than isolated screens.
 
-Rather than implementing isolated screens and actions, the platform models professional work as structured workflows that coordinate people, Artificial Intelligence, Human Digital Twins and platform services.
+Every professional activity is modeled as a workflow with clearly defined states, transitions, validations, business rules and AI-assisted decision points.
 
-Every workflow is event-driven, traceable and extensible.
+Workflows coordinate users, Artificial Intelligence, Human Digital Twins and external systems through asynchronous domain events.
 
 ---
 
@@ -32,203 +32,26 @@ Every workflow is event-driven, traceable and extensible.
 
 The Workflow Architecture shall:
 
-- Standardize professional workflows.
-- Support workflow automation.
-- Coordinate platform services.
-- Integrate AI assistance.
-- Enable business traceability.
-- Support auditing.
-- Scale across organizations.
+- Standardize business processes.
+- Minimize manual operations.
+- Enable workflow automation.
+- Support AI orchestration.
+- Improve traceability.
+- Enable scalability.
+- Support continuous optimization.
 
 ---
 
 # Workflow Philosophy
 
-Workflows represent business processes rather than technical implementations.
-
-Every workflow defines:
-
-- Trigger
-- Participants
-- Inputs
-- Decisions
-- Actions
-- Events
-- Outputs
-- Completion Criteria
-
----
-
-# Workflow Layers
+Every workflow follows:
 
 ```text
-Business Process
+Trigger
 
 ↓
 
-Workflow
-
-↓
-
-Tasks
-
-↓
-
-Activities
-
-↓
-
-Events
-
-↓
-
-Services
-```
-
----
-
-# Core Workflow Domains
-
-| Domain | Description |
-|----------|-------------|
-| Client Management | Client lifecycle |
-| Assessments | Evaluations |
-| Training | Workout lifecycle |
-| Nutrition | Meal planning |
-| Scheduling | Calendar |
-| Communication | Messaging |
-| AI Collaboration | AI-assisted coaching |
-| Analytics | Reporting |
-| Billing | Financial workflows |
-
----
-
-# Workflow Catalog
-
-| Workflow ID | Workflow |
-|--------------|----------|
-| WF-001 | Coach Onboarding |
-| WF-002 | Client Onboarding |
-| WF-003 | Initial Assessment |
-| WF-004 | Human Digital Twin Initialization |
-| WF-005 | Training Program Creation |
-| WF-006 | Nutrition Plan Creation |
-| WF-007 | Session Management |
-| WF-008 | Progress Monitoring |
-| WF-009 | AI Recommendation Review |
-| WF-010 | Follow-up Cycle |
-| WF-011 | Reporting |
-| WF-012 | Billing |
-
----
-
-# Standard Workflow Structure
-
-Every workflow contains:
-
-- Trigger
-- Preconditions
-- Business Rules
-- Workflow Steps
-- AI Participation
-- Events
-- API Calls
-- Success Criteria
-
----
-
-# Client Lifecycle Workflow
-
-```text
-Registration
-
-↓
-
-Assessment
-
-↓
-
-Digital Twin
-
-↓
-
-Training Plan
-
-↓
-
-Nutrition Plan
-
-↓
-
-Monitoring
-
-↓
-
-Evaluation
-
-↓
-
-Continuous Improvement
-```
-
----
-
-# Assessment Workflow
-
-```text
-Assessment Request
-
-↓
-
-Measurements
-
-↓
-
-Evaluation
-
-↓
-
-AI Analysis
-
-↓
-
-Coach Review
-
-↓
-
-Approval
-
-↓
-
-Storage
-```
-
----
-
-# Training Workflow
-
-```text
-Goals
-
-↓
-
-Program Creation
-
-↓
-
-AI Suggestions
-
-↓
-
-Coach Adjustments
-
-↓
-
-Approval
-
-↓
-
-Assignment
+Validation
 
 ↓
 
@@ -236,27 +59,11 @@ Execution
 
 ↓
 
-Monitoring
-```
-
----
-
-# Nutrition Workflow
-
-```text
-Assessment
+AI Assistance
 
 ↓
 
-Meal Planning
-
-↓
-
-AI Optimization
-
-↓
-
-Nutritionist Review
+Professional Decision
 
 ↓
 
@@ -265,22 +72,342 @@ Publication
 ↓
 
 Monitoring
+
+↓
+
+Completion
+```
+
+Every workflow is:
+
+- Observable
+- Auditable
+- Event-driven
+- Recoverable
+- Versioned
+
+---
+
+# Workflow Layers
+
+```text
+Presentation
+
+↓
+
+Application
+
+↓
+
+Workflow Engine
+
+↓
+
+Domain Services
+
+↓
+
+Events
+
+↓
+
+Infrastructure
+```
+
+Each layer has clearly separated responsibilities.
+
+---
+
+# Workflow Categories
+
+The Nutritionist Portal defines:
+
+- Client Workflows
+- Assessment Workflows
+- Nutrition Planning Workflows
+- Progress Monitoring Workflows
+- AI Workflows
+- Collaboration Workflows
+- Reporting Workflows
+- Administrative Workflows
+
+---
+
+# Workflow 01
+
+## Client Registration
+
+Trigger
+
+New client.
+
+Workflow
+
+```text
+Create Client
+
+↓
+
+Identity Validation
+
+↓
+
+Consent Collection
+
+↓
+
+Medical History
+
+↓
+
+Goals
+
+↓
+
+Digital Twin Creation
+
+↓
+
+Client Activated
+```
+
+Generated Events
+
+- ClientCreated
+- ConsentGranted
+- DigitalTwinInitialized
+
+---
+
+# Workflow 02
+
+## Nutritional Assessment
+
+```text
+Assessment Started
+
+↓
+
+Anthropometric Data
+
+↓
+
+Clinical Information
+
+↓
+
+Dietary Evaluation
+
+↓
+
+Lifestyle Review
+
+↓
+
+AI Analysis
+
+↓
+
+Professional Validation
+
+↓
+
+Assessment Approved
+```
+
+Generated Events
+
+- AssessmentStarted
+- AssessmentCompleted
+- NutritionalRiskDetected
+- AssessmentApproved
+
+---
+
+# Workflow 03
+
+## Meal Plan Creation
+
+```text
+Assessment
+
+↓
+
+Energy Calculation
+
+↓
+
+Macronutrient Distribution
+
+↓
+
+Meal Design
+
+↓
+
+Recipe Selection
+
+↓
+
+AI Optimization
+
+↓
+
+Professional Approval
+
+↓
+
+Meal Plan Published
+```
+
+AI assists during every stage.
+
+---
+
+# Workflow 04
+
+## Recipe Recommendation
+
+```text
+Client Context
+
+↓
+
+Preferences
+
+↓
+
+Restrictions
+
+↓
+
+AI Search
+
+↓
+
+Recipe Ranking
+
+↓
+
+Professional Review
+
+↓
+
+Recommendation
 ```
 
 ---
 
-# AI Collaboration Workflow
+# Workflow 05
+
+## Supplement Planning
 
 ```text
-Context
+Clinical Review
 
 ↓
 
-Human Digital Twin
+Deficiency Analysis
 
 ↓
 
-AI Processing
+Contraindications
+
+↓
+
+AI Recommendation
+
+↓
+
+Professional Approval
+
+↓
+
+Supplement Plan Published
+```
+
+Professional approval is mandatory.
+
+---
+
+# Workflow 06
+
+## Shopping List Generation
+
+```text
+Meal Plan
+
+↓
+
+Ingredient Aggregation
+
+↓
+
+Quantity Calculation
+
+↓
+
+Category Organization
+
+↓
+
+Optimization
+
+↓
+
+Publish
+```
+
+---
+
+# Workflow 07
+
+## Progress Monitoring
+
+```text
+Measurements
+
+↓
+
+Trend Analysis
+
+↓
+
+AI Prediction
+
+↓
+
+Goal Evaluation
+
+↓
+
+Plan Adjustment
+```
+
+---
+
+# Workflow 08
+
+## AI Consultation
+
+```text
+Professional Question
+
+↓
+
+Context Retrieval
+
+↓
+
+Digital Twin
+
+↓
+
+Knowledge Search
+
+↓
+
+Reasoning
 
 ↓
 
@@ -288,229 +415,296 @@ Recommendation
 
 ↓
 
-Professional Decision
+Explanation
 
 ↓
 
-Learning Feedback
+Decision
 ```
-
-The professional always validates AI-generated recommendations before execution.
 
 ---
 
-# Progress Monitoring Workflow
+# Workflow 09
+
+## Multidisciplinary Collaboration
 
 ```text
-Activity
+Nutritionist
 
 ↓
 
+Coach
+
+↓
+
+Physician
+
+↓
+
+Physiotherapist
+
+↓
+
+Shared Timeline
+
+↓
+
+Consensus
+```
+
+---
+
+# Workflow 10
+
+## Reporting
+
+```text
 Data Collection
 
 ↓
 
-Analytics
+Aggregation
 
 ↓
 
-AI Evaluation
+Charts
 
 ↓
 
-Coach Review
+AI Summary
 
 ↓
 
-Program Adjustment
-```
-
----
-
-# Scheduling Workflow
-
-```text
-Availability
+Professional Review
 
 ↓
 
-Appointment
-
-↓
-
-Reminder
-
-↓
-
-Session
-
-↓
-
-Summary
-
-↓
-
-Next Appointment
-```
-
----
-
-# Communication Workflow
-
-```text
-Message
-
-↓
-
-Notification
-
-↓
-
-Response
-
-↓
-
-Action
-
-↓
-
-Archive
+Export
 ```
 
 ---
 
 # Workflow States
 
-Every workflow follows a standardized lifecycle.
+Every workflow supports:
+
+- Draft
+- In Progress
+- Waiting Review
+- Approved
+- Published
+- Archived
+- Cancelled
+
+---
+
+# State Transitions
+
+Example:
 
 ```text
-Created
+Draft
 
 ↓
 
-Pending
+Review
 
 ↓
 
-In Progress
+Approved
 
 ↓
 
-Completed
+Published
 
 ↓
 
 Archived
 ```
 
-Additional optional states:
-
-- Cancelled
-- Failed
-- On Hold
-- Awaiting Approval
-
----
-
-# Workflow Events
-
-Typical events include:
-
-- WorkflowStarted
-- WorkflowUpdated
-- WorkflowCompleted
-- AIRecommendationGenerated
-- ApprovalGranted
-- ApprovalRejected
-- NotificationSent
-
-Events are published to the Event Platform.
-
----
-
-# Workflow Automation
-
-Automation supports:
-
-- Appointment reminders.
-- Program publication.
-- Follow-up reminders.
-- Report generation.
-- Billing cycles.
-- Notifications.
-
-Automations are configurable.
+Transitions are validated by business rules.
 
 ---
 
 # AI Workflow Integration
 
-AI participates by:
+AI participates in:
 
-- Summarizing information.
-- Detecting risks.
-- Recommending actions.
-- Prioritizing tasks.
-- Predicting outcomes.
-- Generating reports.
+- Risk detection
+- Meal optimization
+- Macro calculation
+- Deficiency analysis
+- Progress prediction
+- Recommendation generation
+- Report summarization
 
-AI never executes irreversible actions autonomously.
-
----
-
-# Workflow Security
-
-Each workflow validates:
-
-- Permissions.
-- Organization.
-- Ownership.
-- Client consent.
-- Audit requirements.
-
-Authorization is enforced before every critical transition.
+AI never publishes without professional approval.
 
 ---
 
-# Workflow Monitoring
+# Human Digital Twin Integration
 
-Operational metrics include:
+Every workflow updates:
 
-- Execution time.
-- Completion rate.
-- Automation rate.
-- AI adoption.
-- Bottlenecks.
-- Failure rate.
+- Nutritional profile
+- Body composition
+- Goals
+- Behavioral indicators
+- Recovery
+- AI predictions
 
----
-
-# Workflow Recovery
-
-Recovery mechanisms include:
-
-- Automatic retry.
-- Manual intervention.
-- Draft restoration.
-- Partial rollback.
-- Audit reconstruction.
+Digital Twin synchronization is automatic.
 
 ---
 
-# Workflow Governance
+# Automation Rules
 
-Every workflow must define:
+Examples:
 
-- Business owner.
-- Technical owner.
-- Version.
-- KPIs.
-- Events.
-- APIs.
-- Documentation.
-- Acceptance tests.
+- Schedule follow-up after assessment.
+- Generate shopping list after meal plan publication.
+- Notify coach when body composition changes.
+- Alert client about missed meals.
+- Suggest reassessment after predefined intervals.
 
-Workflow changes require architectural review.
+---
+
+# Domain Events
+
+Examples:
+
+```text
+ClientCreated
+
+AssessmentStarted
+
+AssessmentApproved
+
+MealPlanPublished
+
+SupplementPlanApproved
+
+ShoppingListGenerated
+
+ProgressUpdated
+
+GoalAchieved
+
+AIRecommendationAccepted
+
+ReportGenerated
+```
+
+Events are immutable.
+
+---
+
+# Event Flow
+
+```text
+Workflow
+
+↓
+
+Domain Event
+
+↓
+
+Event Bus
+
+↓
+
+Subscribers
+
+↓
+
+Automation
+```
+
+---
+
+# Error Handling
+
+Every workflow supports:
+
+- Retry
+- Rollback
+- Compensation
+- Manual intervention
+- Audit logging
+
+---
+
+# Workflow Versioning
+
+Each workflow includes:
+
+- Workflow ID
+- Version
+- Owner
+- Status
+- Effective Date
+- Change History
+
+Older workflows remain reproducible.
+
+---
+
+# Security
+
+Every workflow validates:
+
+- Authentication
+- Authorization
+- Consent
+- Organization boundaries
+- Audit logging
+
+---
+
+# Monitoring
+
+Metrics collected:
+
+- Workflow duration
+- Completion rate
+- AI participation
+- Approval rate
+- Failure rate
+- Automation success
+
+---
+
+# Workflow KPIs
+
+| KPI | Target |
+|------|---------|
+| Assessment Completion | >95% |
+| Meal Plan Publication | <30 min |
+| AI Approval Rate | >75% |
+| Workflow Success | >99% |
+| Automation Success | >98% |
+
+---
+
+# Repository Structure
+
+```text
+workflow/
+├── client/
+├── assessments/
+├── meal-plans/
+├── recipes/
+├── supplements/
+├── monitoring/
+├── ai/
+├── collaboration/
+├── reporting/
+├── automation/
+├── events/
+├── governance/
+└── metadata.yml
+```
 
 ---
 
@@ -527,71 +721,67 @@ Execution
 
 ↓
 
-Decision
+Review
 
 ↓
 
-Completion
+Approval
+
+↓
+
+Publication
 ```
 
 ---
 
-## AI Workflow
+## Workflow Layers
 
 ```text
-Context
+Presentation
 
 ↓
 
-AI
+Workflow Engine
 
 ↓
 
-Recommendation
+Domain
 
 ↓
 
-Coach
-
-↓
-
-Execution
+Events
 ```
 
 ---
 
-## Client Lifecycle
+## Event Flow
 
 ```text
-Onboarding
+Workflow
 
 ↓
 
-Programs
+Domain Event
 
 ↓
 
-Monitoring
-
-↓
-
-Optimization
+Subscribers
 ```
 
 ---
 
-## State Machine
+## Human Digital Twin Updates
 
 ```text
-Created
+Workflow
 
 ↓
 
-In Progress
+Digital Twin
 
 ↓
 
-Completed
+Prediction
 ```
 
 ---
@@ -601,39 +791,23 @@ Completed
 ```text
 artifacts/
 └── workflow-architecture/
-    ├── client-lifecycle.drawio
-    ├── workflow-catalog.drawio
+    ├── workflow-lifecycle.drawio
+    ├── workflow-layers.drawio
+    ├── assessment-workflow.drawio
+    ├── meal-plan-workflow.drawio
     ├── ai-workflow.drawio
-    ├── workflow-states.drawio
-    ├── automation.drawio
-    ├── orchestration.drawio
+    ├── event-flow.drawio
+    ├── digital-twin.drawio
     ├── mermaid/
     │   ├── lifecycle.mmd
-    │   ├── workflow.mmd
+    │   ├── workflows.mmd
     │   ├── ai.mmd
-    │   ├── states.mmd
-    │   └── automation.mmd
+    │   ├── events.mmd
+    │   └── orchestration.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
-```
-
----
-
-# Repository Structure
-
-```text
-workflow/
-├── business-processes/
-├── state-machines/
-├── orchestrations/
-├── automations/
-├── approvals/
-├── ai/
-├── events/
-├── diagrams/
-└── metadata.yml
+        ├── workflow-architecture.svg
+        ├── workflow-architecture.png
+        └── workflow-architecture.pdf
 ```
 
 ---
@@ -645,6 +819,7 @@ workflow/
 | User Journeys | Chapter 05 |
 | Information Architecture | Chapter 06 |
 | Business Rules | Chapter 17 |
+| User Stories | Chapter 18 |
 | API Contracts | Chapter 19 |
 | Event Architecture | Chapter 20 |
 | AI Services | Chapter 21 |
@@ -656,13 +831,14 @@ workflow/
 
 This chapter is complete when:
 
-- Core workflows are documented.
-- Workflow lifecycle is defined.
-- State transitions are specified.
-- AI participation is documented.
-- Automation rules are identified.
-- Security validations are defined.
-- Governance model is established.
+- Business workflows are documented.
+- Workflow states and transitions are defined.
+- AI orchestration is specified.
+- Human Digital Twin synchronization is documented.
+- Domain events are identified.
+- Automation rules are established.
+- Monitoring and KPIs are defined.
+- Workflow versioning and governance are documented.
 - Visual artifacts are available.
 - Traceability is complete.
 
@@ -670,10 +846,10 @@ This chapter is complete when:
 
 # Key Takeaways
 
-- The Workflow Architecture models the complete operational lifecycle of professional coaching services rather than isolated application features.
-- Event-driven orchestration, standardized state transitions and AI-assisted decision support enable scalable, auditable and resilient business processes.
-- Human oversight remains central, with AI augmenting professional decision-making through contextual recommendations and automation.
-- A governed workflow architecture provides the foundation for APIs, events, analytics, testing and future process evolution across the EVOXA platform.
+- The Nutritionist Portal is built around standardized, event-driven business workflows rather than isolated user interface interactions.
+- Every workflow integrates validation, automation, AI assistance and professional oversight, ensuring efficient and auditable nutritional care.
+- Human Digital Twin synchronization and domain events enable continuous personalization and seamless integration with the broader EVOXA ecosystem.
+- Versioned workflows, governance policies and operational metrics provide a scalable foundation for future evolution while maintaining consistency and regulatory compliance.
 
 ---
 
@@ -681,4 +857,4 @@ This chapter is complete when:
 
 **Chapter 17 — Business Rules**
 
-This chapter defines the business rules governing the Coach Portal, including validation rules, workflow constraints, authorization policies, AI guardrails, compliance requirements and operational decision logic.
+This chapter defines the business rules that govern nutritional assessments, meal planning, client management, AI recommendations, workflow validations, permissions and compliance requirements within the Nutritionist Portal.
