@@ -1,11 +1,11 @@
 ---
-document_id: BP-0003-V3-C07-04-28
-chapter_id: CH-04-COACH-28
-feature_pack: FP-COACH-0000
+document_id: BP-0003-V3-C07-05-28
+chapter_id: CH-05-NUTRITION-28
+feature_pack: FP-NUTRITION-0000
 title: Release & Deployment
 version: 1.0.0
 status: Draft
-owner: Release Engineering Board
+owner: Platform Engineering Board
 authors:
   - EVOXA Architecture Team
 classification: Internal
@@ -14,57 +14,57 @@ last_updated: 2026-08-04
 
 # Chapter 28 — Release & Deployment
 
-> *The Release & Deployment chapter defines the architecture, processes and governance for delivering the Coach Portal safely, consistently and efficiently across all supported environments.*
+> *The Release & Deployment chapter defines the release management strategy, deployment architecture, environment promotion model, infrastructure automation and operational controls that ensure safe, reliable and repeatable software delivery across the EVOXA ecosystem.*
 
 ---
 
 # Executive Summary
 
-Release Management ensures that software changes move from development to production through controlled, automated and observable processes.
+The Nutritionist Portal follows a cloud-native Continuous Delivery strategy where releases are automated, traceable and reversible.
 
-The Coach Portal adopts Continuous Delivery principles supported by Infrastructure as Code (IaC), automated quality gates and deployment strategies that minimize operational risk.
+Deployment pipelines integrate quality gates, security validation, infrastructure automation and progressive rollout techniques, ensuring minimal operational risk while enabling rapid delivery of new features.
 
-Every deployment is versioned, traceable and reversible.
+Release management is standardized across all EVOXA portals.
 
 ---
 
 # Objectives
 
-The Release Platform shall:
+The Release Strategy shall:
 
-- Automate software delivery.
-- Ensure deployment consistency.
-- Minimize release risk.
-- Support zero-downtime deployments.
-- Enable rapid rollback.
-- Maintain full traceability.
-- Support multi-environment deployments.
+- Enable Continuous Delivery.
+- Minimize deployment risk.
+- Support rapid rollback.
+- Ensure environment consistency.
+- Automate infrastructure.
+- Reduce downtime.
+- Improve deployment reliability.
 
 ---
 
 # Release Philosophy
 
-Every release must be:
+Every deployment shall be:
 
-- Automated.
-- Tested.
-- Repeatable.
-- Observable.
-- Auditable.
-- Recoverable.
+- Automated
+- Versioned
+- Reproducible
+- Auditable
+- Observable
+- Reversible
 
-Manual deployments are exceptional.
+Manual production deployments are discouraged except during emergency procedures.
 
 ---
 
-# Release Lifecycle
+# Deployment Lifecycle
 
 ```text
-Plan
+Planning
 
 ↓
 
-Develop
+Development
 
 ↓
 
@@ -72,331 +72,11 @@ Build
 
 ↓
 
-Test
+Testing
 
 ↓
 
-Approve
-
-↓
-
-Deploy
-
-↓
-
-Validate
-
-↓
-
-Monitor
-
-↓
-
-Operate
-```
-
----
-
-# Deployment Architecture
-
-```text
-Source Control
-
-↓
-
-CI Pipeline
-
-↓
-
-Artifact Registry
-
-↓
-
-CD Pipeline
-
-↓
-
-Target Environment
-
-↓
-
-Monitoring
-
-↓
-
-Feedback
-```
-
----
-
-# Supported Environments
-
-| Environment | Purpose |
-|-------------|----------|
-| Local | Developer workstation |
-| Development | Feature integration |
-| QA | Functional validation |
-| Staging | Pre-production validation |
-| Production | Live operations |
-| Disaster Recovery | Business continuity |
-
-Each environment mirrors production as closely as practical.
-
----
-
-# CI Pipeline
-
-Continuous Integration includes:
-
-- Source checkout.
-- Dependency installation.
-- Static analysis.
-- Unit testing.
-- Integration testing.
-- Artifact generation.
-- Security scanning.
-
-Every commit triggers validation.
-
----
-
-# CD Pipeline
-
-Continuous Delivery includes:
-
-- Artifact promotion.
-- Environment validation.
-- Configuration injection.
-- Database migration.
-- Deployment.
-- Smoke testing.
-- Monitoring activation.
-
----
-
-# Artifact Management
-
-Artifacts include:
-
-- Backend containers.
-- Frontend bundles.
-- AI models.
-- Infrastructure templates.
-- Database migrations.
-
-Artifacts are immutable after publication.
-
----
-
-# Versioning Strategy
-
-Versioning follows Semantic Versioning.
-
-Example:
-
-```text
-MAJOR.MINOR.PATCH
-
-2.4.1
-```
-
-Breaking changes require a new major version.
-
----
-
-# Infrastructure as Code
-
-Infrastructure is managed through declarative definitions.
-
-Resources include:
-
-- Compute.
-- Networking.
-- Storage.
-- Secrets.
-- Monitoring.
-- Load balancers.
-- Databases.
-
-Infrastructure changes follow the same review process as application code.
-
----
-
-# Configuration Management
-
-Configuration is externalized.
-
-Examples:
-
-- Environment variables.
-- Feature flags.
-- Secrets.
-- Service endpoints.
-- AI model configuration.
-
-Application binaries remain environment agnostic.
-
----
-
-# Database Deployment
-
-Database releases include:
-
-- Versioned migrations.
-- Backward compatibility.
-- Rollback strategy.
-- Migration validation.
-- Data integrity checks.
-
-Schema evolution follows controlled migration practices.
-
----
-
-# Feature Flags
-
-Feature Flags support:
-
-- Incremental rollout.
-- Internal previews.
-- Beta testing.
-- Emergency deactivation.
-- A/B testing.
-
-Features can be enabled independently of deployments.
-
----
-
-# Deployment Strategies
-
-Supported deployment models:
-
-- Rolling Deployment.
-- Blue/Green Deployment.
-- Canary Deployment.
-- Progressive Rollout.
-
-Strategy selection depends on workload criticality.
-
----
-
-# Rollback Strategy
-
-Rollback includes:
-
-- Previous application version.
-- Previous infrastructure state.
-- Database rollback (when supported).
-- Feature flag deactivation.
-
-Rollback procedures are documented and tested.
-
----
-
-# Zero-Downtime Deployment
-
-The platform supports:
-
-- Health checks.
-- Readiness probes.
-- Graceful shutdown.
-- Connection draining.
-- Session preservation.
-
-User interruption is minimized.
-
----
-
-# Release Validation
-
-Every deployment validates:
-
-- Application health.
-- API availability.
-- Database connectivity.
-- AI services.
-- Background workers.
-- Event platform.
-- Critical workflows.
-
-Deployment completes only after successful validation.
-
----
-
-# Deployment Security
-
-Every deployment enforces:
-
-- Signed artifacts.
-- Least-privilege credentials.
-- Secret rotation.
-- Secure artifact registry.
-- Audit logging.
-
----
-
-# Observability Integration
-
-Deployment events are integrated with:
-
-- Metrics.
-- Logs.
-- Traces.
-- Alerts.
-- Dashboards.
-
-Release health is monitored continuously.
-
----
-
-# Disaster Recovery
-
-Deployment architecture supports:
-
-- Multi-region recovery.
-- Automated backups.
-- Infrastructure recreation.
-- Configuration recovery.
-- Service restoration.
-
-Recovery procedures are tested regularly.
-
----
-
-# Release Metrics
-
-Measured indicators include:
-
-- Deployment frequency.
-- Lead time.
-- Change failure rate.
-- Rollback frequency.
-- Mean Time to Recovery (MTTR).
-- Deployment duration.
-
----
-
-# Release Governance
-
-Every release defines:
-
-- Version.
-- Release owner.
-- Approval record.
-- Deployment strategy.
-- Rollback plan.
-- Risk assessment.
-- Release notes.
-
----
-
-# Release Lifecycle
-
-```text
-Development
-
-↓
-
-Validation
+Approval
 
 ↓
 
@@ -404,7 +84,7 @@ Deployment
 
 ↓
 
-Verification
+Validation
 
 ↓
 
@@ -412,8 +92,317 @@ Monitoring
 
 ↓
 
-Continuous Improvement
+Release
 ```
+
+---
+
+# Release Types
+
+Supported release models include:
+
+- Major Releases
+- Minor Releases
+- Patch Releases
+- Hotfix Releases
+- Emergency Releases
+- Feature Flag Releases
+
+---
+
+# Versioning Strategy
+
+Semantic Versioning is adopted.
+
+Example:
+
+```text
+MAJOR.MINOR.PATCH
+
+1.0.0
+1.1.0
+1.1.3
+2.0.0
+```
+
+---
+
+# Branch Strategy
+
+Recommended Git branches:
+
+```text
+main
+
+develop
+
+feature/*
+
+release/*
+
+hotfix/*
+```
+
+Protected branches require pull request approval.
+
+---
+
+# CI/CD Pipeline
+
+```text
+Commit
+
+↓
+
+Build
+
+↓
+
+Static Analysis
+
+↓
+
+Security Scan
+
+↓
+
+Unit Tests
+
+↓
+
+Integration Tests
+
+↓
+
+AI Evaluation
+
+↓
+
+Artifact Creation
+
+↓
+
+Deployment
+
+↓
+
+Validation
+```
+
+---
+
+# Build Artifacts
+
+Artifacts include:
+
+- Backend containers
+- Frontend bundles
+- Infrastructure manifests
+- Database migrations
+- API specifications
+- AI configuration packages
+
+Artifacts are immutable once published.
+
+---
+
+# Environment Strategy
+
+Standard environments:
+
+- Local
+- Development
+- Integration
+- QA
+- Staging
+- Production
+
+Each environment mirrors production as closely as practical.
+
+---
+
+# Infrastructure as Code
+
+Infrastructure is managed through code.
+
+Managed resources include:
+
+- Kubernetes
+- Networking
+- Databases
+- Storage
+- Secrets
+- Monitoring
+- AI infrastructure
+
+Infrastructure changes follow the same review process as application code.
+
+---
+
+# Deployment Strategies
+
+Supported strategies:
+
+- Rolling Deployment
+- Blue-Green Deployment
+- Canary Deployment
+- Progressive Delivery
+- Feature Flags
+
+The deployment strategy is selected based on system criticality.
+
+---
+
+# Feature Flags
+
+Feature flags enable:
+
+- Controlled releases.
+- A/B testing.
+- Gradual rollout.
+- Emergency deactivation.
+- Customer-specific functionality.
+
+Flags are versioned and governed.
+
+---
+
+# Database Migrations
+
+Migration rules:
+
+- Forward-compatible.
+- Backward-compatible where possible.
+- Versioned.
+- Automated.
+- Reversible.
+
+Long-running migrations are executed independently of application deployment.
+
+---
+
+# Configuration Management
+
+Application configuration includes:
+
+- Environment variables
+- Secrets
+- Feature flags
+- Organization settings
+- AI model configuration
+
+Configuration is externalized from application code.
+
+---
+
+# Secrets Management
+
+Secrets include:
+
+- Database credentials
+- API keys
+- OAuth secrets
+- Encryption keys
+- AI provider credentials
+
+Secrets are retrieved dynamically at runtime.
+
+---
+
+# Rollback Strategy
+
+Rollback includes:
+
+- Previous application version
+- Previous infrastructure version
+- Database compatibility validation
+- Feature flag deactivation
+- Monitoring verification
+
+Rollback procedures are tested regularly.
+
+---
+
+# Deployment Validation
+
+Post-deployment validation includes:
+
+- Smoke Tests
+- API Health Checks
+- AI Health Checks
+- Workflow Validation
+- Event Processing Verification
+- Dashboard Availability
+
+Deployment is considered successful only after validation passes.
+
+---
+
+# Release Governance
+
+Every release requires:
+
+- Release notes.
+- Approved quality gates.
+- Security approval.
+- Operational readiness.
+- Rollback plan.
+- Deployment checklist.
+
+---
+
+# Operational Readiness Checklist
+
+Deployment readiness verifies:
+
+- Infrastructure health.
+- Database migrations.
+- Monitoring dashboards.
+- Alerting rules.
+- Backup status.
+- Disaster recovery readiness.
+- AI model compatibility.
+
+---
+
+# Deployment Metrics
+
+Measured indicators:
+
+| Metric | Target |
+|----------|---------|
+| Deployment Success Rate | >99% |
+| Rollback Frequency | <2% |
+| Mean Deployment Time | <15 min |
+| Change Failure Rate | <5% |
+| Recovery Time | <30 min |
+
+---
+
+# Release Documentation
+
+Each release includes:
+
+- Version
+- Features
+- Bug fixes
+- Database changes
+- API changes
+- AI model updates
+- Known issues
+- Rollback instructions
+
+---
+
+# Governance
+
+Deployment policies define:
+
+- Approval workflow.
+- Production windows.
+- Emergency procedures.
+- Change management.
+- Audit requirements.
 
 ---
 
@@ -424,12 +413,13 @@ release/
 ├── pipelines/
 ├── environments/
 ├── infrastructure/
+├── deployments/
 ├── migrations/
 ├── feature-flags/
-├── deployment/
 ├── rollback/
 ├── release-notes/
-├── runbooks/
+├── validation/
+├── governance/
 └── metadata.yml
 ```
 
@@ -437,7 +427,7 @@ release/
 
 # Standard Visual Artifacts
 
-## Release Pipeline
+## CI/CD Pipeline
 
 ```text
 Code
@@ -448,7 +438,7 @@ Build
 
 ↓
 
-Test
+Tests
 
 ↓
 
@@ -456,7 +446,7 @@ Deploy
 
 ↓
 
-Monitor
+Validate
 ```
 
 ---
@@ -481,10 +471,34 @@ Production
 
 ---
 
-## Blue/Green Deployment
+## Canary Deployment
 
 ```text
-Blue
+10%
+
+↓
+
+25%
+
+↓
+
+50%
+
+↓
+
+100%
+```
+
+---
+
+## Rollback Flow
+
+```text
+Issue Detected
+
+↓
+
+Rollback
 
 ↓
 
@@ -492,31 +506,7 @@ Validation
 
 ↓
 
-Traffic Switch
-
-↓
-
-Green
-```
-
----
-
-## Deployment Validation
-
-```text
-Deploy
-
-↓
-
-Health Checks
-
-↓
-
-Smoke Tests
-
-↓
-
-Production
+Recovery
 ```
 
 ---
@@ -526,22 +516,22 @@ Production
 ```text
 artifacts/
 └── release-deployment/
-    ├── ci-cd-pipeline.drawio
-    ├── environment-promotion.drawio
-    ├── blue-green.drawio
+    ├── pipeline.drawio
+    ├── environments.drawio
+    ├── deployment-strategies.drawio
+    ├── rollback.drawio
     ├── feature-flags.drawio
-    ├── deployment-validation.drawio
-    ├── rollback-strategy.drawio
+    ├── governance.drawio
     ├── mermaid/
     │   ├── pipeline.mmd
     │   ├── deployment.mmd
-    │   ├── rollout.mmd
+    │   ├── environments.mmd
     │   ├── rollback.mmd
-    │   └── environments.mmd
+    │   └── release.mmd
     └── exports/
-        ├── *.svg
-        ├── *.png
-        └── *.pdf
+        ├── release-deployment.svg
+        ├── release-deployment.png
+        └── release-deployment.pdf
 ```
 
 ---
@@ -552,6 +542,7 @@ artifacts/
 |----------|-----------|
 | API Contracts | Chapter 19 |
 | Event Architecture | Chapter 20 |
+| AI Services | Chapter 21 |
 | Security & Permissions | Chapter 23 |
 | Observability & Analytics | Chapter 24 |
 | Performance & Scalability | Chapter 26 |
@@ -565,23 +556,22 @@ artifacts/
 This chapter is complete when:
 
 - Release lifecycle is documented.
-- Deployment architecture is defined.
-- Environment strategy is specified.
-- CI/CD pipelines are documented.
-- Rollback and disaster recovery procedures are defined.
-- Deployment security controls are established.
-- Release metrics and governance are documented.
-- Visual artifacts are available.
-- Traceability is complete.
+- CI/CD pipeline is defined.
+- Environment promotion strategy is established.
+- Infrastructure as Code practices are documented.
+- Deployment, rollback and validation procedures are specified.
+- Feature flag governance is defined.
+- Release metrics and operational readiness are measurable.
+- Visual artifacts and traceability are complete.
 
 ---
 
 # Key Takeaways
 
-- The Coach Portal adopts an automated Release Engineering strategy that enables reliable, repeatable and low-risk software delivery.
-- Continuous Integration, Continuous Delivery and Infrastructure as Code provide consistent deployments across all environments.
-- Progressive deployment strategies, feature flags and validated rollback procedures minimize operational impact while accelerating delivery.
-- Integrated observability, security and governance ensure that every release is measurable, auditable and aligned with enterprise operational standards.
+- The Nutritionist Portal implements an automated, cloud-native release strategy that emphasizes reliability, traceability and rapid recovery.
+- Continuous Delivery pipelines integrate quality engineering, security validation, AI evaluation and infrastructure automation into every deployment.
+- Progressive deployment techniques, feature flags and tested rollback procedures reduce operational risk while enabling rapid product evolution.
+- Standardized release governance ensures that every deployment is observable, auditable and aligned with the engineering standards of the EVOXA ecosystem.
 
 ---
 
@@ -589,4 +579,4 @@ This chapter is complete when:
 
 **Chapter 29 — Operational Excellence**
 
-This chapter defines the operational model of the Coach Portal, including service management, incident response, reliability engineering, support processes, platform governance, operational KPIs and continuous improvement practices.
+This chapter defines the operational model of the Nutritionist Portal, including Site Reliability Engineering (SRE), incident management, service operations, platform governance, capacity management, AI operations and continuous service improvement.
