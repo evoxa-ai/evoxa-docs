@@ -1,0 +1,71 @@
+# metadata.yml
+
+id: MOD-AI-010
+
+name: Developer Portal
+
+volume: Volume III
+
+domain: AI Platform
+
+category: Developer Experience
+
+version: 1.0.0
+
+status: Draft
+
+owner: EVOXA Architecture Board
+
+maintainers:
+  - Platform Team
+  - AI Team
+  - DX Team
+
+repository: evoxa-docs
+
+module: 10-developer-portal
+
+chapters: 30
+
+language: en-US
+
+classification: Internal
+
+documentation:
+  format: Markdown
+  diagrams: Draw.io
+  architecture: Mermaid
+  ui: Figma
+
+outputs:
+  pdf: true
+  html: true
+  markdown: true
+
+artifacts:
+
+  diagrams: true
+
+  figma: true
+
+  exports: true
+
+  catalog: true
+
+dependencies:
+
+  - Identity Platform
+
+  - AI Core
+
+  - API Gateway
+
+  - Workflow Engine
+
+  - Marketplace
+
+  - Billing Platform
+
+  - Monitoring Platform
+
+last_updated: 2026-08-05
