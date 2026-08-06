@@ -1,0 +1,65 @@
+# metadata.yml
+
+document:
+  id: BP-0003-V3-C07-08
+  title: AI Console
+  module: 08-ai-console
+  volume: Volume 03 — AI
+  blueprint: EVOXA Architecture Blueprint
+
+version:
+  major: 1
+  minor: 0
+  patch: 0
+  status: Draft
+
+ownership:
+  owner: AI Platform Board
+  architecture: EVOXA Architecture Team
+  classification: Internal
+
+repository:
+  root: books/blueprint/volume-03-ai/chapters/07-web-platform/chapters/08-ai-console
+
+folders:
+  chapters: true
+  catalog: true
+  artifacts: true
+  diagrams: true
+  exports: true
+  figma: true
+
+standards:
+  language: English
+  markdown: CommonMark
+  diagrams:
+    - Mermaid
+    - Draw.io
+  api:
+    - OpenAPI 3.1
+    - GraphQL
+    - AsyncAPI
+
+architecture:
+  style:
+    - AI Native
+    - Cloud Native
+    - Event Driven
+    - API First
+    - Multi-Tenant
+    - Zero Trust
+    - Model Agnostic
+
+governance:
+  review_cycle: Quarterly
+  approval: AI Platform Board
+  versioning: Semantic Versioning
+
+dependencies:
+  - 06-enterprise-portal
+  - 07-admin-portal
+
+status:
+  completed_chapters: 0
+  total_chapters: 30
+  progress: 0%
