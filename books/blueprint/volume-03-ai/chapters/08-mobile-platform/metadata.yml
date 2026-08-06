@@ -1,0 +1,36 @@
+id: volume-03-08
+
+title: Mobile Platform
+
+version: 1.0.0
+
+status: Draft
+
+owner: Mobile Architecture Team
+
+classification: Internal
+
+domain: Mobile
+
+platforms:
+  - Android
+  - iOS
+  - PWA
+
+framework:
+  primary: Flutter
+  alternatives:
+    - React Native
+
+authentication:
+  - OAuth2
+  - OpenID Connect
+  - Biometrics
+
+offline: true
+
+ai_enabled: true
+
+chapters: 30
+
+last_updated: 2026-08-05
