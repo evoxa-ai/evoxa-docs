@@ -1,0 +1,68 @@
+id: BP-0003-V3-C07-07
+
+title: EVOXA Admin Portal Blueprint
+
+product: EVOXA
+
+volume: Volume 03 — AI Platform
+
+blueprint: Web Platform
+
+portal: Admin Portal
+
+version: 1.0.0
+
+status: Draft
+
+classification: Internal
+
+owner: Platform Architecture Board
+
+authors:
+  - EVOXA Architecture Team
+
+reviewers:
+  - Platform Engineering Board
+  - Security Architecture Board
+  - AI Architecture Board
+  - UX Architecture Board
+
+created: 2026-08-05
+
+last_updated: 2026-08-05
+
+language: en
+
+documentation_type: Architecture Blueprint
+
+chapters: 30
+
+artifacts:
+  drawio: true
+  mermaid: true
+  figma: true
+  svg: true
+  png: true
+  pdf: true
+
+repository:
+  root: 07-admin-portal
+
+dependencies:
+  - Identity Platform
+  - Security Platform
+  - AI Platform
+  - Data Platform
+  - Event Platform
+  - Operations Platform
+  - Developer Platform
+
+tags:
+  - admin
+  - platform
+  - architecture
+  - ai
+  - security
+  - governance
+  - operations
+  - enterprise
