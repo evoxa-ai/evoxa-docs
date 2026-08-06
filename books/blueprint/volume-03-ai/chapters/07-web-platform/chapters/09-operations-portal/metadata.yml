@@ -1,0 +1,61 @@
+# metadata.yml
+
+document:
+  id: BP-0003-V3-B09
+  title: Operations Portal
+  volume: Volume 03 — AI Platform
+  book: "09"
+  version: 1.0.0
+  status: Draft
+  classification: Internal
+
+ownership:
+  owner: Platform Operations Board
+  architects:
+    - EVOXA Architecture Team
+  engineering:
+    - Platform Engineering
+    - Site Reliability Engineering
+    - AI Operations
+
+repository:
+  root: books/blueprint/volume-03-ai/chapters/07-web-platform/chapters/09-operations-portal
+
+structure:
+  chapters: 30
+  artifacts: true
+  diagrams: true
+  figma: true
+  exports: true
+
+standards:
+  language: English
+  markdown: CommonMark
+  diagrams:
+    - Draw.io
+    - Mermaid
+  versioning: Semantic Versioning
+
+deliverables:
+  - Functional Specification
+  - UX Documentation
+  - Architecture Documentation
+  - API Documentation
+  - Operational Models
+  - Security Documentation
+  - Observability Models
+  - Deployment Documentation
+
+related_books:
+  - 07-admin-portal
+  - 08-ai-console
+  - 10-developer-portal
+
+lifecycle:
+  created: 2026-08-05
+  last_updated: 2026-08-05
+  next_review: 2026-11-05
+
+license:
+  usage: Internal
+  redistribution: Restricted
