@@ -1,0 +1,98 @@
+id: BP-V3-C09
+
+title: AI Platform
+
+volume: 3
+
+chapter: 9
+
+version: 1.0.0
+
+status: Draft
+
+owner: AI Architecture Board
+
+classification: Internal
+
+authors:
+  - EVOXA Architecture Team
+
+created: 2026-08-05
+
+updated: 2026-08-05
+
+language: en
+
+repository: blueprint/volume-3/09-ai-platform
+
+slug: ai-platform
+
+category: Enterprise AI
+
+feature_pack: FP-AI-0001
+
+tags:
+  - AI
+  - LLM
+  - Agents
+  - MCP
+  - RAG
+  - Memory
+  - Enterprise AI
+  - Knowledge Graph
+  - AI Security
+  - AI Governance
+  - Prompt Engineering
+  - AI Platform
+
+chapters: 30
+
+deliverables:
+
+  - Enterprise AI Architecture
+
+  - Multi-Agent Framework
+
+  - AI Gateway
+
+  - Prompt Platform
+
+  - RAG Platform
+
+  - Knowledge Platform
+
+  - AI APIs
+
+  - AI Security
+
+  - AI Governance
+
+  - AI Operations
+
+  - AI Marketplace
+
+dependencies:
+
+  - Volume 1
+
+  - Volume 2
+
+  - Backend Platform
+
+  - Frontend Platform
+
+  - Mobile Platform
+
+artifacts:
+
+  diagrams: 300+
+
+  specifications: Complete
+
+  repositories: Included
+
+  APIs: Included
+
+  workflows: Included
+
+next_chapter: 01-overview
