@@ -1,0 +1,63 @@
+# metadata.yml
+
+document:
+  id: BP-0003-V3-C12
+  title: Enterprise Agent Platform
+  volume: 3
+  chapter: 12
+  version: 1.0.0
+  status: Draft
+
+ownership:
+  owner: Enterprise AI Architecture Board
+  organization: EVOXA
+  authors:
+    - EVOXA Architecture Team
+
+classification:
+  confidentiality: Internal
+  audience:
+    - Enterprise Architects
+    - AI Engineers
+    - Platform Engineers
+    - Software Engineers
+    - DevOps Engineers
+    - Product Managers
+
+dates:
+  created: 2026-08-07
+  updated: 2026-08-07
+
+architecture:
+  domain: Enterprise AI Platform
+  module: Agent Platform
+  type: Blueprint
+
+standards:
+  - OpenAPI 3.1
+  - AsyncAPI
+  - MCP
+  - Agent-to-Agent (A2A)
+  - OAuth 2.1
+  - OpenID Connect
+  - OpenTelemetry
+  - JSON Schema
+  - GraphQL
+  - Kubernetes
+
+deliverables:
+  chapters: 30
+  diagrams: 100
+  api_contracts: true
+  event_catalog: true
+  security_model: true
+  ai_services: true
+  data_model: true
+  observability: true
+
+repository:
+  root: chapter-12-agent-platform
+
+license:
+  type: Proprietary
+  owner: EVOXA
