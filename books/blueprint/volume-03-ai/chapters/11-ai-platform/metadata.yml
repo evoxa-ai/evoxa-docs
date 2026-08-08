@@ -1,0 +1,58 @@
+# metadata.yml
+
+document:
+  id: BP-0003-V3-C11
+  title: Enterprise Analytics Platform
+  volume: Volume 3
+  chapter: 11
+  version: 1.0.0
+  status: Draft
+  classification: Internal
+
+ownership:
+  owner: Enterprise Architecture Board
+  authors:
+    - EVOXA Architecture Team
+
+dates:
+  created: 2026-08-06
+  updated: 2026-08-06
+
+scope:
+  domain: Enterprise Analytics Platform
+
+platform:
+  analytics:
+    - Enterprise BI
+    - Dashboard Platform
+    - KPI Engine
+    - Reporting
+    - Metrics Store
+    - Semantic Layer
+    - AI Analytics
+    - Predictive Analytics
+    - Embedded Analytics
+    - Executive Dashboards
+    - Operational Intelligence
+    - Natural Language Analytics
+    - Self-Service Analytics
+
+deliverables:
+  chapters: 30
+  diagrams: true
+  drawio: true
+  mermaid: true
+  reference_models: true
+  architecture_decisions: true
+
+dependencies:
+  - Volume 3 Chapter 01 Core Platform
+  - Volume 3 Chapter 02 Data Platform
+  - Volume 3 Chapter 03 AI Engine
+  - Volume 3 Chapter 04 Security Platform
+  - Volume 3 Chapter 10 Integration Platform
+
+repository:
+  root: chapter-11-enterprise-analytics-platform
+
+license: Internal Enterprise Blueprint
