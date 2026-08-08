@@ -1,0 +1,91 @@
+# metadata.yml
+
+document:
+  id: BP-0003-V3-C13
+  title: Workflow Platform
+  volume: 3
+  chapter: 13
+  version: 1.0.0
+  status: Draft
+
+owner:
+  organization: EVOXA Architecture Team
+  board: Enterprise Workflow Architecture Board
+
+classification: Internal
+
+dates:
+  created: 2026-08-07
+  updated: 2026-08-07
+
+feature_pack:
+  id: FP-WORKFLOW-0001
+  name: Workflow Platform
+
+architecture:
+  style: Enterprise AI
+  patterns:
+    - Workflow First
+    - BPMN
+    - Event Driven
+    - AI Native
+    - Multi-Agent
+    - Human in the Loop
+    - CQRS
+    - Event Sourcing
+    - Cloud Native
+
+standards:
+  - BPMN 2.0
+  - OpenAPI 3.1
+  - OAuth2
+  - OpenID Connect
+  - GraphQL
+  - OpenTelemetry
+  - Kubernetes
+  - GitOps
+  - Zero Trust
+
+repository:
+  root: volume-03/chapter-13-workflow-platform
+
+chapters:
+
+  total: 30
+
+deliverables:
+
+  diagrams:
+    drawio: true
+    mermaid: true
+
+  documentation: true
+
+  api_contracts: true
+
+  data_models: true
+
+  events: true
+
+  governance: true
+
+  traceability: true
+
+  kpis: true
+
+  acceptance_criteria: true
+
+dependencies:
+
+  - Chapter 09 — Agent Architecture
+  - Chapter 10 — Multi-Agent Orchestration
+  - Chapter 11 — Agent Communication
+  - Chapter 12 — Enterprise Agent Platform
+
+status:
+
+  completed: false
+
+next_document:
+
+  01-overview
