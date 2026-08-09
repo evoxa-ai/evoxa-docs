@@ -1,0 +1,99 @@
+# metadata.yml
+
+id: BP-0003-V3-C14
+
+title: Marketplace
+
+module: Marketplace
+
+version: 1.0.0
+
+status: Draft
+
+classification: Internal
+
+owner: Enterprise Architecture Board
+
+product: EVOXA Enterprise Platform
+
+blueprint: Enterprise Blueprint V3
+
+chapter: 14
+
+repository: 14-marketplace
+
+authors:
+  - EVOXA Architecture Team
+
+reviewers:
+  - Enterprise Architecture Board
+  - Product Strategy Board
+  - AI Governance Board
+  - Security Architecture Board
+
+tags:
+  - marketplace
+  - enterprise
+  - ai
+  - workflow
+  - agents
+  - prompts
+  - integrations
+  - connectors
+  - widgets
+  - sdk
+  - api
+  - monetization
+
+feature_pack: FP-MARKETPLACE-0001
+
+documentation_type: Enterprise Architecture
+
+language: en-US
+
+last_updated: 2026-08-07
+
+related_modules:
+  - AI Platform
+  - Workflow Platform
+  - Agent Platform
+  - Integration Platform
+  - Security Platform
+
+artifacts:
+
+  diagrams: true
+
+  drawio: true
+
+  mermaid: true
+
+  openapi: true
+
+  erd: true
+
+  sequence: true
+
+deliverables:
+
+  documents: 30
+
+  diagrams: 80
+
+  api_contracts: true
+
+  data_models: true
+
+  user_stories: true
+
+  architecture: true
+
+lifecycle:
+
+  current_phase: Architecture
+
+  next_document: 01-overview
+
+approval_status: Draft
+
+license: Internal Enterprise Documentation
