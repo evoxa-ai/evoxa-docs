@@ -1,0 +1,115 @@
+# metadata.yml
+
+id: BP-0003-V3-C15
+
+title: MCP Platform
+
+volume: 3
+
+chapter: 15
+
+version: 1.0.0
+
+status: Draft
+
+classification: Internal
+
+owner: Enterprise Architecture Board
+
+product: EVOXA Platform
+
+domain: Enterprise Platforms
+
+slug: mcp-platform
+
+repository: blueprint/volume-03/15-mcp-platform
+
+authors:
+  - EVOXA Architecture Team
+
+reviewers:
+  - Enterprise Architecture Board
+  - AI Platform Team
+  - Platform Engineering
+  - Security Team
+
+tags:
+  - MCP
+  - Model Context Protocol
+  - AI
+  - Enterprise AI
+  - Tool Calling
+  - Resource Registry
+  - Prompt Registry
+  - AI Gateway
+  - Workflow
+  - Marketplace
+  - Agents
+  - Platform
+
+capabilities:
+  - MCP Gateway
+  - MCP Registry
+  - Tool Registry
+  - Resource Registry
+  - Prompt Registry
+  - Context Providers
+  - Session Management
+  - Multi Model Routing
+  - Enterprise Connectors
+  - AI Integration
+  - Authentication
+  - Authorization
+  - Observability
+
+deliverables:
+
+  documents: 30
+
+  diagrams:
+
+    drawio: true
+
+    mermaid: true
+
+    svg: true
+
+    png: true
+
+    pdf: true
+
+outputs:
+
+  markdown: true
+
+  documentation: true
+
+  architecture: true
+
+  diagrams: true
+
+dependencies:
+
+  - AI Platform
+
+  - Workflow Platform
+
+  - Marketplace
+
+  - Identity Platform
+
+  - Security Platform
+
+  - Enterprise Event Bus
+
+  - API Gateway
+
+related_chapters:
+
+  - Volume 3 / Chapter 13 — Workflow Platform
+
+  - Volume 3 / Chapter 14 — Marketplace
+
+next_chapter: Enterprise Knowledge Platform
+
+last_updated: 2026-08-07
