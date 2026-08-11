@@ -1,0 +1,74 @@
+# metadata.yml
+
+id: VOLUME-17
+
+title: Identity Platform
+
+blueprint: EVOXA Enterprise Blueprint
+
+version: 1.0.0
+
+status: Draft
+
+classification: Internal
+
+owner: Enterprise Identity Architecture Board
+
+product: EVOXA
+
+authors:
+  - EVOXA Architecture Team
+
+created: 2026-08-07
+
+updated: 2026-08-07
+
+language: en-US
+
+volume: 17
+
+chapters: 30
+
+estimated_pages: 1200
+
+maturity: Enterprise
+
+platform: Identity Platform
+
+domains:
+  - Identity
+  - Authentication
+  - Authorization
+  - Federation
+  - MFA
+  - Passwordless
+  - AI Identity
+  - Machine Identity
+  - Session Management
+  - Governance
+
+standards:
+  - OAuth 2.1
+  - OpenID Connect
+  - SAML 2.0
+  - SCIM 2.0
+  - JWT
+  - WebAuthn
+  - FIDO2
+  - LDAP
+  - X.509
+
+related_volumes:
+  - Enterprise Platform
+  - Security Platform
+  - Integration Platform
+  - AI Platform
+  - Administration Platform
+
+repository: 17-identity-platform
+
+license: Internal
+
+confidentiality: Confidential
+
+approval_status: Draft
