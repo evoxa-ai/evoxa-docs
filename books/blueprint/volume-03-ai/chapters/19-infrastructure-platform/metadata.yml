@@ -1,0 +1,71 @@
+# metadata.yml
+
+document:
+  id: BP-0019
+  title: Infrastructure Platform
+  volume: 19
+  version: 1.0.0
+  status: Approved
+  classification: Internal
+  language: en
+  owner: Enterprise Infrastructure Architecture Board
+
+blueprint:
+  name: EVOXA Enterprise Blueprint
+  edition: Enterprise
+  architecture: Cloud Native
+  methodology: Architecture First
+
+authors:
+  - EVOXA Architecture Team
+
+reviewers:
+  - Enterprise Architecture Board
+  - Cloud Engineering Board
+  - Security Architecture Board
+  - DevOps Architecture Board
+
+dates:
+  created: 2026-08-07
+  updated: 2026-08-07
+
+repository:
+  root: 19-infrastructure-platform
+  chapters: 30
+
+technology_domains:
+  - Cloud Computing
+  - Kubernetes
+  - Docker
+  - DevOps
+  - GitOps
+  - Networking
+  - Compute
+  - Storage
+  - Infrastructure as Code
+  - Service Mesh
+  - API Gateway
+  - Observability
+  - AI Infrastructure
+  - Security
+  - Disaster Recovery
+
+standards:
+  - Kubernetes
+  - CNCF
+  - OpenTelemetry
+  - Terraform
+  - Helm
+  - ArgoCD
+  - Prometheus
+  - Grafana
+  - Vault
+  - Istio
+  - Envoy
+
+quality:
+  architecture_ready: true
+  enterprise_ready: true
+  documentation_complete: true
+
+next_volume: Volume 20 — Integration Platform
