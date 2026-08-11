@@ -1,0 +1,58 @@
+# metadata.yml
+
+document:
+  id: BP-0021
+  title: Security Platform
+  volume: 21
+  version: 1.0.0
+  status: Approved
+  classification: Internal
+
+organization:
+  owner: Enterprise Security Office
+  architecture: EVOXA Enterprise Architecture
+  authors:
+    - EVOXA Architecture Team
+
+dates:
+  created: 2026-08-07
+  updated: 2026-08-07
+
+repository:
+  root: 21-security-platform
+  chapters: 30
+
+governance:
+  review_cycle: Quarterly
+  approval_board: Enterprise Architecture Board
+
+principles:
+  - Zero Trust
+  - Security by Design
+  - Least Privilege
+  - Defense in Depth
+  - Privacy by Design
+  - DevSecOps
+  - Continuous Monitoring
+  - Automation First
+  - AI-assisted Security
+  - Cloud Native
+
+deliverables:
+  - Security Architecture
+  - Security Standards
+  - Security Controls
+  - Governance
+  - Compliance
+  - Operational Model
+  - Architecture Diagrams
+  - Security Roadmaps
+
+related_volumes:
+  - Enterprise Architecture
+  - Infrastructure Platform
+  - Data Platform
+  - AI Platform
+  - DevOps Platform
+  - Networking Platform
+  - Application Platform
