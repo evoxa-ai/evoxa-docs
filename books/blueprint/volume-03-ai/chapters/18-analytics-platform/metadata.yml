@@ -1,0 +1,100 @@
+# metadata.yml
+
+id: volume-18
+number: 18
+
+title: Analytics Platform
+
+short_title: Analytics
+
+version: 1.0.0
+
+status: Approved
+
+classification: Internal
+
+owner: Enterprise Analytics Architecture Board
+
+authors:
+  - EVOXA Architecture Team
+
+reviewers:
+  - Enterprise Architecture Board
+  - Data Platform Team
+  - AI Platform Team
+  - Business Intelligence Team
+
+created: 2026-08-07
+
+last_updated: 2026-08-07
+
+blueprint: EVOXA Enterprise Architecture Blueprint
+
+repository: 18-analytics-platform
+
+chapters: 30
+
+language: English
+
+maturity: Enterprise
+
+type: Platform
+
+domain: Analytics
+
+parent_domains:
+  - Enterprise Platform
+  - Data Platform
+  - AI Platform
+
+tags:
+  - analytics
+  - business-intelligence
+  - dashboards
+  - reporting
+  - metrics
+  - kpi
+  - ai
+  - forecasting
+  - data-warehouse
+  - data-lake
+  - lakehouse
+  - streaming
+  - governance
+  - observability
+
+deliverables:
+  - Enterprise Architecture
+  - Data Models
+  - API Contracts
+  - Event Architecture
+  - AI Services
+  - Dashboards
+  - Reporting
+  - KPI Framework
+  - Analytics Governance
+
+supported_standards:
+  - OpenAPI 3.1
+  - GraphQL
+  - OpenTelemetry
+  - SQL
+  - Apache Iceberg
+  - Delta Lake
+  - Apache Spark
+  - Kafka
+  - dbt
+
+dependencies:
+  - Volume 01 Enterprise Platform
+  - Volume 05 Data Platform
+  - Volume 09 AI Platform
+  - Volume 16 Integration Platform
+  - Volume 17 Identity Platform
+
+license: Proprietary
+
+approval:
+  status: Approved
+  approved_by: Enterprise Architecture Board
+  approval_date: 2026-08-07
