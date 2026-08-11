@@ -1,0 +1,67 @@
+id: BP-0003-V3-C16
+
+title: Integration Platform
+
+volume: Volume III - Product Blueprint
+
+chapter: 16
+
+version: 1.0.0
+
+status: Draft
+
+owner: Enterprise Integration Architecture Board
+
+classification: Internal
+
+platform: EVOXA Integration Platform
+
+domain: Enterprise Integration
+
+subcategory: API & Connectivity
+
+authors:
+  - EVOXA Architecture Team
+
+reviewers:
+  - Enterprise Architecture Board
+  - API Governance Board
+  - Security Board
+  - Platform Engineering
+
+tags:
+  - integration
+  - api
+  - gateway
+  - connectors
+  - workflow
+  - events
+  - mcp
+  - ai
+  - enterprise
+  - cloud
+
+related_chapters:
+  - MCP Platform
+  - API Contracts
+  - Event Architecture
+  - AI Services
+  - Data Model
+  - Security & Permissions
+  - Observability & Analytics
+  - Release & Deployment
+
+deliverables:
+  - Architecture
+  - Connectors
+  - APIs
+  - Workflows
+  - Governance
+  - Security
+  - Monitoring
+
+maturity: Enterprise
+
+documentation_type: Product Blueprint
+
+last_updated: 2026-08-07
