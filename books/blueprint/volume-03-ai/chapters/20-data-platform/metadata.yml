@@ -1,0 +1,88 @@
+# metadata.yml
+
+volume:
+  id: 20
+  code: BP-0020
+  title: Data Platform
+  version: 1.0.0
+  status: Approved
+  classification: Internal
+
+owner:
+  organization: EVOXA Enterprise Architecture
+  board: Enterprise Data Architecture Board
+
+authors:
+  - EVOXA Architecture Team
+
+dates:
+  created: 2026-08-07
+  last_updated: 2026-08-07
+
+scope:
+  chapters: 30
+  domain: Enterprise Data Platform
+
+architecture:
+  style: Cloud Native
+  paradigm: Lakehouse First
+  governance: Data Governance
+  ai_ready: true
+  metadata_driven: true
+  event_driven: true
+
+technologies:
+  storage:
+    - PostgreSQL
+    - BigQuery
+    - Snowflake
+    - Delta Lake
+    - Iceberg
+    - Apache Hudi
+    - Redis
+    - Elasticsearch
+
+  processing:
+    - Spark
+    - Flink
+    - dbt
+    - Airflow
+    - Kafka Streams
+
+  streaming:
+    - Apache Kafka
+    - Apache Pulsar
+    - Google Pub/Sub
+
+  analytics:
+    - Power BI
+    - Looker
+    - Superset
+    - Grafana
+
+  machine_learning:
+    - MLflow
+    - Feast
+    - Vertex AI
+    - Kubeflow
+
+standards:
+  documentation: Enterprise Blueprint Standard
+  diagrams: Draw.io
+  api: OpenAPI 3.1
+  metadata: OpenMetadata
+  governance: DAMA-DMBOK
+  lineage: OpenLineage
+
+deliverables:
+  reference_architectures: true
+  governance_framework: true
+  security_framework: true
+  architecture_diagrams: true
+  data_models: true
+  operational_guides: true
+
+repository:
+  root: 20-data-platform
+
+license: Internal Enterprise Documentation
