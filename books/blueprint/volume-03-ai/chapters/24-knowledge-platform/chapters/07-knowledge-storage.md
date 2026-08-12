@@ -1,0 +1,3076 @@
+---
+document_id: BP-0003-C24-07
+chapter_id: CH-03-24-07
+volume: Volume 03 — AI
+chapter: 24 — Knowledge Platform
+document_type: Knowledge Storage
+title: Knowledge Platform — Knowledge Storage
+version: 1.0.0
+status: Draft
+owner: EVOXA Architecture Team
+classification: Internal
+---
+
+# 24 — Knowledge Platform
+
+# 07 — Knowledge Storage
+
+## 1. Introduction
+
+Knowledge Storage is the capability responsible for persistently storing, organizing, versioning, protecting and lifecycle-managing the information and knowledge produced by the Knowledge Platform.
+
+The previous chapters established:
+
+- How knowledge is introduced into EVOXA.
+- How source information is ingested.
+- How information is processed.
+- How semantic representations are generated.
+
+Knowledge Storage establishes where those representations live and how they remain available to the rest of the EVOXA platform.
+
+The fundamental architecture is:
+
+SOURCE
+
+↓
+
+INGESTION
+
+↓
+
+PROCESSING
+
+↓
+
+KNOWLEDGE STORAGE
+
+↓
+
+INDEXING / RETRIEVAL
+
+↓
+
+AI SERVICES
+
+The storage layer therefore becomes a foundational platform capability.
+
+---
+
+# 2. Purpose
+
+The purpose of Knowledge Storage is to provide durable, secure, scalable and governed storage for:
+
+- Source documents.
+- Canonical documents.
+- Processed content.
+- Knowledge objects.
+- Metadata.
+- Entities.
+- Relationships.
+- Embeddings.
+- Knowledge graph structures.
+- Processing artifacts.
+- Versions.
+- Provenance.
+- Security metadata.
+- Lifecycle information.
+
+---
+
+# 3. Strategic Objective
+
+The strategic objective is:
+
+> Provide a unified storage architecture capable of preserving the complete lifecycle of EVOXA knowledge while allowing different storage technologies to be used according to the characteristics of each knowledge representation.
+
+---
+
+# 4. Storage Principles
+
+Knowledge Storage follows these principles:
+
+1. Preserve source information.
+2. Preserve provenance.
+3. Preserve context.
+4. Preserve security metadata.
+5. Preserve tenant boundaries.
+6. Separate storage responsibilities.
+7. Use the appropriate storage technology for each workload.
+8. Support versioning.
+9. Support immutability where required.
+10. Support lifecycle management.
+11. Support high availability.
+12. Support disaster recovery.
+13. Support backup and restoration.
+14. Support encryption.
+15. Support observability.
+16. Support cost optimization.
+17. Support horizontal scalability.
+18. Avoid unnecessary duplication.
+19. Preserve historical knowledge where required.
+20. Never make the vector index the sole source of truth.
+
+---
+
+# 5. Storage Architecture
+
+The Knowledge Platform should use a multi-layer storage architecture.
+
+```text
+                        KNOWLEDGE PLATFORM
+                                │
+                                ▼
+                    ┌───────────────────────┐
+                    │   KNOWLEDGE STORAGE   │
+                    └───────────┬───────────┘
+                                │
+       ┌────────────────────────┼────────────────────────┐
+       │                        │                        │
+       ▼                        ▼                        ▼
+┌──────────────┐        ┌──────────────┐        ┌──────────────┐
+│ Object Store │        │ Knowledge DB │        │ Metadata DB   │
+└──────────────┘        └──────────────┘        └──────────────┘
+       │                        │                        │
+       ▼                        ▼                        ▼
+Raw Documents            Structured Data          Metadata
+Artifacts                Knowledge Objects        Governance
+       │
+       ├────────────────────┐
+       │                    │
+       ▼                    ▼
+┌──────────────┐    ┌──────────────┐
+│ Vector Store │    │ Graph Store  │
+└──────────────┘    └──────────────┘
+       │                    │
+       ▼                    ▼
+ Embeddings             Entities
+ Semantic Search        Relationships
+6. Storage Domains
+
+The storage architecture should logically separate:
+
+Raw Storage
+Processed Storage
+Knowledge Storage
+Metadata Storage
+Vector Storage
+Graph Storage
+Artifact Storage
+Cache Storage
+7. Raw Storage
+
+Raw Storage contains the original information received from source systems.
+
+Examples:
+
+PDF files.
+DOCX files.
+Images.
+Audio.
+Video.
+CSV files.
+JSON files.
+Source exports.
+
+The raw representation should remain available according to retention policy.
+
+8. Raw Data as Source of Truth
+
+Where appropriate, the raw representation should remain the authoritative source for reprocessing.
+
+RAW
+ ↓
+Reprocess
+ ↓
+New Knowledge Representation
+9. Raw Storage Immutability
+
+Critical source content may require immutable storage.
+
+10. Raw Storage Integrity
+
+The platform should preserve:
+
+Checksum
+Source ID
+Ingestion ID
+Timestamp
+Version
+Content Type
+11. Processed Storage
+
+Processed Storage contains representations generated by the processing pipeline.
+
+Examples:
+
+Extracted text.
+Normalized content.
+Structured documents.
+Extracted entities.
+Classified content.
+Processed tables.
+Derived metadata.
+12. Knowledge Storage
+
+Knowledge Storage contains canonical knowledge objects.
+
+A knowledge object may contain:
+
+knowledge:
+  knowledge_id:
+  source_id:
+  version:
+  content:
+  metadata:
+  entities:
+  relationships:
+  provenance:
+  quality:
+  security:
+  lifecycle:
+13. Metadata Storage
+
+Metadata Storage maintains information describing knowledge.
+
+Examples:
+
+Document metadata
+Processing metadata
+Security metadata
+Tenant metadata
+Classification metadata
+Version metadata
+Lifecycle metadata
+14. Vector Storage
+
+Vector Storage contains embeddings generated from knowledge.
+
+Knowledge Chunk
+      ↓
+Embedding Model
+      ↓
+Vector
+      ↓
+Vector Store
+15. Vector Storage Is Not Source of Truth
+
+The vector representation must never replace the canonical knowledge record.
+
+Canonical Knowledge
+        │
+        ├──────────► Vector
+        │
+        └──────────► Search Index
+16. Graph Storage
+
+Graph Storage maintains:
+
+Entities.
+Relationships.
+Ontologies.
+Knowledge graph structures.
+Entity
+   │
+Relationship
+   │
+Entity
+17. Artifact Storage
+
+Artifacts may include:
+
+Processing outputs.
+OCR results.
+Intermediate representations.
+Evaluation results.
+Generated files.
+Transformation artifacts.
+18. Cache Storage
+
+Caches may store temporary representations to reduce:
+
+Latency.
+Compute.
+Model calls.
+Storage access.
+
+Caches are not authoritative.
+
+19. Storage Hierarchy
+
+The logical hierarchy is:
+
+Tenant
+  ↓
+Knowledge Domain
+  ↓
+Source
+  ↓
+Document
+  ↓
+Version
+  ↓
+Section
+  ↓
+Chunk
+  ↓
+Embedding
+20. Tenant Isolation
+
+Every knowledge object should maintain tenant context where multi-tenancy applies.
+
+tenant:
+  tenant_id:
+21. Tenant Storage Boundary
+
+The platform must prevent accidental cross-tenant access.
+
+22. Tenant-Aware Keys
+
+Storage keys should incorporate tenant context where appropriate.
+
+Example:
+
+tenant/{tenant_id}/knowledge/{knowledge_id}
+23. Tenant Data Partitioning
+
+Depending on requirements, tenants may use:
+
+Shared Storage
+Logical Isolation
+Schema Isolation
+Database Isolation
+Physical Isolation
+24. Isolation Strategy
+
+Isolation requirements should be determined by:
+
+Security classification.
+Contractual requirements.
+Regulatory requirements.
+Tenant size.
+Business criticality.
+25. Storage Technology Selection
+
+Different workloads may use different storage technologies.
+
+Object Storage
+      ↓
+Documents / Files
+
+Relational Database
+      ↓
+Structured Knowledge
+
+Document Database
+      ↓
+Flexible Knowledge Objects
+
+Vector Database
+      ↓
+Embeddings
+
+Graph Database
+      ↓
+Relationships
+26. Polyglot Storage
+
+EVOXA should support polyglot persistence where technically justified.
+
+27. Storage Abstraction
+
+Applications should interact with storage through controlled interfaces rather than tightly coupling business logic to a specific storage implementation.
+
+28. Storage Service
+
+Conceptual architecture:
+
+AI Service
+    ↓
+Knowledge API
+    ↓
+Storage Abstraction
+    ↓
+Storage Provider
+29. Storage Provider Abstraction
+
+A provider abstraction allows future replacement or migration of underlying technologies.
+
+30. Storage Interfaces
+
+Conceptual interfaces:
+
+class KnowledgeStore:
+
+    def create():
+        ...
+
+    def get():
+        ...
+
+    def update():
+        ...
+
+    def delete():
+        ...
+
+    def version():
+        ...
+31. Object Storage
+
+Object Storage should be used for large immutable or semi-immutable objects.
+
+Examples:
+
+PDF
+DOCX
+Images
+Audio
+Video
+Archives
+Exports
+32. Object Storage Characteristics
+
+Object storage provides:
+
+High durability.
+Large capacity.
+Low operational overhead.
+Lifecycle policies.
+Versioning.
+Replication.
+33. Object Naming
+
+Object keys should be deterministic and structured.
+
+Example:
+
+tenant/
+  tenant-id/
+    source/
+      source-id/
+        document/
+          document-id/
+            version/
+              file
+34. Object Metadata
+
+Objects should contain metadata such as:
+
+Content Type
+Size
+Checksum
+Source
+Version
+Created At
+Classification
+Tenant
+35. Content Addressing
+
+Content hashes may be used to identify identical content.
+
+SHA-256(content)
+36. Content Deduplication
+
+Content-addressed storage can reduce duplicate storage.
+
+37. Object Versioning
+
+Object versioning protects historical source representations.
+
+38. Object Retention
+
+Retention should be determined by:
+
+Business Policy
+Security Policy
+Legal Requirements
+Tenant Policy
+Cost Strategy
+39. Object Lifecycle
+
+Objects may transition through:
+
+Hot
+Warm
+Cold
+Archive
+Deleted
+40. Storage Tiers
+
+Frequently accessed knowledge should remain in faster storage.
+
+Historical content may use lower-cost tiers.
+
+41. Hot Storage
+
+Hot storage is appropriate for:
+
+Frequently accessed knowledge.
+Active documents.
+High-demand AI services.
+42. Warm Storage
+
+Warm storage is appropriate for:
+
+Moderately accessed content.
+Historical active knowledge.
+43. Cold Storage
+
+Cold storage is appropriate for:
+
+Rarely accessed content.
+Long-term retention.
+44. Archive Storage
+
+Archive storage is appropriate for:
+
+Compliance.
+Historical records.
+Long-term preservation.
+45. Lifecycle Automation
+
+Storage lifecycle should be automated.
+
+Active
+ ↓
+Infrequent
+ ↓
+Archive
+ ↓
+Deletion
+46. Deletion
+
+Deletion must respect:
+
+Retention policies.
+Legal holds.
+Tenant requirements.
+Dependency relationships.
+47. Legal Hold
+
+Knowledge under legal hold must not be automatically deleted.
+
+48. Secure Deletion
+
+Where required, deletion should ensure that data is removed from applicable storage layers.
+
+49. Deletion Propagation
+
+Deleting canonical knowledge may require updates to:
+
+Vector Store
+Search Index
+Graph Store
+Caches
+Derived Artifacts
+50. Deletion Architecture
+Knowledge Delete
+      ↓
+Lifecycle Controller
+      ↓
+┌─────┼─────┬─────┐
+▼     ▼     ▼     ▼
+DB   Vector Graph Cache
+51. Knowledge Database
+
+Structured knowledge may be stored in a relational or document-oriented database.
+
+52. Relational Storage
+
+Relational storage is appropriate for:
+
+Strong consistency.
+Structured metadata.
+Relationships requiring transactional integrity.
+Governance metadata.
+Tenant controls.
+53. Document Storage
+
+Document-oriented storage may be appropriate for:
+
+Flexible schemas.
+Semi-structured knowledge.
+Dynamic metadata.
+Nested structures.
+54. Canonical Knowledge Record
+
+The canonical knowledge record should contain stable identifiers.
+
+knowledge_id:
+source_id:
+document_id:
+version:
+55. Stable Identity
+
+Knowledge identifiers should remain stable across compatible transformations.
+
+56. Knowledge Version Identity
+
+Version identity should distinguish different representations.
+
+knowledge_id
++
+version
+57. Version Model
+
+Example:
+
+KNOW-000123
+  v1
+  v2
+  v3
+58. Version Metadata
+
+Each version should contain:
+
+Created At
+Created By
+Processing Version
+Source Version
+Model Version
+Status
+59. Version Immutability
+
+Published knowledge versions should preferably be immutable.
+
+Changes create new versions rather than modifying historical versions.
+
+60. Version Lifecycle
+Draft
+ ↓
+Validated
+ ↓
+Published
+ ↓
+Superseded
+ ↓
+Retired
+61. Current Version
+
+A knowledge object should have a clear current version.
+
+62. Historical Versions
+
+Historical versions should remain accessible according to policy.
+
+63. Version Comparison
+
+The platform should support comparison between versions where useful.
+
+64. Knowledge Diff
+
+A knowledge diff may identify:
+
+Added
+Removed
+Changed
+Reclassified
+
+content.
+
+65. Version Provenance
+
+Every version should reference the source and processing lineage that generated it.
+
+66. Processing Lineage
+Source Version
+      ↓
+Processing Job
+      ↓
+Processor Version
+      ↓
+Knowledge Version
+67. Storage Provenance
+
+Storage should preserve provenance rather than only content.
+
+68. Provenance Record
+provenance:
+  source_id:
+  ingestion_job_id:
+  processing_job_id:
+  processor_version:
+  model_version:
+  created_at:
+69. Knowledge Metadata
+
+Metadata may include:
+
+Title
+Description
+Author
+Source
+Domain
+Topic
+Language
+Classification
+Owner
+Status
+Effective Date
+Expiration Date
+70. Technical Metadata
+
+Technical metadata may include:
+
+Hash
+Size
+Encoding
+Format
+Storage Location
+Processing Version
+Index Version
+Embedding Version
+71. Governance Metadata
+
+Governance metadata may include:
+
+Authority
+Certification
+Retention
+Classification
+Access Policy
+Legal Hold
+Owner
+Reviewer
+72. Security Metadata
+
+Security metadata may include:
+
+Sensitivity
+Tenant
+Access Policy
+Allowed Roles
+Encryption Policy
+Processing Restrictions
+73. Retrieval Metadata
+
+Retrieval metadata may include:
+
+Topics
+Entities
+Keywords
+Language
+Embedding
+Search Tags
+Authority
+Freshness
+74. Storage Schema
+
+Conceptual structure:
+
+Knowledge
+├── Identity
+├── Content
+├── Metadata
+├── Security
+├── Governance
+├── Provenance
+├── Quality
+├── Lifecycle
+├── Versions
+├── Embeddings
+└── Relationships
+75. Knowledge Object Example
+knowledge:
+  knowledge_id: KNOW-000001
+  version: 3
+  tenant_id: TENANT-001
+
+  content:
+    text: ...
+
+  metadata:
+    title: ...
+    language: es
+    domain: operations
+
+  provenance:
+    source_id: SRC-001
+    processing_job_id: PROC-001
+
+  quality:
+    score: 0.94
+
+  security:
+    classification: internal
+
+  lifecycle:
+    status: published
+76. Storage Consistency
+
+Storage consistency is required between canonical knowledge and derived representations.
+
+77. Canonical Representation
+
+The canonical knowledge store is authoritative.
+
+Derived stores include:
+
+Vector
+Graph
+Search
+Cache
+78. Derived Storage
+
+Derived representations can be rebuilt from canonical knowledge.
+
+This is a critical architectural principle.
+
+79. Rebuildability
+
+If the vector index is lost:
+
+Canonical Knowledge
+       ↓
+Embedding Generation
+       ↓
+Vector Index
+
+The system should be able to reconstruct it.
+
+80. Graph Rebuildability
+
+Similarly:
+
+Canonical Knowledge
+       ↓
+Entity / Relationship Extraction
+       ↓
+Knowledge Graph
+81. Search Index Rebuildability
+Canonical Knowledge
+       ↓
+Indexing
+       ↓
+Search Index
+82. Storage Dependency Hierarchy
+              CANONICAL KNOWLEDGE
+                     │
+          ┌──────────┼──────────┐
+          ▼          ▼          ▼
+       Search      Vector      Graph
+          │          │          │
+          └──────────┼──────────┘
+                     ▼
+                   Cache
+83. Storage Availability
+
+Critical knowledge storage should support high availability.
+
+84. Availability Model
+
+Depending on criticality:
+
+Single Zone
+Multi Zone
+Multi Region
+
+architectures may be used.
+
+85. Replication
+
+Replication may protect against:
+
+Hardware failure.
+Availability-zone failure.
+Regional failure.
+86. Synchronous Replication
+
+Used when strong consistency is required and latency permits.
+
+87. Asynchronous Replication
+
+Used when:
+
+Geographic distance is significant.
+Eventual consistency is acceptable.
+Disaster recovery is the primary objective.
+88. Replication Strategy
+
+Replication should be selected according to:
+
+RPO
+RTO
+Consistency
+Cost
+Criticality
+89. RPO
+
+Recovery Point Objective defines the acceptable amount of data loss.
+
+90. RTO
+
+Recovery Time Objective defines the acceptable recovery duration.
+
+91. Knowledge Storage RPO
+
+Critical knowledge may require very low RPO.
+
+92. Knowledge Storage RTO
+
+Critical AI services may require rapid restoration of knowledge access.
+
+93. Disaster Recovery
+
+Knowledge Storage should participate in the EVOXA Disaster Recovery architecture.
+
+94. Backup Strategy
+
+Backups should cover:
+
+Canonical Knowledge
+Metadata
+Object Storage
+Configuration
+Indexes where appropriate
+Graph Data
+95. Backup Types
+
+Possible strategies:
+
+Full
+Incremental
+Differential
+Snapshot
+Continuous
+96. Backup Frequency
+
+Frequency depends on:
+
+Change rate.
+Criticality.
+RPO.
+Cost.
+97. Backup Encryption
+
+Backups should use encryption.
+
+98. Backup Isolation
+
+Backups should be protected from unauthorized modification.
+
+99. Backup Testing
+
+Backups are not considered reliable until restoration has been tested.
+
+100. Restore Testing
+
+Recovery tests should validate:
+
+Data Integrity
+Application Access
+Permissions
+Versions
+Indexes
+101. Storage Disaster Scenario
+Primary Storage Failure
+        ↓
+Detect
+        ↓
+Failover
+        ↓
+Restore / Replicate
+        ↓
+Validate
+        ↓
+Resume AI Services
+102. Regional Disaster
+
+For critical environments:
+
+Region A
+   ↓
+Region B
+
+may provide disaster recovery.
+
+103. Multi-Region Strategy
+
+Multi-region architecture should be justified by:
+
+Criticality
+Latency
+Residency
+Cost
+Availability Requirements
+104. Data Residency
+
+Knowledge may need to remain within a specific geographic region.
+
+105. Residency Metadata
+
+Storage should identify applicable residency requirements.
+
+106. Residency Enforcement
+
+Storage policies should prevent unauthorized cross-region movement.
+
+107. Encryption at Rest
+
+Knowledge data should be encrypted at rest.
+
+108. Encryption in Transit
+
+Knowledge data should be encrypted during transfer between services.
+
+109. Key Management
+
+Encryption keys should be managed through controlled key-management infrastructure.
+
+110. Key Rotation
+
+Keys should support defined rotation policies.
+
+111. Access Control
+
+Storage access should use least privilege.
+
+112. Authorization
+
+Access may depend on:
+
+Tenant
+User
+Role
+Service
+Knowledge Classification
+Resource
+Operation
+113. Row-Level Security
+
+Where relational storage is used, row-level security may provide tenant or authorization boundaries.
+
+114. Object-Level Security
+
+Object storage may use prefixes, policies or isolated buckets according to architecture.
+
+115. Service Identity
+
+Services should authenticate using service identities rather than shared credentials.
+
+116. Storage Credentials
+
+Credentials should not be hardcoded in applications.
+
+117. Secret Management
+
+Storage credentials should use approved secret-management mechanisms.
+
+118. Storage Audit
+
+Storage operations should be auditable.
+
+Examples:
+
+Read
+Create
+Update
+Delete
+Share
+Export
+Restore
+119. Access Logs
+
+Access logs should include:
+
+Actor
+Resource
+Action
+Timestamp
+Tenant
+Result
+120. Sensitive Access
+
+Access to restricted knowledge should receive enhanced audit controls.
+
+121. Data Classification
+
+Knowledge should inherit or receive a classification.
+
+Public
+Internal
+Confidential
+Restricted
+122. Classification Propagation
+
+Classification should propagate into derived stores.
+
+Canonical Knowledge
+       ↓
+Vector
+       ↓
+Graph
+       ↓
+Search
+123. Vector Security
+
+Vector stores can leak semantic information.
+
+They therefore require the same access-control considerations as source data.
+
+124. Vector Metadata Filtering
+
+Vector search should enforce tenant and authorization filters.
+
+125. Graph Security
+
+Knowledge graphs may reveal relationships that are sensitive.
+
+Graph access must respect authorization.
+
+126. Search Security
+
+Search indexes must not return documents the requesting identity cannot access.
+
+127. Cache Security
+
+Caches must not allow cross-user or cross-tenant leakage.
+
+128. Cache Isolation
+
+Cache keys should include authorization context where necessary.
+
+129. Storage Performance
+
+Storage performance should be evaluated across:
+
+Read Latency
+Write Latency
+Throughput
+Concurrency
+130. Read Patterns
+
+Knowledge workloads may include:
+
+Single Object Read
+Batch Read
+Range Read
+Metadata Query
+Vector Search
+Graph Traversal
+131. Write Patterns
+
+Writes may include:
+
+Document Upload
+Knowledge Creation
+Version Creation
+Metadata Update
+Embedding Update
+Graph Update
+132. Hot Knowledge
+
+Frequently requested knowledge should be identified.
+
+133. Storage Caching
+
+Hot knowledge may be cached.
+
+134. Cache Invalidation
+
+Cache invalidation should occur when knowledge versions change.
+
+135. Cache Versioning
+
+A cache key may include:
+
+knowledge_id
+version
+authorization_context
+136. Storage Partitioning
+
+Large datasets may require partitioning.
+
+137. Partitioning Strategies
+
+Possible strategies:
+
+Tenant
+Date
+Domain
+Knowledge Type
+Region
+138. Time Partitioning
+
+Time-based partitioning can improve lifecycle management.
+
+139. Tenant Partitioning
+
+Large tenants may receive dedicated partitions.
+
+140. Storage Sharding
+
+Very large workloads may require sharding.
+
+141. Sharding Strategy
+
+Sharding should be based on predictable access patterns.
+
+142. Avoid Hot Partitions
+
+Storage architecture should prevent disproportionate load on a single partition.
+
+143. Storage Scalability
+
+The architecture should scale across:
+
+Documents
+Tokens
+Chunks
+Vectors
+Entities
+Relationships
+Tenants
+144. Horizontal Scaling
+
+Where possible, storage should scale horizontally.
+
+145. Storage Capacity
+
+Capacity planning should estimate:
+
+Raw Storage
+Processed Storage
+Knowledge Storage
+Vector Storage
+Graph Storage
+Backup Storage
+146. Storage Growth Model
+
+Conceptually:
+
+Storage Growth
+=
+Sources
+×
+Documents
+×
+Versions
+×
+Processed Representations
+147. Vector Growth
+
+Vector storage grows according to:
+
+Chunks
+×
+Embedding Dimensions
+×
+Versions
+148. Graph Growth
+
+Graph storage grows according to:
+
+Entities
++
+Relationships
++
+Versions
+149. Storage Cost
+
+Storage costs include:
+
+Capacity
+Operations
+Replication
+Backup
+Transfer
+Compute
+Indexing
+150. Cost Allocation
+
+Storage cost may be attributed by:
+
+Tenant
+Domain
+Knowledge Source
+Service
+Environment
+151. Storage Optimization
+
+Optimization strategies include:
+
+Deduplication
+Compression
+Lifecycle Policies
+Tiering
+Archiving
+Selective Replication
+152. Compression
+
+Large objects may be compressed where appropriate.
+
+153. Compression Tradeoffs
+
+Compression must consider:
+
+Storage Cost
+CPU Cost
+Access Latency
+Compatibility
+154. Deduplication
+
+Deduplication reduces storage duplication.
+
+155. Deduplication Scope
+
+Deduplication may occur:
+
+Within Tenant
+Across Versions
+Across Sources
+
+subject to security and legal constraints.
+
+156. Knowledge Storage Quotas
+
+Tenants may have configurable storage quotas.
+
+157. Quota Types
+Object Storage
+Knowledge Objects
+Vectors
+Graph Data
+Backups
+158. Quota Enforcement
+
+When quotas are exceeded:
+
+Warn
+Throttle
+Block
+Request Expansion
+
+may be applied.
+
+159. Storage Monitoring
+
+Monitor:
+
+Capacity
+Latency
+Errors
+Throughput
+Replication
+Backup
+160. Storage Health
+
+Storage health should be visible through platform observability.
+
+161. Storage Alerts
+
+Examples:
+
+Capacity > 80%
+Replication Lag
+Backup Failure
+High Error Rate
+High Latency
+Quota Exceeded
+162. Storage SLOs
+
+Knowledge Storage should define:
+
+Availability
+Durability
+Latency
+Recovery
+
+targets.
+
+163. Durability
+
+Durability represents the probability that stored knowledge remains intact.
+
+164. Storage Integrity
+
+Integrity checks may use:
+
+Checksums
+Hashes
+Replication Verification
+Consistency Checks
+165. Integrity Verification
+
+Critical objects should be periodically verified.
+
+166. Corruption Detection
+
+Storage systems should detect corrupted data.
+
+167. Corruption Recovery
+
+Corrupted data should be restored from:
+
+Replica
+Backup
+Source
+
+depending on availability.
+
+168. Storage Consistency Checks
+
+Cross-store consistency may verify:
+
+Canonical
+Vector
+Graph
+Search
+
+representations.
+
+169. Orphan Detection
+
+The platform should detect:
+
+Vector without Knowledge
+Graph Entity without Source
+Index Entry without Knowledge
+Cache without Current Version
+170. Orphan Cleanup
+
+Orphaned derived records should be safely removed.
+
+171. Referential Integrity
+
+Knowledge references should remain valid.
+
+172. Knowledge Relationships
+
+Relationships may reference:
+
+Knowledge
+Entity
+Source
+Document
+Version
+173. Reference Integrity
+
+When a source is retired, dependent references must be evaluated.
+
+174. Storage Migration
+
+The platform should support storage migration.
+
+175. Migration Drivers
+
+Migration may be required due to:
+
+Scale
+Cost
+Technology Change
+Provider Change
+Performance
+Compliance
+176. Migration Strategy
+
+Migration should use:
+
+Extract
+Transform
+Validate
+Load
+Verify
+Cutover
+177. Zero-Downtime Migration
+
+Critical storage migrations should minimize service interruption.
+
+178. Dual Write
+
+During migration, controlled dual writes may be used.
+
+179. Data Validation
+
+Migration validation should compare:
+
+Record Counts
+Checksums
+Metadata
+Versions
+Relationships
+180. Migration Rollback
+
+A migration must have a rollback plan.
+
+181. Storage Portability
+
+The architecture should minimize unnecessary provider lock-in.
+
+182. Export
+
+Knowledge should be exportable according to policy.
+
+Possible formats:
+
+JSON
+JSONL
+CSV
+Parquet
+Documents
+Graph Formats
+183. Import
+
+Storage should support controlled import.
+
+184. Import Validation
+
+Imported knowledge must undergo:
+
+Schema Validation
+Security Validation
+Tenant Validation
+Provenance Validation
+185. Data Lineage
+
+Storage must maintain lineage from source to representation.
+
+186. Lineage Graph
+Source
+  ↓
+Document
+  ↓
+Processed Document
+  ↓
+Knowledge
+  ↓
+Chunk
+  ↓
+Embedding
+187. Storage Lineage Metadata
+
+Every derived representation should identify its parent.
+
+188. Knowledge Dependency
+
+A knowledge object may depend on:
+
+Source
+Processor
+Model
+Taxonomy
+Ontology
+Embedding
+189. Dependency Tracking
+
+Dependencies enable safe reprocessing.
+
+190. Reprocessing Trigger
+
+Example:
+
+Embedding Model Updated
+        ↓
+Identify affected embeddings
+        ↓
+Rebuild
+191. Storage and Processing
+
+Processing should write to staging storage before publication where required.
+
+192. Staging Storage
+Processing
+    ↓
+Staging
+    ↓
+Validation
+    ↓
+Canonical Storage
+193. Atomic Promotion
+
+Validated data should be promoted atomically when possible.
+
+194. Storage Transactions
+
+Transactions should be used where consistency requirements justify them.
+
+195. Eventual Consistency
+
+Derived stores may use eventual consistency.
+
+196. Consistency Model
+
+The platform should explicitly define consistency for each storage layer.
+
+Canonical
+→ Stronger Consistency
+
+Search
+→ Eventual Consistency
+
+Vector
+→ Eventual Consistency
+
+Cache
+→ Eventual Consistency
+197. Index Synchronization
+
+When canonical knowledge changes, downstream indexes must be updated.
+
+198. Storage Event
+
+A knowledge update may emit:
+
+KnowledgeCreated
+KnowledgeUpdated
+KnowledgeDeleted
+KnowledgeSuperseded
+199. Event-Driven Storage Updates
+Knowledge Store
+      ↓
+Event Bus
+      ↓
+Vector Index
+Graph Store
+Search Index
+Cache
+200. Synchronization Failure
+
+If a downstream update fails, the system should retry.
+
+201. Synchronization Monitoring
+
+Monitor:
+
+Queue Depth
+Replication Lag
+Index Lag
+Graph Lag
+202. Storage Recovery
+
+After recovery, derived stores should reconcile with canonical knowledge.
+
+203. Reconciliation
+Canonical
+   ↓
+Compare
+   ↓
+Derived Store
+   ↓
+Repair Differences
+204. Storage Repair
+
+Repair operations should be auditable.
+
+205. Storage Governance
+
+Knowledge Storage is subject to governance policies.
+
+206. Retention Policy
+
+Every knowledge domain should have a defined retention policy.
+
+207. Retention Categories
+
+Example:
+
+Temporary
+Operational
+Long-Term
+Regulated
+Archived
+208. Retention Enforcement
+
+Retention should be automated where possible.
+
+209. Data Lifecycle
+Created
+ ↓
+Active
+ ↓
+Inactive
+ ↓
+Archived
+ ↓
+Deleted
+210. Knowledge Expiration
+
+Expiration should not automatically imply deletion.
+
+211. Expired Knowledge
+
+Expired knowledge may remain available for historical use according to authorization.
+
+212. Legal and Regulatory Requirements
+
+Storage policies should accommodate applicable regulatory obligations.
+
+213. Audit Retention
+
+Audit records may have different retention requirements from knowledge itself.
+
+214. Privacy Deletion
+
+Privacy-related deletion requests may require coordinated deletion across:
+
+Raw
+Canonical
+Vector
+Graph
+Search
+Cache
+Backup
+
+subject to legal and technical constraints.
+
+215. Deletion Verification
+
+Deletion processes should provide evidence of completion.
+
+216. Storage Environment Separation
+
+Environments should be separated:
+
+Development
+Staging
+Production
+217. Production Isolation
+
+Production knowledge must not be casually copied into development environments.
+
+218. Synthetic Data
+
+Development should use synthetic or sanitized data where possible.
+
+219. Storage Access Environments
+
+Access should differ according to environment sensitivity.
+
+220. Storage Testing
+
+Storage should be tested for:
+
+Performance
+Failure
+Recovery
+Security
+Consistency
+Scalability
+221. Storage Load Testing
+
+Load tests should simulate realistic:
+
+Read
+Write
+Search
+Version
+Delete
+
+patterns.
+
+222. Storage Failure Testing
+
+Test scenarios include:
+
+Database Failure
+Object Storage Failure
+Vector Store Failure
+Graph Store Failure
+Network Failure
+Region Failure
+223. Chaos Testing
+
+Critical storage components may be tested through controlled failure injection.
+
+224. Recovery Validation
+
+Recovery testing must validate both data and application behavior.
+
+225. Storage Performance Benchmarking
+
+Benchmarks should measure:
+
+P50
+P95
+P99
+
+latency where appropriate.
+
+226. Capacity Testing
+
+Capacity testing should identify scaling limits before production saturation.
+
+227. Storage Architecture Review
+
+Storage architecture should be reviewed periodically.
+
+228. Review Criteria
+
+Review:
+
+Capacity
+Cost
+Performance
+Security
+Availability
+Technology
+229. Storage Technology Lifecycle
+
+Storage technologies should have lifecycle states:
+
+Approved
+Preferred
+Legacy
+Deprecated
+Retired
+230. Storage Provider Registry
+
+Maintain a registry of approved storage providers and technologies.
+
+231. Storage Provider Metadata
+provider:
+  name:
+  technology:
+  purpose:
+  region:
+  security:
+  status:
+232. Storage Platform Ownership
+
+Each storage component must have a defined owner.
+
+233. Ownership Metadata
+Platform Owner
+Technical Owner
+Business Owner
+Security Owner
+234. Storage Runbooks
+
+Critical storage components should have operational runbooks.
+
+235. Storage Runbook Examples
+Backup Failure
+Replication Failure
+Capacity Expansion
+Data Recovery
+Index Rebuild
+Storage Migration
+236. Storage Operational Procedures
+
+Procedures should define:
+
+Detection
+Diagnosis
+Resolution
+Validation
+Escalation
+237. Storage Incident Management
+
+Storage incidents should integrate with EVOXA operational management.
+
+238. Storage Incident Severity
+
+Severity may depend on:
+
+Data Loss
+Availability
+Tenant Impact
+Business Criticality
+239. Storage Alerts
+
+Alerts should prioritize actionable conditions.
+
+240. Storage Observability
+
+Metrics should include:
+
+Capacity
+Latency
+Throughput
+Errors
+Replication
+Recovery
+241. Storage Tracing
+
+Distributed traces should connect:
+
+AI Request
+ ↓
+Knowledge Retrieval
+ ↓
+Storage Read
+242. Storage Logging
+
+Logs must avoid sensitive content where possible.
+
+243. Storage Metrics by Tenant
+
+Multi-tenant platforms should expose usage by tenant.
+
+244. Tenant Storage Dashboard
+
+Potential metrics:
+
+Documents
+Knowledge Objects
+Vectors
+Storage GB
+Monthly Growth
+245. Storage Cost Dashboard
+
+Potential metrics:
+
+Storage Cost
+Backup Cost
+Replication Cost
+Transfer Cost
+Index Cost
+246. Knowledge Storage FinOps
+
+Storage should participate in EVOXA FinOps.
+
+247. Cost Drivers
+Volume
+Replication
+Requests
+Transfer
+Backup
+Indexing
+248. Cost Optimization Policies
+
+Examples:
+
+Archive old data
+Remove orphaned artifacts
+Compress objects
+Reduce unnecessary replicas
+Optimize indexes
+249. Storage Forecasting
+
+Forecast:
+
+Knowledge Growth
+Vector Growth
+Graph Growth
+Backup Growth
+250. Capacity Forecast
+
+Capacity forecasts should consider expected AI adoption.
+
+251. AI Adoption Impact
+
+As AI service usage grows:
+
+Users
+ ↓
+AI Queries
+ ↓
+Knowledge
+ ↓
+Chunks
+ ↓
+Embeddings
+ ↓
+Storage
+252. Storage Growth Feedback
+
+Storage planning should use actual usage patterns.
+
+253. Knowledge Popularity
+
+Knowledge usage can identify:
+
+Hot Knowledge
+Cold Knowledge
+Unused Knowledge
+254. Intelligent Tiering
+
+Future storage systems may automatically move knowledge between tiers based on access patterns.
+
+255. Storage Automation
+
+Automation should manage:
+
+Provisioning
+Scaling
+Backup
+Retention
+Archiving
+Recovery
+256. Infrastructure as Code
+
+Storage infrastructure should preferably be managed through version-controlled infrastructure definitions.
+
+257. Configuration Management
+
+Storage configuration should be versioned.
+
+258. Storage Policy as Code
+
+Retention, access and lifecycle policies may be expressed as code.
+
+259. Policy Validation
+
+Policies should be validated before deployment.
+
+260. Storage Change Management
+
+Production storage changes should follow controlled change management.
+
+261. Storage Schema Evolution
+
+Knowledge schemas must support evolution.
+
+262. Schema Versioning
+Schema v1
+Schema v2
+Schema v3
+263. Backward Compatibility
+
+Changes should preserve compatibility where possible.
+
+264. Schema Migration
+
+Breaking changes require controlled migrations.
+
+265. Schema Registry
+
+A schema registry may manage:
+
+Knowledge Schema
+Event Schema
+Metadata Schema
+Graph Schema
+266. Data Contract
+
+Knowledge producers and consumers should agree on data contracts.
+
+267. Contract Validation
+
+Storage writes should validate against the applicable schema.
+
+268. Invalid Data
+
+Invalid records should not silently enter canonical storage.
+
+269. Quarantine Storage
+
+Invalid records may be stored separately for analysis.
+
+270. Storage Error Handling
+
+Storage errors should distinguish:
+
+Transient
+Permanent
+Authorization
+Capacity
+Schema
+Integrity
+271. Transient Errors
+
+Transient failures should normally be retried.
+
+272. Permanent Errors
+
+Permanent errors require correction rather than repeated retries.
+
+273. Retry Policy
+
+Retry policy should include:
+
+Maximum Attempts
+Backoff
+Jitter
+Dead Letter
+274. Storage Idempotency
+
+Writes should support idempotency where appropriate.
+
+275. Idempotency Key
+
+Example:
+
+tenant_id
++
+source_id
++
+version
+
+may form part of an idempotency strategy.
+
+276. Duplicate Write Protection
+
+Duplicate processing should not create duplicate canonical records.
+
+277. Storage Transactions
+
+Transactions should protect critical multi-record operations.
+
+278. Distributed Transactions
+
+Distributed transactions should be avoided unless necessary.
+
+279. Eventual Coordination
+
+Event-driven coordination should be preferred where appropriate.
+
+280. Knowledge Publication
+
+Publication should coordinate:
+
+Canonical Store
+Index
+Vector
+Graph
+
+without making all components part of one distributed transaction.
+
+281. Publication State
+Prepared
+Validated
+Published
+Synchronizing
+Available
+282. Storage Availability to AI
+
+AI services should consume only knowledge that is marked available.
+
+283. Retrieval Eligibility
+
+Knowledge is eligible when:
+
+Published
++
+Authorized
++
+Valid
++
+Indexed
+284. Storage and Retrieval Contract
+
+The storage layer provides the authoritative knowledge representation.
+
+The retrieval layer determines which representations are relevant.
+
+285. Storage and Knowledge Graph
+
+The graph layer provides relationship-oriented access.
+
+286. Storage and Vector Search
+
+The vector layer provides semantic similarity.
+
+287. Storage and Keyword Search
+
+Traditional indexes provide exact and lexical retrieval.
+
+288. Hybrid Storage Model
+
+EVOXA should support:
+
+Keyword
++
+Vector
++
+Graph
++
+Metadata
+
+retrieval models.
+
+289. Storage Architecture Reference
+                         EVOXA
+                           │
+                           ▼
+                  KNOWLEDGE PLATFORM
+                           │
+                           ▼
+                   KNOWLEDGE STORAGE
+                           │
+      ┌────────────────────┼────────────────────┐
+      │                    │                    │
+      ▼                    ▼                    ▼
+ OBJECT STORAGE      KNOWLEDGE STORE      METADATA STORE
+      │                    │                    │
+      │                    │                    │
+      └────────────────────┼────────────────────┘
+                           │
+             ┌─────────────┴─────────────┐
+             ▼                           ▼
+       VECTOR STORE                GRAPH STORE
+             │                           │
+             └─────────────┬─────────────┘
+                           ▼
+                     SEARCH LAYER
+                           │
+                           ▼
+                      RETRIEVAL
+                           │
+                           ▼
+                       AI SERVICES
+290. Storage Data Flow
+Source
+ ↓
+Raw Storage
+ ↓
+Processing
+ ↓
+Canonical Knowledge
+ ↓
+ ├── Metadata
+ ├── Vector
+ ├── Graph
+ └── Search
+291. Storage as Source of Truth
+
+The architectural rule is:
+
+Canonical knowledge remains authoritative; indexes, vectors, graphs and caches remain derived representations.
+
+292. Derived Representation Rule
+
+Derived stores must always be reconstructible from authoritative data where technically possible.
+
+293. Storage Availability Model
+Primary
+  ↓
+Replica
+  ↓
+Backup
+  ↓
+Disaster Recovery
+294. Storage Security Model
+Identity
+   ↓
+Authorization
+   ↓
+Tenant Boundary
+   ↓
+Classification
+   ↓
+Storage
+   ↓
+Audit
+295. Storage Lifecycle Model
+Created
+ ↓
+Active
+ ↓
+Updated
+ ↓
+Versioned
+ ↓
+Superseded
+ ↓
+Archived
+ ↓
+Deleted
+296. Knowledge Lifecycle and Storage
+
+Storage must support the complete knowledge lifecycle.
+
+297. Storage Quality Model
+
+Storage quality includes:
+
+Integrity
+Availability
+Durability
+Consistency
+Traceability
+Security
+298. Storage Maturity
+
+A storage maturity model may be defined as:
+
+Level 1 — Basic Storage
+Level 2 — Structured Storage
+Level 3 — Governed Storage
+Level 4 — Distributed Knowledge Storage
+Level 5 — Intelligent Storage
+299. Level 1 — Basic Storage
+
+Files and knowledge are stored without significant lifecycle controls.
+
+300. Level 2 — Structured Storage
+
+Knowledge receives:
+
+Metadata
+Versioning
+Indexing
+301. Level 3 — Governed Storage
+
+Storage includes:
+
+Security
+Retention
+Audit
+Lifecycle
+302. Level 4 — Distributed Knowledge Storage
+
+Multiple storage representations are coordinated:
+
+Canonical
+Vector
+Graph
+Search
+303. Level 5 — Intelligent Storage
+
+Storage dynamically optimizes:
+
+Tier
+Replication
+Caching
+Cost
+Performance
+
+according to usage.
+
+304. Intelligent Knowledge Storage
+
+Future EVOXA capabilities may automatically determine:
+
+Where knowledge should live
+How long it should remain hot
+Which replicas are necessary
+When it should be archived
+305. Storage Optimization Loop
+Usage
+ ↓
+Analyze
+ ↓
+Optimize
+ ↓
+Measure
+ ↓
+Adjust
+306. Storage Demand
+
+Storage architecture should consider demand generated by:
+
+AI Assistants
+Agents
+Search
+Analytics
+Automation
+Applications
+307. Knowledge Hotspots
+
+High-demand knowledge should receive optimized storage and caching.
+
+308. Knowledge Coldspots
+
+Unused knowledge may be moved to lower-cost storage.
+
+309. Intelligent Archiving
+
+Future systems may automatically archive knowledge based on:
+
+Age
+Usage
+Criticality
+Policy
+Cost
+310. Intelligent Replication
+
+Replication may be dynamically optimized according to business criticality.
+
+311. Storage Resilience
+
+Knowledge Storage must remain resilient even when derived components fail.
+
+312. Vector Failure
+
+If vector storage fails:
+
+Canonical Knowledge
+        ↓
+Re-Embedding
+        ↓
+Vector Reconstruction
+313. Graph Failure
+
+If graph storage fails:
+
+Canonical Knowledge
+        ↓
+Relationship Reconstruction
+        ↓
+Graph Reconstruction
+314. Search Failure
+
+If search indexes fail:
+
+Canonical Knowledge
+        ↓
+Reindex
+315. Cache Failure
+
+Cache failure should not cause knowledge loss.
+
+316. Storage Failure Principle
+
+Failure of a derived representation must not result in loss of authoritative knowledge.
+
+317. Knowledge Backup Principle
+
+Critical knowledge must have at least one recoverable authoritative representation outside the derived search layers.
+
+318. Storage Testing Principle
+
+Every critical storage mechanism must have a tested recovery procedure.
+
+319. Storage Governance Principle
+
+Storage decisions must balance security, availability, performance, scalability and cost.
+
+320. Storage Architecture Principle
+
+No single storage technology should be forced to serve every knowledge workload.
+
+321. Storage Evolution Principle
+
+Storage architecture must evolve independently from AI model architecture.
+
+322. AI Provider Independence
+
+Changing an AI provider should not require redesigning the knowledge storage architecture.
+
+323. Model Independence
+
+Changing an embedding model should create new derived embeddings rather than destroy canonical knowledge.
+
+324. Embedding Storage
+
+Embeddings should reference:
+
+Knowledge ID
+Knowledge Version
+Embedding Model
+Embedding Version
+325. Embedding Lifecycle
+Generated
+ ↓
+Indexed
+ ↓
+Active
+ ↓
+Superseded
+ ↓
+Deleted
+326. Multiple Embeddings
+
+The platform may temporarily maintain multiple embedding versions during migration.
+
+327. Embedding Migration
+Embedding v1
+       ↓
+Embedding v2
+       ↓
+Validation
+       ↓
+Cutover
+       ↓
+Retire v1
+328. Graph Versioning
+
+Knowledge graph entities and relationships may also require versioning.
+
+329. Graph Provenance
+
+Graph relationships should reference their source knowledge.
+
+330. Graph Trust
+
+Derived graph relationships should preserve confidence and provenance.
+
+331. Search Index Versioning
+
+Search indexes should support controlled version migration.
+
+332. Index Rebuild
+
+Index rebuilds should not require modification of canonical knowledge.
+
+333. Storage Migration Architecture
+Canonical Knowledge
+       │
+       ├────────► Old Storage
+       │
+       └────────► New Storage
+                     │
+                     ▼
+                  Validate
+                     │
+                     ▼
+                   Cutover
+334. Storage Cutover
+
+Cutover should be controlled and reversible where possible.
+
+335. Storage Decommissioning
+
+Old storage should only be removed after:
+
+Migration
+Validation
+Backup
+Approval
+336. Storage Documentation
+
+Every storage component should document:
+
+Purpose
+Technology
+Owner
+Data
+Retention
+Security
+SLO
+Backup
+Recovery
+337. Storage Catalog
+
+The Knowledge Platform should maintain a catalog of storage components.
+
+338. Storage Catalog Example
+storage_component:
+  name:
+  type:
+  purpose:
+  owner:
+  environment:
+  region:
+  retention:
+  classification:
+  sla:
+339. Knowledge Storage Inventory
+
+The inventory should identify:
+
+Raw Stores
+Knowledge Stores
+Vector Stores
+Graph Stores
+Metadata Stores
+Backup Stores
+340. Storage Dependency Map
+
+Storage dependencies should be documented.
+
+341. Dependency Example
+Knowledge Store
+      │
+      ├── Vector Store
+      ├── Graph Store
+      ├── Search Index
+      └── Cache
+342. Operational Ownership
+
+Each dependency should have an operational owner.
+
+343. Storage SLA
+
+Storage SLAs should include:
+
+Availability
+Latency
+Recovery
+Durability
+344. Storage KPI
+
+Important KPIs include:
+
+Storage Availability
+Storage Growth
+Storage Cost
+Replication Lag
+Backup Success
+Restore Success
+Data Integrity
+345. Storage Health Score
+
+A storage health score may combine:
+
+Availability
+Performance
+Capacity
+Replication
+Backup
+Security
+346. Storage Risk
+
+Potential risks include:
+
+Data Loss
+Unauthorized Access
+Storage Exhaustion
+Vendor Lock-In
+Corruption
+Replication Failure
+Backup Failure
+347. Risk Mitigation
+
+Controls include:
+
+Replication
+Backups
+Encryption
+Monitoring
+Capacity Planning
+Migration Strategy
+348. Vendor Lock-In
+
+Provider-specific storage dependencies should be isolated behind abstraction layers where practical.
+
+349. Portability
+
+Critical knowledge should have an export or migration strategy.
+
+350. Storage Exit Strategy
+
+For every strategic storage technology:
+
+Migration Path
+Export Format
+Recovery Path
+Replacement Option
+
+should be known.
+
+351. Knowledge Sovereignty
+
+EVOXA should retain control over its canonical knowledge independently from third-party AI providers.
+
+352. AI Provider Independence
+
+External AI providers should not become the permanent repository of EVOXA knowledge.
+
+353. Data Ownership
+
+Knowledge ownership should remain clearly defined.
+
+354. Customer Data Ownership
+
+Tenant data should remain logically and contractually separated.
+
+355. Data Export
+
+Customers may require export capabilities depending on product policies.
+
+356. Data Portability
+
+Export should preserve:
+
+Content
+Metadata
+Versions
+Provenance
+Relationships
+
+where possible.
+
+357. Storage Compliance
+
+Compliance controls should be configurable according to jurisdiction and business requirements.
+
+358. Storage Policy Engine
+
+Policies may control:
+
+Retention
+Deletion
+Region
+Encryption
+Access
+Replication
+359. Policy Enforcement
+
+Policy enforcement should occur automatically where possible.
+
+360. Policy Exceptions
+
+Exceptions must be:
+
+Authorized
+Documented
+Time-Bounded
+Audited
+361. Storage Administration
+
+Administrative access should be tightly controlled.
+
+362. Break-Glass Access
+
+Emergency storage access may use a controlled break-glass mechanism.
+
+363. Break-Glass Audit
+
+All emergency access must be audited.
+
+364. Storage Operational Dashboard
+
+The operational dashboard should expose:
+
+Capacity
+Health
+Latency
+Errors
+Replication
+Backup
+Cost
+365. Tenant Dashboard
+
+Tenant-facing dashboards may expose:
+
+Knowledge Count
+Storage Usage
+Growth
+Processing Status
+366. Knowledge Administration
+
+Authorized administrators should be able to:
+
+View
+Version
+Archive
+Restore
+Reprocess
+Delete
+
+knowledge according to policy.
+
+367. Restore Knowledge
+
+Restoration should create an auditable event.
+
+368. Knowledge Recovery
+
+Recovery may restore:
+
+Latest Version
+Specific Version
+Entire Knowledge Domain
+Tenant Dataset
+
+depending on authorization.
+
+369. Partial Recovery
+
+The platform should support selective recovery where possible.
+
+370. Recovery Validation
+
+Recovered knowledge must pass:
+
+Integrity
+Security
+Version
+Index
+Authorization
+
+validation.
+
+371. Post-Recovery Reindexing
+
+After recovery, derived stores may need reconstruction.
+
+372. Recovery Flow
+Restore Canonical
+       ↓
+Validate
+       ↓
+Rebuild Metadata
+       ↓
+Rebuild Vector
+       ↓
+Rebuild Graph
+       ↓
+Rebuild Search
+       ↓
+Validate Retrieval
+373. Recovery Observability
+
+Recovery operations should expose progress and errors.
+
+374. Recovery Audit
+
+Every recovery operation must be logged.
+
+375. Storage Acceptance Criteria
+
+This chapter is complete when:
+
+Storage architecture is defined.
+Raw storage is defined.
+Processed storage is defined.
+Canonical knowledge storage is defined.
+Metadata storage is defined.
+Vector storage is defined.
+Graph storage is defined.
+Artifact storage is defined.
+Cache storage is defined.
+Tenant isolation is defined.
+Storage abstraction is defined.
+Object storage architecture is defined.
+Object naming is defined.
+Object metadata is defined.
+Content addressing is defined.
+Deduplication is defined.
+Object versioning is defined.
+Storage tiers are defined.
+Lifecycle management is defined.
+Retention is defined.
+Secure deletion is defined.
+Legal hold is defined.
+Knowledge versioning is defined.
+Provenance is defined.
+Knowledge metadata is defined.
+Security metadata is defined.
+Governance metadata is defined.
+Retrieval metadata is defined.
+Canonical knowledge is defined as authoritative.
+Derived stores are defined as rebuildable.
+Vector storage is defined.
+Graph storage is defined.
+Search storage is defined.
+Cache storage is defined.
+Consistency models are defined.
+Replication is defined.
+Availability is defined.
+RPO is defined.
+RTO is defined.
+Disaster recovery is defined.
+Backup strategy is defined.
+Restore testing is defined.
+Encryption is defined.
+Key management is defined.
+Access control is defined.
+Tenant isolation is defined.
+Storage auditing is defined.
+Data classification is defined.
+Vector security is defined.
+Graph security is defined.
+Search security is defined.
+Cache security is defined.
+Storage performance is defined.
+Partitioning is defined.
+Sharding is defined.
+Capacity planning is defined.
+Storage cost management is defined.
+Storage quotas are defined.
+Storage observability is defined.
+Storage SLOs are defined.
+Integrity verification is defined.
+Corruption recovery is defined.
+Orphan detection is defined.
+Referential integrity is defined.
+Storage migration is defined.
+Data portability is defined.
+Export is defined.
+Import is defined.
+Schema evolution is defined.
+Data contracts are defined.
+Error handling is defined.
+Retry policies are defined.
+Idempotency is defined.
+Event-driven synchronization is defined.
+Reconciliation is defined.
+Storage governance is defined.
+Retention policies are defined.
+Storage environment separation is defined.
+Storage testing is defined.
+Storage failure testing is defined.
+Chaos testing is defined.
+Storage technology lifecycle is defined.
+Storage provider registry is defined.
+Storage ownership is defined.
+Storage runbooks are defined.
+Storage incidents are defined.
+Storage KPIs are defined.
+Storage risk is defined.
+Vendor lock-in strategy is defined.
+Knowledge sovereignty is defined.
+Data ownership is defined.
+Policy enforcement is defined.
+Administrative access is defined.
+Break-glass access is defined.
+Operational dashboards are defined.
+Knowledge recovery is defined.
+Post-recovery reindexing is defined.
+Storage acceptance criteria are established.
+376. Reference Architecture
+
+The final reference architecture is:
+
+                         EVOXA AI PLATFORM
+                                │
+                                ▼
+                      ┌─────────────────────┐
+                      │ KNOWLEDGE PLATFORM  │
+                      └──────────┬──────────┘
+                                 │
+                                 ▼
+                     ┌──────────────────────┐
+                     │ KNOWLEDGE STORAGE    │
+                     └──────────┬───────────┘
+                                │
+          ┌─────────────────────┼─────────────────────┐
+          │                     │                     │
+          ▼                     ▼                     ▼
+   ┌─────────────┐       ┌─────────────┐       ┌─────────────┐
+   │ RAW OBJECT  │       │  CANONICAL  │       │  METADATA   │
+   │   STORAGE   │       │  KNOWLEDGE  │       │    STORE    │
+   └─────────────┘       └──────┬──────┘       └─────────────┘
+                                │
+                ┌───────────────┼────────────────┐
+                │               │                │
+                ▼               ▼                ▼
+         ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+         │VECTOR STORE │ │ GRAPH STORE │ │SEARCH INDEX │
+         └─────────────┘ └─────────────┘ └─────────────┘
+                │               │                │
+                └───────────────┼────────────────┘
+                                ▼
+                         ┌─────────────┐
+                         │    CACHE    │
+                         └──────┬──────┘
+                                │
+                                ▼
+                          RETRIEVAL
+                                │
+                                ▼
+                         AI SERVICES
+                                │
+                                ▼
+                         EVOXA USERS
+377. End-to-End Knowledge Storage Flow
+SOURCE
+  ↓
+INGESTION
+  ↓
+RAW STORAGE
+  ↓
+PROCESSING
+  ↓
+CANONICAL KNOWLEDGE
+  │
+  ├──────────────► METADATA
+  │
+  ├──────────────► VECTOR
+  │
+  ├──────────────► GRAPH
+  │
+  └──────────────► SEARCH
+                         │
+                         ▼
+                       CACHE
+                         │
+                         ▼
+                     RETRIEVAL
+                         │
+                         ▼
+                         AI
+378. Architectural Rule
+
+The core architectural rule of this chapter is:
+
+Canonical knowledge is the authoritative representation. Vector indexes, graph structures, search indexes and caches are derived representations that must remain reconstructible.
+
+379. Operational Rule
+
+The operational rule is:
+
+No storage component should become a single point of failure for the authoritative knowledge base.
+
+380. Security Rule
+
+The security rule is:
+
+Every derived representation must preserve the authorization and classification context of the canonical knowledge from which it was generated.
+
+381. Resilience Rule
+
+The resilience rule is:
+
+Loss of a derived storage layer must result in reconstruction, not knowledge loss.
+
+382. Governance Rule
+
+The governance rule is:
+
+Knowledge storage must respect ownership, retention, classification, residency, audit and lifecycle policies.
+
+383. Cost Rule
+
+The FinOps rule is:
+
+Storage architecture must optimize cost without compromising knowledge availability, security or business criticality.
+
+384. Evolution Rule
+
+The evolution rule is:
+
+Storage technologies may evolve independently from the logical Knowledge Platform model.
+
+385. Final Architecture Principle
+
+Knowledge Storage is not simply a database layer.
+
+It is the persistent foundation that allows EVOXA to maintain:
+
+Memory
+Context
+History
+Relationships
+Semantics
+Provenance
+Trust
+
+across the entire AI ecosystem.
+
+The Knowledge Platform therefore depends on storage that is:
+
+Durable
+Secure
+Versioned
+Governed
+Observable
+Scalable
+Recoverable
+Portable
+
+and capable of supporting the transition from:
+
+Information
+      ↓
+Knowledge
+      ↓
+Context
+      ↓
+Intelligence
+386. Continuity
+
+The Knowledge Platform chapter sequence now becomes:
+
+01 — Overview
+↓
+02 — Business Overview
+↓
+03 — Knowledge Strategy
+↓
+04 — Knowledge Architecture
+↓
+05 — Knowledge Sources & Ingestion
+↓
+06 — Knowledge Processing
+↓
+07 — Knowledge Storage
+↓
+08 — Knowledge Indexing & Retrieval
+↓
+09 — Semantic Layer & Knowledge Graph
+↓
+10 — Knowledge Governance
+↓
+11 — Knowledge Quality
+↓
+...
+
+Chapter 07 establishes the persistent knowledge foundation.
+
+The next chapter should therefore define how that stored knowledge becomes efficiently discoverable and usable by EVOXA:
+
+08 — Knowledge Indexing & Retrieval
