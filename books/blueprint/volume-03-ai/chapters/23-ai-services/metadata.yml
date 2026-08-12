@@ -1,0 +1,53 @@
+# metadata.yml
+
+document:
+  id: BP-0003-C23
+  chapter: 23
+  volume: 03
+  title: AI Services
+  version: 1.0.0
+  status: Approved
+  classification: Internal
+
+owner:
+  organization: EVOXA Architecture Team
+  department: Enterprise AI Platform Office
+
+authors:
+  - EVOXA Architecture Team
+
+dates:
+  created: 2026-08-08
+  updated: 2026-08-08
+
+tags:
+  - ai
+  - ai-services
+  - enterprise-ai
+  - ai-platform
+  - llm
+  - multimodal
+  - gateway
+  - orchestration
+  - api
+  - governance
+
+related:
+  previous: 22-ai-governance
+  next: 24-ai-integration
+
+artifacts:
+  - artifacts
+  - catalog
+  - chapters
+  - diagrams
+  - examples
+  - exports
+  - figma
+  - prompts
+  - schemas
+
+lifecycle:
+  state: Active
+  maturity: Enterprise
+  review_cycle: Quarterly
