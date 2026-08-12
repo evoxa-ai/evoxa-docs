@@ -1,0 +1,68 @@
+# metadata.yml
+
+document:
+  id: BP-0022
+  title: Operations Platform
+  volume: 22
+
+version:
+  number: 1.0.0
+  status: Approved
+  release_date: 2026-08-08
+
+owner:
+  organization: Enterprise Operations Office
+  program: EVOXA Enterprise Architecture Blueprint
+
+classification: Internal
+
+domain:
+  name: Operations Platform
+  type: Enterprise Platform
+
+lifecycle:
+  stage: Production
+  maturity: Enterprise
+
+authors:
+  - EVOXA Architecture Team
+
+standards:
+  - ITIL 4
+  - ISO 20000
+  - ISO 22301
+  - ISO 27001
+  - COBIT 2019
+  - NIST CSF
+  - OpenTelemetry
+  - Google SRE
+
+capabilities:
+  - Service Management
+  - Incident Management
+  - Problem Management
+  - Change Management
+  - Release Management
+  - Monitoring
+  - Observability
+  - Automation
+  - Platform Engineering
+  - Site Reliability Engineering
+  - AI Operations
+  - Operational Analytics
+  - Operational Governance
+
+kpis:
+  availability: "99.99%"
+  mttr: "<30 minutes"
+  monitoring_coverage: "100%"
+  automation: ">90%"
+  compliance: "100%"
+
+repository: 22-operations-platform
+
+chapters: 30
+
+language: English
+
+license: Internal Enterprise Documentation
