@@ -1,17 +1,3 @@
-Sí. Siguiendo exactamente la lógica que venimos utilizando para el Blueprint, ahora comenzamos el siguiente capítulo del Volumen 03 — AI, que será:
-
-books/
-└── blueprint/
-    └── volume-03-ai/
-        └── chapters/
-            └── 24-knowledge-platform/
-                └── chapters/
-                    └── 01-overview.md
-
-Este 01-overview.md debe ser el documento fundacional del 24 — Knowledge Platform, manteniendo el nivel de profundidad y estructura de los 01-overview.md de los volúmenes anteriores.
-
-Te propongo dejarlo así:
-
 ---
 document_id: BP-0003-C24-01
 chapter_id: CH-03-24
