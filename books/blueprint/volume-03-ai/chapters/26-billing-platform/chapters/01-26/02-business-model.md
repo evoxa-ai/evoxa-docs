@@ -736,3 +736,54 @@ Accounting
 
 Esto evita que una modificación comercial altere directamente los registros financieros históricos.
 
+30. Core Business Model
+
+El modelo completo puede resumirse como:
+
+                     CUSTOMER VALUE
+                           │
+                           ▼
+                        PRODUCT
+                           │
+                           ▼
+                         OFFER
+                           │
+                           ▼
+                         PRICE
+                           │
+                           ▼
+                    COMMERCIAL MODEL
+                           │
+          ┌────────────────┼────────────────┐
+          │                │                │
+     Subscription        Usage          Contract
+          │                │                │
+          └────────────────┼────────────────┘
+                           ▼
+                         BILLING
+                           │
+                  ┌────────┴────────┐
+                  │                 │
+                Charge           Credit
+                  │                 │
+                  └────────┬────────┘
+                           ▼
+                        INVOICE
+                           │
+                           ▼
+                        PAYMENT
+                           │
+                           ▼
+                        REVENUE
+                           │
+                           ▼
+                      PROFITABILITY
+31. Resultado de 26/02
+
+Billing Business Model establece que Billing debe ser una plataforma capaz de soportar múltiples estrategias de monetización simultáneamente, manteniendo separación entre producto, pricing, consumo, facturación, pago, revenue y rentabilidad.
+
+El principio central es:
+
+Billing no solamente calcula cuánto debe pagar un cliente; convierte una estrategia comercial en una realidad financiera medible, cobrable, auditable y escalable.
+
+Sobre esta base, 26/03 — Billing Architecture deberá definir la arquitectura técnica y lógica que permite implementar todos estos modelos sin convertir Billing en un sistema rígido o altamente acoplado.
