@@ -3,705 +3,330 @@ IS-IDENTITY-001 — Identity Domain Foundation
 Document ID: IS-IDENTITY-001
 Domain: Identity
 ESP: ESP-0001 — Identity
-Status: Draft
+Status: Refined
 Priority: Critical
-Version: 1.0.0
-Repository: evoxa-docs
+Version: 1.1.0
 Target Repository: evoxa-platform
+Documentation Repository: evoxa-docs
 
-Esta Implementation Story pertenece a la cadena oficial ESP → IS → Technical Tasks → Source Code, que el Blueprint define como obligatoria para toda implementación EVOXA.
+1. Purpose
 
-1. Propósito
-
-Establecer la fundación técnica del dominio Identity sobre la cual se implementarán posteriormente:
-
-Users
-Organizations
-Memberships
-Roles
-Permissions
-Authentication
-Sessions
-Refresh Tokens
-MFA
-Security Policies
-Audit
-Domain Events
-Outbox
-
-Identity está definido como un dominio arquitectónico independiente y su ubicación prevista es:
-
-apps/api/app/domains/identity/
+Establish the implementation foundation of the EVOXA Identity Domain according to the lifecycle:
+Blueprint → Reference Architecture → Engineering Standards → ESP → ADR → Implementation Story → Technical Tasks → Source Code → Testing → Deployment → Monitoring → Continuous Evolution.
 
 2. Business Capability
-Identity Domain Foundation
 
-Proporcionar una estructura de dominio coherente, modular, segura y extensible que permita implementar las capacidades de identidad de EVOXA sin acoplar la lógica de negocio a HTTP, FastAPI, PostgreSQL, Redis u otras tecnologías de infraestructura.
+Identity provides the foundation for Users, Organizations, Memberships, Roles, Permissions, Authentication, Sessions, Refresh Tokens, MFA, Authorization, Security Policies, Delegation, Audit/Security Events, Recovery, Federation, Provisioning and Domain/Integration Events.
 
-Esto sigue el principio arquitectónico de EVOXA de organizar el sistema alrededor de business domains, manteniendo la tecnología como mecanismo de implementación y no como definición de la arquitectura.
+3. User Story
 
-3. Implementation Story
-Story
+As the EVOXA Platform, I need a secure and modular Identity Domain foundation so that authentication, authorization and tenant isolation can evolve consistently without bypassing the platform security model.
 
-As the EVOXA Platform,
-I want a well-defined Identity Domain foundation,
-so that identity, authentication, authorization and security capabilities can be implemented consistently, securely and independently.
+4. Scope
 
-4. Alcance
+Identity bounded-domain structure and modules
 
-Esta Story cubre exclusivamente la fundación del dominio.
+Domain/Application/Infrastructure/API layers
 
-Incluye
-Domain structure
-Entities
-Value Objects
-Aggregates
-Repository contracts
-Domain services boundaries
-Domain errors
-Lifecycle states
-Domain event contracts
-Infrastructure boundaries
-Testing foundation
-Traceability
-No incluye todavía
-❌ Implementación completa de login
-❌ Implementación JWT
-❌ Implementación MFA
-❌ Implementación PostgreSQL
-❌ Implementación Redis
-❌ API endpoints completos
-❌ UI
-❌ Kubernetes
-❌ CI/CD
+Shared Kernel
 
-Esas capacidades serán desarrolladas por las Stories posteriores.
+Aggregates, entities, value objects and identifiers
 
-5. Architectural Context
+Repository and Unit of Work contracts
 
-La estructura seguirá las capas definidas por la arquitectura:
+Domain/integration event contracts and transactional outbox boundary
 
-┌─────────────────────┐
-│    Presentation     │
-└──────────┬──────────┘
-           ↓
-┌─────────────────────┐
-│        API          │
-└──────────┬──────────┘
-           ↓
-┌─────────────────────┐
-│    Application      │
-└──────────┬──────────┘
-           ↓
-┌─────────────────────┐
-│       Domain        │
-└──────────┬──────────┘
-           ↓
-┌─────────────────────┐
-│   Infrastructure    │
-└─────────────────────┘
+Tenant and actor contexts
 
-Esta separación está establecida por el Architecture Map.
+Security/authentication abstractions
 
-6. Target Structure
+Authorization Runtime boundary
 
-La primera estructura será:
+Policy, criticality, freshness and cache boundaries
 
-apps/api/app/domains/identity/
-│
-├── api/
-│
-├── application/
-│
-├── domain/
-│   │
-│   ├── entities/
-│   ├── value_objects/
-│   ├── aggregates/
-│   ├── services/
-│   ├── policies/
-│   ├── events/
-│   └── repositories/
-│
-└── infrastructure/
+Exceptions, observability, migrations, testing, CI and public contracts
 
-Esta estructura representa la aplicación de la arquitectura por capas al dominio Identity.
+Architecture documentation and traceability
 
-7. Domain Model Foundation
-7.1 Core Entities
+Out of scope
 
-La fundación deberá contemplar:
+Complete login/JWT workflow, complete refresh-token implementation, MFA providers, complete policy catalog, complete Identity PostgreSQL schema, production Redis authorization cache, complete API implementation, frontend/mobile, production Kubernetes and Event Platform provisioning.
 
-User
-Organization
-Membership
-Role
-Permission
-Session
-7.2 Security Entities
+5. Architecture
 
-Posteriormente se incorporarán:
-
-RefreshToken
-MFAFactor
-MFAChallenge
-RecoveryCode
-TrustedDevice
-SecurityPolicy
-7.3 Platform Entities
-
-Y finalmente:
-
-AuditEvent
-OutboxEvent
-
-Estas entidades corresponden a las responsabilidades que ya quedaron definidas para ESP-0001 y sus ADR asociados.
-
-8. Value Objects
-
-Se definirán como mínimo:
-
-UserId
-OrganizationId
-MembershipId
-RoleId
-PermissionId
-SessionId
-Email
-Principio
-
-El dominio debe trabajar con conceptos de negocio fuertemente tipados en lugar de depender directamente de strings, UUIDs o estructuras propias de la base de datos.
-
-Por ejemplo:
-
-UserId
-
-representa una identidad de usuario.
-
-No debe convertirse simplemente en:
-
-database_id: str
-
-dentro de toda la lógica de negocio.
-
-9. Aggregates
-
-Los aggregates iniciales serán:
-
-User
-Organization
-Role
-Session
-User Aggregate
-
-Responsable de invariantes relacionadas con la cuenta del usuario.
-
-Organization Aggregate
-
-Responsable del contexto organizacional/tenant.
-
-Role Aggregate
-
-Responsable de la definición y estado del rol.
-
-Session Aggregate
-
-Responsable del ciclo de vida de la sesión.
-
-10. Tenant Boundary
-
-Identity debe reconocer explícitamente el contexto de organización cuando corresponda.
-
-User
-   │
-   └── Membership
-           │
-           └── Organization
-
-La organización se utiliza como límite de tenant dentro de la arquitectura propuesta.
-
-Esto es particularmente importante para impedir:
-
-Tenant A
-   ↓
-datos de Tenant B
-
-La autorización deberá considerar posteriormente:
-
-User
-Organization
-Membership
-Roles
-Permissions
-Resource
-Operation
-Security Context
-11. Repository Contracts
-
-El dominio definirá contratos para persistencia:
-
-UserRepository
-OrganizationRepository
-MembershipRepository
-RoleRepository
-PermissionRepository
-SessionRepository
-
-Conceptualmente:
-
+Presentation
+    ↓
+API
+    ↓
+Application
+    ↓
 Domain
-   │
-   ▼
-Repository Contract
-   │
-   ▼
+    ↑
 Infrastructure
-   │
-   ▼
-PostgreSQL
 
-No:
+Domain never depends on API or Infrastructure. Cross-module direct persistence access is forbidden. Authorization is centralized. Tenant isolation is explicit. Security failures fail closed.
 
-Domain
-   │
-   ▼
-SQLAlchemy / PostgreSQL
+6. Identity Modules
 
-La persistencia primaria definida en nuestros ADR de Identity será PostgreSQL, pero el dominio no debe conocer los detalles de su implementación.
+identity/
+├── account/
+├── organization/
+├── membership/
+├── authentication/
+├── authorization/
+├── role_permission/
+├── policy/
+├── session/
+├── token/
+├── mfa/
+├── recovery/
+├── federation/
+├── provisioning/
+├── audit/
+├── security_events/
+├── integration/
+└── shared/
 
-12. Domain Services
+Each module follows domain/, application/, infrastructure/, api/.
 
-Se establecerán las fronteras de:
+7. Domain Foundation
 
-AuthenticationService
-AuthorizationService
-SessionService
-SecurityPolicyService
-AuditService
+Primary aggregate boundaries include User, Organization, Membership, Role, Permission, Delegation, Session, RefreshTokenFamily, MFAFactor, MFAChallenge and SecurityPolicy. AuditEvent, SecurityEvent and OutboxEvent are platform integration/persistence concepts.
 
-No significa que todos serán implementados dentro de esta Story.
+8. Tenant Model
 
-Aquí solamente dejamos definidos sus límites y responsabilidades.
-
-13. Domain Errors
-
-La taxonomía inicial deberá permitir distinguir errores de negocio de errores técnicos.
-
-IdentityError
-├── UserNotFound
-├── OrganizationNotFound
-├── MembershipNotFound
-├── InvalidCredentials
-├── AccountSuspended
-├── AccountDisabled
-├── MembershipSuspended
-├── Unauthorized
-├── Forbidden
-├── SessionNotFound
-├── SessionRevoked
-├── SessionExpired
-└── SecurityPolicyViolation
-
-Posteriormente estos errores serán traducidos por la capa API al contrato estándar de errores de EVOXA.
-
-14. Lifecycle States
-User
-PENDING
-   ↓
-ACTIVE
-   ↓
-SUSPENDED
-   ↓
-ACTIVE
-
-ACTIVE
-   ↓
-DISABLED
+Global User
+    ↓
+Organization-scoped Membership
+    ↓
 Organization
-PENDING
-   ↓
-ACTIVE
-   ↓
-SUSPENDED
-   ↓
-ACTIVE
-Membership
-INVITED
-   ↓
-ACTIVE
-   ↓
-SUSPENDED
-   ↓
-ACTIVE
 
-ACTIVE
-   ↓
-REMOVED
-Session
-CREATED
-   ↓
-ACTIVE
-   ├──→ EXPIRED
-   └──→ REVOKED
+Membership is the access boundary. Users may belong to multiple organizations. Cross-tenant access is denied by default. Platform cross-tenant operations require explicit authorization and audit.
 
-Estos estados serán utilizados por las Stories posteriores.
+9. Actor Model
 
-15. Domain Events
+Supported actors: USER, SERVICE, SYSTEM, AI_AGENT. AI agents use the same Identity authorization model and cannot weaken security.
 
-La fundación deberá establecer contratos para eventos Identity.
+10. Repository and Transaction Boundaries
 
-User
-UserCreated
-UserUpdated
-UserActivated
-UserSuspended
-UserDisabled
-Organization
-OrganizationCreated
-OrganizationUpdated
-OrganizationSuspended
-OrganizationReactivated
-Membership
-MembershipCreated
-MembershipActivated
-MembershipSuspended
-MembershipRemoved
-MembershipRoleChanged
-Session
-SessionCreated
-SessionRevoked
-SessionExpired
+Repositories are aggregate-oriented ports. Infrastructure implements them. Unit of Work owns transaction boundaries. Critical state changes and their transactional outbox records commit atomically.
 
-La implementación de publicación mediante Outbox corresponde posteriormente a IS-IDENTITY-013.
+11. Persistence
 
-16. Acceptance Criteria
-AC-001 — Domain Structure
+PostgreSQL is the transactional source of truth. Redis is cache/temporary state/rate-limiting/coordination infrastructure and is never authoritative for critical Identity state. Event Platform distributes versioned integration events.
 
-Given Identity is an EVOXA domain
+12. Events
 
-When the Identity module is created
+Domain Change
+→ Transactional Outbox
+→ Event Publisher
+→ Event Platform
+→ Consumers
 
-Then it shall maintain separation between API, Application, Domain and Infrastructure layers.
+Delivery is At-Least-Once; consumers are idempotent; events are versioned; correlation/causation/trace context is propagated; secrets are forbidden; global ordering is not assumed.
 
-AC-002 — Domain Independence
+13. Security
 
-Given the Identity Domain
+The foundation supports Argon2id, asymmetric JWT signing/JWKS, stateful rotated refresh tokens, MFA, recovery, RBAC, ABAC, ownership, delegation, policy evaluation, tenant isolation and audit/security events. Exact cryptographic parameters remain governed implementation details.
 
-When domain logic is executed
+14. Authentication and Tokens
 
-Then it shall not directly depend on HTTP, FastAPI or database implementation details.
+Access tokens are short-lived, stateless and asymmetrically signed. Refresh tokens are opaque, stateful, random, protected, rotated, family-based and reuse-detected. Web refresh tokens use HttpOnly/Secure cookies; mobile uses platform secure storage; no localStorage or URL tokens.
 
-AC-003 — Entity Boundaries
+15. MFA
 
-Given the Identity domain model
+MFA separates MFAFactor from MFAChallenge. Policy determines when MFA is required; MFA verifies the factor. Recovery cannot become an ungoverned bypass. Secrets and recovery material are never logged, emitted or exposed to AI.
 
-When entities are defined
+16. Authorization Runtime
 
-Then each entity shall have a clearly defined responsibility.
+Request Validation
+→ Authentication Validation
+→ Tenant Guard
+→ Context Construction
+→ Policy Selection
+→ Policy Evaluation
+→ Mandatory Security Guards
+→ RBAC
+→ Ownership
+→ ABAC
+→ Delegation
+→ Policy Composition
+→ Conflict Resolution
+→ Criticality
+→ Freshness
+→ Cache Eligibility
+→ Decision
+→ Audit/Telemetry
 
-AC-004 — Aggregate Boundaries
+Decisions: ALLOW, DENY, CHALLENGE, REAUTHENTICATE, REQUIRE_MFA, REVOKE. Unknown/error cannot safely become ALLOW.
 
-Given Identity aggregates
+17. Criticality and Freshness
 
-When business operations modify aggregate state
+Authorization combines RBAC + ABAC + ownership + delegation + policy + tenant isolation.
 
-Then aggregate invariants shall be enforced inside the appropriate aggregate boundary.
+Effective criticality:
 
-AC-005 — Repository Abstraction
+MAX(Resource, Action, Context, Risk, SecurityState,
+    Tenant, Delegation, MFA, PlatformMinimum)
 
-Given Identity requires persistence
+Levels: C0 Critical Security, C1 High Security, C2 Standard, C3 Low Risk.
 
-When repository contracts are defined
+Freshness: F0 Authoritative, F1 Security Validated, F2 Controlled Eventual, F3 Restricted Degraded. Baseline: C0→F0, C1→F1, C2→F2-SHORT, C3→F2-MEDIUM.
 
-Then domain contracts shall remain independent of the persistence technology.
+18. Cache
 
-AC-006 — Tenant Context
+Cache is an optimization, never the source of truth. Security epoch, entity version, policy version, context fingerprint and cache generation protect against stale authorization. Critical revocations require fresh/authoritative behavior.
 
-Given an organization-scoped operation
+19. Exceptions and Context
 
-When the operation is executed
+Exception hierarchy:
+EvoxaError → DomainError/ApplicationError/SecurityError/InfrastructureError/SystemError.
+Public errors use the standard EVOXA envelope with code, message and correlation_id.
 
-Then the organization/tenant context shall be explicitly represented.
+Tenant, actor, security, trace, request and idempotency contexts remain explicit and distinct. Trace data never authorizes.
 
-AC-007 — Lifecycle Validation
+20. Observability
 
-Given an Identity entity
+Identity follows Logs, Metrics, Traces, Audit and Security Events. Tokens, passwords, MFA secrets, recovery codes and private keys must never enter telemetry.
 
-When its state changes
+21. Testing and CI
 
-Then only valid lifecycle transitions shall be permitted.
+Foundation testing includes unit, integration, API, architecture, contract, security, performance, concurrency, chaos/recovery and AI-security tests. Baselines: ≥85% overall, ≥95% security-critical, 100% critical tenant-isolation and critical security workflows. CI must block security regressions and architecture violations.
 
-AC-008 — Security Boundary
+22. Public Contracts
 
-Given Identity contains security-sensitive information
+Identity APIs are versioned under /api/v1 with OpenAPI 3.1. Initial families:
+/auth/*, /users/*, /organizations/*, /memberships/*, /roles/*, /permissions/*, /sessions/*, /mfa/*, /authorization/*, /policies/*, /audit/*.
 
-When domain objects or events are generated
+Canonical auth endpoints:
+POST /api/v1/auth/login, /refresh, /logout, /logout-all.
 
-Then secrets and credentials shall not be exposed.
+23. Technical Tasks
 
-AC-009 — Event Contract
+TASK-001-01 through TASK-001-24:
 
-Given a state-changing Identity operation
+API Runtime Foundation
 
-When the operation produces a domain event
+Identity Domain Package
 
-Then the event shall contain the information required by the EVOXA event contract without exposing secrets.
+Layer Architecture
 
-AC-010 — Traceability
+Identity Shared Kernel
 
-Given IS-IDENTITY-001
+Domain Events Foundation
 
-When implementation begins
+Repository Contracts
 
-Then every technical implementation shall trace back to ESP-0001 and its applicable ADRs.
+Unit of Work / Transaction Boundary
 
-17. Technical Tasks
-TASK-IDENTITY-001-01
-Create Identity directory structure
-apps/api/app/domains/identity/
-├── api/
-├── application/
-├── domain/
-└── infrastructure/
-TASK-IDENTITY-001-02
-Create domain substructure
-domain/
-├── entities/
-├── value_objects/
-├── aggregates/
-├── services/
-├── policies/
-├── events/
-└── repositories/
-TASK-IDENTITY-001-03
-Define core entities
+PostgreSQL Infrastructure
 
-Crear los contratos iniciales para:
+Redis Infrastructure
 
-User
-Organization
-Membership
-Role
-Permission
-Session
-TASK-IDENTITY-001-04
-Define security entities
+Configuration & Secrets
 
-Preparar los contratos para:
+Security Foundation
 
-RefreshToken
-MFAFactor
-MFAChallenge
-RecoveryCode
-TrustedDevice
-SecurityPolicy
-TASK-IDENTITY-001-05
-Define Value Objects
+Tenant Context Foundation
 
-Implementar:
+Actor Context
 
-UserId
-OrganizationId
-MembershipId
-RoleId
-PermissionId
-SessionId
-Email
-TASK-IDENTITY-001-06
-Define aggregate boundaries
+Correlation & Trace Context
 
-Documentar responsabilidades e invariantes de:
+Exception Model
 
-User
-Organization
-Role
-Session
-TASK-IDENTITY-001-07
-Define repository contracts
+Dependency Injection
 
-Crear contratos para:
+Architecture Boundary Tests
 
-UserRepository
-OrganizationRepository
-MembershipRepository
-RoleRepository
-PermissionRepository
-SessionRepository
-TASK-IDENTITY-001-08
-Define lifecycle state models
+Initial Observability
 
-Implementar los estados y transiciones válidas de:
+Initial Migration Framework
 
-User
-Organization
-Membership
-Session
-TASK-IDENTITY-001-09
-Define domain error taxonomy
+Test Foundation
 
-Crear la jerarquía de errores de Identity.
+CI Foundation
 
-TASK-IDENTITY-001-10
-Define domain service boundaries
+Identity Public Contracts
 
-Establecer interfaces/responsabilidades para:
+Architecture Documentation
 
-Authentication
-Authorization
-Session
-Security Policy
-Audit
-TASK-IDENTITY-001-11
-Define Identity domain event contracts
+IS-001 Validation
 
-Establecer los tipos y estructura conceptual de los eventos Identity.
+24. Acceptance Criteria
 
-TASK-IDENTITY-001-12
-Define infrastructure boundaries
+AC-001: approved Identity module/layer structure exists.
 
-Garantizar separación:
+AC-002: forbidden dependencies fail architecture tests.
 
-Domain
-   ↓
-Contract
-   ↓
-Infrastructure
-TASK-IDENTITY-001-13
-Define test foundation
+AC-003: Shared Kernel has no API/Infrastructure dependency.
 
-Preparar:
+AC-004: invalid/missing tenant context cannot produce unsafe ALLOW.
 
-tests/
-└── identity/
-    ├── unit/
-    ├── component/
-    ├── integration/
-    ├── contract/
-    ├── e2e/
-    ├── security/
-    ├── performance/
-    └── resilience/
+AC-005: USER/SERVICE/SYSTEM/AI_AGENT are explicit actor types.
 
-La estrategia de testing de EVOXA contempla múltiples niveles de validación y exige trazabilidad de las Stories hacia sus pruebas.
+AC-006: persistence uses repository contracts.
 
-TASK-IDENTITY-001-14
-Establish traceability
+AC-007: critical state and outbox write atomically.
 
-Cada task deberá mantener:
+AC-008: events contain no secrets.
 
-Technical Task
-      ↓
-IS-IDENTITY-001
-      ↓
+AC-009: access and refresh-token responsibilities remain separated.
+
+AC-010: MFA factor/challenge lifecycles remain separate.
+
+AC-011: authorization uses the central runtime.
+
+AC-012: authorization errors/unknowns fail closed.
+
+AC-013: criticality selects the strongest applicable requirement.
+
+AC-014: C0 cannot use stale cache-only ALLOW.
+
+AC-015: Redis failure cannot create an authorization bypass.
+
+AC-016: internal errors are sanitized.
+
+AC-017: telemetry contains correlation/trace context without secrets.
+
+AC-018: migrations establish schema without create_all().
+
+AC-019: deterministic architecture/unit quality gates execute in CI.
+
+AC-020: APIs are versioned under /api/v1.
+
+AC-021: implementation is traceable to ESP/ADR/IS.
+
+AC-022: after all tasks and validation, the foundation is ready for later Identity stories.
+
+25. Security Invariants
+
+No cross-tenant authorization by default; unknown/error never becomes ALLOW; criticality is monotonic toward stronger protection; revocation has priority; platform minimums cannot be weakened; delegation cannot amplify privilege; AI cannot weaken security; critical ALLOW cannot rely on stale cache; cache is never authority; no secrets in telemetry; refresh reuse triggers security handling; MFA recovery cannot silently bypass policy; authorization remains centralized.
+
+26. Traceability
+
+Blueprint
+↓
 ESP-0001
-      ↓
-Applicable ADR
-      ↓
+↓
+ADR-IDENTITY-001..069
+↓
+IS-IDENTITY-001
+↓
+TASK-001-01..024
+↓
 Source Code
-      ↓
+↓
 Tests
-18. Dependencies
-Upstream
-BP-0001
-   ↓
-BP-0002
-   ↓
-Engineering Standards
-   ↓
-ESP-0001
-   ↓
-ADR-IDENTITY-001...011
-Downstream
-IS-IDENTITY-001
-       ↓
-IS-IDENTITY-002
-IS-IDENTITY-003
-IS-IDENTITY-004
-IS-IDENTITY-005
-...
+↓
+CI/CD
 
-La arquitectura de dependencias de EVOXA establece precisamente ESP → IS → Technical Tasks → Source Code.
+27. Definition of Done
 
-19. Traceability Matrix
-Artifact	Reference
-Architecture Domain	Identity
-ESP	ESP-0001
-Architecture	BP-0002
-ADR	ADR-IDENTITY-001
-ADR	ADR-IDENTITY-005
-ADR	ADR-IDENTITY-006
-ADR	ADR-IDENTITY-007
-ADR	ADR-IDENTITY-010
-ADR	ADR-IDENTITY-011
-Implementation Story	IS-IDENTITY-001
-Technical Tasks	TASK-IDENTITY-001-01 → 014
-Source Code	evoxa-platform/apps/api/app/domains/identity/
-Tests	evoxa-platform/apps/api/tests/identity/
-20. Definition of Done
+All applicable tasks complete or formally deferred; architecture/security/tenant/contract tests pass; quality gates pass; traceability is complete; documentation matches implementation. Do not mark Implemented or Validated without evidence from evoxa-platform.
 
-IS-IDENTITY-001 podrá pasar a Approved cuando:
+28. Lifecycle
 
-☐ Domain structure approved
-☐ Core entities defined
-☐ Security entities defined
-☐ Value Objects defined
-☐ Aggregates defined
-☐ Repository contracts defined
-☐ Domain service boundaries defined
-☐ Error taxonomy defined
-☐ Lifecycle states defined
-☐ Event contracts defined
-☐ Infrastructure boundaries defined
-☐ Test structure defined
-☐ Traceability complete
-☐ Architecture review complete
-☐ QA review complete
-☐ ADR dependencies verified
+Draft → Refined → Approved → Implemented → Validated → Released → Archived
 
-La Story entonces podrá pasar:
-
-Draft
-  ↓
-Refined
-  ↓
-Approved
-  ↓
-Planned
-  ↓
-Implemented
-  ↓
-Tested
-  ↓
-Released
-
-Ese ciclo es consistente con el modelo de lifecycle y gobernanza definido para las Implementation/User Stories.
-
-21. Resultado esperado
-
-Al terminar IS-IDENTITY-001, todavía no tendremos el login funcionando.
-
-Tendremos algo mucho más importante:
-
-             ESP-0001
-                 │
-                 ▼
-        Identity Foundation
-                 │
-       ┌─────────┼─────────┐
-       ▼         ▼         ▼
-     Domain   Contracts   Events
-       │         │         │
-       └─────────┼─────────┘
-                 ▼
-        Technical Tasks
-                 │
-                 ▼
-          Ready for Code
-
-Y desde aquí podemos comenzar la siguiente Story:
-
-IS-IDENTITY-002 — User & Account Management
-
-donde ya definiremos exactamente qué debe hacer el sistema con Users, sus casos de uso, reglas, endpoints involucrados, eventos, acceptance criteria y posteriormente sus Technical Tasks.
-
-Este enfoque mantiene la regla fundamental del Blueprint: el código no aparece hasta que existe una especificación implementable y trazable.
+Current status: Refined
